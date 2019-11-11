@@ -1,4 +1,4 @@
 # BilliardHub
 Platform for holding billiard competitions
 
-billiardhub.net
+<a href="billiardhub.net">billiardhub.net</a>
