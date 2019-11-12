@@ -155,15 +155,15 @@ WHERE M.tournamentID=? AND GT.groupNum=?
 	$data = query($query,$plrNo,$plrNo,$plrNo,$id,$grpNo,$plrNo,$plrNo);
 	
 	$k = 0;
-	$matches = $mWon + $mLost;
 	for($i=1; $i <= $n_plrs; $i++)
 	{
-		$mID = $data[$k][0];
-		$score1 = $data[$k][3]; $score2 = $data[$k][4];
-
 		if($i === $plrNo) {
 			print("<td>X</td>");
 		} else {
+			$mID = $data[$k][0];
+			$score1 = $data[$k][3];
+			$score2 = $data[$k][4];
+
 			displayMatch($mID, $score1, $score2);
 			$k++;
 		}
