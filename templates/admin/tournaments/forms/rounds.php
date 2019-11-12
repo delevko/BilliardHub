@@ -61,7 +61,7 @@ function KO_rounds($id)
     }
     for($i = $seeded_R; $i <= $KO_R+1; $i++)
     {
-	displayInput("KO-".$i, castKnockout($i, $KO_R));
+	displayInput("KO-".$i, _castKnockout($i, $KO_R));
     }
 }
 
@@ -71,7 +71,7 @@ function GR_KO_rounds()
 }
 
 
-function castKnockout($i, $KO_R)
+function _castKnockout($i, $KO_R)
 {
     if($i == $KO_R)
 	return "Фіналіст";
