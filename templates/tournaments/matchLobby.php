@@ -17,10 +17,13 @@ function lobby($matchID)
 {
 	list($counter, $roundType, $roundNo, $bestOF,
 		$id1, $name1, $score1, $img1,
-		$id2, $name2, $score2, $img2) = getMatchData($matchID);
+		$id2, $name2, $score2, $img2,
+		$KO_R, $seeded_R) = getMatchData($matchID);
 
-	$roundType = castMatchHeader($roundType);	
-	printLobby($counter, $roundType, $roundNo, $bestOF,
+	$header = castHeader($roundType,$roundNo,$KO_R,$seeded_R);	
+	//apology(INPUT_ERROR,$roundType." ".$roundNo." ".$KO_R." ".$seeded_R);	
+	//exit;
+	printLobby($counter, $header, $bestOF,
 		$id1, $name1, $score1, $img1, $id2, $name2, $score2, $img2);
 
 	if( isset($score1) )
@@ -59,12 +62,14 @@ function tournamentHeader($id, $name, $billiard, $details, $league)
 
 
 
-function printLobby($counter, $roundType, $roundNo, $bestOF, 
-	$id1, $name1, $score1, $img1, $id2, $name2, $score2, $img2)
+function printLobby($counter, $header, $bestOF, $id1, $name1, 
+	$score1, $img1, $id2, $name2, $score2, $img2)
 { ?>
 	<div class="match_lobby">
 		<div class="match_lobby_info">
-			Зустріч #<?=$counter?>&emsp; | &emsp;<?=$roundType?><?=$roundNo?>
+			<span>
+			Зустріч #<?=$counter?>&emsp; | &emsp;<?=$header?>
+			</span>
 		</div>
 		<div class="match_lobby_player-table">
 			<div class="match_lobby_player pointer"
@@ -223,21 +228,29 @@ function printFrames($matchID)
 
 function getMatchData($matchID)
 {
-	$query = "SELECT
-    M.counter, M.roundType, M.roundNo, M.bestOf,
+    $data = query("SELECT M.roundType FROM _match M
+	WHERE M.id=?", $matchID);
+    $rType = $data[0][0];
+
+$grpORround = ($rType=="Group") ? "GT.groupNum" : "M.roundNo";
+
+    $query = "SELECT M.counter, M.roundType,".$grpORround.", M.bestOF, 
     M.player1ID, CONCAT(X.firstName, ' ', X.lastName) AS Player1,
     M.player1Score, X.photo AS photo1,
     M.player2ID, CONCAT(Y.firstName, ' ', Y.lastName) AS Player2,
-    M.player2Score, Y.photo AS photo2
+    M.player2Score, Y.photo AS photo2, T.KO_Rounds, T.seeded_Round
 FROM _match M
-    JOIN player AS X ON player1ID = X.id
-    JOIN player AS Y ON player2ID = Y.id
+    JOIN player X ON M.player1ID=X.id
+    JOIN player Y ON M.player2ID=Y.id
+    JOIN tournament T ON M.tournamentID=T.id
+LEFT JOIN groupTournament GT ON M.groupID = GT.id
 WHERE M.id=?";
-
-	$data = query($query, $matchID);
-
-	return array($data[0][0],$data[0][1],$data[0][2],$data[0][3],$data[0][4],$data[0][5],$data[0][6],$data[0][7],$data[0][8],$data[0][9],$data[0][10],$data[0][11]);
 	
+    $data = query($query, $matchID);
+
+
+	return array($data[0][0],$rType,$data[0][2],$data[0][3],$data[0][4],$data[0][5],$data[0][6],$data[0][7],$data[0][8],$data[0][9],$data[0][10],$data[0][11],$data[0][12],$data[0][13]);
+
 }
 
 function getMainData($matchID)

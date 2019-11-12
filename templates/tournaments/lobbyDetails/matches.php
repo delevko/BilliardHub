@@ -6,40 +6,47 @@
 
 if( !strcmp($bracket, "K/O") )
 {
-	$data = query("select KO_Rounds from tournament where id=?", $tournamentID);
+	$query = "SELECT T.KO_Rounds, T.seeded_Round
+		FROM tournament T WHERE T.id=?";
+	$data = query($query, $tournamentID);
     
-	$KO_R = $data[0][0];
-	prepareRound("K/O", $KO_R, $tournamentID);
+	$KO_R = $data[0][0]; $seeded_R = $data[0][1];
+
+	prepareRound("K/O", $KO_R, $tournamentID, $seeded_R);
 }
 else if( !strcmp($bracket, "D/E") )
 {
-	$data = query("select UP_Rounds,LOW_Rounds,KO_Rounds from tournament where id=?", $tournamentID);
+	$query = "SELECT T.UP_Rounds, T.LOW_Rounds, T.KO_Rounds,
+		T.seeded_Round FROM tournament T WHERE T.id=?";
+	$data = query($query, $tournamentID);
    
-	$LOW_R = $data[0][1]; 
-	$KO_R = $data[0][2];
-	$UP_R = $data[0][0];
+	$UP_R = $data[0][0]; $LOW_R = $data[0][1]; 
+	$KO_R = $data[0][2]; $seeded_R = $data[0][3];
 
-	prepareRound("UP", $UP_R, $tournamentID);
-	prepareRound("LOW", $LOW_R, $tournamentID);
-	prepareRound("K/O", $KO_R, $tournamentID);
+	prepareRound("UP", $UP_R, $tournamentID, $seeded_R);
+	prepareRound("LOW", $LOW_R, $tournamentID, $seeded_R);
+	prepareRound("K/O", $KO_R, $tournamentID, $seeded_R);
 }
 else if( !strcmp($bracket, "GroupKO") )
 {
-	$data = query("select nrOfGroups, KO_Rounds from tournament where id=?", $tournamentID);
-	$G_R = $data[0][0];
-	$KO_R = $data[0][1];
-	
-	prepareRound("Group", $G_R, $tournamentID);
-	prepareRound("K/O", $KO_R, $tournamentID);
+	$query = "SELECT T.nrOfGroups, T.KO_Rounds, T.seeded_Round
+		FROM tournament T WHERE T.id=?";
+	$data = query($query, $tournamentID);
+
+	$G_R = $data[0][0]; $KO_R = $data[0][1];
+	$seeded_R = $data[0][2];
+
+	prepareRound("Group", $G_R, $tournamentID, $seeded_R);
+	prepareRound("K/O", $KO_R, $tournamentID, $seeded_R);
 }
 
 
 
-function prepareRound($roundType, $R, $tournamentID)
+function prepareRound($roundType, $R, $tournamentID, $seeded_R)
 {
 	for($i = 1; $i <= $R; $i++)
 	{
-		roundDetails(castMatchHeader($roundType), $i);
+		roundDetails(castHeader($roundType,$i,$R,$seeded_R));
 
 		roundHeader();
 		
@@ -50,11 +57,13 @@ function prepareRound($roundType, $R, $tournamentID)
 }
 
 
-function roundDetails($type, $n)
+function roundDetails($header)
 { ?>
 		<div class="section_header">
 			<div class="header_sign">
-				<?=$type?> <?=$n?>
+				<span>
+					<?=$header?>
+				</span>
 			</div>
 		</div>
 <?php }
