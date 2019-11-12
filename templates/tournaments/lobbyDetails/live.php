@@ -120,5 +120,6 @@ function printLiveMatch($player1, $score1, $points1, $break1, $img1, $player2, $
 function displayFooter()
 { ?>
 	</div>
+	<div class="margin-b_30"></div>
 <?php }
 ?>

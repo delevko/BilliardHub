@@ -56,6 +56,6 @@
 			</form>
 		</div>
 
-	<script type="text/javascript" src="/~levko/js/img_upload.js">
+	<script type="text/javascript" src="<?=PATH_H?>js/img_upload.js">
 	</script>
 

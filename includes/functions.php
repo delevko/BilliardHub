@@ -95,32 +95,32 @@ function navButtonsFooter() { ?>
 function adminButton() { ?>
         <a href="<?=PATH_H?>admin/" class="login">
             <i class="fas fa-user-shield"></i>
-            &nbsp;Адмін панель
+            <span>&nbsp;Адмін панель</span>
         </a>
 <?php }
 function playerButton($player) { ?>
         <a href="<?=PATH_H?>player/" class="login">
             <i class="fas fa-user"></i>
-            &nbsp;<?=$player.""?>
+            <span>&nbsp;<?=$player.""?></span>
         </a>
 <?php }
 
 function loginButton() { ?>
         <a href="<?=PATH_H?>login.php" class="login">
             <i class="fas fa-sign-in-alt"></i>
-            &nbsp;Увійти
+            <span>&nbsp;Увійти</span>
         </a>
 <?php }
 function logoutButton() { ?>
         <a href="<?=PATH_H?>logout.php" class="login">
             <i class="fas fa-sign-out-alt"></i>
-            &nbsp;Вийти
+            <span>&nbsp;Вийти</span>
         </a>
 <?php }
 function registerButton() { ?>
         <a href="<?=PATH_H?>register.php" class="login">
             <i class="fas fa-user"></i>
-            &nbsp;Зареєструватись
+            <span>&nbsp;Зареєструватись</span>
         </a>
 <?php }
 

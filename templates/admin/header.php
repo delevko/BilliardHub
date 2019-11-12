@@ -32,10 +32,10 @@
 <body>
      <header>
         <!-- LOGO -->
-        <div class="logo_box">
+        <a class="logo_box" href="<?=PATH_H?>">
         <img class="logo_img" src="<?=PATH_H?>img/sl_logo.png" alt="SnookerLviv">
         <span class="logo_text">billiard hub</span>
-        </div>
+        </a>
 
 
         <!-- NAV MENU -->
@@ -63,8 +63,8 @@
 	</header>
 
 	<div class="container">
-        <div class="admin_header">
+        <a class="admin_header" href="<?=PATH_H?>admin/">
             <span>Панель адміністратора</span>
-        </div>
+        </a>
 
 

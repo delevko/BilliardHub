@@ -30,6 +30,9 @@
     max-height: 254px;
     min-height: 254px;
     padding-top: 20px;
+    background-color: #3F454C;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 .list-match-lobby-player{
 	display: block;
@@ -75,11 +78,11 @@
 }
 .list-match-lobby-frame-section table tr.list-match-lobby-frame-details td {
 	font-size: 12px;
-	background-color: #474B4F;
+        background-color: #3F454C;
 	color: #fff;
 	text-align: center;
 	border: solid 1px #222629;
-	border-bottom: solid 5px #474B4F;
+	border-bottom: solid 5px #3F454C;
 	padding: 3px 0;
 	vertical-align: middle;
 	border-top: solid 1px #222629;

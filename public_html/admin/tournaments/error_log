@@ -114,3 +114,8 @@ Stack trace:
 [12-Nov-2019 12:11:13 UTC] PHP Notice:  Undefined index: onClick in /home/gi6kvfbao9ds/public_html/admin/tournaments/lobby.php on line 11
 [12-Nov-2019 12:11:14 UTC] PHP Notice:  Undefined index: onClick in /home/gi6kvfbao9ds/public_html/admin/tournaments/lobby.php on line 11
 [12-Nov-2019 12:11:15 UTC] PHP Notice:  Undefined index: onClick in /home/gi6kvfbao9ds/public_html/admin/tournaments/lobby.php on line 11
+[12-Nov-2019 14:10:38 UTC] PHP Notice:  Undefined index: id in /home/gi6kvfbao9ds/includes/functions.php on line 409
+[12-Nov-2019 14:19:16 UTC] PHP Parse error:  syntax error, unexpected '-', expecting '(' in /home/gi6kvfbao9ds/templates/admin/tournaments/forms/rounds.php on line 63
+[12-Nov-2019 14:19:18 UTC] PHP Parse error:  syntax error, unexpected '-', expecting '(' in /home/gi6kvfbao9ds/templates/admin/tournaments/forms/rounds.php on line 63
+[12-Nov-2019 14:19:48 UTC] PHP Parse error:  syntax error, unexpected '-', expecting '(' in /home/gi6kvfbao9ds/templates/admin/tournaments/forms/rounds.php on line 63
+[12-Nov-2019 14:22:11 UTC] PHP Parse error:  syntax error, unexpected '-', expecting '(' in /home/gi6kvfbao9ds/templates/admin/tournaments/forms/rounds.php on line 63

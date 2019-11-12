@@ -3,6 +3,8 @@
 <head>
     <title>Billiar Hub - <?=htmlspecialchars($title)?></title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/normalize.css">
     <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/navigation.css">
     <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/styles.css"> 
@@ -10,7 +12,6 @@
     
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<link rel="icon" type="image/x-icon" href="<?=PATH_H?>img/sl_logo.png">
 	
 	<link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
@@ -28,14 +29,18 @@
 <body>
      <header>
         <!-- LOGO -->
-        <div class="logo_box">
+        <a class="logo_box" href="<?=PATH_H?>">
         <img class="logo_img" src="<?=PATH_H?>img/sl_logo.png" alt="SnookerLviv">
         <span class="logo_text">billiard hub</span>
-        </div>
+        </a>
 
 
         <!-- NAV MENU -->
-         <nav class="navigation" id="myTopnav">
+         <nav class="navigation" id="header_navigation">
+		<a class="icon"
+			onclick="mobileHeaderNav()">
+			<i class="fa fa-bars"></i>&nbsp;Меню
+		</a>
                 <a href="<?=PATH_H?>tournaments"
 				id="tournaments">
 					Турніри
@@ -54,12 +59,13 @@
 		</a>
         </nav>
 
-		<script type="text/javascript" src="<?=PATH_H?>js/header_highlight.js">
-		</script>
+	<?php navButtonsRender(); ?>
+</header>
 
-		<?php navButtonsRender(); ?>
-
-	</header>
+<script type="text/javascript" src="<?=PATH_H?>js/header_highlight.js">
+</script>
+<script type="text/javascript" src="<?=PATH_H?>js/mobile_navigation.js">
+</script>
 
 	<div class="container">
 

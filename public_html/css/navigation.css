@@ -6,8 +6,6 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    height: 80px;
-    max-height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,6 +13,7 @@ header {
     box-shadow: 0px -10px 30px #000;
     width: 100%;
     overflow: hidden;
+    margin-bottom: 50px;
 }
 header * {
     display: inline;
@@ -32,6 +31,7 @@ header * {
 .logo_img {
     margin: 10px;
     height: 60px;
+    width: auto;
     background-color: #2E3337;
 }
 .logo_text {
@@ -39,6 +39,7 @@ header * {
     font-size: 25px;
     color: #DEC27A;
     font-family: 'Merriweather', serif;
+    width: 186px;
 }
 
 .navigation a {
@@ -100,6 +101,7 @@ header * {
 .tour_menu_box {
     width: 1080px;
     margin: 0 auto;
+    overflow-x: hidden;
 }
 .tour_menu_box_700 {
     width: 700px;
@@ -211,5 +213,125 @@ header * {
 }
 .tournamentNavigation button:hover {
     background-color: #3F454C;
+}
+
+/* MOBILE RESPONSIVE */
+@media screen and (max-width: 1000px) {
+
+	.navigation a {display: none;}
+	.navigation a.icon {
+	    display: flex;
+	    justify-content: center;
+	}
+	.navigation.responsive {
+	    position: relative;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    width: 30%;
+	    z-index: 0;
+	  }
+	.navigation.responsive a:not(:first-child) {
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    padding: 15px;
+	}
+	.logo_box span {
+	    display: none;
+	}
+	.logo_box {
+	    position: absolute;
+	    left: 0;
+	    display: block;
+	    z-index: 1;
+	    background-color: transparent;
+	}
+	.logo_box img {
+	    background-color: transparent;
+	}
+	.header_buttons {
+	    position: absolute;
+	    right: 0;
+	}
+	.header_buttons .login span {
+	    display: none;
+	}
+	.header_buttons .login i{
+		padding: 0px 10px;
+		margin-right: 0;
+		height: 100%;
+	}
+	header {
+	    align-items: flex-start;
+	    justify-content: center;
+	    position: fixed;
+	}
+	.login{
+	    margin-right: 0px;
+	}
+	.login:hover{
+	    border-bottom: 4px solid #54772A;
+	}
+	.sub-container{
+		margin-top: 100px;
+		padding: 0 15px;
+    	        overflow: scroll;
+		align-items: normal !important;
+    		justify-content: normal !important;
+	}
+	.list_container{
+	    overflow: scroll;
+	}	
+	.list_container_700{
+	    overflow: scroll;
+	}	
+	.list_table {
+	    overflow-x: auto;
+	}
+	.list_table_700 {
+	    overflow-x: auto;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+  .tour_menu_box {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  .tournament_header {
+    width: 100%;
+    padding: 0 30px;
+    margin-bottom: 40px;
+  }
+  .tour_menu a {display: none;}
+  .tour_menu a.icon {
+    display: flex;
+    box-shadow: 0px 1px 5px #111314;
+    width: 100%;
+    padding: 15px;
+  }
+  .tour_menu.responsive {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+  }
+  .tour_menu.responsive a:not(:first-child) {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    text-align: center;
+  }
+  .tour_menu_box {
+    margin: 20px auto;
+    }
+    .second_row {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 15px;
+    }
 }
 

@@ -104,7 +104,7 @@ function standbyLobby($tournamentID, $onClick)
 	if( !nonEmpty($bracket) )
 		displayStandbyBracket($tournamentID, $onClick);
 	else
-		displayStandbyRounds($tournamentID, $onClick);
+		displayStandbyRounds($tournamentID, $onClick,$bracket);
 
 //close lobby block
 	?></div><?php
@@ -131,7 +131,7 @@ function displayStandbyBracket($tournamentID, $onClick)
 }
 
 
-function displayStandbyRounds($tournamentID, $onClick)
+function displayStandbyRounds($tournamentID, $onClick, $bracket)
 {
 //lobby navigation
 	require("navigations/standbyRounds.php");

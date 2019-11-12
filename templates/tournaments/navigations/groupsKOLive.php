@@ -1,7 +1,11 @@
 
 <?php $header = "lobby.php?id=$tournamentID"; ?>
 
-	<nav class="tour_menu">
+	<nav class="tour_menu" id="tournament_navigation">
+                <a class="icon" onclick="mobileTournamentNav()">
+                 <i class="fa fa-bars"></i>Турнірне меню
+                 </a>
+
 		<a href="<?=$header?>&onClick=live" id="live">
 			Наживо
 		</a>

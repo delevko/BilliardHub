@@ -47,14 +47,11 @@
   padding: 0px;
 }
 
-.fa-th-large, .fa-bars{
+.tablinks i{
 	color: #54595E;
 	font-size: 25px;
 }
-.fa-th-large:hover {
-	color: #61892F;
-}
-.fa-bars:hover {
+.tablinks i:hover {
 	color: #61892F;
 }
 .tab button.active i {
