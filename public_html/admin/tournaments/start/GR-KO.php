@@ -78,8 +78,14 @@ function checkData1($seeding, $seeded, $id)
     }
     if( !nonEmpty($id) || !exists("tournament", $id) )
         redirect(PATH_H."logout.php");
+
     if( !nonEmpty($seeded) )
         $seeded = 0;
+    else if( $seeded & ($seeded-1) )
+    {
+        adminApology(INPUT_ERROR, "Кількість сіяних гравців - степінь 2");
+	exit;
+    }
 
     return array($seeding, $seeded, $id);
 }

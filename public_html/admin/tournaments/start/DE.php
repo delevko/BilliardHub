@@ -47,6 +47,18 @@ function checkData($seeding, $KO_matches, $id)
 		exit;
     }
 
+//check if KO_matches is a power of 2
+    if( ($KO_matches & ($KO_matches-1)) )
+    {
+        adminApology(INPUT_ERROR, "Кількість матчів в олімпійці - степінь 2");
+        exit;
+    }
+
+    if( $KO_matches*2 >= $registered )
+    {
+        exit;
+    }
+
     return array($seeding, $KO_matches, $id);
 }
 
@@ -61,9 +73,9 @@ function getData($KO_matches, $id)
     $registered = getPlayers($id);
 	$N = firstGreaterPowerOf2($registered);
 
-    if( $KO_matches > $N/2 )
+    if( $KO_matches >= $N/2 )
     {
-        adminApology(INPUT_ERROR, "KO matches cannot exceed (number of players in first round)/2");
+        adminApology(INPUT_ERROR, "Кількість матчів в олімпійці перевищує дозволений ліміт");
         exit;
     }
 
