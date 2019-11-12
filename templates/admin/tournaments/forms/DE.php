@@ -19,9 +19,13 @@
                   </select>
               </div>
               <input type="number" name="matches"
-				placeholder="Матчів у стадії KNOCKOUT">
-			  <input type="hidden" name="id"
-				value="<?=$tournamentID?>">
+				placeholder="Матчів в олімпійці">
+				<span class="additional_info">
+                                        *В першому раунді
+                                </span>
+
+		<input type="hidden" name="id"
+			value="<?=$tournamentID?>">
               <button>Старт</button>
             </form>
         </div>
