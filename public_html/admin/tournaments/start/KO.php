@@ -56,10 +56,13 @@ function seedPlayers($id, $seeded, $seeded_R)
 
 function checkData($seeding, $seeded, $id)
 {
-	if( !nonEmpty($seeding, $id) )
-		redirect("../");
-	if( !exists("tournament", $id) )
-		redirect("../");
+	if( !nonEmpty($seeding) )
+	{
+		adminApology(INPUT_ERROR, "Необхідно вибрати тип сіяння");
+		exit;
+	}
+	if( !nonEmpty($id) || !exists("tournament", $id) )
+		redirect(PATH_H."logout.php");
 	if( !nonEmpty($seeded) )
 		$seeded = 0;
 	
@@ -78,7 +81,7 @@ function getData($seeded, $id)
 	
 	if( $seeded > $registered )
 	{
-		adminApology(INPUT_ERROR, "Seeded number cannot exceed registered players");
+		adminApology(INPUT_ERROR, "Кількість сіяних гравців не може перевищувати кількість учасників турніру");
 		exit;
 	}
 	

@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 }
 else
 {
-	redirect("../");
+	redirect(PATH_H."logout.php");
 }
 
 
@@ -34,15 +34,18 @@ function seedPlayers($id, $seeded)
 
 function checkData($seeding, $KO_matches, $id)
 {
-    if( !nonEmpty($seeding, $id) )
-        redirect("../");
-	if( !nonEmpty($KO_matches) )
-	{
-		adminApology(INPUT_ERROR,"\"Matches in KO\" required for DOUBLE ELIMINATION");
+    if( !nonEmpty($seeding) )
+    {
+                adminApology(INPUT_ERROR, "Необхідно вибрати тип сіяння");
+                exit;
+    }
+    if( !nonEmpty($id) || !exists("tournament", $id) )
+        redirect(PATH_H."logout.php");
+    if( !nonEmpty($KO_matches) )
+    {
+		adminApology(INPUT_ERROR,"Необхідно ввести кількість матчів в першому раунді олімпійки");
 		exit;
-	}
-    if( !exists("tournament", $id) )
-        redirect("../");
+    }
 
     return array($seeding, $KO_matches, $id);
 }

@@ -27,7 +27,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 }
 else
 {
-	redirect("../");
+	redirect(PATH_H."logout.php");
 }
 
 function seedKO($id, $seeded, $seeded_R)
@@ -71,10 +71,13 @@ function getPlayers($id)
 
 function checkData1($seeding, $seeded, $id)
 {
-    if( !nonEmpty($seeding, $id) )
-        redirect("../");
-    if( !exists("tournament", $id) )
-        redirect("../");
+    if( !nonEmpty($seeding) )
+    {
+        adminApology(INPUT_ERROR, "Необхідно вибрати тип сіяння");
+        exit;
+    }
+    if( !nonEmpty($id) || !exists("tournament", $id) )
+        redirect(PATH_H."logout.php");
     if( !nonEmpty($seeded) )
         $seeded = 0;
 
@@ -85,7 +88,7 @@ function checkData2($groupMin, $proceed)
 {
 	if( !nonEmpty($groupMin) )
 	{
-		adminApology(INPUT_ERROR, "\"Min in a single group\" required for GROUPS-KNOCKOUT");
+		adminApology(INPUT_ERROR, "Необхідно ввести мінімальну кількість гравців в одній групі");
 		exit;
 	}
 	if( !nonEmpty($proceed) )
@@ -101,7 +104,7 @@ function getData($id, $proceed, $groupMin, $seeded)
 	$registered = getPlayers($id);
 	if( $seeded > $registered )
     {
-        adminApology(INPUT_ERROR, "Seeded number cannot exceed registered players");
+        adminApology(INPUT_ERROR, "Кількість сіяних гравців не може перевищувати кількість учасників турніру");
         exit;
     }
 

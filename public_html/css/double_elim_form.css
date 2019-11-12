@@ -128,6 +128,16 @@
   background-color: #61892F;
 }
 
+.additional_info{
+    font-size: 12px;
+    font-style: italic;
+    color: #565C65;
+    text-align: left;
+    font-weight: bold;
+    margin-top: -17px;
+        margin-bottom: 10px;
+        width: 223px;
+}
 
 
 
