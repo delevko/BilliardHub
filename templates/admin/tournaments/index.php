@@ -156,16 +156,17 @@ function listFooter()
 <?php
 }
 
-
 function dateFormat($beg, $end)
 {
-	if($beg == $end)
-	{
-		return $beg;
-	}
-	else
-	{
-		return $beg." : ".$end;
-	}
+        $beg = date("d/m/Y", strtotime($beg));
+        $end = date("d/m/Y", strtotime($end));
+        if($beg == $end)
+        {
+                return $beg;
+        }
+        else
+        {
+                return $beg." - ".$end;
+        }
 }
 ?>
