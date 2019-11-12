@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 	query("CALL groupMatchesGenerate(?,?)", $id, $nrOfGroups);
 	
-	redirect("../lobby.php?id=$id");
+	redirect("../lobby.php?id=".$id."&onClick=rounds");
 }
 else
 {

@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	
 	seedPlayers($id, $N/2, 1);
 	
-	redirect("../lobby.php?id=$id");
+	redirect("../lobby.php?id=".$id."&onClick=rounds");
 }
 else
 {

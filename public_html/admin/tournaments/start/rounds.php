@@ -4,16 +4,19 @@ require("../../../../includes/adminConfig.php");
 
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-	list($seeding, $seeded, $id) = checkData($_POST["seeding"],$_POST["playersSeeded"],$_POST["id"]);
+	list($id) = checkData($_POST["id"]);
 
-	list($N, $registered, $add_R, $seeded_R, $KO_R) = getData($seeded, $id);
+//	list($N, $registered, $add_R, $seeded_R, $KO_R) = getData($seeded, $id);
 
-	$query = "CALL KnockoutGenerate(?,?,?,?,?,?,?,?)";
-	query($query, $id, $seeded, $KO_R, $add_R, $seeded_R, $N, $seeding, $registered);
+//	$query = "CALL KnockoutGenerate(?,?,?,?,?,?,?,?)";
+//	query($query, $id, $seeded, $KO_R, $add_R, $seeded_R, $N, $seeding, $registered);
 
-	seedPlayers($id, $N/2, $seeded_R);
+//	seedPlayers($id, $N/2, $seeded_R);
 
-	redirect("../lobby.php?id=".$id."&onClick=rounds");
+	$query = "CALL startTournament(?)";
+	query($query, $id);
+
+	redirect("../lobby.php?id=".$id."&onClick=default");
 }
 else
 {
@@ -54,19 +57,12 @@ function seedPlayers($id, $seeded, $seeded_R)
 }
 
 
-function checkData($seeding, $seeded, $id)
+function checkData($id)
 {
-	if( !nonEmpty($seeding) )
-	{
-		adminApology(INPUT_ERROR, "Необхідно вибрати тип сіяння");
-		exit;
-	}
 	if( !nonEmpty($id) || !exists("tournament", $id) )
 		redirect(PATH_H."logout.php");
-	if( !nonEmpty($seeded) )
-		$seeded = 0;
 	
-	return array($seeding, $seeded, $id);
+	return array($id);
 }
 
 function getPlayers($id)
