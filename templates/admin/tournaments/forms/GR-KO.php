@@ -30,9 +30,9 @@
 				<span class="additional_info">
 					*(min/2) за замовчуванням
 				</span>
-			  <input type="hidden" name="id"
-				value="<?=$tournamentID?>"/>
-              <button>Старт</button>
+		<input type="hidden" name="id"
+			value="<?=$tournamentID?>">
+              <button>Продовжити</button>
             </form>
         </div>
 

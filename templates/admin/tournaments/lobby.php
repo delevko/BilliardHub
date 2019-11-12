@@ -94,13 +94,28 @@ function registrationLobby($tournamentID, $onClick)
 
 function standbyLobby($tournamentID, $onClick)
 {
-//lobby navigation
-	require("navigations/standby.php");
-
-
 //lobby block to show data
 	?><div class="sub-container"><?php
 
+	$query = "SELECT T.bracket FROM tournament T WHERE T.id=?";
+	$data = query($query, $tournamentID);
+	$bracket = $data[0][0];
+
+	if( !nonEmpty($bracket) )
+		displayStandbyBracket($tournamentID, $onClick);
+	else
+		displayStandbyRounds($tournamentID, $onClick);
+
+//close lobby block
+	?></div><?php
+}
+
+
+
+function displayStandbyBracket($tournamentID, $onClick)
+{
+//lobby navigation
+	require("navigations/standbyBracket.php");
 
 //show appropriate data
 	if( !strcmp($onClick, "participants") )
@@ -112,12 +127,25 @@ function standbyLobby($tournamentID, $onClick)
 	else if( !strcmp($onClick, "GR-KO") )
 		require("forms/GR-KO.php");
 	else
-		redirect("");
-
-
-//close lobby block
-	?></div><?php
+		redirect(PATH_H."logout.php");
 }
+
+
+function displayStandbyRounds($tournamentID, $onClick)
+{
+//lobby navigation
+	require("navigations/standbyRounds.php");
+
+//show appropriate data
+	if( !strcmp($onClick, "participants") )
+		require("lobbyDetails/registeredPlayersListSmall.php");
+	else if( !strcmp($onClick, "rounds") )
+		require("forms/rounds.php");
+	else
+		redirect(PATH_H."logout.php");
+}
+
+
 
 function getFullName($tournamentID)
 {

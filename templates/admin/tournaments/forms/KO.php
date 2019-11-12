@@ -19,8 +19,8 @@
               </div>
               <input type="number" name="playersSeeded"
 				placeholder="Сіяних гравців">
-			  <input type="hidden" name="id" value="<?=$tournamentID?>"/>
-              <button>Старт</button>
+		<input type="hidden" name="id" value="<?=$tournamentID?>">
+              <button>Продовжити</button>
             </form>
         </div>
 

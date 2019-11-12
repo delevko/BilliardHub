@@ -26,7 +26,7 @@
 
 		<input type="hidden" name="id"
 			value="<?=$tournamentID?>">
-              <button>Старт</button>
+              <button>Продовжити</button>
             </form>
         </div>
 
