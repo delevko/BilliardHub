@@ -6,7 +6,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $id = $_POST["id"];
 	
-	if( !exists("tournament", $id) )
+	if( !nonEmpty($id) || !exists("tournament", $id) )
 	{
 		redirect(PATH_H."logout.php");
 	}	
@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	$query = "UPDATE tournament SET status=? WHERE id=?";
 	query($query, "Standby", $id);
 
-	redirect("../lobby.php?id=$id");
+	redirect("../lobby.php?id=".$id."&onClick=participants");
 }
 else
 {

@@ -6,15 +6,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $id = $_POST["id"];
 	
-	if( !exists("tournament", $id) )
+	if( !nonEmpty($id) || !exists("tournament", $id) )
 	{
-		redirect("../");
+		redirect(PATH_H."logout.php");
 	}
 
 	$query = "UPDATE tournament SET status=? WHERE id=?";
 	query($query, "Registration", $id);
 
-	redirect("../lobby.php?id=$id");
+	redirect("../lobby.php?id=".$id."&onClick=participants");
 }
 else
 {

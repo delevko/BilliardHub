@@ -32,7 +32,7 @@ function lobbyGenerate($tournamentID, $onClick)
 
 	if($status == "Live" || $status == "Finished")
 	{
-		redirect(PATH_H."tournaments/lobby.php?id=".$tournamentID);
+		redirect(PATH_H."tournaments/lobby.php?id=".$tournamentID."&onClick=default");
 	}
 	else if($onClick == "default")
 	{
