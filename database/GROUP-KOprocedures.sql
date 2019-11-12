@@ -44,7 +44,7 @@ BEGIN
 
 	CALL tournamentPointsGenerate(id, groupMax-proceed, 0, KO_R);
 
-    UPDATE tournament T SET T.status="Live", T.bracket="GroupKO", 
+    UPDATE tournament T SET T.bracket="GroupKO", 
 	T.seeding=seeding WHERE T.id=id;
 
 	COMMIT;

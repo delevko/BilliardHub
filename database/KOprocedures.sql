@@ -26,7 +26,7 @@ BEGIN
 
     CALL tournamentPointsGenerate(id, 0, 0, KO_R);
     
-	UPDATE tournament T SET T.status="Live", T.bracket="K/O", 
+	UPDATE tournament T SET T.bracket="K/O", 
 	T.seeding=seeding WHERE T.id=id;
 
 	COMMIT;

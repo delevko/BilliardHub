@@ -176,7 +176,7 @@ CREATE TABLE tournament(
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(100) NOT NULL,
 	status VARCHAR(20) NOT NULL DEFAULT "Announced",
-	bracket VARCHAR(100) NOT NULL DEFAULT "K/O",
+	bracket VARCHAR(100),
 	seeding VARCHAR(20) NOT NULL DEFAULT "Standart",
 	
 	registeredPlayers INT NOT NULL DEFAULT 0,
