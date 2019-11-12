@@ -2,13 +2,12 @@
 
 
 <?php
-
     $query = "SELECT
     B.points, B.matchID, B.playerID,
     CONCAT(P.lastName, ' ', P.firstName) AS playerName,
     B.opponentID, CONCAT(O.lastName, ' ', O.firstName) AS opponentName,
     P.photo AS playerPhoto, O.photo AS opponentPhoto,
-    M.roundType, M.roundNo
+    M.roundType
 FROM break B
     JOIN player P ON B.playerID = P.id
     JOIN player O ON B.opponentID = O.id
@@ -26,21 +25,38 @@ WHERE M.tournamentID=? ORDER BY 1 DESC, 4";
 		$plrID = $data[$i][2]; $plrName = $data[$i][3];
 		$oppID = $data[$i][4]; $oppName = $data[$i][5];
 		$plrPhoto = $data[$i][6]; $oppPhoto = $data[$i][7];
-		$rndType = $data[$i][8]; $rndNo = $data[$i][9];
+		$rndType = $data[$i][8];
 
-		$rndType = castBreakHeader($rndType);
+		list($rndNo, $KO_R, $seeded_R) =
+			getGeneralDetails($matchID, $rndType);
+
+		$round = castBreakHeader($rndType,$rndNo,$KO_R,$seeded_R);
 
 		$BL = ($i+1 == $data_count) ? "radius_bl" : "";
 		$BR = ($i+1 == $data_count) ? "radius_br" : "";
 	
-		printBreak($points, $i+1, $matchID, $plrName, $plrPhoto, $oppName, $oppPhoto, $BL,$BR, $rndType, $rndNo);
+		printBreak($points, $i+1, $matchID, $plrName, $plrPhoto, $oppName, $oppPhoto, $BL,$BR, $round);
 	}
 
 	printFooter();
 
 
 
-function printBreak($pts,$i,$mID,$plrName,$plrPhoto,$oppName,$oppPhoto,$BL,$BR, $rndType, $rndNo)
+function getGeneralDetails($id, $rType)
+{
+    $grpORround = ($rType=="Group") ? "GT.groupNum" : "M.roundNo";
+    $query = "SELECT ".$grpORround.", T.KO_Rounds, T.seeded_Round
+   FROM _match M JOIN tournament T ON M.tournamentID=T.id
+   LEFT JOIN groupTournament GT ON M.groupID = GT.id
+   WHERE M.id=?";
+    $data = query($query, $id);
+
+    return array($data[0][0], $data[0][1], $data[0][2]);
+}
+
+
+
+function printBreak($pts,$i,$mID,$plrName,$plrPhoto,$oppName,$oppPhoto,$BL,$BR, $round)
 {
     $e_o = ($i%2) ? "odd" : "even";
 ?>
@@ -56,7 +72,9 @@ function printBreak($pts,$i,$mID,$plrName,$plrPhoto,$oppName,$oppPhoto,$BL,$BR, 
 					<?=$pts?>
 				</td>
                 <td class="uppercase">
-					<?=$rndType?> <?=$rndNo?>
+				<span>
+					<?=$round?>
+				</span>
                 </td>
 				<td class="<?=$BR?>">
 					<div class="photo_name">
