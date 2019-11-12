@@ -446,7 +446,7 @@ function castMatchHeader($hdr)
         return "Нижня сітка - раунд ";
 }
 
-function castBreakHeader($hdr)
+function castBreakRound($hdr)
 {
     if($hdr == "Group")
         return "Група ";
@@ -460,4 +460,31 @@ function castBreakHeader($hdr)
     if($hdr == "LOW")
         return "Нижня сітка ";
 }
+
+function castBreakHeader($type, $i, $R, $seeded_R)
+{
+        if($type == "K/O" && $i >= $seeded_R)
+                return castKnockout($i, $R);
+        else
+                return castBreakRound($type).$i;
+}
+
+function castHeader($type, $i, $R, $seeded_R)
+{
+        if($type == "K/O" && $i >= $seeded_R)
+                return castKnockout($i, $R);
+        else
+                return castMatchHeader($type).$i;
+}
+
+
+function castKnockout($i, $KO_R)
+{
+    if($i == $KO_R)
+        return "Фінал";
+    else
+        return "1/".pow(2,$KO_R-$i)." Фіналу";
+}
+
 ?>
+
