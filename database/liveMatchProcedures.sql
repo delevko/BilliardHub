@@ -24,35 +24,41 @@ BEGIN
 END;
 
 
+
 CREATE PROCEDURE changePlayer(IN tableID INT, IN isLeft BOOLEAN, IN _break INT)
 BEGIN
-	DECLARE break1, break2 INT DEFAULT 0;
-	DECLARE player, opponent, frame, matchID, tournament INT DEFAULT 0;
-	DECLARE xORy BOOLEAN;
+    DECLARE break1, break2 INT DEFAULT 0;
+    DECLARE player, opponent, frame, matchID, tournament INT DEFAULT 0;
+    DECLARE tournamentBreak INT DEFAULT 0;
+    DECLARE xORy BOOLEAN;
 
-	SELECT T.matchID INTO matchID
-	FROM _table T WHERE T.id = tableID;
+    SELECT T.matchID, Trn.minBreak INTO matchID, tournamentBreak
+    FROM _table T
+    LEFT JOIN _match M ON T.matchID=M.id
+    LEFT JOIN tournament Trn ON M.tournamentID=Trn.id
+    WHERE T.id = tableID;
 
 START TRANSACTION;
 
-	IF _break >= 20 THEN
-		CALL getBreakData(matchID, !isLeft, player, opponent, frame, tournament);
-		INSERT INTO break(XorY, points, frameCounter, playerID, opponentID, matchID, tournamentID)
-		VALUES(!isLeft, _break, frame, player, opponent, matchID, tournament);
-	END IF;
+    IF _break >= tournamentBreak THEN
+        CALL getBreakData(matchID, !isLeft, player, opponent, frame, tournament);
+        INSERT INTO break(XorY, points, frameCounter, playerID, opponentID, matchID, tournamentID)
+        VALUES(!isLeft, _break, frame, player, opponent, matchID, tournament);
+    END IF;
 
-	
-	IF isLeft THEN
-		SET break1 = 0; SET break2 = null;
-	ELSE
-		SET break1 = null; SET break2 = 0;
-	END IF;
 
-	UPDATE liveMatch LM SET LM.break1 = break1, LM.break2 = break2
-	WHERE LM.matchID = (SELECT T.matchID FROM _table T where T.id=tableID);
+    IF isLeft THEN
+        SET break1 = 0; SET break2 = null;
+    ELSE
+        SET break1 = null; SET break2 = 0;
+    END IF;
+
+    UPDATE liveMatch LM SET LM.break1 = break1, LM.break2 = break2
+    WHERE LM.matchID = (SELECT T.matchID FROM _table T where T.id=tableID);
 
 COMMIT;
 END;
+
 
 
 
