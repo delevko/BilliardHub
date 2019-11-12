@@ -76,3 +76,4 @@
 [12-Nov-2019 00:03:25 UTC] PHP Notice:  Undefined offset: 3 in /home/gi6kvfbao9ds/templates/tournaments/lobbyDetails/groups.php on line 161
 [12-Nov-2019 00:03:25 UTC] PHP Notice:  Undefined offset: 3 in /home/gi6kvfbao9ds/templates/tournaments/lobbyDetails/groups.php on line 162
 [12-Nov-2019 00:03:25 UTC] PHP Notice:  Undefined offset: 3 in /home/gi6kvfbao9ds/templates/tournaments/lobbyDetails/groups.php on line 162
+[12-Nov-2019 09:44:43 UTC] PHP Notice:  Undefined variable: name in /home/gi6kvfbao9ds/templates/tournaments/matchLobby.php on line 273
