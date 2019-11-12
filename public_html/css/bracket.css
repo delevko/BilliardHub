@@ -1,0 +1,168 @@
+/*BRACKETS*/
+.bracket_section {
+	display: flex;
+	flex-direction: row;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	color: white;
+	overflow: scroll;
+}
+.bracket_column {
+	display: flex;
+	flex-direction: column;
+	list-style-type: none;
+	margin: 20px;
+}
+.bracket_item {
+	width: 200px;
+	display: grid;
+	grid-template-columns: 10% 13% auto 15%;
+	grid-template-rows: 25px 30px 30px 30px;
+}
+.match_number {
+	grid-column: 2;
+	grid-row: 1;
+	background-color: #61892F;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 5px;
+	font-size: 14px;
+	border-radius: 3px 3px 0px 0px;
+}
+
+.youtube_logo {
+	grid-column: 4;
+	grid-row: 1;
+	padding-top: 4px;
+	color: #ff0000;
+	text-align: center;
+}
+.live {
+    color: #FB3B00;
+    animation: blink 1.7s linear infinite;
+    font-weight: bold;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.fa-youtube {
+    color: #FF1F1C;
+}
+.front_01 {
+	grid-column: 1;
+	grid-row: 2;
+	padding-top: 9px;
+	text-align: center;
+	font-size: 11px;
+	font-style: italic;
+}
+.front_02 {
+	grid-column: 1;
+	grid-row: 3;
+	padding-top: 9px;
+	text-align: center;
+	font-size: 11px;
+	font-style: italic;
+}
+.name_01 {
+	grid-column: 2/4;
+	grid-row: 2;
+	padding-top: 7px;
+	padding-left: 7px;
+	font-size: 12px;
+	background-color: #474B4F;
+	border-bottom: solid 1px grey;
+}
+.name_02 {
+	grid-column: 2/4;
+	grid-row: 3;
+	padding-top: 7px;
+	padding-left: 7px;
+	font-size: 12px;
+	background-color: #474B4F;
+	border-radius: 0px 0px 0px 3px;
+}
+.name_01,
+.name_02 {
+	text-align: left;
+}
+.points_01 {
+	grid-column: 4;
+	grid-row: 2;
+	padding-top: 7px;
+	text-align: center;
+	background-color: #474B4F;
+	border-bottom: solid 1px grey;
+	border-left: solid 1px grey;
+	font-size: 14px;
+	border-radius: 0px 3px 0px 0px;
+}
+.points_02 {
+	grid-column: 4;
+	grid-row: 3;
+	padding-top: 7px;
+	text-align: center;
+	background-color: #474B4F;
+	border-left: solid 1px grey;
+	font-size: 14px;
+	border-radius: 0px 0px 3px 0px;
+}
+.looser {
+	grid-column: 2/4;
+	grid-row: 4;
+	font-size: 11px;
+	font-style: italic;
+	padding: 3px 0 0 3px;
+	text-align: left;
+}
+.live_match_bracket {
+	color: #C30000;
+	grid-column: 3;
+	grid-row: 1;
+	font-size: 13px;
+	padding: 5px;
+	text-align: left
+}
+
+.K\/O-1 .bracket_item, .UP-1 .bracket_item {
+    padding-top: 10%;
+}
+.K\/O-1 .first-match, .UP-1 .first-match{
+    padding-top: 5%;
+}
+.K\/O-2 .bracket_item, .UP-2 .bracket_item,
+.LOW-1 .bracket_item, .LOW-2 .bracket_item {
+    padding-top: 76%;
+}
+.K\/O-2 .first-match, .UP-2 .first-match,
+.LOW-1 .first-match, .LOW-2 .first-match {
+    padding-top: 38%;
+}
+.K\/O-3 .bracket_item, .UP-3 .bracket_item,
+.LOW-3 .bracket_item, .LOW-4 .bracket_item {
+    padding-top: 210%;
+}
+.K\/O-3 .first-match, .UP-3 .first-match,
+.LOW-3 .first-match, .LOW-4 .first-match {
+    padding-top: 105%;
+}
+.K\/O-4 .bracket_item, .UP-4 .bracket_item,
+.LOW-5 .bracket_item, .LOW-6 .bracket_item {
+    padding-top: 460%;
+}
+.K\/O-4 .first-match, .UP-4 .first-match,
+.LOW-5 .first-match, .LOW-6 .first-match {
+    padding-top: 230%;
+}
+.K\/O-5 .bracket_item, .UP-5 .bracket_item,
+.LOW-7 .bracket_item, .LOW-8 .bracket_item {
+    padding-top: 900%;
+}
+.K\/O-5 .first-match, .UP-5 .first-match,
+.LOW-7 .first-match, .LOW-8 .first-match {
+    padding-top: 450%;
+}
+

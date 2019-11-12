@@ -1,0 +1,12 @@
+
+table.participants_short_table .col-1 {
+ 	width: 1%;
+}
+table.participants_short_table .col-2 {
+ 	width: 99%;
+}
+
+.breaks_table tbody tr>:nth-child(1) {
+	border-right: none;
+}
+

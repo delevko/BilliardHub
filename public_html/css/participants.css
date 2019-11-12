@@ -1,0 +1,168 @@
+
+/******* SEARCH FIELD *******/
+
+.player_search {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.participants_header {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+.players_list_search_field input {
+	padding: 10px;
+	margin-top: 25px;
+	margin-right: 0px;
+	
+	font-size: 15px;
+	border: none;
+	border-radius: 4px;
+	border-left: 3px solid #61892F;
+	
+	width: 300px;
+	background-color: #474B4F;
+	color: white;
+	outline-style: none;
+	vertical-align: middle;
+	float: right;
+}
+
+
+/**********   TABS  **********/
+
+.tab {
+	padding: 0px 0px 35px 0px;
+	margin: 0;
+	overflow: hidden;
+}
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+  padding: 0px;
+}
+
+.fa-th-large, .fa-bars{
+	color: #54595E;
+	font-size: 25px;
+}
+.fa-th-large:hover {
+	color: #61892F;
+}
+.fa-bars:hover {
+	color: #61892F;
+}
+.tab button.active i {
+  	color: #61892F;
+}
+.tabcontent {
+	display: none;
+}
+
+
+/*******  LIST  *********/
+
+table.participants_table .col-1 {
+ 	width: 3%;
+}
+table.participants_table .col-2 {
+ 	width: 20%;
+}
+table.participants_table .col-3 {
+ 	width: 10%;
+}
+table.participants_table .col-4 {
+ 	width: 10%;
+}
+table.participants_table .col-5 {
+ 	width: 12%;
+}
+table.participants_table .col-6 {
+ 	width: 7%;
+}
+.participants_table tbody tr>:nth-child(1) {
+	border-right: none;
+}
+
+/*******  BARS  *********/
+#list{
+	display:flex;
+}
+.players_u-list_item {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 0;
+	padding: 0;
+	width: 1080px;
+}
+.players_u-list_item li {
+	list-style: none;
+	display: inline-block;
+	margin-bottom: 20px;
+}
+.players_list_box {
+	display: none;
+	justify-content: center;
+}
+figure {
+	margin: 0 auto;
+	min-height: 265px;
+	max-height: 265px;
+}
+.players_list_item_box {
+	max-width: 230px;
+	min-width: 230px;
+	max-height: 300px;
+	min-height: 300px;
+	margin-bottom: 60px;
+	background-color: #474B4F;
+	float: left;
+	display: inline-block;
+	border-radius: 8px;
+	transition: all 0.3s ;
+}
+.players_list_item_box:hover {
+  animation-duration: 0.25s;
+  margin-top: -10px;
+}
+.players_list_item_photo {
+	width: 100%;
+	max-height: 300px;
+	border-radius: 8px;
+	filter: brightness(80%);
+	object-fit: cover;
+}
+.players_list_item_details {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: 0px -3px 12px 0px #222629;
+    max-height: 60px;
+    min-height: 60px;
+    width: 230px;
+    padding: 10px 10px;
+    background-color: #474B4F;
+    border-radius: 4px;
+    border-left: 3px solid #61892F;
+}
+.players_list_item_name {
+	font-size: 15px;
+	margin: 0;
+	margin-bottom: 3px;
+	font-weight: 300;
+	color: #fff;
+}
+.players_list_item_location {
+	font-size: 12px;
+	margin: 0;
+	color: #969A9E;
+}

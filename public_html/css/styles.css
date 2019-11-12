@@ -1,0 +1,99 @@
+input, select, button{
+	color: black;
+}
+body {
+	font-family: 'Exo 2', sans-serif;
+	padding: 0;
+	margin: 0;
+	color: white;
+	text-align: center;
+	margin 50px auto;
+	background-image: url(http://billiardhub.net/img/snooker_back03.png);
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+a {
+	margin: 0px;
+	padding: 0px;
+    text-decoration: none;
+    color: #fff;
+}
+table col[class*="col-"] {
+	position: static;
+	float: none;
+	display: table-column;
+}
+
+
+.pointer {
+	cursor: pointer;
+}
+.float_left {
+	float: left;
+}
+.float_right {
+	float: right;
+}
+.tbody_odd {
+	background-color: #54595E;
+}
+.tbody_even {
+	background-color: #474B4F;
+}
+.odd_num {
+	background-color: #567A2B;
+}
+.even_num {
+	background-color: #61892F;
+}
+
+.radius_br {
+	border-bottom-right-radius: 8px;
+}
+.radius_bl {
+	border-bottom-left-radius: 8px;
+}
+.radius_tr {
+	border-top-right-radius: 8px;
+}
+.radius_tl {
+	border-top-left-radius: 8px;
+}
+
+.bold {
+	font-weight: bold;
+}
+.font_20 {
+	font-size: 20px;
+}
+.uppercase {
+ 	text-transform: uppercase;
+}
+.margin-b_30{
+	margin-bottom: 30px !important;
+}
+.black_text{
+	color: black;
+}
+
+.photo_name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.circle_img {
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.thead_icon {
+    margin-right: 3px;
+    width: 12px;
+    height: 12px;
+}
+

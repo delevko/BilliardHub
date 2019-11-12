@@ -1,0 +1,215 @@
+/* GENERAL NAVIGATION */
+
+header {
+    background-color: #2E3337;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    max-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    box-shadow: 0px -10px 30px #000;
+    width: 100%;
+    overflow: hidden;
+}
+header * {
+    display: inline;
+}
+.logo_box {
+    top: 0;
+    left: 0;
+    background-color: #2E3337;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px 0 0px;
+    border-bottom-right-radius: 4px;
+}
+.logo_img {
+    margin: 10px;
+    height: 60px;
+    background-color: #2E3337;
+}
+.logo_text {
+    text-transform: uppercase;
+    font-size: 25px;
+    color: #DEC27A;
+    font-family: 'Merriweather', serif;
+}
+
+.navigation a {
+    border-bottom: 2px solid #2E3337;
+    font-size: 15px;
+    padding: 30px 20px;
+    color: white;
+    background-color: #2E3337;
+    text-transform: uppercase;
+    text-align: center;
+}
+.navigation  {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    list-style: none;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.navigation a:hover {
+    background-color: #444857;
+    border-bottom: 2px solid #86C232 /*#61892F*/;
+    border-radius: 4px;
+}
+.navigation a.active {
+    border-bottom: 2px solid #86C232;
+    border-radius: 4px;
+    color: #86C232;
+}
+.header_buttons {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    align-content: center;
+}
+.login {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 30px 7px;
+    justify-content: center;
+    margin-right: 20px;
+}
+.login input {
+    border: none;
+    color: #ffffff !important;
+    font-size: 15px;
+    display: block;
+    background-color: transparent; /*#61892F*/;
+}
+.login:hover {
+    background-color: #54772A;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/***** TOURNAMENT NAVIGATION *****/
+
+.tour_menu_box {
+    width: 1080px;
+    margin: 0 auto;
+}
+.tour_menu_box_700 {
+    width: 700px;
+    margin: 0 auto;
+}
+.tournament_header {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    width: 1080px;
+}
+.tournament_header_700 {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    width: 700px;
+}
+.tournament_header_700 div,
+.tournament_header div {
+    flex: 1;
+}
+.nameOf_tour {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-size: 25px;
+	font-weight: bold;
+}
+.second_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 300;
+}
+.typeOf_tour {
+    display: flex;
+    flex-direction: row;
+}
+.organOf_tour {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tour_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+    background-color: #34393E;
+	box-shadow: 0px 5px 10px #131617;
+    border-radius: 4px;
+}
+.tour_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.tour_menu a {
+    color: white;
+    font-size: 15px;
+    padding: 0px 20px;
+    flex: 1;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tour_menu a:hover {
+    background-color: #3F454C;
+    border-radius: 4px;
+}
+.tour_menu a.active {
+    color: #86C232;
+    background-color: #3F454C;
+    border-radius: 4px;
+}
+.navigation .icon,
+.tour_menu .icon {
+  display: none;
+}
+
+
+/* NAVIGATION IN TOURNAMENT*/
+
+.tournamentNavigation {
+    margin: 20px auto;
+}
+.tournamentNavigation form {
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+}
+.tournamentNavigation button{
+    font-size: 90%;
+    border-radius: 4px;
+    padding: 10px 25px;
+    color: white;
+    text-transform: uppercase;
+    border:0px;
+    background-color: #34393E;
+}
+.tournamentNavigation button:hover {
+    background-color: #3F454C;
+}
+

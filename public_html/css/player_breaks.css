@@ -1,0 +1,22 @@
+
+table.breaks_table .col-1 {
+ 	width: 25%;
+}
+table.breaks_table .col-2 {
+ 	width: 8%;
+}
+table.breaks_table .col-3 {
+ 	width: 22%;
+}
+table.breaks_table .col-4 {
+ 	width: 20%;
+}
+table.breaks_table .col-5 {
+ 	width: 25%;
+}
+
+.breaks_table tbody tr>:nth-child(1),
+.breaks_table tbody tr>:nth-child(2) {
+	border-right: none;
+}
+

@@ -1,0 +1,27 @@
+.header_icon {
+	float: left;
+	margin: 3px 3px 0 0;
+	width: 20px;
+	height: 20px;
+}
+/*******  LIST  *********/
+
+table.calendar_table .col-1 {
+ 	width: 1%;
+}
+table.calendar_table .col-2 {
+ 	width: 30%;
+}
+table.calendar_table .col-3 {
+ 	width: 20%;
+}
+table.calendar_table .col-4 {
+ 	width: 20%;
+}
+table.calendar_table .col-5 {
+ 	width: 20%;
+}
+
+.calendar_table tbody tr>:nth-child(1) {
+	border-right: none;
+}

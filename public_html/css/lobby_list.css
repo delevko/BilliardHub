@@ -1,0 +1,89 @@
+.list-match-lobby{
+	display: inline-block;
+	width: 700px;
+	max-width: 700px;
+	margin-top: 40px;
+	background-color: #474B4F;
+	border-radius: 8px;
+}
+.list-match-lobby-info {
+	padding: 12px;
+	margin: 0;
+	background-color: #222629;
+	color: white;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-size: 15px;
+	border-top: 3px solid #61892F;
+	border-top-right-radius: 8px;
+	border-top-left-radius: 8px;
+}
+.list-match-lobby-frame-section tbody {
+	display: table-row-group;
+}
+.list-match-lobby-player-table {
+	box-shadow: 0px 5px 10px #131617;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	height: 254px;
+    max-height: 254px;
+    min-height: 254px;
+    padding-top: 20px;
+}
+.list-match-lobby-player{
+	display: block;
+	box-sizing: border-box;	
+}
+.list-match-lobby-frame-section {
+	float: left;
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+	margin: 0px 20px;
+	margin-top: 30px;
+}
+.list-match-lobby-player-name{
+	color: white;
+	font-size: 17px;
+	margin-bottom: 20px;
+}
+.list-match-lobby-player-img{
+	width: 120px;
+	max-width: 120px;
+	height: auto;
+	max-height: 170px;
+	border-radius: 4px;
+}
+.list-match-lobby-frame-section tr th {
+	font-size: 17px;
+	font-weight: 300;
+	background-color: #222629;
+	color: #6B6E70;
+	text-align: center;
+	padding: 0px 20px;
+	vertical-align: middle;
+	text-transform: uppercase;
+}
+.list-match-lobby-frame-section tr td {
+	font-size: 20px;
+	font-weight: 500;
+	color: #fff;
+	text-align: center;
+	padding: 5px 10px;
+	vertical-align: middle;
+}
+.list-match-lobby-frame-section table tr.list-match-lobby-frame-details td {
+	font-size: 12px;
+	background-color: #474B4F;
+	color: #fff;
+	text-align: center;
+	border: solid 1px #222629;
+	border-bottom: solid 5px #474B4F;
+	padding: 3px 0;
+	vertical-align: middle;
+	border-top: solid 1px #222629;
+}
+tr.list-match-lobby-frame-details td {
+	height:20px;
+}

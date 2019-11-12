@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title><?=$clubName?> TABLE <?=$tableNum?></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/live_match_lobby.css"> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+    <body>
+		<div class="container">
+		
+		<div class="live-match-lobby">
+            <div class="live_match_info">
+                <img class="live_logo_img" src="<?=CLUB_IMG.$club_img?>" alt="club logo">
+                <span class="live_logo_text">
+                    <?=$clubName?>
+                </span>
+            </div>
+            <span class="live-match-lobby-table-num">
+                Стіл #<span id="tableID"><?=$tableNum?></span>
+            </span>
+        </div>
+		<div class="live-match-lobby-table">
+			<h3 class="live-match-lobby-info">
+				<?=$matchInfo?> - Зустріч <?=$matchNum?>
+			</h3>
+			<div class="live-match-lobby-player-table">
+				<div class="live-match-lobby-player">
+					<span class="live-match-lobby-player-name"><?=$player1?></span>
+					<p>
+						<img class="live-match-lobby-player-img" alt="img" src="<?=PLAYER_IMG.$img1?>">
+					</p>
+				</div>
+				<div class="live-match-lobby-frame-section">
+					<div class="margin-b_50"></div>
+					<table class="live-match-lobby-frame-table">
+						<tbody>
+							<tr>
+								<td id="leftFrames"><?=$score1?></td>
+								<th>Frames</th>
+								<td id="rightFrames"><?=$score2?></td>
+							</tr>
+							<tr class="live-match-lobby-frame-details">
+								<td colspan="3">Best of <?=$bestOf?></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="live-match-lobby-player">
+					<span class="live-match-lobby-player-name"><?=$player2?></span>
+					<p>
+						<img class="live-match-lobby-player-img" alt="img" src="<?=PLAYER_IMG.$img2?>">
+					</p>
+				</div>
+			    <script type="text/javascript" src="finishedLobby.js"> </script>
+			</div>
+			<div class="button_push">
+				<span>
+					Натисніть ESC щоб покинути матч
+				</span>
+				<span>
+					Натисніть ENTER щоб почати наступний матч в турнірі
+				</span>
+			</div>
+		</div>
+    </body>
+</html>
+

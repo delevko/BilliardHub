@@ -1,0 +1,22 @@
+
+table.player_tournaments_table .col-1 {
+ 	width: 1%;
+}
+table.player_tournaments_table .col-2 {
+ 	width: 25%;
+}
+table.player_tournaments_table .col-3 {
+ 	width: 24%;
+}
+table.player_tournaments_table .col-4 {
+ 	width: 20%;
+}
+table.player_tournaments_table .col-5 {
+ 	width: 15%;
+}
+table.player_tournaments_table .col-6 {
+ 	width: 15%;
+}
+.player_tournaments_table tbody tr>:nth-child(1) {
+	border-right: none;
+}

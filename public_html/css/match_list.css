@@ -1,0 +1,57 @@
+table.matches_list_table .col-1 {
+ 	width: 1%;
+}
+table.matches_list_table .col-2 {
+ 	width: 39%;
+}
+table.matches_list_table .col-3 {
+ 	width: 8%;
+}
+table.matches_list_table .col-4 {
+ 	width: 1%;
+}
+table.matches_list_table .col-5 {
+ 	width: 1%;
+}
+table.matches_list_table .col-6 {
+ 	width: 1%;
+}
+table.matches_list_table .col-7 {
+ 	width: 8%;
+}
+table.matches_list_table .col-8 {
+ 	width: 40%;
+}
+table.matches_list_table .col-9 {
+ 	width: 1%;
+}
+.matches_list_table thead th {
+	border-right: 0px !important;
+}
+.matches_list_table tbody tr td {
+	border-right: 0px !important;
+}
+.matches_list_table_youtube img {
+	height: 20px;
+	width: auto;
+}
+.odd_youtube {
+    background-color: #4B5055;
+}
+.even_youtube {
+    background-color: #43464A;
+}
+.live {
+    color: #FB3B00;
+    animation: blink 1.7s linear infinite;
+    font-weight: bold;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.fa-youtube {
+    color: #FF1F1C;
+}
+

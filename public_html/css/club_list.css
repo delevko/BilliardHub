@@ -1,0 +1,17 @@
+table.club_list_table .col-1 {
+ 	width: 1%;
+}
+table.club_list_table .col-2 {
+ 	width: 35%;
+}
+table.club_list_table .col-3 {
+ 	width: 45%;
+}
+table.club_list_table .col-4 {
+ 	width: 19%;
+}
+
+.club_list_table tbody tr>:nth-child(1),
+.club_list_table tr>:nth-child(4) {
+	border-right: none;
+}

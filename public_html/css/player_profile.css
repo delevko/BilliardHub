@@ -1,0 +1,141 @@
+.player_profile_section01 {
+	display: flex;
+	width: 1080px;
+	max-width: 1080px;
+	justify-content: space-around;
+	padding-bottom: 20px;
+	margin: 40px auto;
+	border-bottom: 1px solid #474B4F;
+}
+.player_profile_playerName .fa-user {
+	font-size: 20px;
+	display: block;
+	margin-right: 10px;
+	color: #86C232;
+}
+.player_profile_photo {
+	width: 250px;
+	height: 336px;
+	background-color: #33373B;
+	float: left;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0px 5px 10px #131617;
+	border-top: 3px solid #61892F;
+}
+.player_profile_img {
+	width: 100%;
+	border-radius: 4px;
+	object-fit: contain;
+}
+.player_profile_personalInfo {
+	width: 650px;
+	height: 336px;
+	background-color: #33373B;
+	margin-bottom: 30px;
+	border-radius: 8px;
+	box-shadow: 0px 5px 10px #131617;
+}
+.player_profile_personalInfo table {
+	width: 650px;
+	height: 336px;
+	border-collapse: collapse;
+}
+.player_profile_playerName {
+    border-top: 3px solid #61892F;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.player_profile_header {
+	display: inline-block;
+	font-size: 20px;
+	color: #86C232;
+}
+.player_profile_surname {
+	text-transform: uppercase;
+	font-size: 23px;
+	color: #86C232;
+}
+.player_profile_tableHeader {
+	color: #7D8082;
+	text-transform: uppercase;
+	font-size: 12px;
+	padding: 0 10px 10px 10px;
+}
+.player_profile_tableMean {
+	color: #fff;
+	font-size: 20px;
+}
+.max_break {
+	font-weight: bold;
+	font-size: 22px;
+	color: #86C232;
+	border-radius: 50%;
+	padding: 10px;
+}
+.player_profile_personalInfo table th {
+	background-color: #222629;
+	height: 70px;
+}
+.player_profile_personalInfo table td {
+	width: 250px;
+	height: 133px;
+}
+.player_profile_personalInfo table tr:last-child td {
+	border-top: 1px solid #474B4F;
+}
+.player_profile_personalInfo table tr td:last-child {
+	border-left: 1px solid #474B4F;
+}
+
+/*SECTION 02*/
+
+.player_profile_section02 {
+ 	display: inline-block;
+}
+.player_profile_circle {
+	float: left;
+	margin: 20px 60px;
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	background-color: #33373B;
+	text-align: center;
+	position: relative;
+	transition: 0.5s;
+	box-shadow: 0px 3px 10px #131617;
+}
+.player_profile_circle .fa-trophy,
+.player_profile_circle .fa-user-friends {
+	font-size: 33px;
+	margin-top: 32px;
+	margin-bottom: 10px;
+	text-align: center;
+	color: white;
+}
+.circle_text {
+	text-transform: uppercase;
+}
+.little_circle {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	background-color: #61892F;
+	border-radius: 50%;
+	padding-top: 7px;
+	box-shadow: 2px 2px 10px 0px #33373B;
+}
+.player_profile_circle:hover {
+	background-color: #61892F;
+	cursor: pointer;
+}
+.pl_pr_active {
+	background-color: #61892F;
+}
+.details_anchor {
+	display: none;
+}

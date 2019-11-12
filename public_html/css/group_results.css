@@ -1,0 +1,19 @@
+table.group_results_table .col-1 {
+ 	width: 1%;
+}
+table.group_results_table .col-2 {
+ 	width: 20%;
+}
+table.group_results_table .col-3 {
+ 	width: 10%;
+}
+table.group_results_table .col-4 {
+ 	width: 10%;
+}
+table.group_results_table .col-5 {
+ 	width: 5%;
+}
+
+.group_results_table tbody tr>:nth-child(1) {
+	border-right: none;
+}
