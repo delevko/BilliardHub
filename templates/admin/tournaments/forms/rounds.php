@@ -33,17 +33,31 @@ function displayRounds($id, $bracket)
     else if($bracket == "K/O")
 	KO_rounds($id);
     else if($bracket == "GroupKO")
+    {
+	GROUP_rounds($id);
 	KO_rounds($id);
-
+    }
 }
 
-function DE_rounds()
+function DE_rounds($id)
 {
-//LOW
+    $query = "SELECT T.LOW_Rounds, T.KO_Rounds
+	FROM tournament T WHERE T.id=?";
+    $data = query($query, $id);
+    
+    $LOW_R = $data[0][0]; $KO_R = $data[0][1];
 
-//divisor <div class="margin-b_30"></div>
+    for($i = 1; $i <= $LOW_R; $i++)
+    {
+	displayInput("UP-$i", "НИЖНЯ СІТКА - РАУНД $i");
+    }
 
-//KO
+    ?><div class="margin-b_30"></div><?php
+
+    for($i = 1; $i <= $KO_R+1; $i++)
+    {
+        displayInput("KO-".$i, _castKnockout($i, $KO_R));
+    }
 }
 
 function KO_rounds($id)
@@ -57,7 +71,7 @@ function KO_rounds($id)
 
     for($i = 1; $i < $seeded_R; $i++)
     {
-	displayInput("KO-".$i, "KNOCKOUT - РАУНД ".$i);
+	displayInput("KO-$i", "KNOCKOUT - РАУНД $i");
     }
     for($i = $seeded_R; $i <= $KO_R+1; $i++)
     {
@@ -65,9 +79,24 @@ function KO_rounds($id)
     }
 }
 
-function GR_KO_rounds()
+function GROUP_rounds($id)
 {
+    $query = "SELECT
+	T.groupMin, T.groupPlayers, T.nrOfGroups, T.groupProceed
+	FROM tournament T WHERE T.id=?";
+    $data = query($query, $id);
+    
+    $grpMin = $data[0][0]; $grpPlrs = $data[0][1];
+    $n_grps = $data[0][2]; $grpProceed = $data[0][3];
 
+    $grpMax = $grpMin + ceil( ($grpPlrs % $grpMin) / $n_grps );
+
+    for($i = $grpMax; $i > $grpProceed; $i--)
+    {
+	displayInput("Group-$i", "ГРУПА - МІСЦЕ $i");
+    }
+
+    ?><div class="margin-b_30"></div><?php
 }
 
 
