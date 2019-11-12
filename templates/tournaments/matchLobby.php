@@ -5,7 +5,7 @@
 
 <?php
 
-	list($tournamentName,$tournamentID,$status,$name,$billiard,$details,$league) = 
+	list($tournamentName,$tournamentID,$status,$billiard,$details,$league) = 
 		getMainData($matchID);
 
 	tournamentHeader($tournamentID, $tournamentName, $billiard, $details, $league);
@@ -270,7 +270,7 @@ WHERE T.id=?;";
     $details = castDetails($data[0][1], $data[0][2]);
 
 
-	return array($tournamentName,$tournamentID,$status,$name,$billiard,$details,$league);
+	return array($tournamentName,$tournamentID,$status,$billiard,$details,$league);
 }
 
 function castDetails($age, $sex)
