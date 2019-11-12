@@ -133,15 +133,15 @@ END;
 CREATE PROCEDURE KOWinnersAndLosers(IN offset INT, IN add_R INT, IN KO_R INT, IN seeded INT, IN N INT, IN id INT)
 BEGIN
 	DECLARE counter, i, j, k, seeded_R INT DEFAULT 1;
-	DECLARE places VARCHAR(20) DEFAULT "Place ";
+	DECLARE places VARCHAR(20) DEFAULT "";
 
 	SET seeded_R = add_R+1;
 
 	WHILE i <= add_R DO
-		SET places = "Place ";
-		SET places = CONCAT(places, seeded*2+(seeded_R-i)*seeded);
-		SET places = CONCAT(places, "-");
+		SET places = "";
 		SET places = CONCAT(places, seeded*2+(seeded_R-i-1)*seeded+1);
+		SET places = CONCAT(places, "-");
+		SET places = CONCAT(places, seeded*2+(seeded_R-i)*seeded);
 
 		SET j = 1;
 		WHILE j <= seeded DO
@@ -155,10 +155,10 @@ BEGIN
 
 
 	WHILE i <= KO_R DO
-		SET places = "Place ";
-		SET places = CONCAT(places, N*2);
-		SET places = CONCAT(places, "-");
+		SET places = "";
 		SET places = CONCAT(places, N+1);
+		SET places = CONCAT(places, "-");
+		SET places = CONCAT(places, N*2);
 		
 		SET k = 0; SET j = 1;
 		WHILE j <= N DO

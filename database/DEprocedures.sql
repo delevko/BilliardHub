@@ -23,8 +23,8 @@ BEGIN
 
     SET i = begIdx;
     WHILE i < endIdx DO
-		INSERT INTO _match(counter, tournamentID, player1ID, player2ID, bestOf, winnerMatchID, loserPlaces, roundNo, roundType)
-		VALUES(i, tournament, -2, -2, 3, -20, "places TODO", RoundNo, RoundType);
+		INSERT INTO _match(counter, tournamentID, player1ID, player2ID, bestOf, winnerMatchID, roundNo, roundType)
+		VALUES(i, tournament, -2, -2, 3, -20, RoundNo, RoundType);
 
 		SET i = i+1;
 	END WHILE;
@@ -129,16 +129,16 @@ END;
 CREATE PROCEDURE LoserPlacesGenerateForRound(IN N INT, IN tournID INT, IN myID INT, IN myType VARCHAR(20), IN offset INT)
 BEGIN
 	DECLARE myMin, myCount INT DEFAULT 0;
-	DECLARE places VARCHAR(20) DEFAULT "Place ";
+	DECLARE places VARCHAR(20) DEFAULT "";
 
 	SELECT my.counter, my.minimum INTO myCount, myMin
 	FROM (SELECT COUNT(counter) AS counter, MIN(counter) AS minimum 
 			FROM _match WHERE roundNo=myID
 			AND roundType=myType AND tournamentID=tournID) AS my; 
 
-	SET places = CONCAT(places, (N - (myMin-offset-1)) );
-	SET places = CONCAT(places, "-");
 	SET places = CONCAT(places, (N - (myMin-offset-1) - myCount+1) );
+	SET places = CONCAT(places, "-");
+	SET places = CONCAT(places, (N - (myMin-offset-1)) );
 
 	UPDATE _match SET loserPlaces = places
 	WHERE roundNo=myID AND roundType=myType AND tournamentID=tournID;
