@@ -173,7 +173,8 @@ function showOccupied($tableID, $clubID)
 { 
 	$query = "SELECT M.counter AS matchCounter,
 		MD.status AS matchStatus, 
-		T.name AS tournamentName, M.youtube, tbl.matchID
+		T.name AS tournamentName, M.youtube, tbl.matchID,
+		M.tournamentID
         FROM _table tbl
     LEFT JOIN _match M ON tbl.matchID = M.id
     LEFT JOIN tournament T ON M.tournamentID = T.id
@@ -183,7 +184,7 @@ function showOccupied($tableID, $clubID)
 	
 	$tournamentName = $data[0][2]; $matchCounter = $data[0][0];
 	$matchStatus = $data[0][1]; $matchID = $data[0][4];
-	$youtube = $data[0][3];
+	$youtube = $data[0][3]; $tournamentID = $data[0][5];
 
 
 	occupiedHeader($tournamentName." - Зустріч #".$matchCounter);
