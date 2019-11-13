@@ -406,14 +406,19 @@ function redirect($destination)
 
 function adminCheck()
 {
-	if($_SESSION["id"]["type"] == "admin")
+	if( isset($_SESSION["id"]) )
 	{
-		return true;
+		if($_SESSION["id"]["type"] == "admin")
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	else
-	{
 		return false;
-	}
 }
 
 
