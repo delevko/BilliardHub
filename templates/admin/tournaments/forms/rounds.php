@@ -33,7 +33,7 @@
 		<span class="date_format">
 			*20 за замовчуванням
 		</span>
-		<button>Заповнити та розпочати</button>
+		<button>Розпочати турнір</button>
 	    </form>
         </div>
 
