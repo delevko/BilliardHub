@@ -17,8 +17,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	$groups_P = ""; $lows_P = ""; $kos_P = "";
 	$lows_P .= "$LOW_R:"; $kos_P .= ($KO_R+1).":";
 
-	$lows_B .= "$LOW_R:"; $ups_B .= "$UP_R:";
-	$kos_B .= "$KO_R:"; $groups_B = "";
+	$lows_B = "$LOW_R:"; $ups_B = "$UP_R:";
+	$kos_B = "$KO_R:"; $groups_B = "";
 
 	if($bracket == "GroupKO")
 	{
