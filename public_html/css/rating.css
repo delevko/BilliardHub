@@ -2,10 +2,10 @@ table.rating_table .col-1 {
  	width: 1%;
 }
 table.rating_table .col-2 {
- 	width: 25%;
+ 	width: 49%;
 }
 table.rating_table .col-3 {
- 	width: 25%;
+ 	width: 50%;
 }
 .rating_table tbody tr>:nth-child(1) {
 	border-right: none;
