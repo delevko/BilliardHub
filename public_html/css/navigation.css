@@ -281,8 +281,6 @@ header * {
     		justify-content: normal !important;
 	}
 	.sub-container{
-		margin-top: 100px !important;
-		padding: 0 15px;
     	        overflow: scroll;
 		align-items: normal !important;
     		justify-content: normal !important;
