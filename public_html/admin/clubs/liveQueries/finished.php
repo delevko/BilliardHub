@@ -16,19 +16,26 @@ if( exists("_table", $tableID) )
 	}
 
 	if( !strcmp($action, "nextMatch") ) {
-		$query = "SELECT M.tournamentID FROM _match M WHERE M.id = 
+		$query = "SELECT M.tournamentID, MD.status
+		FROM _match M JOIN matchDetails MD ON M.id=MD.matchID
+		WHERE M.id = 
 			(SELECT T.matchID FROM _table T WHERE T.id=?)";
 		$data = query($query, $tableID);
-		$tournamentID = $data[0][0];		
+		$tournamentID = $data[0][0]; $status = $data[0][1];
 
-		$rlt["request"] = "CALL occupyNext(?,?)";
-		$rlt["erreur"] = false;
+		if($status == "Finished")
+		{
+		    $rlt["request"] = "CALL occupyNext(?,?)";
+		    $rlt["erreur"] = false;
 	
-		if( !JSquery($rlt["request"], $tableID, $tournamentID) )
+		    if( !JSquery($rlt["request"], $tableID, $tournamentID) )
 			$rlt["erreur"] = "Database unsuccessful";
 	
-		die( json_encode($rlt) );
-	}
+		    die( json_encode($rlt) );
+		}
+		else
+			header("Refresh:0");
+        }
 
 	if( !strcmp($action, "exitMatch") ) {
 		
