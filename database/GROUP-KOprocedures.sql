@@ -9,6 +9,7 @@ DROP PROCEDURE IF EXISTS seedPlayerGroup;
 DROP PROCEDURE IF EXISTS groupStandingsGenerate;
 DROP PROCEDURE IF EXISTS singleGroupStandingsGenerate;
 DROP PROCEDURE IF EXISTS afterGroupSeedingGenerate;
+DROP PROCEDURE IF EXISTS tournamentStandingsAfterGroups;
 
 DROP PROCEDURE IF EXISTS GroupKnockoutGenerate;
 
@@ -36,13 +37,11 @@ BEGIN
 
 	CALL KOWinnersAndLosers(groupPlayers-totalGroupProceed,add_R,KO_R,seeded,N/2,id);
     
-    IF seeded != 0 THEN
+	IF seeded != 0 THEN
 		CALL KOSeedingGenerate(id, "Standart", 0, seeded);
 	END IF;
 
     CALL groupSeedingGenerate(id, seeding, seeded, groupPlayers);
-
-	CALL tournamentPointsGenerate(id, groupMax-proceed, 0, KO_R);
 
     UPDATE tournament T SET T.bracket="GroupKO", 
 	T.seeding=seeding WHERE T.id=id;
@@ -162,7 +161,7 @@ END;
 CREATE PROCEDURE afterGroupSeedingGenerate(IN tournamentID INT, IN groupProceed INT, IN offset INT)
 BEGIN
     DECLARE done BOOLEAN DEFAULT FALSE;
-    DECLARE currSeed, currPlayer, place, pts, points INT DEFAULT 1;
+    DECLARE currSeed, currPlayer, place, pts INT DEFAULT 1;
 	DECLARE groupSeed INT DEFAULT 0;
 
 -- cursor for standart seeding
@@ -193,37 +192,81 @@ BEGIN
 			WHERE PT.tournamentID=tournamentID AND PT.playerID=currPlayer;
 			
 			SET currSeed = currSeed+1;
-		ELSE
-		-- get player's points
-			SELECT TP.points INTO points FROM tournamentPoints TP
-			WHERE TP.tournamentID = tournamentID 
-				AND TP.lostInRoundNo = place-groupProceed
-				AND TP.lostInRoundType = "Group";
-
-		-- put player into standings
-			INSERT INTO tournamentStandings (tournamentID, playerID, place, points)
-			VALUES (tournamentID, currPlayer, "Last", points);
-	
 		END IF;
 	END LOOP;
 	CLOSE StandartSeedCursor;
 END;
 
 
+
+
+CREATE PROCEDURE tournamentStandingsAfterGroups(IN id INT, IN grpMin INT, IN grpMax INT, IN proceed INT, IN n_grps INT, IN registered INT)
+BEGIN
+    DECLARE i, j, plrID, points, offset, counter INT DEFAULT 0;
+    DECLARE place VARCHAR(20);
+
+    SET offset = registered;
+
+    SET i = grpMax;
+    WHILE i > proceed DO
+	SELECT count(GS.playerID) INTO counter FROM groupStandings GS
+	WHERE GS.tournamentID = id AND GS.groupPlace = i;
+
+	SET place = CONCAT("", offset-counter+1);
+	SET place = CONCAT(place, "-");
+	SET place = CONCAT(place, offset);
+
+	SET j = 1;
+	WHILE j <= n_grps DO
+	    SET plrID = NULL;
+	    SELECT GS.playerID INTO plrID FROM groupStandings GS
+            WHERE GS.tournamentID = id AND GS.groupPlace = i
+		AND GS.groupNum = j;
+
+            SELECT TP.points INTO points FROM tournamentPoints TP
+	    WHERE TP.tournamentID = id AND TP.lostInRoundNo=grpMax-i+1
+		AND TP.lostInRoundType = "Group";
+
+	    IF plrID IS NOT NULL THEN
+		    INSERT INTO tournamentStandings
+			(tournamentID,playerID,place,points)
+		    VALUES(id, plrID, place, points);
+	    END IF;
+
+	    SET j = j+1;
+	END WHILE;
+
+        SET i = i-1;
+	SET offset = offset - counter;
+    END WHILE;
+
+END;
+
+
+
+
 CREATE PROCEDURE groupStandingsGenerate(IN tournament INT)
 BEGIN
-	DECLARE nrOfGroups, groupProceed, seeded INT DEFAULT 0;
+	DECLARE n_grps,grpProceed,seeded,grpPlrs,regPlrs INT DEFAULT 0;
+	DECLARE grpMin, grpMax INT DEFAULT 0;
 	DECLARE i INT DEFAULT 1;
-	
-	SELECT T.nrOfGroups, T.groupProceed, T.seededPlayers INTO nrOfGroups, groupProceed, seeded
+
+	SELECT T.nrOfGroups, T.groupProceed, T.seededPlayers,
+	T.groupMin, T.groupPlayers, T.registeredPlayers
+	INTO n_grps, grpProceed, seeded, grpMin, grpPlrs, regPlrs
 	FROM tournament T WHERE T.id = tournament;
 
-	WHILE i <= nrOfGroups DO 
+	SET grpMax = grpMin + CEIL( (grpPlrs%grpMin) / n_grps);
+
+	WHILE i <= n_grps DO 
 		CALL singleGroupStandingsGenerate(tournament, i);
 		SET i = i+1;
 	END WHILE;
 
-	CALL afterGroupSeedingGenerate(tournament, groupProceed, seeded);
+	CALL afterGroupSeedingGenerate(tournament, grpProceed, seeded);
+
+	CALL tournamentStandingsAfterGroups(tournament,grpMin,grpMax,grpProceed,n_grps,regPlrs);
+
 END;
 
 

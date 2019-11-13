@@ -24,8 +24,6 @@ BEGIN
    
 	CALL KOSeedingGenerate(id, seeding, 0, registered+seeded);
 
-    CALL tournamentPointsGenerate(id, 0, 0, KO_R);
-    
 	UPDATE tournament T SET T.bracket="K/O", 
 	T.seeding=seeding WHERE T.id=id;
 
