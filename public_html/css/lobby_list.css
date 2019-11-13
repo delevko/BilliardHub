@@ -34,12 +34,16 @@
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
+.list-match-lobby-player,
+.list-match-lobby-frame-section {
+	flex: 1;
+}
 .list-match-lobby-player{
-	display: block;
+	display: flex;
+	flex-direction: column;
 	box-sizing: border-box;	
 }
 .list-match-lobby-frame-section {
-	float: left;
 	position: relative;
 	display: block;
 	box-sizing: border-box;
@@ -49,7 +53,6 @@
 .list-match-lobby-player-name{
 	color: white;
 	font-size: 17px;
-	margin-bottom: 20px;
 }
 .list-match-lobby-player-img{
 	width: 120px;
