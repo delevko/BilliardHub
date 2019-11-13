@@ -13,7 +13,7 @@ $data_count = count($data);
 for($i = 0; $i < $data_count; $i++)
 {
     $id = $data[$i][0]; $counter = $data[$i][1];
-    $rType = $rtype_data[$i][2];
+    $rType = $data[$i][2];
 
     printMatch($id, $counter, $rType);
 }
