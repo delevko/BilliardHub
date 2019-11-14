@@ -9,8 +9,10 @@ if( isset($_SESSION["id"] ) )
     {
 	$title = "Налаштування ".$_SESSION["id"]["login"];
 
+	$name = ""; $photo = "";	
 
-        render("player/settings.php", ["title"=>$title]);
+        render("player/settings.php", ["title"=>$title, "name"=>$name,
+		"photo"=>$photo]);
     }
     else
 	redirect(PATH_H."logout.php");

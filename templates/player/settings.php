@@ -3,13 +3,13 @@
 	<div class="settings_box">
             <div class="settings_header">
                 <i class="fas fa-user"></i>
-                <span>Устим Миціка</span>
+                <span><?=$name?></span>
             </div>
 
 
             <div class="toggle_buttons_box">
                 <div class="avatar_preview_set">
-                        <div id="imagePreview" style="background-image: url(<?=PATH_H?>img/sl_logo.png);">
+                        <div id="imagePreview" style="background-image: url(<?=PATH_H?><?=$photo?>);">
                         </div>
                     </div>
                 <!-- Change photo -->
@@ -19,7 +19,8 @@
                     </div>
                 </div>
                 <div class="avatar_upload_set" id="photo">
-                    <div class="avatar_edit_set">
+                    <form class="avatar_edit_set" method="post"
+			action="<?=PATH_H?>settings.php">
                         <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
                         <label for="imageUpload"><i class="fas fa-upload"></i> Вибрати файл</label>
                         <div class="photo_requirements_set">
@@ -28,8 +29,7 @@
                             </span>
                         </div>
                         <button class="change_button">Змінити</button>
-                    </div>
-
+                    </form>
                 </div>
 
 		<!-- Сhange password -->
