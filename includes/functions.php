@@ -431,7 +431,7 @@ function castTournamentHeader($header)
 	else if($header == "Announced")
 		return "Оголошені";
 	else if($header == "Standby")
-		return "Очікують на початок";
+		return "Реєстрацію завершено";
 	else if($header == "Finished")
 		return "Завершені";
 }
