@@ -87,7 +87,7 @@ function generalFooter()
 function listHeader()
 { ?>
     <div id="list" class="sub-container tabcontent">
-        <div class="list_container">
+        <div class="list_container participants_table_container">
         <table id="table_list" class="list_table participants_table">
             <colgroup>
                 <col class="col-1">
