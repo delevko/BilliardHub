@@ -35,7 +35,7 @@
 .settings_header span {
 	font-size: 25px;
 }
-.fa-user {
+.settings_header .fa-user {
 	margin-right: 10px;
 }
 
