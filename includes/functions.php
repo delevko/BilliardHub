@@ -99,7 +99,7 @@ function adminButton() { ?>
         </a>
 <?php }
 function playerButton($player) { ?>
-        <a href="<?=PATH_H?>player/" class="login">
+        <a href="<?=PATH_H?>player/settings.php" class="login">
             <i class="fas fa-user"></i>
             <span>&nbsp;<?=$player.""?></span>
         </a>
