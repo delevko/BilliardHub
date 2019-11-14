@@ -8,9 +8,9 @@ printList("Live");
 
 printList("Registration");
 
-printList("Announced");
-
 printList("Standby");
+
+printList("Announced");
 
 printList("Finished");
 
