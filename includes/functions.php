@@ -336,7 +336,7 @@ function exists($table, $id)
 function mailCheck($email)
 {
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-    if(filter_var($email, FITLER_VALIDATE_EMAIL) === false )
+    if(filter_var($email, FILTER_VALIDATE_EMAIL) === false )
 	{
 		return false;
 	}
