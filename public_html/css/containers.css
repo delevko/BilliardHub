@@ -8,16 +8,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 100px;
+    width: 1080px;
+    margin: 0 auto 100px auto;
 }
 .section_header {
     width: 1080px;
-    max-width: 1080px;
     margin: 0 auto;
 }
 .section_header_700 {
     width: 700px;
-    max-width: 700px;
     margin: 0 auto;
 }
 .header_sign {
@@ -37,16 +36,49 @@
 }
 .list_table {
     width: 1080px;
-    max-width: 1080px;
-    min-width: 1080px;
     margin: 0 auto;
 }
 .list_table_700 {
     width: 700px;
-    max-width: 700px;
-    min-width: 700px;
     margin: 0 auto;
 }
+
+
+@media screen and (max-width:1000px) {
+	.container{
+		margin-top: 100px !important;
+		padding: 0 15px;
+    	        overflow: scroll;
+		align-items: normal !important;
+    		justify-content: normal !important;
+	}
+	.sub-container{
+    	        overflow: scroll;
+		align-items: normal !important;
+    		justify-content: normal !important;
+		width: 100% !important;
+		margin: 0 auto;
+	}
+	.list_container{
+	    overflow: scroll;
+	}	
+	.list_container_700{
+	    overflow: scroll;
+	}
+	.list_container, .list_table, .list_table_700,
+	.section_header, .section_header_700{
+	    width: 100% !important;
+	}
+	.list_table {
+	    overflow-x: auto;
+	}
+	.list_table_700 {
+	    overflow-x: auto;
+	}
+}
+
+
+
 .list_table thead th,
 .list_table_700 thead th {
 	background-color: #222629;

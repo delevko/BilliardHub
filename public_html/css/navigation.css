@@ -14,6 +14,7 @@ header {
     width: 100%;
     overflow: hidden;
     margin-bottom: 50px;
+    z-index: 999;
 }
 header * {
     display: inline;
@@ -272,30 +273,6 @@ header * {
 	}
 	.login:hover{
 	    border-bottom: 4px solid #54772A;
-	}
-	.container{
-		margin-top: 100px !important;
-		padding: 0 15px;
-    	        overflow: scroll;
-		align-items: normal !important;
-    		justify-content: normal !important;
-	}
-	.sub-container{
-    	        overflow: scroll;
-		align-items: normal !important;
-    		justify-content: normal !important;
-	}
-	.list_container{
-	    overflow: scroll;
-	}	
-	.list_container_700{
-	    overflow: scroll;
-	}	
-	.list_table {
-	    overflow-x: auto;
-	}
-	.list_table_700 {
-	    overflow-x: auto;
 	}
 }
 
