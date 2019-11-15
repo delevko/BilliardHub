@@ -154,18 +154,20 @@ CREATE TABLE player(
 
 
 -- USER ---------------------------------------------------------------
-CREATE TABLE _user(
-	id INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE  _user(
+	id INT NOT NULL auto_increment,
 	
 	login VARCHAR(20) NOT NULL,
 	hash VARCHAR(256) NOT NULL,
-	email VARCHAR(30),
-	userType VARCHAR(20),
-	
-	dateOfRegistration DATE,
+	email VARCHAR(50) NOT NULL,
+	userType VARCHAR(20) NOT NULL DEFAULT "regular",
+
+	playerID INT,
 	
 	PRIMARY KEY(id),
-	UNIQUE KEY(login)
+	FOREIGN KEY(playerID) REFERENCES player(id),
+	UNIQUE KEY(login),
+	UNIQUE KEY(email)
 );
 -- --------------------------------------------------------------------
 
