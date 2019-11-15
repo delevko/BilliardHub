@@ -15,3 +15,7 @@ $("#playerImg_upload").change(function() {
 $("#clubImg_upload").change(function() {
     readURL(this, '#clubImg_preview');
 });
+$("#settingsImg_upload").change(function() {
+    readURL(this, '#settingsImg_preview');
+});
+
