@@ -44,9 +44,11 @@
 	box-sizing: border-box;	
 }
 .list-match-lobby-frame-section {
-	position: relative;
+	/*position: relative;
 	display: block;
-	box-sizing: border-box;
+	box-sizing: border-box;*/
+	display: flex;
+	justify-content: center;
 	margin: 0px 20px;
 	margin-top: 30px;
 }
@@ -96,3 +98,24 @@
 tr.list-match-lobby-frame-details td {
 	height:20px;
 }
+
+
+/*MOBILE RESPONSIVE*/
+
+@media screen and (max-width: 600px) {
+	.live-match-lobby-table  {
+		width: 100%;
+    	overflow: auto;
+    	padding: 0 10px;
+	}
+	.live-match-lobby-player-table {
+		overflow: auto;
+	}
+	.live-match-lobby-player01-img,
+	.live-match-lobby-player02-img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+
