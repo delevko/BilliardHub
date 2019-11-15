@@ -192,6 +192,7 @@ figure {
  .players_list_box {
     width: 100%;
     overflow: auto;
+    align-items: center;
  }
  .players_list_item_box {
  transition: 0s;
