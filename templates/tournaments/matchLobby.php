@@ -286,23 +286,6 @@ WHERE T.id=?;";
 	return array($tournamentName,$tournamentID,$status,$billiard,$details,$league);
 }
 
-function castDetails($age, $sex)
-{
-    $details = "";
-    if( $age != "" )
-    {
-        $details .= "(".$age;
-        if( $sex != "" )
-            $details .= " ".$sex.")";
-        else
-            $details .= ")";
-    }
-    else if( $sex != "" )
-    {
-        $details = "(".$sex.")";
-    }
-
-    return $details;
-} ?>
+?>
 
 	</div>

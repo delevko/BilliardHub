@@ -48,9 +48,10 @@ function printList($status)
 		$begDate = $data[$i][6]; $endDate = $data[$i][7];
 		$date = dateFormat($begDate, $endDate);
 	
-		$name = $data[$i][1] . "(" . $billiard . ")";
-		if( strcmp($age, "") || strcmp($sex, "") )
-			$name = $name . "(" . $age . " " . $sex . ")";
+		$name = $data[$i][1];
+		$name .= " ($billiard) ";
+		$name .= castDetails($age, $sex);
+
 		$isLast = ($i+1==$data_count);
 
 		$city = $data[$i][8]; $country = $data[$i][9];

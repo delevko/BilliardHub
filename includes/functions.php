@@ -431,5 +431,25 @@ function castKnockout($i, $KO_R)
         return "1/".pow(2,$KO_R-$i)." Фіналу";
 }
 
+function castDetails($age, $sex)
+{
+        $details = "";
+        if( $age != "" && $age != "None" )
+        {
+                $details .= "(".$age;
+                if( $sex != "" && $sex != "None" )
+                        $details .= " ".$sex.")";
+                else
+                        $details .= ")";
+        }
+        else if( $sex != "" && $sex != "None" )
+        {
+                $details = "(".$sex.")";
+        }
+
+        return $details;
+}
+
+
 ?>
 

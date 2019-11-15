@@ -168,23 +168,5 @@ WHERE T.id=?";
     return array($name, $billiard, $details, $league, $bracket);
 }
 
-function castDetails($age, $sex)
-{
-    $details = "";
-    if( $age != "" && $age != "None" )
-    {
-        $details .= "(".$age;
-        if( $sex != "" && $sex != "None" )
-            $details .= " ".$sex.")";
-        else
-            $details .= ")";
-    }
-    else if( $sex != "" && $sex != "None" )
-    {
-        $details = "(".$sex.")";
-    }
-
-    return $details;
-}
 
 ?>
