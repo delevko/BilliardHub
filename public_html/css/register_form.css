@@ -86,3 +86,28 @@ form .margin_b40px {
 }
 
 
+/*MOBILE RESPONSIVE*/
+
+@media screen and (max-width: 600px) {
+	.register_box {
+		margin: 0 auto;
+		width: 100%;
+	}
+	.register_form {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		margin-top: 20px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
