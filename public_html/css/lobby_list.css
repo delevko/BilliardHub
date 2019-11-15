@@ -103,7 +103,7 @@ tr.list-match-lobby-frame-details td {
 /*MOBILE RESPONSIVE*/
 
 @media screen and (max-width: 600px) {
-	.live-match-lobby-table  {
+	.live-match-lobby  {
 		width: 100%;
     	overflow: auto;
     	padding: 0 10px;
