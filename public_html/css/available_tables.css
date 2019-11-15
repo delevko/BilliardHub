@@ -174,18 +174,31 @@
 		width: 100%;
 		height: 268px;
 		max-height: 268px;
-		margin: 0px 0px;
+		margin: 0px auto;
 		overflow-x: auto;
 	}
-	.boxFor_plName {
+	.boxFor_plName, .boxFor_imgs {
 		width: 100%;
 	}
-	.boxFor_imgs {
-		width: 100%;
-	}
+	
 	.stable_containers {
-	width: 100%;
-}
+		width: 100%;
+		margin: 0 auto;
+	}
+	.free_stable_box {
+		width: 100%;
+	}
+	.free_stable_container {
+		margin: 0px auto;
+		width: 100%;
+	}
+	.circle_player_img {
+		border-radius: 100px;
+		width: 100px;
+		height: 100px;
+		object-fit: cover;
+		border: 4px solid #EBEBEB;
+	}
 }
 
 
