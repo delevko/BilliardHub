@@ -9,11 +9,12 @@ VALUES("NSFU");
 INSERT INTO league(name)
 VALUES('None');
 
-INSERT INTO league(name, organisationID, billiardID, ageID, sex) VALUES
-("NFSU cup", 2, 1, 5, ""),
-("Galychyna cup", 2, 1, 1, ""),
-("NFSU cup", 2, 2, 1, ""),
-("NFSU cup", 2, 2, 3, "Men");
+INSERT INTO league(name, organisationID, billiardID, ageID, sexID)
+VALUES
+("NFSU cup", 2, 1, 5, 1),
+("Galychyna cup", 2, 1, 1, 1),
+("NFSU cup", 2, 2, 1, 1),
+("NFSU cup", 2, 2, 3, 2);
 -- --------------------------------------------------------------------
 
 
