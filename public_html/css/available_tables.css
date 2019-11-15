@@ -176,6 +176,22 @@
 		max-height: 268px;
 		margin: 0px 0px;
 	}
+	.boxFor_plName {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		margin: 20px 0px 20px 0px;
+		width: 100%;
+	}
+	.boxFor_imgs {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+
+	}
 }
 
 
