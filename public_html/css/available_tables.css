@@ -175,6 +175,7 @@
 		height: 268px;
 		max-height: 268px;
 		margin: 0px 0px;
+		overflow-x: auto;
 	}
 	.boxFor_plName {
 		display: flex;
