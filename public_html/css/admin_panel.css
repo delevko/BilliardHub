@@ -152,18 +152,25 @@
         display: flex;
         justify-content: center;
         flex-direction: row;
-        
     }
     .admin_circle {
         margin: 40px 20px;
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
         background-color: #33373B;
         text-align: center;
         position: relative;
         transition: 0.5s;
         box-shadow: 0px 3px 10px #131617;
+    }
+    .admin_circle .fa-trophy,
+    .admin_circle .fa-shield-alt {
+        font-size: 33px;
+        margin-top: 22px;
+        margin-bottom: 10px;
+        text-align: center;
+        color: white;
     }
 }
 
