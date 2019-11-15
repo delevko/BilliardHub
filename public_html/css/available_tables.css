@@ -177,6 +177,9 @@
 		margin: 0px auto;
 		overflow-x: auto;
 	}
+	.busy_stable_box:before {
+		background-size: 300px 191px;
+	}
 	.boxFor_plName, .boxFor_imgs {
 		width: 100%;
 	}
