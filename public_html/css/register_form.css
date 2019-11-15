@@ -96,8 +96,12 @@ form .margin_b40px {
 	.register_form {
 		display: flex;
 		flex-direction: column;
-		justify-content: space-around;
+		justify-content: center;
+		align-items: center;
 		margin-top: 20px;
+	}
+	.data_field {
+		align-items: center;
 	}
 }
 
