@@ -47,26 +47,23 @@ function printLeagues()
 {
 	$data = query("SELECT L.id AS leagueID, L.name AS league,
 		B.name AS billiard, A.name AS age,
-		L.sex FROM league L
+		S.name AS sex FROM league L
 		JOIN age A ON L.ageID = A.id
+		JOIN sex S ON L.sexID = S.id
 		JOIN billiard B ON L.billiardID = B.id
 		ORDER BY 2, 3 DESC, 4, 5");
 	$data_count = count($data);
 	
 	for($i=0; $i < $data_count; $i++)
 	{
-		$leagueID = $data[$i][0]; $leagueName = $data[$i][1];
+		$id = $data[$i][0]; $name = $data[$i][1];
 		$billiard = $data[$i][2]; $age = $data[$i][3];
 		$sex = $data[$i][4];
 		
-		$leagueText = $leagueName."(".$billiard;
-		if( $age != "" || $sex != "" )
-		{
-			$leagueText .= " ".$age." ".$sex;
-		}
-		$leagueText .= ")";
+		$name .= " ($billiard) ";
+		$name .= castDetails($age, $sex);
 
-		displayOption($leagueID, $leagueText);
+		displayOption($id, $name);
 	}
 }
 

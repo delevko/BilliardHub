@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/tournament_list.css"> 
 
 <?php
 
@@ -23,12 +22,13 @@ function printList($status)
 {
 	$query = "SELECT
     T.id AS tournamentID, T.name AS tournament,
-    B.name AS billiard, A.name AS age, L.sex AS sex,
+    B.name AS billiard, A.name AS age, S.name AS sex,
     C.name AS clubName,
     T.startDate, T.endDate, C.city, C.country
 FROM tournament T
     JOIN league L ON T.leagueID = L.id
     JOIN age A ON L.ageID = A.id
+    JOIN sex S ON L.sexID = S.id
     JOIN billiard B ON L.billiardID = B.id
     JOIN club C ON T.clubID = C.id
 WHERE T.status=?";
@@ -93,8 +93,8 @@ function generalHeader()
 	<div class="sub-container">
 		<div class="section_header">
 			<div class="header_sign">
-				<img class="header_icon" alt="calendar" src="<?=PATH_H?>img/web/calendar.png"> 
-				Календар
+				<i class="far fa-calendar-alt"></i>
+				 Календар
 			</div>
 		</div>
 <?php

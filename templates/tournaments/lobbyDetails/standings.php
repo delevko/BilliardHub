@@ -11,7 +11,8 @@ FROM playerTournament PT
     JOIN player P ON PT.playerID=P.id
     JOIN tournamentStandings TS ON PT.tournamentID=TS.tournamentID
                                 AND PT.playerID=TS.playerID
-WHERE PT.tournamentID=?";
+WHERE PT.tournamentID=?
+ORDER BY 5 DESC, 1";
 
     $data = query($query, $tournamentID);
 	$data_count = count($data);   
@@ -37,19 +38,17 @@ function displayPlayer($i, $name, $playerID, $seed, $plrPhoto, $place, $pts, $is
 	$e_o = ($i%2) ? "odd" : "even";
 ?>
             <tr class="tbody_<?=$e_o?>">
-                <td class="bold <?=$e_o?>_num<?=($isLast)?" radius_bl":""?>">
-                	<?=$seed?>
-				</td>
+                <td class="<?=$e_o?>_num<?=($isLast)?" radius_bl":""?>">
+			<?=$place?>
+                </td>
                 <td class="photo_name pointer"
 				onclick="openPlayerLobby(<?=$playerID?>);">
                     <img class="circle_img" src="<?=PLAYER_IMG.$plrPhoto?>" alt="img">
                     <span><?=$name?></span>
                 </td>
-                <td>
-                </td>
-                <td>
-					<?=$place?>
-                </td>
+                <td class="bold">
+                	<?=$seed?>
+		</td>
                 <td class="<?=($isLast)?" radius_br":""?>">
                 	<?=$pts?>
 				</td>
@@ -58,36 +57,34 @@ function displayPlayer($i, $name, $playerID, $seed, $plrPhoto, $place, $pts, $is
 
 function displayHeader()
 { ?>
-    <div class="section_header">
+    <div class="section_header_700">
         <div class="header_sign">
-			Результати
-		</div>
+		Результати
+	</div>
     </div>
     <div class="list_container">
-    <table class="list_table results_table">
+    <table class="list_table_700 results_table">
         <colgroup>
             <col class="col-1">
             <col class="col-2">
             <col class="col-3">
             <col class="col-4">
-            <col class="col-5">
         </colgroup>
         <thead>
             <tr>
-				<th>Жереб</th>
-                <th>
-					<i class="fas fa-user"></i>
-					<span>Гравець</span>
-				</th>
-                <th>...</th>
                 <th>
 					<i class="fas fa-medal"></i>
 					<span>Місце</span>
-				</th>
+		</th>
+                <th>
+					<i class="fas fa-user"></i>
+					<span>Гравець</span>
+		</th>
+		<th>#</th>
                 <th>
 					<i class="fas fa-star"></i>
 					<span>Очки</span>
-				</th>
+		</th>
             </tr>
         </thead>
         <tbody>

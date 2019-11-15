@@ -270,10 +270,11 @@ WHERE M.id=?";
 
 //tournament header data
 	$query = "SELECT
-    B.name AS billiard, A.name AS age, L.sex AS sex, L.name AS league
+    B.name AS billiard, A.name AS age, S.name AS sex, L.name AS league
 FROM tournament T
     JOIN league L ON T.leagueID=L.id
     JOIN age A ON L.ageID = A.id
+    JOIN sex S ON L.sexID = S.id
     JOIN billiard B ON L.billiardID = B.id
 WHERE T.id=?;";
 
