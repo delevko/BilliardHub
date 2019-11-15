@@ -183,6 +183,7 @@
 	.free_stable_box {
 		width: 300px;
 		height: 191px; 
+		margin-top: 30px;
 	}
 	.boxFor_plName {
 		margin: 40px 0px 20px 0px;
@@ -212,10 +213,6 @@
 	}
 	.header_box {
 		font-size: 25px;
-	}
-	.free_stable_num {
-		margin-top: 30px;
-		font-size: 40px;
 	}
 }
 
