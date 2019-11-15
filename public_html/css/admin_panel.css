@@ -28,6 +28,7 @@
     width: 100%;
     border-bottom: 1px solid #474B4F;
     box-shadow: 0 5px 10px #111415;
+    background-color: #222629;
 }
 .admin_section_header span {
     font-size: 35px;
@@ -119,7 +120,7 @@
 
 @media screen and (max-width: 600px) {
     .admin_header span {
-        font-size: 25px;
+        font-size: 20px;
         color: #434B52;
         font-weight: bold;
         text-transform: uppercase;
@@ -128,7 +129,7 @@
         align-items: center;
         margin: 0 auto;
         margin-top: -50px;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
         padding: 20px 0;
         width: 100%;
         border-bottom: 1px solid #474B4F;
