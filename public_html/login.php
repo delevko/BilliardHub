@@ -19,18 +19,15 @@ else if($_SERVER["REQUEST_METHOD"] == "POST")
 
     $data = query($query, $login);
 
-    if(count($data) == 1)
+    if(password_verify($_POST["password"], $data[0][0]))
     {
-        if(password_verify($_POST["password"], $data[0][0]))
-        {
-			$login = $data[0][1]; $type = $data[0][2];
-            $_SESSION["id"] = ["login"=>$login, "type"=>$type];
+	$login = $data[0][1]; $type = $data[0][2];
+        $_SESSION["id"] = ["login"=>$login, "type"=>$type];
 
-			redirect("index.php");
-	}
+	redirect("index.php");
     }
 
-   	apology(INPUT_ERROR, "Неправильне ім'я користувача АБО пароль");
+    apology(INPUT_ERROR, "Неправильне ім'я користувача АБО пароль");
 }
 
 ?>
