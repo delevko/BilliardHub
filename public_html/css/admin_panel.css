@@ -118,6 +118,24 @@
 /*MOBILE RESPONSIVE*/
 
 @media screen and (max-width: 600px) {
+    .admin_header span {
+        font-size: 25px;
+        color: #434B52;
+        font-weight: bold;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: -50px;
+        margin-bottom: 50px;
+        padding: 20px;
+        width: 100%;
+        border-bottom: 1px solid #474B4F;
+        box-shadow: 0 5px 10px #111415;
+    }
+
+
     .admin_buttons {
     width: 100%;
     margin: 0 auto;
@@ -155,8 +173,8 @@
     }
     .admin_circle {
         margin: 40px 20px;
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
         border-radius: 50%;
         background-color: #33373B;
         text-align: center;
