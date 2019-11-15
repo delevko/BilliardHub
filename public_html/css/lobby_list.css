@@ -106,9 +106,9 @@ tr.list-match-lobby-frame-details td {
 	.list-match-lobby  {
 		width: 100%;
     	overflow: auto;
-    	padding: 0 10px;
 	}
 	.list-match-lobby-player-table {
+		width: 100%;
 		overflow: auto;
 	}
 	.list-match-lobby-player01-img,
