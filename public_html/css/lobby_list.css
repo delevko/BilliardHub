@@ -103,16 +103,16 @@ tr.list-match-lobby-frame-details td {
 /*MOBILE RESPONSIVE*/
 
 @media screen and (max-width: 600px) {
-	.live-match-lobby  {
+	.list-match-lobby  {
 		width: 100%;
     	overflow: auto;
     	padding: 0 10px;
 	}
-	.live-match-lobby-player-table {
+	.list-match-lobby-player-table {
 		overflow: auto;
 	}
-	.live-match-lobby-player01-img,
-	.live-match-lobby-player02-img {
+	.list-match-lobby-player01-img,
+	.list-match-lobby-player02-img {
 		width: 100%;
 		height: auto;
 	}
