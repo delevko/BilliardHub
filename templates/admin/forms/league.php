@@ -11,22 +11,16 @@
             </div>
             <form class="league_create_form" action="league.php" method="post">
                 <input type="text" name="name"
-					autofocus placeholder="Назва">
-				<div class="margin-b_30"></div>
+			autofocus placeholder="Назва">
+		<div class="margin-b_30"></div>
 
-			<?php
-				displaySelect("billiard", "Вид більярду");
-				displaySelect("age", "Вік");
-				displaySelect("organisation", "Організація");
-			?>
-              <div class="league_create_select">
-                  <select name="sex">
-                    <option selected disabled>Стать</option>
-                    <option value="Men">Чоловіки</option>
-                    <option value="Women">Жінки</option>
-                    <option value="">Всі</option>
-                  </select>
-              </div>
+	<?php
+		displaySelect("billiard", "Вид більярду");
+		displaySelect("age", "Вік");
+		displaySelect("organisation", "Організація");
+		displaySelect("sex", "Стать");
+	?>
+
               <button>Додати</button>
             </form>
 		</div>

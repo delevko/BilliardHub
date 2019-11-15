@@ -4,10 +4,11 @@
 <?php
 	$query = "SELECT
     L.id AS leagueID, L.name AS league, B.name AS billiard,
-    A.name AS age, L.sex AS sex, count(T.id) AS tournaments
+    A.name AS age, S.name AS sex, count(T.id) AS tournaments
 FROM league L
     LEFT JOIN tournament T ON T.leagueID = L.id
     JOIN age A ON L.ageID = A.id
+    JOIN sex S ON L.sexID = S.id
     JOIN billiard B ON L.billiardID = B.id
 GROUP BY L.id HAVING tournaments > 0 ORDER BY 6 DESC, 2";
 
@@ -24,17 +25,13 @@ GROUP BY L.id HAVING tournaments > 0 ORDER BY 6 DESC, 2";
 		$billiard = $data[$i][2]; $age = $data[$i][3];
 		$sex = $data[$i][4]; $trnmt_n = $data[$i][5];
 
-		$leagueText = "$leagueName ($billiard ";
-		if( strcmp($age,"") || strcmp($sex,"") )
-		{
-			$leagueText .= " $age $sex";
-		}
-		$leagueText .= ")";
+		$leagueName .= " ($billiard) ";
+		$leagueName .= castDetails($age, $sex);
 
 		$BL = ($i+1 == $data_count) ? " radius_bl" : "";
 		$BR = ($i+1 == $data_count) ? " radius_br" : "";
 	   
-		displayLeague($i+1, $leagueID, $leagueText, $trnmt_n,$BL,$BR);
+		displayLeague($i+1, $leagueID, $leagueName, $trnmt_n,$BL,$BR);
 	}
 
 	leagueFooter();

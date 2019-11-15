@@ -21,12 +21,13 @@ function printList($status)
 {
 	$query = "SELECT
 	    T.id AS tournamentID, T.name AS tournament,
-	    B.name AS billiard, A.name AS age, L.sex AS sex,
+	    B.name AS billiard, A.name AS age, S.name AS sex,
 	    C.name AS clubName,
 	    T.startDate, T.endDate, C.city, C.country
 	FROM tournament T
 	    JOIN league L ON T.leagueID = L.id
 	    JOIN age A ON L.ageID = A.id
+	    JOIN sex S ON L.sexID = S.id
 	    JOIN billiard B ON L.billiardID = B.id
 	    JOIN club C ON T.clubID = C.id
 	WHERE T.status=? ORDER BY 7, 8, 2";
@@ -48,9 +49,10 @@ function printList($status)
 		$begDate = $data[$i][6]; $endDate = $data[$i][7];
 		$date = dateFormat($begDate, $endDate);
 	
-		$name = $data[$i][1] . "(" . $billiard . ")";
-		if( strcmp($age, "") || strcmp($sex, "") )
-			$name = $name . "(" . $age . " " . $sex . ")";
+		$name = $data[$i][1];
+		$name .= " ($billiard) ";
+		$name .= castDetails($age, $sex);
+
 		$isLast = ($i+1==$data_count);
 
 		$city = $data[$i][8]; $country = $data[$i][9];

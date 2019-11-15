@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS organisation CASCADE;
 DROP TABLE IF EXISTS billiard CASCADE;
 DROP TABLE IF EXISTS club CASCADE;
 DROP TABLE IF EXISTS age CASCADE;
--- DROP TABLE IF EXISTS sex CASCADE;
+DROP TABLE IF EXISTS sex CASCADE;
 DROP TABLE IF EXISTS bracket CASCADE;
 
 DROP FUNCTION IF EXISTS getVal;
@@ -75,11 +75,11 @@ CREATE TABLE age(
 
 
 -- SEX ----------------------------------------------------------------
--- CREATE TABLE sex(
---	id INT NOT NULL AUTO_INCREMENT,
---	name VARCHAR(50) NOT NULL UNIQUE,
---	PRIMARY KEY(id)
--- );
+CREATE TABLE sex(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50) NOT NULL UNIQUE,
+	PRIMARY KEY(id)
+);
 -- --------------------------------------------------------------------
 
 
@@ -103,15 +103,14 @@ CREATE TABLE league(
 	organisationID INT NOT NULL DEFAULT 1,
 	billiardID INT NOT NULL DEFAULT 1,
 	ageID INT NOT NULL DEFAULT 1,
-	sex VARCHAR(20) NOT NULL DEFAULT "",
---	sexID VARCHAR(20) NOT NULL DEFAULT 1,
+	sexID INT NOT NULL DEFAULT 1,
 
 	PRIMARY KEY (id),
 	FOREIGN KEY (organisationID) REFERENCES organisation(id),
 	FOREIGN KEY (billiardID) REFERENCES billiard(id),
 	FOREIGN KEY (ageID) REFERENCES age(id),
---	FOREIGN KEY (sexID) REFERENCES sex(id),
-	UNIQUE KEY(name, organisationID, billiardID, ageID, sex)
+	FOREIGN KEY (sexID) REFERENCES sex(id),
+	UNIQUE KEY(name, organisationID, billiardID, ageID, sexID)
 );
 -- --------------------------------------------------------------------
 
@@ -142,11 +141,12 @@ CREATE TABLE player(
 	birthday DATE,
 	country VARCHAR(30),
 	city VARCHAR(50),
-	sex VARCHAR(20),
+	sexID INT NOT NULL;
 
 	highestBreak INT NOT NULL DEFAULT 0,
 	
 	PRIMARY KEY(id),
+	FOREIGN KEY(sexID) REFERENCES sex(id),
 	UNIQUE KEY(firstName, lastName)
 );
 -- --------------------------------------------------------------------
@@ -154,18 +154,20 @@ CREATE TABLE player(
 
 
 -- USER ---------------------------------------------------------------
-CREATE TABLE _user(
-	id INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE  _user(
+	id INT NOT NULL auto_increment,
 	
 	login VARCHAR(20) NOT NULL,
 	hash VARCHAR(256) NOT NULL,
-	email VARCHAR(30),
-	userType VARCHAR(20),
-	
-	dateOfRegistration DATE,
+	email VARCHAR(50) NOT NULL,
+	userType VARCHAR(20) NOT NULL DEFAULT "regular",
+
+	playerID INT,
 	
 	PRIMARY KEY(id),
-	UNIQUE KEY(login)
+	FOREIGN KEY(playerID) REFERENCES player(id),
+	UNIQUE KEY(login),
+	UNIQUE KEY(email)
 );
 -- --------------------------------------------------------------------
 

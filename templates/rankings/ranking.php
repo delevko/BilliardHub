@@ -29,26 +29,23 @@
 function getLeagueDescription($id)
 {
 	$query = "SELECT L.name AS league, B.name AS billiard,
-	    A.name AS age, L.sex AS sex
+	    A.name AS age, S.name AS sex
 	FROM league L
 	    JOIN age A ON L.ageID = A.id
+	    JOIN sex S ON L.sexID = S.id
 	    JOIN billiard B ON L.billiardID = B.id
 	WHERE L.id=?";
 
 
 	$data = query($query, $id);
 
-	$leagueName = $data[0][0]; $billiard = $data[0][1];
+	$name = $data[0][0]; $billiard = $data[0][1];
 	$age = $data[0][2]; $sex = $data[0][3];
 
-	$leagueText = "$leagueName ($billiard ";
-	if( strcmp($age,"") || strcmp($sex,"") )
-	{
-		$leagueText .= " $age $sex";
-	}
-	$leagueText .= ")";
+	$name .= " ($billiard) ";
+	$name .= castDetails($age, $sex);
 
-	return $leagueText;
+	return $name;
 }
 
 function displayPlayer($i, $id, $name, $img, $isLast, $pts)

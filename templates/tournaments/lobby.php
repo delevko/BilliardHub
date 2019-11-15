@@ -5,7 +5,7 @@
 list($name, $billiard, $details, $league, $bracket) = 
 	getFullName($tournamentID);
 
-tournamentHeader($name, $billiard, $details, $league);
+tournamentHeader($name, $billiard, $details, $league); //, $status
 
 
 if( !strcmp($status, "Announced") )
@@ -27,7 +27,7 @@ else
 	redirect("");
 
 
-function tournamentHeader($name, $billiard, $details, $league)
+function tournamentHeader($name, $billiard, $details, $league) //$status
 { ?>
 <script type="text/javascript" src="<?=PATH_H?>js/tourn_header_highlight.js">
 </script>
@@ -37,6 +37,8 @@ function tournamentHeader($name, $billiard, $details, $league)
                 <i class="fas fa-trophy"></i>
                 <span style="margin-left:5px;"><?=$name?></span>
             </div>
+<!-- if(status == registration && userType==regular && notregistered
+display register button-->
             <div class="second_row">
                 <div class="typeOf_tour">
                     <span><?=$billiard?> &nbsp;</span>
@@ -209,11 +211,12 @@ function finishedLobby($bracket, $tournamentID, $onClick)
 function getFullName($tournamentID)
 {
 	$query = "SELECT
-    T.bracket, B.name AS billiard, A.name AS age, L.sex AS sex,
+    T.bracket, B.name AS billiard, A.name AS age, S.name AS sex,
     T.name AS tournament, L.name AS league
 FROM tournament T
     JOIN league L ON T.leagueID = L.id
     JOIN age A ON L.ageID = A.id
+    JOIN sex S ON L.sexID = S.id
     JOIN billiard B ON L.billiardID = B.id
 WHERE T.id=?";
 
@@ -227,22 +230,4 @@ WHERE T.id=?";
 	return array($name, $billiard, $details, $league, $bracket);
 }
 
-function castDetails($age, $sex)
-{
-	$details = "";
-	if( $age != "" && $age != "None" )
-	{
-		$details .= "(".$age;
-		if( $sex != "" && $sex != "None" )
-			$details .= " ".$sex.")";
-		else
-			$details .= ")";
-	}
-	else if( $sex != "" && $sex != "None" )
-	{
-		$details = "(".$sex.")";
-	}
-
-	return $details;
-}
-
+?>

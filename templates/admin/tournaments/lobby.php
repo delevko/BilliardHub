@@ -150,11 +150,12 @@ function displayStandbyRounds($tournamentID, $onClick, $bracket)
 function getFullName($tournamentID)
 {
     $query = "SELECT
-    T.bracket, B.name AS billiard, A.name AS age, L.sex AS sex,
+    T.bracket, B.name AS billiard, A.name AS age, S.name AS sex,
     T.name AS tournament, L.name AS league
 FROM tournament T
     JOIN league L ON T.leagueID = L.id
     JOIN age A ON L.ageID = A.id
+    JOIN sex S ON L.sexID = S.id
     JOIN billiard B ON L.billiardID = B.id
 WHERE T.id=?";
 
@@ -168,23 +169,5 @@ WHERE T.id=?";
     return array($name, $billiard, $details, $league, $bracket);
 }
 
-function castDetails($age, $sex)
-{
-    $details = "";
-    if( $age != "" && $age != "None" )
-    {
-        $details .= "(".$age;
-        if( $sex != "" && $sex != "None" )
-            $details .= " ".$sex.")";
-        else
-            $details .= ")";
-    }
-    else if( $sex != "" && $sex != "None" )
-    {
-        $details = "(".$sex.")";
-    }
-
-    return $details;
-}
 
 ?>

@@ -35,8 +35,9 @@
 .settings_header span {
 	font-size: 25px;
 }
-.settings_header .fa-user {
+.settings_header .fa-user-cog {
 	margin-right: 10px;
+	font-size: 25px;
 }
 
 

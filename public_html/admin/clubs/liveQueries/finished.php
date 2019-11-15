@@ -35,9 +35,10 @@ if( exists("_table", $tableID) )
 		}
 		else
 			header("Refresh:0");
+		sleep(1);
         }
 
-	if( !strcmp($action, "exitMatch") ) {
+	else if( !strcmp($action, "exitMatch") ) {
 		
 		$rlt["request"] = "UPDATE _table T SET T.status=? WHERE T.id=?";
 		$rlt["erreur"] = false;

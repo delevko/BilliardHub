@@ -5,7 +5,7 @@ require("admin_user_functions.php");
 
 session_start();
 
-if(!adminCheck())
+if(!userCheck())
 {
 	redirect(PATH_H."logout.php");
 }

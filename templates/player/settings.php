@@ -2,14 +2,16 @@
 
 	<div class="settings_box">
             <div class="settings_header">
-                <i class="fas fa-user"></i>
+                <i class="fas fa-user-cog"></i>
                 <span><?=$name?></span>
             </div>
 
 
             <div class="toggle_buttons_box">
                 <div class="avatar_preview_set">
-                        <div id="imagePreview" style="background-image: url(<?=PATH_H?><?=$photo?>);">
+                        <div id="settingsImg_preview"
+			style="background-image:
+			url(<?=PATH_H?>img/player/<?=$photo?>);">
                         </div>
                     </div>
                 <!-- Change photo -->
@@ -20,15 +22,24 @@
                 </div>
                 <div class="avatar_upload_set" id="photo">
                     <form class="avatar_edit_set" method="post"
-			action="<?=PATH_H?>settings.php">
-                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
-                        <label for="imageUpload"><i class="fas fa-upload"></i> Вибрати файл</label>
+		    action="<?=PATH_H?>player/settings.php"
+		    enctype="multipart/form-data">
+                        <input type="file" id="settingsImg_upload"
+			accept=".png, .jpg, .jpeg" name="photo">
+                        <label for="settingsImg_upload">
+				<i class="fas fa-upload"></i>
+				Вибрати файл
+			</label>
                         <div class="photo_requirements_set">
                             <span>
                                 *Будь ласка, завантажуйте тільки горизонтальне фото.
                             </span>
                         </div>
-                        <button class="change_button">Змінити</button>
+			<input type="hidden" name="action" value="photo">
+			<input type="hidden" name="playerID" value="<?=$playerID?>">
+                        <button class="change_button">
+				Змінити
+			</button>
                     </form>
                 </div>
 
@@ -38,19 +49,32 @@
                         <span>Змінити пароль</span>
                     </div>
                 </div>
-                <form class="settings_form" id="pass">
-                    <input type="password" placeholder="Старий пароль">
-                    <input type="password" placeholder="Новий пароль">
-                    <input type="password" placeholder="Підтвердіть пароль">
+                <form class="settings_form" method="post" id="pass"
+		action="<?=PATH_H?>player/settings.php">
+                    <input type="password" name="oldPwd"
+			placeholder="Старий пароль">
+		    <div class="margin-b_30"></div>
+
+                    <input type="password" name="newPwd1"
+			placeholder="Новий пароль">
+                    <input type="password" name="newPwd2"
+			placeholder="Підтвердіть пароль">
+
+		    <input type="hidden" name="action" value="pwd">
+		    <input type="hidden" name="playerID" value="<?=$playerID?>">
                     <button class="change_button">Змінити</button>
+
                     <div class="forgot_pass">
-                        <span>Забув пароль?</span>
+                        <span></span>
                     </div>
                 </form>
 
 
             </div>
         </div>
+
+<script type="text/javascript" src="<?=PATH_H?>js/img_upload.js"></script>
+
 
 <script type="text/javascript">
 
@@ -64,21 +88,5 @@ function settings_buttons(id) {
   }
 }
 
-
-
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $('#imagePreview').css('background-image', 'url('+e.target.result +')');
-            $('#imagePreview').hide();
-            $('#imagePreview').fadeIn(650);
-        }
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-$("#imageUpload").change(function() {
-    readURL(this);
-});
 </script>
 
