@@ -202,6 +202,7 @@ figure {
    margin-top: 0px;
  }
  .players_u-list_item {
- 	margin: 0 auto;
+ 	align-items: center;
+ 	flex-direction: column;
  }
 }
