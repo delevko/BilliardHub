@@ -7,6 +7,8 @@ if( !exists("_table", $tableID) ) {
 	redirect("");
 }
 
+sleep(1);
+
 $query = "SELECT
     tbl._number, C.name AS clubName,
     tbl.status AS tableStatus, MD.status AS matchStatus,
@@ -47,14 +49,17 @@ $points1 = $data[0][11]; $points2 = $data[0][12];
 $break1 = $data[0][13]; $break2 = $data[0][14];
 
 
-$player1class = "live-match-lobby-player"; $player2class = "live-match-lobby-player";
-( nonEmpty($break1) ) ? ($player1class .= " highlight") : ($player2class .= " highlight");
-
-$matchInfo = matchInfo($matchID, $roundType);
-
-
 if( !strcmp($tableStatus, "Occupied") )
 { 
+	$player1class = "live-match-lobby-player";
+	$player2class = "live-match-lobby-player";
+	
+	nonEmpty($break1) ? ($player1class .= " highlight") :
+		($player2class .= " highlight");
+
+	$matchInfo = matchInfo($matchID, $roundType);
+
+
 	if( !strcmp($matchStatus, "Live") )
 		require("live_match.html");
 	else if( !strcmp($matchStatus, "Finished") )
