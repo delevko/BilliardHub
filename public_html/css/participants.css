@@ -201,4 +201,7 @@ figure {
    animation-duration: 0s;
    margin-top: 0px;
  }
+ .players_u-list_item {
+ 	margin: 0 auto;
+ }
 }
