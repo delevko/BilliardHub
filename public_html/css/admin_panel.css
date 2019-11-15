@@ -146,6 +146,25 @@
         font-size: 15px;
         font-family: 'Exo 2', sans-serif;
     }
+
+
+    .admin_section02 {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        
+    }
+    .admin_circle {
+        margin: 40px 20px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #33373B;
+        text-align: center;
+        position: relative;
+        transition: 0.5s;
+        box-shadow: 0px 3px 10px #131617;
+    }
 }
 
 
