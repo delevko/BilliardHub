@@ -1,15 +1,15 @@
 
 table.breaks_table .col-1 {
- 	width: 30%;
+ 	width: 32%;
 }
 table.breaks_table .col-2 {
- 	width: 10%;
+ 	width: 5%;
 }
 table.breaks_table .col-3 {
- 	width: 30%;
+ 	width: 32%;
 }
 table.breaks_table .col-4 {
- 	width: 30%;
+ 	width: 31%;
 }
 
 .breaks_table tbody tr>:nth-child(1),

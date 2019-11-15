@@ -26,7 +26,7 @@ FROM groupStandings GS
     JOIN player P ON GS.playerID = P.id
     JOIN groupSeeding gs ON GS.tournamentID = gs.tournamentID
         AND GS.playerID = gs.playerID
-WHERE GS.tournamentID=? ORDER BY 2 DESC, 5, 1";
+WHERE GS.tournamentID=? ORDER BY 2 DESC, 5, 3";
 
 
     $data = query($query, $tournamentID);

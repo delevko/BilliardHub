@@ -23,6 +23,8 @@
 	</script>
 	<script type="text/javascript" src="<?=PATH_H?>js/header_highlight.js">
 	</script>
+	<script type="text/javascript" src="<?=PATH_H?>js/mobile_navigation.js">
+	</script>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
@@ -39,7 +41,12 @@
 
 
         <!-- NAV MENU -->
-         <nav class="navigation" id="myTopnav">
+         <nav class="navigation" id="header_navigation">
+		<a class="icon"
+                        onclick="mobileHeaderNav()">
+                        <i class="fa fa-bars"></i>&nbsp;Меню
+                </a>
+
                 <a href="<?=PATH_H?>tournaments"
 				id="tournaments">
 					Турніри
@@ -63,6 +70,7 @@
 	</header>
 
 	<div class="container">
+	<div class="margin-b_30"></div>
         <a class="admin_header" href="<?=PATH_H?>admin/">
             <span>Панель адміністратора</span>
         </a>

@@ -10,15 +10,16 @@
             </div>
             <form class="login_form" action="<?=PATH_H?>login.php" method="post">
               <input type="text" name="username"
-				autofocus placeholder="Ім'я користувача">
-              <input type="password" name="password" placeholder="Пароль">
+				autofocus placeholder="Логін">
+              <input type="password" name="password"
+			placeholder="Пароль">
               <button>Увійти</button>
             </form>
             
-			<a href="<?=PATH_H?>register.php">
-				<div class="login_register">
-					<span>Зареєструватись</span>
-				</div>
-			</a>
+		<a href="<?=PATH_H?>register.php">
+			<div class="login_register">
+				<span>Зареєструватись</span>
+			</div>
+		</a>
         </div>
 

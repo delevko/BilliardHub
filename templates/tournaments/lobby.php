@@ -63,7 +63,7 @@ function announcedLobby($tournamentID, $onClick)
 
 //show appropriate data
 	if( !strcmp($onClick, "participants") )
-		require("lobbyDetails/registeredPlayersListSmall.php");
+		require("lobbyDetails/registeredPlayersList.php");
 	else
 		redirect("");
 
@@ -84,7 +84,7 @@ function registrationLobby($tournamentID, $onClick)
 
 //show appropriate data
 	if( !strcmp($onClick, "participants") )
-		require("lobbyDetails/registeredPlayersListSmall.php");
+		require("lobbyDetails/registeredPlayersList.php");
 	else
 		redirect("");
 
@@ -105,7 +105,7 @@ function standbyLobby($tournamentID, $onClick)
 
 //show appropriate data
 	if( !strcmp($onClick, "participants") )
-		require("lobbyDetails/registeredPlayersListSmall.php");
+		require("lobbyDetails/registeredPlayersList.php");
 	else
 		redirect("");
 

@@ -99,7 +99,7 @@ function adminButton() { ?>
         </a>
 <?php }
 function playerButton($player) { ?>
-        <a href="<?=PATH_H?>player/" class="login">
+        <a href="<?=PATH_H?>player/settings.php" class="login">
             <i class="fas fa-user"></i>
             <span>&nbsp;<?=$player.""?></span>
         </a>
@@ -336,7 +336,7 @@ function exists($table, $id)
 function mailCheck($email)
 {
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-    if(filter_var($email, FITLER_VALIDATE_EMAIL) === false )
+    if(filter_var($email, FILTER_VALIDATE_EMAIL) === false )
 	{
 		return false;
 	}
@@ -406,14 +406,19 @@ function redirect($destination)
 
 function adminCheck()
 {
-	if($_SESSION["id"]["type"] == "admin")
+	if( isset($_SESSION["id"]) )
 	{
-		return true;
+		if($_SESSION["id"]["type"] == "admin")
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	else
-	{
 		return false;
-	}
 }
 
 
@@ -426,7 +431,7 @@ function castTournamentHeader($header)
 	else if($header == "Announced")
 		return "Оголошені";
 	else if($header == "Standby")
-		return "Очікують на початок";
+		return "Реєстрацію завершено";
 	else if($header == "Finished")
 		return "Завершені";
 }

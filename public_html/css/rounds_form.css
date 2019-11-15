@@ -1,6 +1,6 @@
 .rounds_box {
 	margin: 0 auto;
-	width: 300px;
+	width: 650px;
 	height: auto;
 	display: flex;
 	flex-direction: column;
@@ -12,6 +12,14 @@
 	padding: 20px;
 	box-shadow: 0px 5px 10px #131617;
 	border-top: 3px solid #61892F;
+}
+.r_box{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	margin-bottom: 20px;
 }
 .rounds_img img {
 	width: 100px;
@@ -26,13 +34,12 @@
 }
 .rounds_form {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: center;
 	align-content: center;
 	align-items: center;
-	margin-bottom: 20px;
 }
-.rounds_form input {
+.r_box input {
 	padding: 10px;
 	margin-bottom: 20px;
 	width: 223px;
@@ -46,7 +53,7 @@
 	border-left: 3px solid #61892F;
 
 }
-.rounds_form button {
+.r_box button {
 	margin-top: 20px;
 	border-radius: 4px;
 	border: none;
@@ -57,7 +64,7 @@
 	height: 38px;
 	background-color: #61892F;
 }
-.rounds_form button:hover {
+.r_box button:hover {
 	background-color: #4F7027;
 	cursor: pointer;
 }
@@ -69,5 +76,13 @@
 	cursor: pointer;
 	color: #61892F !important;
 }
-
+.date_format {
+    font-size: 12px;
+    font-style: italic;
+    color: #565C65;
+    text-align: left;
+    font-weight: bold;
+    margin-top: -15px;
+    margin-left: -80px;
+}
 

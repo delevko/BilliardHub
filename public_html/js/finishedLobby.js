@@ -6,10 +6,21 @@ var item = {
 }
 
 $(document).ready(function() {
-	tableID = $("#tableID").html();
-	item.tableID = tableID;
-
+	item.tableID = getTableID();
 });
+
+
+function getTableID()
+{
+    _href = document.location.href ? document.location.href : document.location;
+
+    var suffix = _href.split('?');
+    var args = suffix[suffix.length-1].split('&');
+    var tableID = args[0].split('=');
+
+    return tableID[1];
+}
+
 
 var successHandler = function(data, status) {
 	var res = JSON.parse(data); 

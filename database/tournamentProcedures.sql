@@ -1,6 +1,5 @@
 -- SAME ORDER
 
-DROP PROCEDURE IF EXISTS tournamentPointsGenerate;
 DROP PROCEDURE IF EXISTS seedPlayer;
 
 DROP TRIGGER IF EXISTS finishTournament;
@@ -24,39 +23,6 @@ BEGIN
 	IF matchID != -1 THEN
 		CALL putPlayerIntoMatch(matchID, playerID, 0);
 	END IF;
-END;
-
-
-
--- generates points
--- TODO proper points, now POW(2, roundNo);
-CREATE PROCEDURE tournamentPointsGenerate(IN tournamentID INT, IN group_R INT, IN LOW_R INT, IN KO_R INT)
-BEGIN
-	DECLARE i INT DEFAULT 1;
--- add points for group
-	
-	SET i = 1;
-	WHILE i <= group_R DO
-		INSERT INTO tournamentPoints(tournamentID, lostInRoundNo, lostInRoundType, points)
-		VALUES(tournamentID, group_R-i+1, "Group", POW(2, i));
-		SET i = i+1;
-	END WHILE;
-
--- insert points for LOW rounds
-	SET i = 1;
-	WHILE i <= LOW_R DO
-		INSERT INTO tournamentPoints(tournamentID, lostInRoundNo, lostInRoundType, points)
-		VALUES(tournamentID, i, "LOW", POW(2, i+group_R));
-		SET i = i+1;
-	END WHILE;
-	
--- insert points for K/O rounds
-	SET i = 1;
-	WHILE i <= KO_R+1 DO
-		INSERT INTO tournamentPoints(tournamentID, lostInRoundNo, lostInRoundType, points)
-		VALUES(tournamentID, i, "K/O", POW(2, i+LOW_R+group_R));
-		SET i = i+1;
-	END WHILE;
 END;
 
 

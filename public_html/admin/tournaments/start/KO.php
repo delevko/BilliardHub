@@ -4,9 +4,11 @@ require("../../../../includes/adminConfig.php");
 
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-	list($seeding, $seeded, $id) = checkData($_POST["seeding"],$_POST["playersSeeded"],$_POST["id"]);
+	list($seeding, $seeded, $id) =
+		checkData($_POST["seeding"],$_POST["playersSeeded"],$_POST["id"]);
 
-	list($N, $registered, $add_R, $seeded_R, $KO_R) = getData($seeded, $id);
+	list($N, $registered, $add_R, $seeded_R, $KO_R) =
+		getData($seeded, $id);
 
 	$query = "CALL KnockoutGenerate(?,?,?,?,?,?,?,?)";
 	query($query, $id, $seeded, $KO_R, $add_R, $seeded_R, $N, $seeding, $registered);

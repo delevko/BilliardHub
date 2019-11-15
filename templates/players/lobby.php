@@ -60,22 +60,24 @@
 			<!-- SECTION 02 (CIRCLES) -->
 
 		<div class="player_profile_section02">
-			<div class="player_profile_circle highlight_anchor"
-			onclick="player_profile(event, 'tournaments_')">
+			<a class="player_profile_circle highlight_anchor"
+			onclick="player_profile(event, 'tournaments_')"
+			href="#tournaments_">
 				<div class="little_circle">
 					<?=$tournamentCtr?>
 				</div>
 				<i class="fas fa-trophy"></i><br>
 				<span class="circle_text">турніри</span>
-			</div>
-			<div class="player_profile_circle highlight_anchor"
-			onclick="player_profile(event, 'tournaments_b')">
+			</a>
+			<a class="player_profile_circle highlight_anchor"
+			onclick="player_profile(event, 'tournaments_b')"
+			href="#tournaments_b">
 				<div class="little_circle">
 					<?=$breakCtr?>
 				</div>
 				<i class="fas fa-trophy"></i> <br>
 				<span class="circle_text">брейки</span>
-			</div>
+			</a>
 <!--
 			<div class="player_profile_circle highlight_anchor">
 				<div class="little_circle">
@@ -97,10 +99,10 @@
 	<div class="player_profile_details">
         <div id="tournaments_" class="details_anchor">
         	<?php tournamentList($playerID); ?>
-		</div>
+	</div>
 
         <div id="tournaments_b" class="details_anchor">
-			<?php tournamentBreaksList($playerID); ?>
+		<?php tournamentBreaksList($playerID); ?>
         </div>
     </div>
 

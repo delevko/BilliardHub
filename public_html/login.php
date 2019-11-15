@@ -10,7 +10,7 @@ else if($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	if( !nonEmpty($_POST["username"],$_POST["password"]) )
     {
-        apology(INPUT_ERROR, "Введіть ім'я користувача ТА пароль");
+        apology(INPUT_ERROR, "Введіть логін ТА пароль");
         exit;
     }   
         

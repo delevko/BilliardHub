@@ -11,8 +11,7 @@ var item = {
 
 $(document).ready(function() {
 	var firstHighlight = document.getElementById("leftPlayer").className;
-	tableID = $("#tableID").html();
-	item.tableID = tableID;
+	item.tableID = getTableID();
 	
 	if( firstHighlight.includes("highlight") ) {
 		isLeft = true;
@@ -23,6 +22,18 @@ $(document).ready(function() {
 		item.currPlayer = false;
 	}
 });
+
+function getTableID()
+{
+    _href = document.location.href ? document.location.href : document.location;
+
+    var suffix = _href.split('?');
+    var args = suffix[suffix.length-1].split('&');
+    var tableID = args[0].split('=');
+
+    return tableID[1];
+}
+
 
 function highlight(left) {
 	var player1	= (left) ? "leftPlayer" : "rightPlayer";
@@ -95,6 +106,7 @@ function finishFrame(leftP, rightP) {
 }
 
 var successHandler = function(data, status) {
+	//data = data != "" ? $.parseJSON(data) : {};
 	var res = JSON.parse(data); 
 	console.log(res);
 };

@@ -5,7 +5,7 @@
                  <i class="fa fa-bars"></i>Турнірне меню
                  </a>
 
-		<a href="<?=$header?>&onClick=participants">
+		<a href="<?=$header?>&onClick=participants" id="participants">
 			Учасники
 		</a>
 	</nav>

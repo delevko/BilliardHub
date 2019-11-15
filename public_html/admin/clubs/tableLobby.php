@@ -35,9 +35,17 @@ else if($_SERVER["REQUEST_METHOD"] == "POST")
 	//occupied && finished
 		else if(isset($_POST["next"]))
 		{
-			$tournamentID = $_POST["tournament"];
-			$flag = true;
+		    $query = "SELECT M.tournamentID, MD.status
+                FROM _match M JOIN matchDetails MD ON M.id=MD.matchID
+                WHERE M.id = 
+                (SELECT T.matchID FROM _table T WHERE T.id=?)";
+                    $data = query($query, $tableID);
+                    $tournamentID = $data[0][0]; $status = $data[0][1];
+
+                    if($status == "Finished")
+                    {
 			query("CALL occupyNext(?, ?)", $tableID, $tournamentID);
+		    }
 		}
 	//available
 		else if(isset($_POST["match"]))

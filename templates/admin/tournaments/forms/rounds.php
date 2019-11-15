@@ -6,14 +6,34 @@
                 <img src="<?=PATH_H?>img/sl_logo.png" alt="BilliardHub Logo">
             </div>
             <div class="rounds_header">
-                <span>РАУНДИ TODO</span>
+                <span>ВВЕДІТЬ ДЕТАЛІ ТУРНІРУ</span>
             </div>
-	    <form class="rounds_form" method="post"
+	    <form class="r_box" method="post"
 		action="start/rounds.php">
-		<div class="data_field">
-		    <?php displayRounds($tournamentID, $bracket); ?>
+		<div class="rounds_form">
+		    <div class="data_field">
+			<span class="bold">
+			    Рейтингові очки за виліт у раунді:
+			</span>
+			<div class="margin-b_30"></div>
+		        <?php displayRounds($tournamentID, $bracket); ?>
+		    </div>
+		    <div class="data_field">
+			<span class="bold">
+			    Best of для раунду:
+			</span>
+			<div class="margin-b_30"></div>
+		        <?php displayBestOf($tournamentID, $bracket); ?>
+		    </div>
 		</div>
-	        <button>Старт</button>
+		<input type="hidden" name="id" value="<?=$tournamentID?>">
+		<div class="margin-b_30"></div>
+	        <input type="number" name="minBreak"
+		    placeholder="Мінімальний брейк">
+		<span class="date_format">
+			*20 за замовчуванням
+		</span>
+		<button>Розпочати турнір</button>
 	    </form>
         </div>
 
@@ -25,6 +45,70 @@ function displayInput($name, $placeholder)
 		<input type="number" name="<?=$name?>"
 		placeholder="<?=$placeholder?>">
 <?php }
+
+
+function displayBestOf($id, $bracket)
+{
+    if($bracket == "D/E")
+	DE_bestOf($id);
+    else if($bracket == "K/O")
+	KO_bestOf($id);
+    else if($bracket == "GroupKO")
+    {
+	displayInput("GROUP_B", "Груповий етап");
+        ?><div class="margin-b_30"></div><?php
+	KO_bestOf($id);
+    }
+}
+
+function DE_bestOf($id)
+{
+    $query = "SELECT T.LOW_Rounds, T.UP_Rounds, T.KO_Rounds
+	FROM tournament T WHERE T.id=?";
+    $data = query($query, $id);
+    
+    $LOW_R = $data[0][0]; $UP_R = $data[0][1]; $KO_R = $data[0][2];
+
+    for($i = 1; $i <= $LOW_R; $i++)
+    {
+	displayInput("LOW_B-$i", "НИЖНЯ СІТКА - РАУНД $i");
+    }
+
+    ?><div class="margin-b_30"></div><?php
+    
+    for($i = 1; $i <= $UP_R; $i++)
+    {
+	displayInput("UP_B-$i", "ВЕРХНЯ СІТКА - РАУНД $i");
+    }
+
+    ?><div class="margin-b_30"></div><?php
+
+    for($i = 1; $i <= $KO_R; $i++)
+    {
+        displayInput("KO_B-".$i, castKnockout($i, $KO_R));
+    }
+}
+
+function KO_bestOf($id)
+{
+    $query = "SELECT T.KO_Rounds, T.seeded_Round
+	FROM tournament T WHERE T.id=?";
+    $data = query($query, $id);
+    
+    $KO_R = $data[0][0]; $seeded_R = $data[0][1];
+
+
+    for($i = 1; $i < $seeded_R; $i++)
+    {
+	displayInput("KO_B-$i", "KNOCKOUT - РАУНД $i");
+    }
+    for($i = $seeded_R; $i <= $KO_R; $i++)
+    {
+	displayInput("KO_B-$i", castKnockout($i, $KO_R));
+    }
+}
+
+
 
 function displayRounds($id, $bracket)
 {
@@ -49,14 +133,14 @@ function DE_rounds($id)
 
     for($i = 1; $i <= $LOW_R; $i++)
     {
-	displayInput("UP-$i", "НИЖНЯ СІТКА - РАУНД $i");
+	displayInput("LOW_R-$i", "НИЖНЯ СІТКА - РАУНД $i");
     }
 
     ?><div class="margin-b_30"></div><?php
 
     for($i = 1; $i <= $KO_R+1; $i++)
     {
-        displayInput("KO-".$i, _castKnockout($i, $KO_R));
+        displayInput("KO_R-$i", _castKnockout($i, $KO_R));
     }
 }
 
@@ -71,11 +155,11 @@ function KO_rounds($id)
 
     for($i = 1; $i < $seeded_R; $i++)
     {
-	displayInput("KO-$i", "KNOCKOUT - РАУНД $i");
+	displayInput("KO_R-$i", "KNOCKOUT - РАУНД $i");
     }
     for($i = $seeded_R; $i <= $KO_R+1; $i++)
     {
-	displayInput("KO-".$i, _castKnockout($i, $KO_R));
+	displayInput("KO_R-$i", _castKnockout($i, $KO_R));
     }
 }
 
@@ -93,7 +177,7 @@ function GROUP_rounds($id)
 
     for($i = $grpMax; $i > $grpProceed; $i--)
     {
-	displayInput("Group-$i", "ГРУПА - МІСЦЕ $i");
+	displayInput("Group_R-$i", "ГРУПА - МІСЦЕ $i");
     }
 
     ?><div class="margin-b_30"></div><?php
