@@ -38,10 +38,7 @@ else if($_SERVER["REQUEST_METHOD"] == "POST")
 
 
 	$q = "SELECT 1 FROM league WHERE name=? AND billiardID=? 
-		  AND ageID=? AND organisationID=? AND sex=?";
-/*	adminApology(INPUT_ERROR, $name." ".$billiard." ".$age." ".$org." ".$sex);
-	exit;
-  */
+		  AND ageID=? AND organisationID=? AND sexID=?";
 
 	$data = query($q, $name, $billiard, $age, $org, $sex);
 	if(count($data) > 0)
@@ -51,7 +48,7 @@ else if($_SERVER["REQUEST_METHOD"] == "POST")
 	}
 	
 	
-	$query = "INSERT INTO league(name, ageID, sex, billiardID, organisationID) VALUES(?,?,?,?,?)";
+	$query = "INSERT INTO league(name, ageID, sexID, billiardID, organisationID) VALUES(?,?,?,?,?)";
 	query($query, $name, $age, $sex, $billiard, $org);
 	redirect(PATH_H."admin/");
 }
