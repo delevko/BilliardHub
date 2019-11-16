@@ -192,21 +192,21 @@ table.match_lobby_table .col-5 {
 @media screen and (max-width: 600px) {
 	section  {
 		width: 100%;
-    	overflow: auto;
+    	overflow: hidden;
     	padding: 0 10px;
 	}
 	.match_lobby {
-		overflow: auto;
+		overflow: hidden;
 		width: 100%;
 	}
 	.match_lobby_framesBreaksPoits_table,
 	.match_lobby_table {
 		width: 100%;
-    	overflow: auto;
+    	overflow: hidden;
 	}
 	.match_lobby_info {
 		width: 100%;
-		overflow: scroll;
+		overflow: hidden;
 	}
 	.match_lobby_table thead th {
 	padding: 10px 0px;
