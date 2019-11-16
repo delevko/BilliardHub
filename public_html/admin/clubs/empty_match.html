@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title><?=$clubName?> TABLE <?=$tableNum?></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/live_match_lobby.css"> 
+</head>
+    <body>
+		<div class="container">
+		
+		<div class="live-match-lobby">
+            <div class="live_match_info">
+                <img class="live_logo_img" src="<?=CLUB_IMG.$club_img?>" alt="club logo">
+                <span class="live_logo_text">
+                    <?=$clubName?>
+                </span>
+            </div>
+            <span class="live-match-lobby-table-num">
+        	Table #<span><?=$tableNum?></span>
+            </span>
+        </div>
+		<div class="live-match-lobby-table">
+			<h3 class="live-match-lobby-info">
+			
+			</h3>
+			<div class="live-match-lobby-player-table">
+				<div class="live-match-lobby-player">
+					<span class="live-match-lobby-player-name"></span>
+					<p>
+						<img class="live-match-lobby-player-img" alt="img" src="<?=PLAYER_IMG?>default.png">
+					</p>
+				</div>
+				<div class="live-match-lobby-frame-section">
+					<div class="margin-b_50"></div>
+					<table class="live-match-lobby-frame-table">
+						<tbody>
+							<tr>
+								<td id="leftFrames"></td>
+								<th></th>
+								<td id="rightFrames"></td>
+							</tr>
+							<tr class="live-match-lobby-frame-details">
+								<td colspan="3"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="live-match-lobby-player">
+					<span class="live-match-lobby-player-name"></span>
+					<p>
+						<img class="live-match-lobby-player-img" alt="img" src="<?=PLAYER_IMG?>default.png">
+					</p>
+				</div>
+			</div>
+			<div class="button_push">
+				<span>
+					Press CTRL+R to refresh page
+				</span>
+			</div>
+		</div>
+    </body>
+</html>
+

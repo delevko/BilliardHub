@@ -31,6 +31,9 @@ if( exists("_table", $tableID) )
 
 		array_push($rlt, changePlayer($isLeft, $tableID, $break));
 		array_push($rlt, finishFrame($tableID));
+
+		sleep(0.5);		
+		header("Refresh:0;");
 	}
 
 	die( json_encode($rlt) );

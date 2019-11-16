@@ -97,7 +97,7 @@ function finishFrame(leftP, rightP) {
 		type: "POST",
 		url: "liveQueries/live.php", 
 		data: item,
-		success: successHandler, 
+		success: successHandlerFinish, 
 		async: false
 	});
 
@@ -110,6 +110,14 @@ var successHandler = function(data, status) {
 	var res = JSON.parse(data); 
 	console.log(res);
 };
+
+var successHandlerFinish = function(data, status) {
+	//data = data != "" ? $.parseJSON(data) : {};
+	var res = JSON.parse(data); 
+	console.log(res);
+	window.location.reload(true)
+};
+
 
 $(function() {
     $('html').keydown(function(event) {

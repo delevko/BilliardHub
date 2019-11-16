@@ -67,8 +67,12 @@ if( !strcmp($tableStatus, "Occupied") )
 }
 else
 {
-	redirect("tableLobby.php?id=$tableID");
+	require("empty_match.html");
 }
+//else
+//{
+//	redirect("tableLobby.php?id=$tableID");
+//}
 
 
 //liveSparringLobby finishedSparringLobby
