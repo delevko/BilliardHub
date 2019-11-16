@@ -63,7 +63,7 @@
 		<div class="player_profile_section_ver">
 			<div class="player_profile_playerName">
 							<i class="fas fa-user"></i>
-							<div class="player_profile_header">Alan <span class="player_profile_surname"> Trigg</span>
+							<div class="player_profile_header"><?=$fName?> <span class="player_profile_surname"> <?=$lName?></span>
 							</div>
 						</div>
 			<div class="player_profile_photo">
@@ -75,13 +75,13 @@
 						<td>
 							<div class="player_profile_country">
 								<div class="player_profile_tableHeader">країна</div>
-								<div class="player_profile_tabelMean">Україна</div>
+								<div class="player_profile_tabelMean"><?=$country?></div>
 							</div>
 						</td>
 						<td>
 							<div class="player_profile_city">
 								<div class="player_profile_tableHeader">місто</div>
-								<div class="player_profile_tabelMean">Львів</div>
+								<div class="player_profile_tabelMean"><?=$city?></div>
 							</div>
 						</td>
 					</tr>
@@ -89,13 +89,13 @@
 						<td>
 							<div class="player_profile_age">
 								<div class="player_profile_tableHeader">дата народження</div>
-								<div class="player_profile_tabelMean">1970-01-01</div>
+								<div class="player_profile_tabelMean"><?=$birthday?></div>
 							</div>
 						</td>
 						<td>
 							<div class="player_profile_maxBreak">
 								<div class="player_profile_tableHeader">найвищий турнірний брейк</div>
-								<div class="player_profile_tabelMean max_break">177</div>
+								<div class="player_profile_tabelMean max_break"><?=$highestBreak?></div>
 							</div>
 						</td>
 					</tr>
