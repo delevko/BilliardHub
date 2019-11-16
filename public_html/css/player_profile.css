@@ -122,8 +122,8 @@
     height: auto;
 }
 .player_profile_personalInfo table td {
-    padding: 20px;
-    height: auto;
+    padding: 10px;
+    height: 85px;
 }
 .player_profile_personalInfo {
     width: 100%;
