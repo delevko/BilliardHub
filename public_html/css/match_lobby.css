@@ -115,6 +115,8 @@
 .match_lobby_player01-name,
 .match_lobby_player02-name {
     height: 40px;
+     max-height: 200px;
+    min-height: 200px;
 }
 .match_lobby_player-table {
     height: 200px;
