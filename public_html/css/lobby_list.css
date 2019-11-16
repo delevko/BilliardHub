@@ -103,19 +103,43 @@ tr.list-match-lobby-frame-details td {
 /*MOBILE RESPONSIVE*/
 
 @media screen and (max-width: 600px) {
-	.list-match-lobby  {
-		width: 100%;
-    	overflow: auto;
-	}
-	.list-match-lobby-player-table {
-		width: 100%;
-		overflow: auto;
-	}
-	.list-match-lobby-player01-img,
-	.list-match-lobby-player02-img {
-		width: 100%;
-		height: auto;
-	}
+ 
+.list-match-lobby-player-img {
+    width: 70px;
+    max-width: 70px;
+    height: 90px;
+    max-height: 90px;
+    object-fit: cover;
+    margin-top: 10px;
 }
+.list-match-lobby-frame-section {
+	width: 100%;
+	margin-top: 45px;
+}
+.list-match-lobby-frame-section tr th {
+    font-size: 14px;
+    padding: 10px;
+}
+.list-match-lobby-frame-section tr td {
+    font-size: 20px;
+    width: 40px;
+    max-width: 40px;
+    min-width: 40px;
+}
+.list-match-lobby-player-name {
+	font-size: 15px;
+    height: 30px;
+     max-height: 30px;
+    min-height: 30px;
+}
+.list-match-lobby-player-table {
+    height: 180px;
+    max-height: 180px;
+    min-height: 180px;
+	width: 100%;
+}
+}
+
+
 
 
