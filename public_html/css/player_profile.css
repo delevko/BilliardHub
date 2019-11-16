@@ -142,6 +142,9 @@
     align-items: center;
     justify-content: center;
 }
+.player_profile_photo {
+	border-top: none;
+}
 }
 
 
