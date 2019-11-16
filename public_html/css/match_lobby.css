@@ -97,10 +97,10 @@
 }
 .match_lobby_player01-img,
 .match_lobby_player02-img {
-    width: 100px;
-    max-width: 100px;
-    height: 120px;
-    max-height: 120px;
+    width: 70px;
+    max-width: 70px;
+    height: 100px;
+    max-height: 100px;
     object-fit: cover;
 }
 .match_lobby_frame-section tr th {
