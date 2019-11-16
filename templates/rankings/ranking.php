@@ -12,8 +12,8 @@
 	$data = query($query, $leagueID);
 	$data_count = count($data);
 
-	
-	rankingHeader( getLeagueDescription($leagueID) );
+	list($name, $billiard, $details) = getLeagueDescription($leagueID);
+	rankingHeader($name, $billiard, $details);
 
 	for($i = 0; $i < $data_count; $i++)
 	{
@@ -42,10 +42,10 @@ function getLeagueDescription($id)
 	$name = $data[0][0]; $billiard = $data[0][1];
 	$age = $data[0][2]; $sex = $data[0][3];
 
-	$name .= " ($billiard) ";
-	$name .= castDetails($age, $sex);
+	//$name .= " ($billiard) ";
+	//$name .= castDetails($age, $sex);
 
-	return $name;
+	return array($name, "$billiard", castDetails($age,$sex));
 }
 
 function displayPlayer($i, $id, $name, $img, $isLast, $pts)
@@ -69,14 +69,24 @@ function displayPlayer($i, $id, $name, $img, $isLast, $pts)
 }
 
 
-function rankingHeader($hdr)
+function rankingHeader($league, $billiard, $details)
 { ?>
     <div class="sub-container">
         <div class="section_header_700">
-            <div class="header_sign">
-				<?=$hdr?>
-			</div>
+            <div class="nameOf_league">
+		<i class="fas fa-globe-americas"></i>
+		<span>&nbsp;<?=$league?> </span>
+	    </div>
+	    <div class="second_row">
+		<div class="typeOf_league">
+		    <span><?=$billiard?></span>
+		</div>
+		<div class="detailsOf_league">
+		    <span><?=$details?></span>
+		</div>
+	    </div>
         </div>
+	<div class="margin-b_30"></div>
         <div class="list_container">
         <table class="list_table_700 rating_table">
             <colgroup>
@@ -87,18 +97,18 @@ function rankingHeader($hdr)
             <thead>
                 <tr>
                     <th>
-						<i class="fas fa-medal"></i>
-					</th>
+			<i class="fas fa-medal"></i>
+			</th>
                     <th>
-						<i class="fas fa-user"></i>
+			<i class="fas fa-user"></i>
                         <span>Гравець</span>
                     </th>
                     <th>
-						<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
                         <span>Очки</span>
                     </th>
                 </tr>
-			</thead>
+	    </thead>
             <tbody>
 <?php
 }
