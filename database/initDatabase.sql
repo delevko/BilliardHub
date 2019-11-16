@@ -15,8 +15,8 @@ DROP TABLE IF EXISTS playerTournament CASCADE;
 DROP TABLE IF EXISTS playerGroup CASCADE;
 DROP TABLE IF EXISTS groupTournament CASCADE;
 DROP TABLE IF EXISTS groupSeeding CASCADE;
-DROP TABLE IF EXISTS player CASCADE;
-DROP TABLE IF EXISTS _user CASCADE;
+-- DROP TABLE IF EXISTS player CASCADE;
+-- DROP TABLE IF EXISTS _user CASCADE;
 DROP TABLE IF EXISTS tournament CASCADE;
 
 DROP TABLE IF EXISTS league CASCADE;
@@ -132,43 +132,43 @@ CREATE TABLE club(
 
 
 -- PLAYER -------------------------------------------------------------
-CREATE TABLE player(
-	id INT NOT NULL AUTO_INCREMENT,
-	firstName VARCHAR(20) NOT NULL,
-	lastName VARCHAR(30) NOT NULL,	
-	photo VARCHAR(50) NOT NULL DEFAULT "default.png",
+-- CREATE TABLE player(
+--	id INT NOT NULL AUTO_INCREMENT,
+--	firstName VARCHAR(20) NOT NULL,
+--	lastName VARCHAR(30) NOT NULL,	
+--	photo VARCHAR(50) NOT NULL DEFAULT "default.png",
 	
-	birthday DATE,
-	country VARCHAR(30),
-	city VARCHAR(50),
-	sexID INT NOT NULL;
+--	birthday DATE,
+--	country VARCHAR(30),
+--	city VARCHAR(50),
+--	sexID INT NOT NULL;
 
-	highestBreak INT NOT NULL DEFAULT 0,
+--	highestBreak INT NOT NULL DEFAULT 0,
 	
-	PRIMARY KEY(id),
-	FOREIGN KEY(sexID) REFERENCES sex(id),
-	UNIQUE KEY(firstName, lastName)
-);
+--	PRIMARY KEY(id),
+--	FOREIGN KEY(sexID) REFERENCES sex(id),
+--	UNIQUE KEY(firstName, lastName)
+-- );
 -- --------------------------------------------------------------------
 
 
 
 -- USER ---------------------------------------------------------------
-CREATE TABLE  _user(
-	id INT NOT NULL auto_increment,
+-- CREATE TABLE  _user(
+--	id INT NOT NULL auto_increment,
 	
-	login VARCHAR(20) NOT NULL,
-	hash VARCHAR(256) NOT NULL,
-	email VARCHAR(50) NOT NULL,
-	userType VARCHAR(20) NOT NULL DEFAULT "regular",
+--	login VARCHAR(20) NOT NULL,
+--	hash VARCHAR(256) NOT NULL,
+--	email VARCHAR(50) NOT NULL,
+--	userType VARCHAR(20) NOT NULL DEFAULT "regular",
 
-	playerID INT,
+--	playerID INT,
 	
-	PRIMARY KEY(id),
-	FOREIGN KEY(playerID) REFERENCES player(id),
-	UNIQUE KEY(login),
-	UNIQUE KEY(email)
-);
+--	PRIMARY KEY(id),
+--	FOREIGN KEY(playerID) REFERENCES player(id),
+--	UNIQUE KEY(login),
+--	UNIQUE KEY(email)
+-- );
 -- --------------------------------------------------------------------
 
 
