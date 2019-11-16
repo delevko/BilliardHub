@@ -7,45 +7,45 @@ require("tournaments/index.php");
         <div class="admin_buttons">
             <div class="buttons button_tour">
                 <span><i class="fas fa-trophy"></i>
-					 Додати турнір
-				</span>
-				<a href="<?=PATH_H?>admin/create/tournament.php">
+			Додати турнір
+		</span>
+		<a href="<?=PATH_H?>admin/create/tournament.php">
                 	<button>
-						<i class="fas fa-trophy"></i> +
-					</button>
-				</a>
-            </div>
-            <div class="buttons button_player">
-                <span><i class="fas fa-user"></i>
-					 Додати гравця
-				</span>
-				<a href="<?=PATH_H?>admin/create/player.php">
-					<button>
-						<i class="fas fa-user"></i> +
-					</button>
-				</a>
+				<i class="fas fa-trophy"></i> +
+			</button>
+		</a>
             </div>
             <div class="buttons button_club">
                 <span>
-					<i class="fas fa-shield-alt"></i>
-					Додати клуб
-				</span>
-				<a href="<?=PATH_H?>admin/create/club.php">
-					<button>
-						<i class="fas fa-shield-alt"></i> +
-					</button>
-				</a>
+			<i class="fas fa-shield-alt"></i>
+			Додати клуб
+		</span>
+		<a href="<?=PATH_H?>admin/create/club.php">
+			<button>
+				<i class="fas fa-shield-alt"></i> +
+			</button>
+		</a>
             </div>
             <div class="buttons button_league">
                 <span>
-					<i class="fas fa-globe-americas"></i>
-					Додати лігу
-				</span>
+			<i class="fas fa-globe-americas"></i>
+			Додати лігу
+		</span>
                 <a href="<?=PATH_H?>admin/create/league.php">
-					<button>
-						<i class="fas fa-globe-americas"></i> +
-					</button>
-				</a>
+			<button>
+				<i class="fas fa-globe-americas"></i> +
+			</button>
+		</a>
+            </div>
+            <div class="buttons button_player">
+                <span><i class="fas fa-users"></i>
+			Додати організацію
+		</span>
+		<a href="<?=PATH_H?>admin/create/organisation.php">
+			<button>
+				<i class="fas fa-users"></i> +
+			</button>
+		</a>
             </div>
         </div>
 
