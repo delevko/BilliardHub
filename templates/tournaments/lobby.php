@@ -31,14 +31,23 @@ function tournamentHeader($name, $billiard, $details, $league) //$status
 { ?>
 <script type="text/javascript" src="<?=PATH_H?>js/tourn_header_highlight.js">
 </script>
+<link rel="stylesheet" type="text/css"
+href="<?=PATH_H?>css/tournament_lobby.css">
+
 	<div class="tour_menu_box">
         <div class="tournament_header">
             <div class="nameOf_tour">
-                <i class="fas fa-trophy"></i>
-                <span style="margin-left:5px;"><?=$name?></span>
-            </div>
+                <div class="name_icon">
+		    <i class="fas fa-trophy"></i>
+                    <span style="margin-left:5px;"><?=$name?></span>
+		</div>
 <!-- if(status == registration && userType==regular && notregistered
 display register button-->
+	        <div class="reg_button">
+		    <button>Зареєструватись</button>
+	        </div>
+            </div>
+
             <div class="second_row">
                 <div class="typeOf_tour">
                     <span><?=$billiard?> &nbsp;</span>
