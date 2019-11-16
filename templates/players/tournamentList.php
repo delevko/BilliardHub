@@ -30,7 +30,7 @@ ORDER BY 5 DESC, 4";
 		$pts = $data[$i][4]; 
 
 		$begDate = $data[$i][5]; $endDate = $data[$i][6];
-        $date = dateFormat($begDate, $endDate);
+        	$date = dateFormat($begDate, $endDate);
 
 	 	displayTournament($i+1,$id,$name,$clubName,$date,$isLast,$place,$pts);
 	}
@@ -125,13 +125,15 @@ function listFooter()
 
 function dateFormat($beg, $end)
 {
+    $beg = date("d/m/Y", strtotime($beg));
+    $end = date("d/m/Y", strtotime($end));
     if($beg == $end)
     {
         return $beg;
     }
     else
     {
-        return $beg." : ".$end;
+        return $beg." - ".$end;
     }
 }
 
