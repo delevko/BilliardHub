@@ -133,7 +133,8 @@ function framesHeader()
 						<span>очки</span>
 					</th>
 					<th>
-						<span>фрейм</span>
+						<span class="non_res">фрейм</span>
+						<span class="res">#</span>
 					</th>
 					<th>
 						<span>очки</span>
