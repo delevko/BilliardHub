@@ -223,7 +223,7 @@ table.match_lobby_table .col-5 {
 .non_res {
 	display: none;
 }
-.tour_menu_box_700 {
+.tour_menu_box_700, .nameOf_tour, .second_row {
 	width: 100%;
 }
 }
