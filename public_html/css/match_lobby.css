@@ -190,11 +190,11 @@ table.match_lobby_table .col-5 {
 }
 
 @media screen and (max-width: 600px) {
-	section  {
+/*	section  {
 		width: 100%;
     	overflow: hidden;
     	padding: 0 10px;
-	}
+	}*/
 	.match_lobby {
 		overflow: hidden;
 		width: 100%;
