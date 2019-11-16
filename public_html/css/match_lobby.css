@@ -101,6 +101,7 @@
     margin-top: 10px;
 }
 .match_lobby_frame-section {
+	width: 100%;
 	margin-top: 45px;
 }
 .match_lobby_frame-section tr th {
