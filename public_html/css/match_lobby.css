@@ -87,6 +87,42 @@
 }
 
 
+/*MOBILE RESPNSIVE (VS)*/
+
+@media screen and (max-width: 600px) {
+    .match_lobby_player01-name,
+.match_lobby_player02-name {
+    font-size: 14px;
+}
+.match_lobby_player01-img,
+.match_lobby_player02-img {
+    width: 100px;
+    max-width: 100px;
+    height: 120px;
+    max-height: 120px;
+    object-fit: cover;
+}
+.match_lobby_frame-section tr th {
+    font-size: 14px;
+    padding: 10px;
+}
+.match_lobby_frame-section tr td {
+    font-size: 20px;
+    width: 40px;
+    max-width: 40px;
+    min-width: 40px;
+}
+.match_lobby_player01-name,
+.match_lobby_player02-name {
+    height: 30px;
+}
+}
+
+
+
+
+
+
 /*********** TABLE ***********/
 
 .match_lobby_table {
