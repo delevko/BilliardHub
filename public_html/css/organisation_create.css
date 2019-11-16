@@ -1,0 +1,63 @@
+.organisation_box {
+	margin: 0 auto;
+	width: 300px;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	background-color: #33373B;
+	border-radius: 8px;
+	padding: 20px;
+	box-shadow: 0px 5px 10px #131617;
+	border-top: 3px solid #61892F;
+}
+.organisation_img img {
+	width: 100px;
+	padding: 20px 0;
+}
+.organisation_header {
+	margin-bottom: 30px;
+}
+.organisation_header span {
+	font-size: 25px;
+	text-transform: uppercase;
+}
+.organisation_form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+}
+.organisation_form input {
+	padding: 10px;
+	margin-bottom: 20px;
+	width: 223px;
+	border: none;
+	background-color: #474B4F;
+	color: white;
+	font-size: 15px;
+	outline-style: none;
+	vertical-align: middle;
+	border-radius: 4px;
+	border-left: 3px solid #61892F;
+
+}
+.organisation_form button {
+	margin-top: 20px;
+	border-radius: 4px;
+	border: none;
+	color: white;
+	font-size: 15px;
+	text-align: center;
+	width: 223px;
+	height: 38px;
+	background-color: #61892F;
+}
+.organisation_form button:hover {
+	background-color: #4F7027;
+	cursor: pointer;
+}
