@@ -131,6 +131,17 @@
     margin-top: 40px;
     height: auto;
 }
+.player_profile_playerName {
+    border-top: 3px solid #61892F;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: #222629;
+    padding: 10px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 }
 
 
