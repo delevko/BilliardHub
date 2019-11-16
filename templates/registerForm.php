@@ -45,7 +45,7 @@
 
 
 					<input type="text" name="username"
-						placeholder="Ім'я користувача">
+						placeholder="Логін">
 					<input type="email" name="email"
 						placeholder="E-mail">					
 					<div class="margin-b_30"></div>
