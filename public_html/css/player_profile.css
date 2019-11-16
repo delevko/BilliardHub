@@ -106,7 +106,12 @@
 .player_profile_section_ver {
 	display: flex;
     width: 100%;
-    height: auto;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 20px;
+    margin: 20px 0px;
+    margin-top: 40px;           
+    border-bottom: 1px solid #474B4F;
 }
 .player_profile_personalInfo table {
     width: 100%;
