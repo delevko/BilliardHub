@@ -145,6 +145,9 @@
 .player_profile_photo {
 	border-top: none;
 }
+.max_break {
+	padding: 0;
+}
 }
 
 
