@@ -92,6 +92,42 @@
 	border-left: 1px solid #474B4F;
 }
 
+
+/*MOBILE RESPONSIVE*/
+
+@media screen and (max-width: 600px) {
+	.player_profile_section01 {
+		display: none;
+	}
+    .profile_container {
+    width: 100%;
+    margin: 0 auto;
+}
+.player_profile_section_ver {
+	display: flex;
+    width: 100%;
+    height: auto;
+}
+.player_profile_personalInfo table {
+    width: 100%;
+    overflow: auto;
+    height: auto;
+}
+.player_profile_personalInfo table td {
+    padding: 20px;
+}
+.player_profile_personalInfo {
+    width: 100%;
+    border-top: 3px solid #61892F;
+    margin-top: 40px;
+    height: auto;
+}
+}
+
+
+
+
+
 /*SECTION 02*/
 
 .player_profile_section02 {
