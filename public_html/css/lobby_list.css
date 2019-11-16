@@ -116,7 +116,7 @@ tr.list-match-lobby-frame-details td {
 }
 .list-match-lobby-frame-section {
 	width: 100%;
-
+	margin-top: 0px;
 }
 .list-match-lobby-frame-section tr th {
     font-size: 14px;
