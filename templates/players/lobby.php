@@ -67,7 +67,7 @@
 							</div>
 						</div>
 			<div class="player_profile_photo">
-					<img class="player_profile_img" src="/Users/MacBook/Desktop/GitHub/BilliardHub/img/dan.jpg" alt="Фото гравця">
+					<img class="player_profile_img" src="<?=PLAYER_IMG.$img?>" alt="Фото гравця">
 			</div>
 			<div class="player_profile_personalInfo">
 				<table>
