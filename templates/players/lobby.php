@@ -57,6 +57,57 @@
 			</div>
 		</div> <br>
 
+
+		<!-- MOBILE RESPONSIVE SECTION 01 (VERTICAL) -->
+
+		<div class="player_profile_section_ver">
+			<div class="player_profile_playerName">
+							<i class="fas fa-user"></i>
+							<div class="player_profile_header">Alan <span class="player_profile_surname"> Trigg</span>
+							</div>
+						</div>
+			<div class="player_profile_photo">
+					<img class="player_profile_img" src="/Users/MacBook/Desktop/GitHub/BilliardHub/img/dan.jpg" alt="Фото гравця">
+			</div>
+			<div class="player_profile_personalInfo">
+				<table>
+					<tr>
+						<td>
+							<div class="player_profile_country">
+								<div class="player_profile_tableHeader">країна</div>
+								<div class="player_profile_tabelMean">Україна</div>
+							</div>
+						</td>
+						<td>
+							<div class="player_profile_city">
+								<div class="player_profile_tableHeader">місто</div>
+								<div class="player_profile_tabelMean">Львів</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="player_profile_age">
+								<div class="player_profile_tableHeader">дата народження</div>
+								<div class="player_profile_tabelMean">1970-01-01</div>
+							</div>
+						</td>
+						<td>
+							<div class="player_profile_maxBreak">
+								<div class="player_profile_tableHeader">найвищий турнірний брейк</div>
+								<div class="player_profile_tabelMean max_break">177</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div> <br>
+		
+
+
+
+
+
 			<!-- SECTION 02 (CIRCLES) -->
 
 		<div class="player_profile_section02">
