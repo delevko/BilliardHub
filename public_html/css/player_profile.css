@@ -95,6 +95,10 @@
 
 /*MOBILE RESPONSIVE*/
 
+.player_profile_section_ver {
+	display: none;
+}
+
 @media screen and (max-width: 600px) {
 	.player_profile_section01 {
 		display: none;
