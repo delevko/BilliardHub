@@ -143,6 +143,12 @@ tr.list-match-lobby-frame-details td {
 .list-match-lobby-player-table {
     padding-top: 10px;
 }
+tr.list-match-lobby-frame-details td {
+	height: 15px;
+}
+.list-match-lobby-frame-section table tr.list-match-lobby-frame-details td {
+	font-size: 10px;
+}
 }
 
 
