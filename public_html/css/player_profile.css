@@ -113,8 +113,7 @@
     align-items: center;
     flex-direction: column;
     padding-bottom: 20px;
-    margin: 20px 0px;
-    margin-top: 40px;           
+    margin: 20px 0px;          
     border-bottom: 1px solid #474B4F;
 }
 .player_profile_personalInfo table {
@@ -123,7 +122,7 @@
     height: auto;
 }
 .player_profile_personalInfo table td {
-    padding: 20px;
+    padding: 10px;
 }
 .player_profile_personalInfo {
     width: 100%;
