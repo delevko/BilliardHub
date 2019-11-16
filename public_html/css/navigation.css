@@ -284,8 +284,8 @@ header * {
   }
   .tournament_header {
     width: 100%;
-    padding: 0 30px;
-    margin-bottom: 40px;
+    padding: 0;
+    margin-bottom: 20px;
   }
   .tour_menu a {display: none;}
   .tour_menu a.icon {
