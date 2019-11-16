@@ -1,8 +1,9 @@
 .match_lobby {
-	max-width: 700px;
+	/*max-width: 700px;*/
 	width: 700px;
 	border-top: 3px solid #61892F;
 	border-radius: 8px;
+	overflow: auto;
 }
 .match_lobby_info {
 	padding: 12px;
