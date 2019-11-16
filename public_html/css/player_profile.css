@@ -123,6 +123,7 @@
 }
 .player_profile_personalInfo table td {
     padding: 10px;
+    height: auto;
 }
 .player_profile_personalInfo {
     width: 100%;
