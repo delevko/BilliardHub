@@ -5,7 +5,7 @@
 list($name, $billiard, $details, $league, $bracket) = 
 	getFullName($tournamentID);
 
-tournamentHeader($name, $billiard, $details, $league); //, $status
+tournamentHeader($name, $billiard, $details, $league, $status,$tournamentID);
 
 
 if( !strcmp($status, "Announced") )
@@ -27,7 +27,7 @@ else
 	redirect("");
 
 
-function tournamentHeader($name, $billiard, $details, $league) //$status
+function tournamentHeader($name,$billiard,$details,$league,$status,$id)
 { ?>
 <script type="text/javascript" src="<?=PATH_H?>js/tourn_header_highlight.js">
 </script>
@@ -41,11 +41,7 @@ href="<?=PATH_H?>css/tournament_lobby.css">
 		    <i class="fas fa-trophy"></i>
                     <span style="margin-left:5px;"><?=$name?></span>
 		</div>
-<!-- if(status == registration && userType==regular && notregistered
-display register button-->
-	        <div class="reg_button">
-		    <button>Зареєструватись</button>
-	        </div>
+		<?php tournRegButtonRender($status, $id); ?>
             </div>
 
             <div class="second_row">

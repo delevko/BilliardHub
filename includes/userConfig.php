@@ -10,6 +10,7 @@ if(!userCheck())
 	redirect(PATH_H."logout.php");
 }
 
+
 require("functions.php");
 
 ?>

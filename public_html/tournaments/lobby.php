@@ -8,6 +8,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 	if( !exists("tournament", $tournamentID) )
 		redirect("");
 
+	$onClick = "";
 	if( nonEmpty($_GET["onClick"]) )
 		$onClick = $_GET["onClick"];
 	else

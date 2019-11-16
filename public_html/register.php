@@ -84,16 +84,19 @@ else if($_SERVER["REQUEST METHOD"] = "POST")
     }
 
 
-
-    $query1 = "INSERT INTO _user(login, hash, email, userType)
-		VALUES(?,?,?,?)";
-    $query2 = "INSERT INTO player(firstName,lastName,photo,birthday,country, city)
+    $query1 = "INSERT INTO player(firstName,lastName,photo,birthday,country, city)
 		VALUES(?,?,?,?,?,?)";
-    
-	query($query1, $login, $pwd, $email, "regular");
-	query($query2, $fName, $lName, $photo, $birthday, $country, $city);
+    query($query1, $fName, $lName, $photo, $birthday, $country, $city);
+    sleep(1);
+
+    $data=query("SELECT id FROM player WHERE firstName=? AND lastName=?", $fName, $lName);
+    $playerID = $data[0][0];
+
+    $query1 = "INSERT INTO _user(login, hash, email, userType, playerID)
+		VALUES(?,?,?,?,?)";    
+    query($query1, $login, $pwd, $email, "regular", $playerID);
 	
-	redirect("login.php");
+    redirect("login.php");
 }
 
 ?>

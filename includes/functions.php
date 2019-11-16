@@ -100,7 +100,7 @@ function adminButton() { ?>
 <?php }
 function playerButton($player) { ?>
         <a href="<?=PATH_H?>player/settings.php" class="login">
-            <i class="fas fa-user"></i>
+            <i class="fas fa-user-cog"></i>
             <span>&nbsp;<?=$player.""?></span>
         </a>
 <?php }
@@ -119,9 +119,75 @@ function logoutButton() { ?>
 <?php }
 function registerButton() { ?>
         <a href="<?=PATH_H?>register.php" class="login">
-            <i class="fas fa-user"></i>
+            <i class="fas fa-user-plus"></i>
             <span>&nbsp;Зареєструватись</span>
         </a>
+<?php }
+
+
+function tournRegButtonRender($status, $tournamentID)
+{
+    if($status == "Registration")
+    {
+        if( isset($_SESSION["id"]) )
+        {
+            if( $_SESSION["id"]["type"] == "regular" )
+            {
+		if( registered($_SESSION["id"]["login"], $tournamentID) )
+		    tournRegisteredUser();
+		else
+                    tournRegisterUser($tournamentID);
+     	    }
+        }
+	else
+	    tournRegisterLogin();
+    }
+    else if($status != "Finished")
+    {
+        if( isset($_SESSION["id"]) )
+        {
+            if( $_SESSION["id"]["type"] == "regular" )
+            {
+		if( registered($_SESSION["id"]["login"], $tournamentID) )
+		    tournRegisteredUser();
+	    }
+	}
+    }
+}
+
+function registered($login, $tournament)
+{
+    $query = "SELECT 1 FROM playerTournament PT
+	JOIN _user U ON PT.playerID=U.playerID
+	WHERE U.login=? AND PT.tournamentID=?";
+    $data = query($query, $login, $tournament);
+
+    if( count($data) > 0 )
+	return true;
+    else
+        return false;
+}
+
+function tournRegisterLogin()
+{ ?>
+		<a class="reg_button" href="<?=PATH_H?>login.php">
+                    <button>Зареєструватись</button>
+                </a>
+<?php }
+
+function tournRegisterUser($tournamentID)
+{ ?>
+		<a class="reg_button"
+		href="<?=PATH_H?>tournaments/register.php?id=<?=$tournamentID?>">
+                    <button>Зареєструватись</button>
+                </a>
+<?php }
+
+function tournRegisteredUser()
+{ ?>
+		<div class="reg_button_done">
+                    <button>Ви зареєстровані</button>
+                </div>
 <?php }
 
 
