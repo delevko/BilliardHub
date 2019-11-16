@@ -193,6 +193,15 @@ table.match_lobby_table .col-5 {
 	.match_lobby {
 		width: 100%;
 	}
+	.match_lobby_framesBreaksPoits_table,
+	.match_lobby_table {
+		width: 100%;
+    	overflow: hidden;
+	}
+	.match_lobby_info {
+		width: 100%;
+		overflow: hidden;
+	}
 	.match_lobby_table thead th {
 	padding: 10px 0px;
 	font-size: 13px;
@@ -213,6 +222,9 @@ table.match_lobby_table .col-5 {
 }
 .non_res {
 	display: none;
+}
+.tour_menu_box_700 {
+	width: 100%;
 }
 }
 
