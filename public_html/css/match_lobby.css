@@ -1,9 +1,8 @@
 .match_lobby {
-	/*max-width: 700px;*/
+	max-width: 700px;
 	width: 700px;
 	border-top: 3px solid #61892F;
 	border-radius: 8px;
-	overflow-x: hidden;
 }
 .match_lobby_info {
 	padding: 12px;
@@ -192,17 +191,7 @@ table.match_lobby_table .col-5 {
 
 @media screen and (max-width: 600px) {
 	.match_lobby {
-		overflow: hidden;
 		width: 100%;
-	}
-	.match_lobby_framesBreaksPoits_table,
-	.match_lobby_table {
-		width: 100%;
-    	overflow: hidden;
-	}
-	.match_lobby_info {
-		width: 100%;
-		overflow: hidden;
 	}
 	.match_lobby_table thead th {
 	padding: 10px 0px;
