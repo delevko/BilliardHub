@@ -176,6 +176,15 @@ form .margin_b40px {
 	margin-bottom: 40px;
 }
 
- 
 
+
+ 
+/*MOBILE RESPNSIVE TABLE*/
+
+
+@media screen and (max-width: 600px) {
+	.settings_box {
+		width: 100%;
+	}
+}
 
