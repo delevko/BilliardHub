@@ -103,7 +103,9 @@ tr.list-match-lobby-frame-details td {
 /*MOBILE RESPONSIVE*/
 
 @media screen and (max-width: 600px) {
- 
+.list-match-lobby {
+	width: 100%;
+}
 .list-match-lobby-player-img {
     width: 70px;
     max-width: 70px;
