@@ -119,14 +119,14 @@ tr.list-match-lobby-frame-details td {
 	margin-top: 0px;
 }
 .list-match-lobby-frame-section tr th {
-    font-size: 14px;
+    font-size: 12px;
     padding: 10px;
 }
 .list-match-lobby-frame-section tr td {
-    font-size: 20px;
-    width: 40px;
-    max-width: 40px;
-    min-width: 40px;
+    font-size: 18px;
+    width: 30px;
+    max-width: 30px;
+    min-width: 30px;
 }
 .list-match-lobby-player-name {
 	font-size: 15px;
