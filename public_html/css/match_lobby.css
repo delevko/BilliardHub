@@ -91,19 +91,17 @@
 /*MOBILE RESPNSIVE (VS)*/
 
 @media screen and (max-width: 600px) {
-    .match_lobby_player01-name,
-.match_lobby_player02-name {
-    font-size: 14px;
-}
+ 
 .match_lobby_player-img {
     width: 70px;
     max-width: 70px;
     height: 90px;
     max-height: 90px;
     object-fit: cover;
+    margin-top: 10px;
 }
 .match_lobby_frame-section {
-	margin-top: 30px;
+	margin-top: 40px;
 }
 .match_lobby_frame-section tr th {
     font-size: 14px;
@@ -116,6 +114,7 @@
     min-width: 40px;
 }
 .match_lobby_player-name {
+	font-size: 14px;
     height: 30px;
      max-height: 30px;
     min-height: 30px;
