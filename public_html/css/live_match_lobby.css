@@ -17,9 +17,9 @@ table {
     width: 100%;
     margin: 50 auto;
 }
-.margin-b_50{
+/*.margin-b_50{
 	margin-bottom: 50px;
-}
+}*/
 /***** INFO SECTION *****/
 
 .live-match-lobby {
@@ -53,6 +53,7 @@ table {
 .live-match-lobby-table-num {
     color: white;
     font-size: 30px;
+    margin-right: 20px;
 }
 .live-match-lobby-info {
     padding: 20px;
@@ -79,6 +80,9 @@ table {
     background-color: #54782A;
     box-shadow: 0px -5px 40px #151719;
     border-radius: 8px;
+}
+.live-match-lobby-player-table div {
+    flex: 1;
 }
 .live-match-lobby-player {
     padding: 20px;
