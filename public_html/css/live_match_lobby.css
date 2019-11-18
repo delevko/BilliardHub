@@ -101,9 +101,9 @@ table {
     border-radius: 6px;
     overflow: hidden;
 }
-.live-player-name span {
+.live-match-lobby-player-name {
     color: white;
-    font-size: 30px !important;
+    font-size: 30px;
 }
 .live-match-lobby-player-img {
     width: 240px;
