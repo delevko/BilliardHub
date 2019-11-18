@@ -40,7 +40,7 @@ table {
 .live_logo_img {
     padding: 10px;
     padding-top: 10px;
-    width: 150px;
+    width: 100px;
     height: auto;
     background-color: #222629;
 }
@@ -110,10 +110,10 @@ table {
     font-size: 40px;
 }
 .live-match-lobby-player-img {
-    width: 240px;
-    max-width: 240px;
-    height: 303px;
-    max-height: 303px;
+    width: 300px;
+    max-width: 300px;
+    height: 379px;
+    max-height: 379px;
     object-fit: cover;
     border: 8px solid #3B531E;
     border-radius: 8px;
