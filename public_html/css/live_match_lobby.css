@@ -103,7 +103,7 @@ table {
 }
 .live-player-name span {
     color: white;
-    font-size: 30px;
+    font-size: 30px !important;
 }
 .live-match-lobby-player-img {
     width: 240px;
