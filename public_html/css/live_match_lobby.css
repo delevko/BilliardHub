@@ -141,8 +141,7 @@ table {
 .live-match-lobby-frame-section {
     padding: 0px 50px;
     margin-top: 90px;
-    display: flex;
-    justify-content: center;
+    margin: 0 auto;
 }
 .live-match-lobby-frame-section table tr.live-match-lobby-frame-details td {
     font-size: 20px;
