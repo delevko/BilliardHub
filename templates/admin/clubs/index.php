@@ -54,6 +54,7 @@ function displayClubHeader()
 { ?>
 	<div class="sub-container">
 		<div class="section_header_700">
+			<i class="fas fa-shield-alt"></i>
 			<div class="header_sign">клуби</div>
 		</div>
 		<div class="list_container">
