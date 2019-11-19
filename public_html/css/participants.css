@@ -116,9 +116,12 @@ table.participants_table .col-6 {
 }
 figure {
 	margin: 0 auto;
+	width: 100%;
+	height: 300px;
 	min-height: 265px;
 	max-height: 265px;
 	z-index: 0;
+	object-fit: cover;
 }
 .players_list_item_box {
 	max-width: 230px;
