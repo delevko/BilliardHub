@@ -107,12 +107,12 @@ function printLiveMatch($player1, $score1, $points1, $break1, $img1, $player2, $
 					<tbody>
 						<tr>
 							<td><?=$score1?></td>
-							<th>Фрейми</th>
+							<th>(9)</th>
 							<td><?=$score2?></td>
 						</tr>
-						<tr class="list-match-lobby-frame-details">
+						<!-- <tr class="list-match-lobby-frame-details">
 							<td colspan="3">Best of <?=$bestOf?></td>
-						</tr>
+						</tr> -->
 						<tr>
 							<td><?=$points1?></td>
 							<th>Очки</th>
