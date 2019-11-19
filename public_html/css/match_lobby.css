@@ -53,6 +53,7 @@
 	height: auto;
 	max-height: 170px;
 	border-radius: 4px;
+	object-fit: cover;
 }
 .match_lobby_frame-section tr th {
 	font-size: 17px;
