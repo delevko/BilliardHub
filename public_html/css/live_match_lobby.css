@@ -113,6 +113,7 @@ table {
     color: white;
     font-size: 40px;
     text-align: center;
+    margin: 0 auto;
 }
 .live-match-lobby-player-img {
     width: 100%;
@@ -172,7 +173,7 @@ table {
     color: #486724;
     font-size: 150px;
 }
-.finished_match_sing {
+.finished_match_sing td {
     font-size: 90px;
     margin-bottom: 50px;
 }
