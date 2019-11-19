@@ -180,10 +180,11 @@ table {
     color: #486724;
     font-size: 150px;
 }
-.live-match-lobby-frame-section table tr.finished_match_sign td {
+.live-match-lobby-frame-section span {
     font-size: 40px;
-    padding-bottom: 70px;
+    margin: 20px 0 70px 0;
     background-color: #222629;
+    border-radius: 4px;
     padding: 10px;
 }
 .button_push {
