@@ -62,6 +62,7 @@
 	height: auto;
 	max-height: 170px;
 	border-radius: 4px;
+	object-fit: cover;
 }
 .list-match-lobby-frame-section tr th {
 	font-size: 17px;
