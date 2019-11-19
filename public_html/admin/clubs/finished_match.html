@@ -25,16 +25,23 @@
 				<?=$matchInfo?> - Зустріч <?=$matchNum?>
 			</h3>
 			<div class="live-match-lobby-player-table">
-				<div class="live-match-lobby-player">
-					<span class="live-match-lobby-player-name"><?=$player1?></span>
-					<p>
+				<div id="leftPlayer" class="<?=$player1class?>">
+					<div class="live_img_box pl_img">
 						<img class="live-match-lobby-player-img" alt="img" src="<?=PLAYER_IMG.$img1?>">
-					</p>
+					</div>
+					<div class="live-player-name">
+						<span class="live-match-lobby-player-name">
+							<?=$player1?>
+						</span>
+					</div>
 				</div>
 				<div class="live-match-lobby-frame-section">
 					<div class="margin-b_50"></div>
 					<table class="live-match-lobby-frame-table">
 						<tbody>
+							<tr class="finished_match_sing">
+								<td colspan="3">Матч завершено.</td>
+							</tr>
 							<tr>
 								<td id="leftFrames"><?=$score1?></td>
 								<th>Frames</th>
@@ -46,11 +53,15 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="live-match-lobby-player">
-					<span class="live-match-lobby-player-name"><?=$player2?></span>
-					<p>
+				<div id="rightPlayer" class="<?=$player2class?>">
+					<div class="live_img_box pl_img">
 						<img class="live-match-lobby-player-img" alt="img" src="<?=PLAYER_IMG.$img2?>">
-					</p>
+					</div>
+					<div class="live-player-name">
+						<span class="live-match-lobby-player-name">
+							<?=$player2?>
+						</span>
+					</div>
 				</div>
 			    <script type="text/javascript" src="<?=PATH_H?>js/finishedLobby.js"> </script>
 			</div>
