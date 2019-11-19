@@ -26,7 +26,7 @@
 .player_profile_img {
 	width: 100%;
 	border-radius: 4px;
-	object-fit: contain;
+	object-fit: cover;
 }
 .player_profile_personalInfo {
 	width: 650px;
