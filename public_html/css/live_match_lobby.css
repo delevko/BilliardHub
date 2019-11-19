@@ -114,7 +114,6 @@ table {
 }
 .live-match-lobby-player-img {
     width: 100%;
-    max-width: 300px;
     height: 420px;
     max-height: 420px;
     object-fit: cover;
