@@ -57,7 +57,7 @@ table {
 }
 .live-match-lobby-info {
     padding: 20px;
-    margin-bottom: 0;
+    margin: 0 auto;
     background-color: transparent;
     color: white;
     text-transform: uppercase;
@@ -138,6 +138,9 @@ table {
     /*padding: 5px 40px;*/
     vertical-align: middle;
 }
+.best_of{
+    font-size: 60px !important;
+}
 .live-match-lobby-frame-section {
     padding: 0px 50px;
     margin-top: 90px;
@@ -173,13 +176,7 @@ table {
  }
 .button_push span {
     color: #555F68;
-    font-size: 20px;
+    font-size: 35px;
     margin-bottom: 10px;
-}
-.fa-power-off {
-    color: #E73F53;
-}
-.fa-swimmer {
-    color: #55CAFF;
 }
 
