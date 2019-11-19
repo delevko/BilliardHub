@@ -16,7 +16,7 @@ for($i = 0; $i < $data_count; $i++)
     $id = $data[$i][0]; $counter = $data[$i][1];
     $rType = $data[$i][2];
 
-    printMatch($id, $counter, $rType);
+    printMatch($id, $counter, $rType, $tournamentID);
 }
 
 if($data_count < 1)
@@ -27,7 +27,7 @@ if($data_count < 1)
 
 
 
-function printMatch($id, $counter, $rType)
+function printMatch($id, $counter, $rType, $tournID)
 {
     $grpORround = ($rType=="Group") ? "GT.groupNum" : "M.roundNo";
 
@@ -65,7 +65,7 @@ WHERE M.id=?";
 	$header = castHeader($rndType,$rndNo,$KO_R,$seeded_R);
 
 
-	displayHeader($matchID, $counter, $header);
+	displayHeader($tournID, $matchID, $counter, $header);
 
 	printLiveMatch($player1, $score1, $points1, $break1, $img1, $player2, $score2, $points2, $break2, $img2, $bestOf);
 
@@ -90,10 +90,10 @@ function printPlayer($name, $img)
 
 
 
-function displayHeader($matchID, $matchNo, $header)
+function displayHeader($tID, $mID, $matchNo, $header)
 { ?>
    <div class="list-match-lobby pointer"
-	onclick="openMatchLobby(<?=$matchID?>);">
+	onclick="openMatchLobby(<?=$tID?>, <?=$mID?>);">
 		<h3 class="list-match-lobby-info">
 			Зустріч #<?=$matchNo?>&emsp; | &emsp;<?=$header?>
 		</h3>

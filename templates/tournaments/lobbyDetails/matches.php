@@ -116,11 +116,11 @@ function roundFooter()
 
 
 
-function displayMatch($counter, $last,$matchID, $player1, $score1, $player2, $score2, $bestOf, $link, $live)
+function displayMatch($tID,$counter,$last,$mID,$player1,$score1,$player2,$score2,$bestOf,$link,$live)
 {
 	$e_o = ($counter%2) ? "odd" : "even"; 
 ?>
-	<tr onclick='openMatchLobby(<?=$matchID?>);'
+	<tr onclick='openMatchLobby(<?=$tID?>, <?=$mID?>);'
 		class="tbody_<?=$e_o?> pointer">
 		<td class="bold <?=$e_o?>_num<?=($last)?" radius_bl":""?>">
 			<?=$counter?>
@@ -204,7 +204,7 @@ WHERE M.tournamentID=? AND M.roundType=? AND ".$grpORround.
 	$last = ($i+1 < $data_counter) ? false : true;
 	$live = ($status=="Live");
 
-		displayMatch($counter,$last,$matchID, $player1, $score1, $player2, $score2, $bestOf, $youtube, $live);
+		displayMatch($tournID,$counter,$last,$matchID, $player1, $score1, $player2, $score2, $bestOf, $youtube, $live);
 	}
 }
 

@@ -1,16 +1,17 @@
 
 <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/match_lobby.css"> 
-<div class="sub-container">
-
 
 <?php
 
-	list($tournamentName,$tournamentID,$status,$billiard,$details,$league) = 
-		getMainData($matchID);
-
-	tournamentHeader($tournamentID, $tournamentName, $billiard, $details, $league);
-	lobby($matchID);
-
+$matchID = isset($_GET["matchID"]) ? $_GET["matchID"] : null;
+if( !exists("_match", $matchID) )
+{
+	redirect("");
+}
+lobby($matchID);
+?>
+</div>
+<?php
 
 
 function lobby($matchID)
@@ -36,29 +37,6 @@ function lobby($matchID)
 		framesFooter();
 	}
 }
-
-
-function tournamentHeader($id, $name, $billiard, $details, $league)
-{ ?>
-    <div class="tour_menu_box_700">
-        <div class="tournament_header_700 pointer"
-		onclick="openTournamentLobby(<?=$id?>)">
-            <div class="nameOf_tour">
-                <i class="fas fa-trophy"></i>
-                <span style="margin-left:5px;"><?=$name?></span>
-            </div>
-            <div class="second_row">
-                <div class="typeOf_tour">
-                    <span><?=$billiard?> &nbsp;</span>
-                    <span><?=$details?></span>
-                </div>
-                <div class="organOf_tour">
-                    <span><?=$league?></span>
-                </div>
-            </div>
-        </div>
-	</div>
-<?php }
 
 
 function displayYTlink($youtube)
@@ -299,5 +277,3 @@ WHERE T.id=?;";
 }
 
 ?>
-
-	</div>

@@ -158,6 +158,8 @@ function liveLobby($bracket, $tournamentID, $onClick)
 			require("lobbyDetails/groupStanding.php");
 		else if( !strcmp($onClick, "breaks") )
 			require("lobbyDetails/breaks.php");
+		else if( !strcmp($onClick, "matchLobby") )
+			require("lobbyDetails/matchLobby.php");
 		else
 			redirect("");
 	}
@@ -205,6 +207,8 @@ function finishedLobby($bracket, $tournamentID, $onClick)
 			require("lobbyDetails/groupStanding.php");
 		else if( !strcmp($onClick, "breaks") ) 
 			require("lobbyDetails/breaks.php");
+		else if( !strcmp($onClick, "matchLobby") )
+			require("lobbyDetails/matchLobby.php");
 		else
 			redirect("");
 	}

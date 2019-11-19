@@ -1,8 +1,9 @@
 function openPlayerLobby(ID) {
 	window.location.href = ('http://billiardhub.net/players/lobby.php?id='+ID);
 }
-function openMatchLobby(ID) {
-    window.location.href = ('http://billiardhub.net/tournaments/matchLobby.php?id=' + ID);
+function openMatchLobby(tID, mID) {
+    window.location.href = ('http://billiardhub.net/tournaments/lobby.php?id=' + tID + 
+	'&onClick=matchLobby&matchID=' + mID);
 }
 function openTournamentLobby(ID) {
 	window.location.href = ('http://billiardhub.net/tournaments/lobby.php?id=' + ID + '&onClick=default');

@@ -107,16 +107,16 @@ ORDER BY M.counter";
 		else
 			$upFlag = false;
 
-		printBracketMatch($i, $matchID, $counter, $player1, $player1Score, $seed1, $player2, $player2Score, $seed2, $lowFlag, $upFlag, $loserMatch, $winnerMatch, $youtube, $liveFlag);
+		printBracketMatch($i, $matchID, $counter, $player1, $player1Score, $seed1, $player2, $player2Score, $seed2, $lowFlag, $upFlag, $loserMatch, $winnerMatch, $youtube, $liveFlag, $tournID);
     }
 }
 
-function printBracketMatch($i, $matchID, $matchNum, $player1, $score1, $seed1, $player2, $score2, $seed2, $lowFlag, $upFlag, $loserID, $winnerID, $youtube, $liveFlag)
+function printBracketMatch($i, $mID, $matchNum, $player1, $score1, $seed1, $player2, $score2, $seed2, $lowFlag, $upFlag, $loserID, $winnerID, $youtube, $liveFlag, $tID)
 { ?>
 		<div class="bracket_item<?=($i==0)?" first-match":""?>">
 		<div class="null"></div>
 		<div class="match_number pointer"
-		onclick="openMatchLobby(<?=$matchID?>);"> 
+		onclick="openMatchLobby(<?=$tID?>, <?=$mID?>);"> 
 			<?=$matchNum?>
 		</div>
 		<div class="youtube_logo<?=(isset($youtube)?" pointer":"")?>">
