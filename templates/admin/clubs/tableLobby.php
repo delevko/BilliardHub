@@ -149,6 +149,7 @@ FROM _match M
 WHERE MD.status=? AND T.clubID=?
 AND X.id != -2 AND Y.id != -2 ORDER BY 2";
 
+	displayLiveTableLink($tableID);
 	
 	$data = query($query, "Announced", $clubID);
 	if(count($data)>0)
@@ -189,7 +190,7 @@ function showOccupied($tableID, $clubID)
 
 	occupiedHeader($tournamentName." - Зустріч #".$matchCounter);
 
-	displayLiveTableLink($tableID, $matchID);
+	displayLiveTableLink($tableID);
 	
 	
 	if( isset($youtube) )
@@ -210,12 +211,13 @@ function showOccupied($tableID, $clubID)
 	occupiedFooter();
 }
 
-function displayLiveTableLink($tableID, $matchID)
+function displayLiveTableLink($tableID)
 { ?>
-	<a href="live-match-lobby.php?tableID=<?=$tableID?>
-		&matchID=<?=$matchID?>">
+	<a href="live-match-lobby.php?tableID=<?=$tableID?>">
 		<div class="available_form">
-			<button>ЖИВИЙ МАТЧ</button>
+			<button>
+				Відкрити стіл
+			</button>
 		</div>
 	</a>
 
