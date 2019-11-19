@@ -12,10 +12,10 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-.container {
+.live-container {
     text-align: center;
     width: 100%;
-    margin: 50 auto;
+    margin: 0 auto;
 }
 /*.margin-b_50{
 	margin-bottom: 50px;
@@ -96,7 +96,7 @@ table {
     box-shadow: 0px 0px 20px #3B531E;
     border-radius: 8px;
     /*border: 1px solid #fff;*/
-    background-color: #779C7D;
+    background-color: #CC9C29;
 }
 .live-player-name {
     width: 100%;

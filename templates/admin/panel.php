@@ -47,6 +47,16 @@ require("tournaments/index.php");
 			</button>
 		</a>
             </div>
+            <div class="buttons button_player">
+                <span><i class="fas fa-user"></i>
+			Додати гравця
+		</span>
+		<a href="<?=PATH_H?>admin/create/player.php">
+			<button>
+				<i class="fas fa-user"></i> +
+			</button>
+		</a>
+            </div>
         </div>
 
         <div class="admin_section02">

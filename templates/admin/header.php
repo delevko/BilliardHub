@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Billiar Hub - <?=htmlspecialchars($title)?></title>
+    <title>Billiard Hub - <?=htmlspecialchars($title)?></title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/normalize.css">
     <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/navigation.css">

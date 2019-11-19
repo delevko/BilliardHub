@@ -13,7 +13,7 @@
 
 </head>
     <body>
-		<div class="container">
+		<div class="live-container">
 		<div class="live-match-lobby">
 			<div class="live_match_info">
 				<img class="live_logo_img" src="<?=CLUB_IMG.$club_img?>" alt="club logo">
@@ -47,14 +47,13 @@
 								<td id="leftScore">
 									<?=$score1?>
 								</td>
-								<th>ФРЕЙМИ</th>
+								<th>(<?=$bestOf?>)</th>
 								<td id="rightScore">
 									<?=$score2?>
 								</td>
 							</tr>
 							<tr class="live-match-lobby-frame-details">
 								<td class="live_borders" colspan="3">
-									Best of <b><?=$bestOf?></b>
 								</td>
 							</tr>
 							<tr>

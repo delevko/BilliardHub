@@ -21,6 +21,9 @@ if( exists("_table", $tableID) )
 		WHERE M.id = 
 			(SELECT T.matchID FROM _table T WHERE T.id=?)";
 		$data = query($query, $tableID);
+		if(count($data) < 1)
+			header("Refresh:0");
+
 		$tournamentID = $data[0][0]; $status = $data[0][1];
 
 		if($status == "Finished")

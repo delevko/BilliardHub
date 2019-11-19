@@ -39,7 +39,7 @@ function prepareRound($roundType, $offset, $R, $seeded_R, $tournamentID)
 	{
 		for($i = $R; $i >= 1; $i--)
 		{ ?>
-			<div class="bracket_column <?=$roundType?>-<?=$i?>">
+			<div class="bracket_column<?=$tournamentID?> <?=$roundType?>-<?=$i?>">
 			<?php printRound($tournamentID, $i, $roundType, ($i==$R)?true:false);?>
 			</div>
 		<?php
