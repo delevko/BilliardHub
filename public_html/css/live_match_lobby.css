@@ -127,7 +127,7 @@ table {
     height: 420px;
     max-height: 420px;
     object-fit: cover;
-    border: 8px solid #3B531E;
+    /*border: 8px solid #3B531E;*/
     border-radius: 8px;
 }
 .live-match-lobby-frame-section tr th {
