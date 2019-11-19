@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/lobby_list.css"> 
-<meta http-equiv="refresh" content="3;">
+<meta http-equiv="refresh" content="5;">
 
 
 <?php
