@@ -6,7 +6,7 @@
 
 	$data = query("SELECT P.id, P.firstName, P.lastName, P.photo,
 				P.birthday, P.country, P.city FROM player P 
-				WHERE P.id NOT IN(-1,-2) ORDER BY 2");
+				WHERE P.id NOT IN(-1,-2) ORDER BY 3, 2");
 	$data_count = count($data);
 
 

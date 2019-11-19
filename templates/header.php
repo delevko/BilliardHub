@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Billiar Hub - <?=htmlspecialchars($title)?></title>
+    <title>Billiard Hub - <?=htmlspecialchars($title)?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

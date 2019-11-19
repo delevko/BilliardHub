@@ -12,10 +12,10 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-.container {
+.live-container {
     text-align: center;
     width: 100%;
-    margin: 50 auto;
+    margin: 0 auto;
 }
 /*.margin-b_50{
 	margin-bottom: 50px;

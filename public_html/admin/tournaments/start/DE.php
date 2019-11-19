@@ -54,11 +54,6 @@ function checkData($seeding, $KO_matches, $id)
         exit;
     }
 
-    if( $KO_matches*2 >= $registered )
-    {
-        exit;
-    }
-
     return array($seeding, $KO_matches, $id);
 }
 
