@@ -60,24 +60,24 @@ require("tournaments/index.php");
         </div>
 
         <div class="admin_section02">
-            <div class="admin_circle highlight_anchor"
+            <a class="admin_circle highlight_anchor" href="#tournaments_"
             onclick="admin_panel(event, 'tournaments_')">
                 <i class="fas fa-trophy"></i><br>
                 <span class="uppercase">турніри</span>
-            </div>
-            <div class="admin_circle highlight_anchor"
+            </a>
+            <a class="admin_circle highlight_anchor" href="#clubs_"
             onclick="admin_panel(event, 'clubs_')">
                 <i class="fas fa-shield-alt"></i> <br>
                 <span class="uppercase">клуби</span>
-            </div>
+            </a>
+	</div>
+	<div class="admin_details">
+		<div id="tournaments_" class="details_anchor">
+			<?php displayTournaments(); ?>
 		</div>
-		<div class="admin_details">
-			<div id="tournaments_" class="details_anchor">
-				<?php displayTournaments(); ?>
-			</div>
 
-			<div id="clubs_" class="details_anchor">
-				<?php displayClubs(); ?>
-			</div>
+		<div id="clubs_" class="details_anchor">
+			<?php displayClubs(); ?>
 		</div>
+	</div>
 

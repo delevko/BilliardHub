@@ -20,7 +20,7 @@ $query = "SELECT
     LM.points1, LM.points2, LM.break1, LM.break2,
     M.roundType,
     X.photo AS photo1, Y.photo AS photo2,
-    C.photo AS clubPhoto, M.id
+    C.photo AS clubPhoto, M.id, C.id AS clubID
 FROM _table tbl
     LEFT JOIN _match M ON tbl.matchID = M.id
     LEFT JOIN tournament T ON M.tournamentID = T.id
@@ -34,7 +34,7 @@ WHERE tbl.id=?";
 $data = query($query, $tableID);
 
 $tableNum = $data[0][0]; $clubName = $data[0][1];
-$club_img = $data[0][18];
+$club_img = $data[0][18]; $clubID = $data[0][20];
 
 $tableStatus = $data[0][2]; $matchStatus = $data[0][3];
 $matchNum = $data[0][4]; $matchID = $data[0][19];
@@ -53,15 +53,15 @@ if( !strcmp($tableStatus, "Occupied") )
 { 
 	$player1class = "live-match-lobby-player";
 	$player2class = "live-match-lobby-player";
-	
-	nonEmpty($break1) ? ($player1class .= " highlight") :
-		($player2class .= " highlight");
 
 	$matchInfo = matchInfo($matchID, $roundType);
 
+	if( !strcmp($matchStatus, "Live") ) {
+		nonEmpty($break1) ? ($player1class .= " highlight") :
+		($player2class .= " highlight");
 
-	if( !strcmp($matchStatus, "Live") )
 		require("live_match.html");
+	}
 	else if( !strcmp($matchStatus, "Finished") )
 		require("finished_match.html");
 }

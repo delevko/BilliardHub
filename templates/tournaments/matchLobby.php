@@ -18,11 +18,12 @@ function lobby($matchID)
 	list($counter, $roundType, $roundNo, $bestOF,
 		$id1, $name1, $score1, $img1,
 		$id2, $name2, $score2, $img2,
-		$KO_R, $seeded_R) = getMatchData($matchID);
+		$KO_R, $seeded_R, $youtube) = getMatchData($matchID);
+	
+	if(isset($youtube) )
+		displayYTlink($youtube);
 
-	$header = castHeader($roundType,$roundNo,$KO_R,$seeded_R);	
-	//apology(INPUT_ERROR,$roundType." ".$roundNo." ".$KO_R." ".$seeded_R);	
-	//exit;
+	$header = castHeader($roundType,$roundNo,$KO_R,$seeded_R);
 	printLobby($counter, $header, $bestOF,
 		$id1, $name1, $score1, $img1, $id2, $name2, $score2, $img2);
 
@@ -35,7 +36,6 @@ function lobby($matchID)
 		framesFooter();
 	}
 }
-
 
 
 function tournamentHeader($id, $name, $billiard, $details, $league)
@@ -60,6 +60,15 @@ function tournamentHeader($id, $name, $billiard, $details, $league)
 	</div>
 <?php }
 
+
+function displayYTlink($youtube)
+{ ?>
+    <div class="youtube_logo">
+        <a href="<?=YT_HEADER?><?=$youtube?>">
+	    <i class="fab fa-youtube"></i>
+        </a>
+    </div>
+<?php }
 
 
 function printLobby($counter, $header, $bestOF, $id1, $name1, 
@@ -239,7 +248,8 @@ $grpORround = ($rType=="Group") ? "GT.groupNum" : "M.roundNo";
     M.player1ID, CONCAT(X.firstName, ' ', X.lastName) AS Player1,
     M.player1Score, X.photo AS photo1,
     M.player2ID, CONCAT(Y.firstName, ' ', Y.lastName) AS Player2,
-    M.player2Score, Y.photo AS photo2, T.KO_Rounds, T.seeded_Round
+    M.player2Score, Y.photo AS photo2, T.KO_Rounds, T.seeded_Round,
+    M.youtube
 FROM _match M
     JOIN player X ON M.player1ID=X.id
     JOIN player Y ON M.player2ID=Y.id
@@ -250,7 +260,7 @@ WHERE M.id=?";
     $data = query($query, $matchID);
 
 
-	return array($data[0][0],$rType,$data[0][2],$data[0][3],$data[0][4],$data[0][5],$data[0][6],$data[0][7],$data[0][8],$data[0][9],$data[0][10],$data[0][11],$data[0][12],$data[0][13]);
+	return array($data[0][0],$rType,$data[0][2],$data[0][3],$data[0][4],$data[0][5],$data[0][6],$data[0][7],$data[0][8],$data[0][9],$data[0][10],$data[0][11],$data[0][12],$data[0][13], $data[0][14]);
 
 }
 

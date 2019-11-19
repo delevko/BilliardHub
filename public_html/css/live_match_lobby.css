@@ -3,6 +3,12 @@ body {
 	background-color: #222629;
 	height: 100%;
 }
+a {
+	margin: 0px;
+	padding: 0px;
+    text-decoration: none;
+    color: #fff;
+}
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -174,7 +180,7 @@ table {
     color: #486724;
     font-size: 150px;
 }
-.live-match-lobby-frame-section table tr.finished_match_sing td {
+.live-match-lobby-frame-section table tr.finished_match_sign td {
     font-size: 40px;
     padding-bottom: 50px;
 }

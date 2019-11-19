@@ -15,15 +15,15 @@
     <body>
 		<div class="live-container">
 		<div class="live-match-lobby">
-			<div class="live_match_info">
+			<a class="live_match_info" href="<?=PATH_H?>admin/clubs/lobby.php?id=<?=$clubID?>">
 				<img class="live_logo_img" src="<?=CLUB_IMG.$club_img?>" alt="club logo">
 				<span class="live_logo_text">
 					<?=$clubName?>
 				</span>
-			</div>
-			<span class="live-match-lobby-table-num">
+			</a>
+			<a class="live-match-lobby-table-num" href="<?=PATH_H?>admin/clubs/tableLobby.php?id=<?=$tableID?>">
 				Стіл #<span><?=$tableNum?></span>
-			</span>
+			</a>
 		</div>
 		<div class="live-match-lobby-table">
 			<h3 class="live-match-lobby-info">
