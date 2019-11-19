@@ -87,7 +87,16 @@
 	vertical-align: middle;
 	border-top: solid 1px #222629;
 }
-
+.fa-youtube {
+    color: #FF1F1C;
+    font-size: 30px;
+    padding: 5px;
+}
+.youtube_logo{
+    width: 700px;
+    display: flex;
+    align-content: flex-start;
+}
 
 /*MOBILE RESPNSIVE (VS)*/
 
@@ -227,6 +236,10 @@ table.match_lobby_table .col-5 {
 }
 .tour_menu_box_700, .nameOf_tour, .second_row, .tournament_header_700 {
 	width: 100%;
+}
+
+.youtube_logo{
+     width: 100%;
 }
 }
 
