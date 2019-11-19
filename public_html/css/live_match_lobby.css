@@ -183,6 +183,8 @@ table {
 .live-match-lobby-frame-section table tr.finished_match_sign td {
     font-size: 40px;
     padding-bottom: 70px;
+    background-color: #222629;
+    padding: 10px;
 }
 .button_push {
     display: flex;
