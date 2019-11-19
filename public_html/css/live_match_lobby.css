@@ -147,7 +147,7 @@ table {
 }
 .live-match-lobby-frame-section {
     padding: 0px 50px;
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     display: flex;
     justify-content: center;
     align-items: center;
