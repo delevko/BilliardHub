@@ -131,7 +131,7 @@ table {
     border-radius: 8px;
 }
 .live-match-lobby-frame-section tr th {
-    font-size: 35px;
+    font-size: 40px;
     font-weight: 300;
     background-color: #3B531E;
     color: #fff;
@@ -148,7 +148,7 @@ table {
     /*padding: 5px 40px;*/
     vertical-align: middle;
 }
-.best_of{
+.best_of {
     font-size: 60px !important;
 }
 .live-match-lobby-frame-section {
