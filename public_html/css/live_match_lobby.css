@@ -108,6 +108,8 @@ table {
     border-radius: 6px;
     overflow: hidden;
     background-color: #3B531E;
+    text-align: center;
+    margin: 0 auto;
 }
 .live-match-lobby-player-name {
     color: white;
@@ -173,7 +175,7 @@ table {
     color: #486724;
     font-size: 150px;
 }
-.finished_match_sing td {
+.live-match-lobby-frame-section table tr.finished_match_sing td {
     font-size: 90px;
     margin-bottom: 50px;
 }
