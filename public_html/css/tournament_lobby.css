@@ -45,7 +45,7 @@
     width: auto;
 }
 
-.player_admin_reg select {
+.player_admin_reg_box select {
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -57,7 +57,7 @@
   background-image: none;
 }
 /* Remove IE arrow */
-.player_admin_reg select::-ms-expand {
+.player_admin_reg_box select::-ms-expand {
   display: none;
 }
 /* Custom Select */
@@ -75,7 +75,7 @@
   padding-left: 3px;
   align-items: center;
 }
-.player_admin_reg select {
+.player_admin_reg_box select {
   flex: 1;
   padding: 0 .5em;
   color: #fff;

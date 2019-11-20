@@ -20,8 +20,8 @@ if(count($data))
 ?>
 	<div class="margin-b_30"></div>
 	<div class="player_admin_reg_box">
-		<form class="player_admin_reg" action="playerRegister.php" method="post">
-			<select name="player">
+		<form class="player_admin_reg_box" action="playerRegister.php" method="post">
+			<select class="player_admin_reg" name="player">
 				<?php
 					
 				for($i=0; $i<count($data); $i++)
@@ -33,6 +33,8 @@ if(count($data))
 		  <?php } ?>
 			</select>
 			<input type="hidden" name="tournament" value="<?=$tournamentID?>">
+			<button class="player_admin_reg_button nonres_reg_button" type="submit">Зареєструвати гравця</button>
+			<button class="player_admin_reg_button res_reg_button" type="submit">Зареєструвати</button>
 			<div class="margin-b_30"></div>
 		</form>
 		<button class="player_admin_reg_button nonres_reg_button" type="submit">Зареєструвати гравця</button>
