@@ -34,11 +34,13 @@ function displayPlayer($i, $name, $photo, $BL, $BR)
                 <td class="bold <?=$e_o?>_num<?=$BL?>">
 					<?=$i?>
 				</td>
-                <td class="photo_name<?=$BR?>">
-					<img class="circle_img" src="<?=PLAYER_IMG.$photo?>"
-					alt="img">
-					<span><?=$name?></span>
-                </td>
+                <td class="<?=$BR?>">
+			<div class="photo_name">
+				<img class="circle_img" src="<?=PLAYER_IMG.$photo?>"
+				alt="img">
+				<span><?=$name?></span>
+                	</div>
+		</td>
             </tr>
 <?php
 }
