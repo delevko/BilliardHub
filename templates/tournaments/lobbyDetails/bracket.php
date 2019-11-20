@@ -1,36 +1,46 @@
 <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/bracket.css">
 
 
+<div class="bracket_section">
+	<?php prepareBracket($bracket, $tournamentID); ?>
+</div>
+
+
 <?php
-//bracket, tournamentID
+function prepareBracket($bracket, $tournamentID) {
+	if(!strcmp($bracket, "K/O"))
+	{
+		$query = "select KO_Rounds, seeded_Round from tournament where id=?";
+		$data = query($query, $tournamentID);
+	    
+		$KO_R = $data[0][0]; $seeded_R = $data[0][1];
+		prepareRound("K/O", 0, $KO_R, $seeded_R, $tournamentID);
+	}
 
-if(!strcmp($bracket, "K/O"))
-{
-	$data = query("select KO_Rounds, seeded_Round from tournament where id=?", $tournamentID);
-    
-	$KO_R = $data[0][0]; $seeded_R = $data[0][1];
-	prepareRound("K/O", 0, $KO_R, $seeded_R, $tournamentID);
+	else if(!strcmp($bracket, "D/E"))
+	{
+		$query = "select UP_Rounds,LOW_Rounds,KO_Rounds,seeded_Round
+		FROM tournament where id=?";
+		$data = query($query, $tournamentID);
+	   
+		$LOW_R = $data[0][1]; $KO_R = $data[0][2];
+		$UP_R = $data[0][0]; $seeded_R = $data[0][3];
+
+		prepareRound("LOW", 0, $LOW_R, $seeded_R, $tournamentID);
+		prepareRound("UP", 0, $UP_R, $seeded_R, $tournamentID);
+		prepareRound("K/O", $UP_R-1, $KO_R, $seeded_R, $tournamentID);
+	}
+
+	else if(!strcmp($bracket, "GroupKO"))
+	{
+		$query = "select KO_Rounds, seeded_Round from tournament where id=?";
+		$data = query($query, $tournamentID);
+	    
+		$KO_R = $data[0][0]; $seeded_R = $data[0][1];
+		prepareRound("K/O", 0, $KO_R, $seeded_R, $tournamentID);
+	}
 }
 
-if(!strcmp($bracket, "D/E"))
-{
-	$data = query("select UP_Rounds,LOW_Rounds,KO_Rounds,seeded_Round from tournament where id=?", $tournamentID);
-   
-	$LOW_R = $data[0][1]; $KO_R = $data[0][2];
-	$UP_R = $data[0][0]; $seeded_R = $data[0][3];
-
-	prepareRound("LOW", 0, $LOW_R, $seeded_R, $tournamentID);
-	prepareRound("UP", 0, $UP_R, $seeded_R, $tournamentID);
-	prepareRound("K/O", $UP_R-1, $KO_R, $seeded_R, $tournamentID);
-}
-
-if(!strcmp($bracket, "GroupKO"))
-{
-	$data = query("select KO_Rounds, seeded_Round from tournament where id=?", $tournamentID);
-    
-	$KO_R = $data[0][0]; $seeded_R = $data[0][1];
-	prepareRound("K/O", 0, $KO_R, $seeded_R, $tournamentID);
-}
 
 
 function prepareRound($roundType, $offset, $R, $seeded_R, $tournamentID)

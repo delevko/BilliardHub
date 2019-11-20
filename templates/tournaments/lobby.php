@@ -151,38 +151,27 @@ function liveLobby($bracket, $tournamentID, $onClick)
 
 
 //show appropriate data
-	if( !strcmp($onClick, "bracket") )
-	{
-	?>
-		<div class="sub-container">
-			<div class="bracket_section">
-	<?php
-		require("lobbyDetails/bracket.php");
-	?>
-			</div>
-		</div>
-	<?php
-	}
-	else
-	{
 	?><div class="sub-container"><?php
-		if( !strcmp($onClick, "matches") )
-			require("lobbyDetails/matches.php");
-		else if( !strcmp($onClick, "participants") )
-			require("lobbyDetails/registeredPlayersList.php");
-		else if( !strcmp($onClick, "live") )
-			require("lobbyDetails/live.php");
-		else if( !strcmp($onClick, "groups") ) 
-			require("lobbyDetails/groups.php");
-		else if( !strcmp($onClick, "groupStanding") ) 
-			require("lobbyDetails/groupStanding.php");
-		else if( !strcmp($onClick, "breaks") )
-			require("lobbyDetails/breaks.php");
-		else if( !strcmp($onClick, "matchLobby") )
-			require("lobbyDetails/matchLobby.php");
-		else
-			redirect("");
-	}
+
+
+	if( !strcmp($onClick, "bracket") )
+		require("lobbyDetails/bracket.php");
+	else if( !strcmp($onClick, "matches") )
+		require("lobbyDetails/matches.php");
+	else if( !strcmp($onClick, "participants") )
+		require("lobbyDetails/registeredPlayersList.php");
+	else if( !strcmp($onClick, "live") )
+		require("lobbyDetails/live.php");
+	else if( !strcmp($onClick, "groups") ) 
+		require("lobbyDetails/groups.php");
+	else if( !strcmp($onClick, "groupStanding") ) 
+		require("lobbyDetails/groupStanding.php");
+	else if( !strcmp($onClick, "breaks") )
+		require("lobbyDetails/breaks.php");
+	else if( !strcmp($onClick, "matchLobby") )
+		require("lobbyDetails/matchLobby.php");
+	else
+		redirect("");
 
 
 //close lobby block
@@ -209,39 +198,26 @@ function finishedLobby($bracket, $tournamentID, $onClick)
 	
 
 //show appropriate data
+	?><div class="sub-container"><?php
+
+
 	if( !strcmp($onClick, "standings") )
-	{
-	?><div class="sub-container"><?php
 		require("lobbyDetails/standings.php");
-	}
 	else if( !strcmp($onClick, "bracket") )
-	{
-	?>
-		<div class="sub-container">
-			<div class="bracket_section">
-	<?php
 		require("lobbyDetails/bracket.php");
-	?>
-			</div>
-		</div>
-	<?php
-	}
+	else if( !strcmp($onClick, "matches") )
+		require("lobbyDetails/matches.php");
+	else if( !strcmp($onClick, "groups") )
+		require("lobbyDetails/groups.php");
+	else if( !strcmp($onClick, "groupStanding") ) 
+		require("lobbyDetails/groupStanding.php");
+	else if( !strcmp($onClick, "breaks") ) 
+		require("lobbyDetails/breaks.php");
+	else if( !strcmp($onClick, "matchLobby") )
+		require("lobbyDetails/matchLobby.php");
 	else
-	{
-	?><div class="sub-container"><?php
-		if( !strcmp($onClick, "matches") )
-			require("lobbyDetails/matches.php");
-		else if( !strcmp($onClick, "groups") )
-			require("lobbyDetails/groups.php");
-		else if( !strcmp($onClick, "groupStanding") ) 
-			require("lobbyDetails/groupStanding.php");
-		else if( !strcmp($onClick, "breaks") ) 
-			require("lobbyDetails/breaks.php");
-		else if( !strcmp($onClick, "matchLobby") )
-			require("lobbyDetails/matchLobby.php");
-		else
-			redirect("");
-	}
+		redirect("");
+
 
 //close lobby block
 	?></div><?php
