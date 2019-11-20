@@ -81,7 +81,7 @@ function buttonHeader($clubID)
 { ?>
 	<form action="lobby.php" method="post">
 		<input type="hidden" name="club" value="<?=$clubID?>"/>
-		Турнір <select name="tournament">
+		Турір <select name="tournament">
 <?php }
 function displayTournament($id, $name)
 { ?>
