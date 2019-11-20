@@ -188,7 +188,8 @@ function printBarsPlayer($id, $fName, $lName, $img, $location)
                             <p class="players_list_item_location">
                                 <?=$location?>
                             </p>
-                            <p class="players_list_item_bday">11/08/97</p>
+                            <p class="players_list_item_bday">    11/08/97
+                            </p>
                         </div>
                     </div>
                 </div>
