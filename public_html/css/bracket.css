@@ -166,3 +166,11 @@
     padding-top: 450%;
 }
 
+
+
+@media screen and (max-width: 1000px) {
+	.bracket_section {
+		transform: scale(0.5);
+	}
+}
+
