@@ -171,9 +171,11 @@
 @media screen and (max-width: 1000px) {
 	.bracket_section {
 		-webkit-transform: scale(.5);
-    -webkit-transform-origin: 0 0;
-    width: 200%;
-	
+	    -webkit-transform-origin: 0 0;
+	    width: 200%;
+	}
+	.container {
+		height: auto;
 	}
 }
 
