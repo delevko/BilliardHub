@@ -116,7 +116,7 @@
 
 /*MOBILE RESPONSIVE*/
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
     .admin_header span {
         font-size: 23px;
         color: #434B52;

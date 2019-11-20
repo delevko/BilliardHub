@@ -123,3 +123,8 @@
   background-color: #61892F;
 }
 
+@media screen and (max-width: 1000px){
+.available_box{
+	margin-top: 30px;
+}
+}

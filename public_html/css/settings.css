@@ -182,7 +182,7 @@ form .margin_b40px {
 /*MOBILE RESPNSIVE TABLE*/
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
 	.settings_box {
 		width: 100%;
 	}

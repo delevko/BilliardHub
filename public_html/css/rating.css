@@ -35,7 +35,7 @@ table.rating_table .col-3 {
     display: flex;
     justify-content: flex-end;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
     .second_row {
         flex-direction: column;
         align-items: flex-start;

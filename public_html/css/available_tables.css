@@ -164,7 +164,7 @@
 
 /*MOBILE RESPONSIVE*/
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
 	.busy_stable_box {
 		position: relative;
 	    z-index: 1;

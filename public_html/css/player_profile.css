@@ -100,7 +100,7 @@
 	display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
 	.player_profile_section01 {
 		display: none;
 	}
@@ -204,7 +204,7 @@
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
  .player_profile_section02 {
         display: flex;
         justify-content: center;
