@@ -109,9 +109,12 @@
     color: white;
     font-size: 15px;
     text-align: center;
-    width: 223px;
+    width: auto;
     height: 38px;
     background-color: #61892F;
+}
+.res_reg_button {
+    display: none;
 }
 
 
@@ -124,5 +127,15 @@
  .reg_button_done button {
         margin-top: 20px;
     }
+
+
+    /*FOR playerRegisterForm.php*/
+
+    .nonres_reg_button {
+        display: none;
+    }
+    .res_reg_button {
+    display: block;
+}
 }
 

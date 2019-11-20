@@ -35,7 +35,8 @@ if(count($data))
 			<input type="hidden" name="tournament" value="<?=$tournamentID?>">
 			<div class="margin-b_30"></div>
 		</form>
-		<button class="player_admin_reg_button" type="submit">Зареєструвати гравця</button>
+		<button class="player_admin_reg_button nonres_reg_button" type="submit">Зареєструвати гравця</button>
+		<button class="player_admin_reg_button res_reg_button" type="submit">Зареєструвати</button>
 	</div>
 <?php
 } ?>
