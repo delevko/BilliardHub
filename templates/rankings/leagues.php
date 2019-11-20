@@ -10,10 +10,11 @@ FROM league L
     JOIN age A ON L.ageID = A.id
     JOIN sex S ON L.sexID = S.id
     JOIN billiard B ON L.billiardID = B.id
+WHERE T.status=?
 GROUP BY L.id HAVING tournaments > 0 ORDER BY 6 DESC, 2";
 
 
-	$data = query($query);
+	$data = query($query, "Finished");
 	$data_count = count($data);
 
 
