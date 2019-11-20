@@ -20,14 +20,16 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 }
 else if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-	$clubID = $_POST["club"];
-	if( nonEmpty($clubID) && exists("club", $clubID) )
+	if( nonEmpty($_POST["club"]) && exists("club", $_POST["club"]) )
 	{
+		$clubID = $_POST["club"];
 		if(isset($_POST["occupy"]))
 		{
-			$tournamentID = $_POST["tournament"];
-			if( nonEmpty($tournamentID) && exists("tournament", $tournamentID) )
+			if( nonEmpty($_POST["tournament"]) && exists("tournament", $_POST["tournament"]) )
+			{
+				$tournamentID = $_POST["tournament"];
 				query("CALL clubTablesOccupy(?,?)", $clubID, $tournamentID);
+			}
 		}
 		redirect("lobby.php?id=$clubID");
 	}
