@@ -13,7 +13,7 @@ if(count($data))
 {
 ?>
 	<div class="margin-b_30"></div>
-	<form action="playerRegister.php" method="post">
+	<form class="player_admin_reg" action="playerRegister.php" method="post">
 		<select name="player">
 			<?php
 				
