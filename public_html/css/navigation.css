@@ -215,6 +215,13 @@ header * {
 .tournamentNavigation button:hover {
     background-color: #3F454C;
 }
+.fa-shield-alt,
+.fa-users,
+.fa-trophy,
+.fa-medal {
+    display: none;
+    margin: 0 10px;
+}
 
 /* MOBILE RESPONSIVE */
 @media screen and (max-width: 1000px) {
@@ -224,20 +231,56 @@ header * {
 	    display: flex;
 	    justify-content: center;
 	}
+
+    .fa-shield-alt,
+    .fa-users,
+    .fa-trophy,
+    .fa-medal {
+        display: block;
+    }
+
 	.navigation.responsive {
 	    position: relative;
 	    display: flex;
 	    flex-direction: column;
 	    justify-content: center;
-	    width: 30%;
+	    /*width: 30%;*/
 	    z-index: 0;
 	  }
 	.navigation.responsive a:not(:first-child) {
 	    display: flex;
-	    justify-content: center;
-	    align-items: center;
+	    justify-content: flex-start;
+	    align-items: flex-start;
 	    padding: 15px;
+        border-bottom: none;
 	}
+
+
+      .navigation.responsive a:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: none;
+    height: inherit;
+  }
+header nav>:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+}
+    .navigation.responsive a:hover {
+        background-color: #444857;
+        border-bottom: none;
+    }
+    .navigation.responsive a.active {
+        border-bottom: none;
+    }
+
+
+
 	.logo_box span {
 	    display: none;
 	}
