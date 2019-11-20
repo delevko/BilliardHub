@@ -172,7 +172,7 @@
 	.bracket_section {
 		transform: scale(0.5);
 		width: 100%;
-		overflow: visible;
+		overflow: auto;
 	}
 }
 
