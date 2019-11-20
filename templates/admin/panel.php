@@ -5,6 +5,16 @@ require("tournaments/index.php");
 
 
         <div class="admin_buttons">
+            <div class="buttons button_player">
+                <span><i class="fas fa-user"></i>
+			Додати гравця
+		</span>
+		<a href="<?=PATH_H?>admin/create/player.php">
+			<button>
+				<i class="fas fa-user"></i> +
+			</button>
+		</a>
+            </div>
             <div class="buttons button_tour">
                 <span><i class="fas fa-trophy"></i>
 			Додати турнір
@@ -44,16 +54,6 @@ require("tournaments/index.php");
 		<a href="<?=PATH_H?>admin/create/organisation.php">
 			<button>
 				<i class="fas fa-users"></i> +
-			</button>
-		</a>
-            </div>
-            <div class="buttons button_player">
-                <span><i class="fas fa-user"></i>
-			Додати гравця
-		</span>
-		<a href="<?=PATH_H?>admin/create/player.php">
-			<button>
-				<i class="fas fa-user"></i> +
 			</button>
 		</a>
             </div>

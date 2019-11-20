@@ -44,23 +44,27 @@
          <nav class="navigation" id="header_navigation">
 		<a class="icon"
                         onclick="mobileHeaderNav()">
-                        <i class="fa fa-bars"></i>&nbsp;Меню
+                        <i class="fa fa-bars"></i>Меню
                 </a>
 
                 <a href="<?=PATH_H?>tournaments"
 				id="tournaments">
+					<i class="fas fa-trophy"></i>
 					Турніри
 				</a>
                 <a href="<?=PATH_H?>players"
 				id="players">
+					<i class="fas fa-users"></i>
 					Гравці
 				</a>
                 <a href="<?=PATH_H?>rankings"
 				id="rankings">
+					<i class="fas fa-medal"></i>
 					Рейтинги
 				</a>
                 <a href="<?=PATH_H?>clubs"
 				id="clubs">
+					<i class="fas fa-shield-alt"></i>
 					Клуби
 				</a>
         </nav>
@@ -70,7 +74,6 @@
 	</header>
 
 	<div class="container">
-	<div class="margin-b_30"></div>
         <a class="admin_header" href="<?=PATH_H?>admin/">
             <span>Панель адміністратора</span>
         </a>
