@@ -172,6 +172,7 @@ figure {
 	color: #fff;
 }
 .players_list_item_info {
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
