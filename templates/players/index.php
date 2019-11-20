@@ -184,9 +184,12 @@ function printBarsPlayer($id, $fName, $lName, $img, $location)
                                 <?=$fName?> <span class="uppercase"><?=$lName?></span>
                             </h4>
                         </div>
-                        <p class="players_list_item_location">
-                            <?=$location?>
-                        </p>
+                        <div class="players_list_item_info">
+                            <p class="players_list_item_location">
+                                <?=$location?>
+                            </p>
+                            <p class="players_list_item_bday">11/08/97</p>
+                        </div>
                     </div>
                 </div>
             </li>

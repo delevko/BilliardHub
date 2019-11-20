@@ -171,11 +171,17 @@ figure {
 	font-weight: 300;
 	color: #fff;
 }
-.players_list_item_location {
+.players_list_item_info {
+	display: flex;
+	justify-content: space-between;
+}
+.players_list_item_location,
+.players_list_item_bday {
 	font-size: 12px;
 	margin: 0;
 	color: #969A9E;
 }
+
 
 /*MOBILE RESPONSIVE*/
 
