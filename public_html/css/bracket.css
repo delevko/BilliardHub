@@ -175,7 +175,7 @@
 	    width: 200%;
 	}
 	.container {
-		height: 900px;
+		max-height: 900px;
 	}
 }
 
