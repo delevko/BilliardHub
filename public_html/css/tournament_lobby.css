@@ -39,6 +39,12 @@
 
 /* SELECT FORM STYLING */
 
+.player_admin_reg_box {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+}
+
 .player_admin_reg select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -68,7 +74,6 @@
   margin-bottom: 20px;
   padding-left: 3px;
   align-items: center;
-  float: left;
 }
 .player_admin_reg select {
   flex: 1;
