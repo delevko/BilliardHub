@@ -94,6 +94,21 @@
 }
 
 
+/*BUTTON*/
+
+.player_admin_reg button {
+    margin-top: 20px;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    width: 223px;
+    height: 38px;
+    background-color: #61892F;
+}
+
+
 
 
 @media screen and (max-width: 1000px) {
