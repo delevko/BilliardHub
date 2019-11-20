@@ -79,17 +79,22 @@ function castStatus($status)
 
 function buttonHeader($clubID)
 { ?>
-	<form action="lobby.php" method="post">
+	<form class="take_yo_tables_box" action="lobby.php" method="post">
 		<input type="hidden" name="club" value="<?=$clubID?>"/>
-		Турір <select name="tournament">
+
+		<div class="take_yo_tables_select">
+			<select name="tournament">
 <?php }
 function displayTournament($id, $name)
 { ?>
-			<option value="<?=$id?>"><?=$name?></option>
+				<option selected disabled>Оберіть турнір</option>
+				<option value="<?=$id?>"><?=$name?></option>
 <?php }
 function buttonFooter()
 { ?>
-		<input type="submit" name="occupy" value="Зайняти столи"/>
+			</select>
+	</div>
+		<input class="take_yo_tables_button" type="submit" name="occupy" value="Зайняти столи"/>
 	</form>
 <?php }
 
