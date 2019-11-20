@@ -1,1 +1,0 @@
-[19-Nov-2019 18:16:02 UTC] PHP Warning:  mysqli_stmt::bind_param(): Invalid type or no types specified in /home/gi6kvfbao9ds/includes/functions.php on line 336
