@@ -39,7 +39,7 @@
          <nav class="navigation" id="header_navigation">
 		<a class="icon"
 			onclick="mobileHeaderNav()">
-			<i class="fa fa-bars"></i>&nbsp;Меню
+			<i class="fa fa-bars"></i>Меню
 		</a>
                 <a href="<?=PATH_H?>tournaments"
 				id="tournaments">
