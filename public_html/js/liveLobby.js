@@ -121,28 +121,45 @@ var successHandlerFinish = function(data, status) {
 
 $(function() {
     $('html').keydown(function(event) {
-        if(event.which == 37) { // <-
+
+	// arrow LEFT - change player
+        if(event.which == 37) {
 
             if( !isLeft ) {
-				item._break = parseInt( $("#rightBreak").html() );
-				breakReset(isLeft);
-				isLeft = !isLeft;
-				highlight(isLeft);
-				changePlayer();
+		item._break = parseInt( $("#rightBreak").html() );
+		breakReset(isLeft);
+		isLeft = !isLeft;
+		highlight(isLeft);
+		changePlayer();
             }
         }
 
-        else if(event.which == 39) { // ->
+
+	// arrow RIGHT - change player
+        else if(event.which == 39) {
             if( isLeft ) {
-				item._break = parseInt( $("#leftBreak").html() );
-				breakReset(isLeft);
-				isLeft = !isLeft;
-				highlight(isLeft);
-				changePlayer();
+		item._break = parseInt( $("#leftBreak").html() );
+		breakReset(isLeft);
+		isLeft = !isLeft;
+		highlight(isLeft);
+		changePlayer();
             }
         }
 
-        else if(event.which >= 49 && event.which <= 55) { // numbers
+
+        // arrow UP - break increment
+	else if(event.which == 38) {
+            if( isLeft ) {
+                increment(isLeft, 1);
+            }
+            else if( !isLeft ) {
+                increment(isLeft, 1);
+            }
+	}
+
+
+	// row numbers
+        else if(event.which >= 49 && event.which <= 55) {
             if( isLeft ) {
                 increment(isLeft, event.keyCode-48);
             }
@@ -151,7 +168,9 @@ $(function() {
             }
         }
         
-	else if(event.which >= 97 && event.which <= 103) { // numPad
+
+	// numPad numbers
+	else if(event.which >= 97 && event.which <= 103) {
             if( isLeft ) {
                 increment(isLeft, event.keyCode-96);
             }
@@ -160,7 +179,9 @@ $(function() {
             }
         }
 
-        else if(event.which == 27) { // ESC
+
+	// ESC - finish frame
+        else if(event.which == 27) {
             var leftP = parseInt( $("#leftPoints").html() );
             var rightP = parseInt( $("#rightPoints").html() );
 
