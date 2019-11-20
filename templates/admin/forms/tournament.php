@@ -15,15 +15,15 @@
 					autofocus placeholder="Назва">
             	<div class="tour_select">
               		<select name="league">
-						<option selected disabled> Оберіть лігу</option>
+				<option selected disabled> Оберіть лігу</option>
                  		<?php printLeagues(); ?>
-					</select>
+			</select>
               	</div>
             	<div class="tour_select">
                   	<select name="club">
-                    	<option selected disabled> Оберіть клуб</option>
+                    		<option selected disabled> Оберіть клуб</option>
                   		<?php printClubs(); ?>
-					</select>
+			</select>
               	</div>
 				<div class="margin-b_30"></div>
               	
