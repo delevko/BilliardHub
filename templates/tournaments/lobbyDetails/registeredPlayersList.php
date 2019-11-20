@@ -14,36 +14,37 @@ FROM playerTournament PT
 WHERE PT.tournamentID=? ORDER BY 1";
 
     $data = query($query, $tournamentID);
-  	$data_count = count($data);
+    $data_count = count($data);
 
-	listHeader(); 
-	for($i = 0; $i < $data_count; $i++)
+    listHeader(); 
+    for($i = 0; $i < $data_count; $i++)
     {
-		$seed = $data[$i][0]; $player = $data[$i][1];
-		$id = $data[$i][2]; $img = $data[$i][3];
-		$birthday = $data[$i][4];
+	$seed = $data[$i][0]; $player = $data[$i][1];
+	$id = $data[$i][2]; $img = $data[$i][3];
+	$birthday = date("d/m/Y", strtotime($data[$i][4]));
 
         $country = $data[$i][5]; $city = $data[$i][6];
         $location = $city.", ".$country;
 
         printListPlayer($i+1,$id,$player,$img,$birthday,$seed,$location,($i+1==$data_count));
     }
-	listFooter();
+    listFooter();
 
-	barsHeader();
-	for($i = 0; $i < $data_count; $i++)
+    barsHeader();
+    for($i = 0; $i < $data_count; $i++)
     {
-		$seed = $data[$i][0]; $player = $data[$i][1];
-		$id = $data[$i][2]; $img = $data[$i][3];
+	$seed = $data[$i][0]; $player = $data[$i][1];
+	$id = $data[$i][2]; $img = $data[$i][3];
+	$birthday = date("d/m/Y", strtotime($data[$i][4]));
 
         $country = $data[$i][5]; $city = $data[$i][6];
         $location = $city.", ".$country;
 
-        printBarsPlayer($id, $player, $img, $location);
+        printBarsPlayer($id, $player, $img, $location, $birthday);
     }
-	barsFooter();
+    barsFooter();
 
-	generalFooter();
+    generalFooter();
 
 
 function generalHeader()
@@ -175,26 +176,31 @@ function barsFooter()
 }
 
 
-function printBarsPlayer($id, $name, $img, $location)
+function printBarsPlayer($id, $name, $img, $location, $birthday)
 { ?>
-			<li onclick="openPlayerLobby(<?=$id?>);" class="pointer">
-				<div class="players_list_item_box">
-					<figure>
-						<img class="players_list_item_photo" src="<?=PLAYER_IMG.$img?>" alt="img">
-					</figure>
-					<div class="players_list_item_details">
-						<div class="players_list_item_name">
-							<h4 class="players_list_item_name">
-								<?=$name?><span class="uppercase"></span>
-							</h4>
-						</div>
-						<p class="players_list_item_location">
-							<?=$location?>
-						</p>
-					</div>
+		<li onclick="openPlayerLobby(<?=$id?>);" class="pointer">
+			<div class="players_list_item_box">
+				<figure>
+					<img class="players_list_item_photo" src="<?=PLAYER_IMG.$img?>" alt="img">
+				</figure>
+
+
+			    <div class="players_list_item_details">
+				<div class="players_list_item_name">
+				    <h4 class="players_list_item_name">
+					<?=$name?>
+				    </h4>
 				</div>
-				</a>
-			</li>
+				<div class="players_list_item_info">
+				    <p class="players_list_item_location">
+					<?=$location?>
+				    </p>
+				    <p class="players_list_item_bday">
+					<?=$birthday?>
+				    </p>
+				</div>
+			    </div>
+		</li>
 <?php
 }
 

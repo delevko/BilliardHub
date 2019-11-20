@@ -19,9 +19,9 @@
     {
         $id = $data[$i][0]; $fName = $data[$i][1];
         $lName = $data[$i][2]; $img = $data[$i][3];
-		$birthday = $data[$i][4];
-		$country = $data[$i][5]; $city = $data[$i][6];
-		$location = $city.", ".$country;
+	$birthday = date("d/m/Y", strtotime($data[$i][4]));
+	$country = $data[$i][5]; $city = $data[$i][6];
+	$location = $city.", ".$country;
 
         printListPlayer($i+1, $id, $fName." ".$lName, $img, $birthday,$location, ($i+1==$data_count));
     }
@@ -35,11 +35,12 @@
     {
         $id = $data[$i][0]; $fName = $data[$i][1];
         $lName = $data[$i][2]; $img = $data[$i][3];
+	$birthday = date("d/m/Y", strtotime($data[$i][4]));
 		
-		$country = $data[$i][5]; $city = $data[$i][6];
-		$location = $city.", ".$country;
-        
-		printBarsPlayer($id, $fName, $lName, $img, $location);
+	$country = $data[$i][5]; $city = $data[$i][6];
+	$location = $city.", ".$country;
+
+	printBarsPlayer($id, $fName, $lName, $img, $location, $birthday);
     }
 
     barsFooter();
@@ -170,7 +171,7 @@ function barsFooter()
 }
 
 
-function printBarsPlayer($id, $fName, $lName, $img, $location)
+function printBarsPlayer($id, $fName, $lName, $img, $location, $birthday)
 { ?>
             <li class="pointer"
 			onclick="openPlayerLobby(<?=$id?>);">
@@ -188,7 +189,8 @@ function printBarsPlayer($id, $fName, $lName, $img, $location)
                             <p class="players_list_item_location">
                                 <?=$location?>
                             </p>
-                            <p class="players_list_item_bday">    11/08/97
+                            <p class="players_list_item_bday">
+				<?=$birthday?>
                             </p>
                         </div>
                     </div>
