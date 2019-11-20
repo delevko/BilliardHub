@@ -255,22 +255,14 @@ header * {
         border-bottom: none;
 	}
 
-
-      /*.navigation.responsive a:first-child {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-bottom: none;
-    height: inherit;
-  }*/
-header nav>:first-child {
+    
+/*header nav>:first-child {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: inherit;
-}
+}*/
     .navigation.responsive a:hover {
         background-color: #444857;
         border-bottom: none;
