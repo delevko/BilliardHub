@@ -315,7 +315,7 @@ header * {
   .tour_menu_box {
     width: 100%;
     overflow-x: hidden;
-    margin: 20px auto;
+    margin: 0 auto;
   }
   .tournament_header {
     width: 100%;
