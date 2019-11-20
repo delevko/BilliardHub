@@ -70,7 +70,9 @@ function announcedLobby($tournamentID, $onClick)
 function registrationLobby($tournamentID, $onClick)
 {
 //lobby navigation
+	require("navigations/header.php");
 	require("navigations/registration.php");
+	require("navigations/footer.php");
 
 
 //lobby block to show data
@@ -101,10 +103,13 @@ function standbyLobby($tournamentID, $onClick)
 	$data = query($query, $tournamentID);
 	$bracket = $data[0][0];
 
+
 	if( !nonEmpty($bracket) )
 		displayStandbyBracket($tournamentID, $onClick);
 	else
 		displayStandbyRounds($tournamentID, $onClick,$bracket);
+
+
 
 //close lobby block
 	?></div><?php
@@ -115,7 +120,10 @@ function standbyLobby($tournamentID, $onClick)
 function displayStandbyBracket($tournamentID, $onClick)
 {
 //lobby navigation
+	require("navigations/header.php");
 	require("navigations/standbyBracket.php");
+	require("navigations/footer.php");
+
 
 //show appropriate data
 	if( !strcmp($onClick, "participants") )
@@ -134,7 +142,10 @@ function displayStandbyBracket($tournamentID, $onClick)
 function displayStandbyRounds($tournamentID, $onClick, $bracket)
 {
 //lobby navigation
+	require("navigations/header.php");
 	require("navigations/standbyRounds.php");
+	require("navigations/footer.php");
+
 
 //show appropriate data
 	if( !strcmp($onClick, "participants") )

@@ -61,7 +61,9 @@ href="<?=PATH_H?>css/tournament_lobby.css">
 function announcedLobby($tournamentID, $onClick)
 {
 //lobby navigation
+	require("navigations/header.php");
 	require("navigations/announced.php");
+	require("navigations/footer.php");
 
 
 //lobby block to show data
@@ -79,10 +81,14 @@ function announcedLobby($tournamentID, $onClick)
 	?></div><?php
 }
 
+
+
 function registrationLobby($tournamentID, $onClick)
 {
 //lobby navigation
+	require("navigations/header.php");
 	require("navigations/registration.php");
+	require("navigations/footer.php");
 
 
 //lobby block to show data
@@ -99,11 +105,15 @@ function registrationLobby($tournamentID, $onClick)
 //close lobby block
 	?></div><?php
 }
+
+
 
 function standbyLobby($tournamentID, $onClick)
 {
 //lobby navigation
+	require("navigations/header.php");
 	require("navigations/standby.php");
+	require("navigations/footer.php");
 
 
 //lobby block to show data
@@ -121,9 +131,13 @@ function standbyLobby($tournamentID, $onClick)
 	?></div><?php
 }
 
+
+
 function liveLobby($bracket, $tournamentID, $onClick)
 {
 //lobby navigation
+	require("navigations/header.php");
+
 	if( !strcmp($bracket, "Group") )
 		require("navigations/groupsLive.php");
 	else if( !strcmp($bracket, "GroupKO") )
@@ -132,6 +146,8 @@ function liveLobby($bracket, $tournamentID, $onClick)
 		require("navigations/eliminationsLive.php");
 	else
 		redirect("");
+
+	require("navigations/footer.php");
 
 
 //show appropriate data
@@ -169,9 +185,13 @@ function liveLobby($bracket, $tournamentID, $onClick)
 	?></div><?php
 }
 
+
+
 function finishedLobby($bracket, $tournamentID, $onClick)
 {
 //lobby navigation
+	require("navigations/header.php");
+
 	if( !strcmp($bracket, "Group") )
 		require("navigations/groupsFinished.php");
 	else if( !strcmp($bracket, "GroupKO") )
@@ -180,6 +200,8 @@ function finishedLobby($bracket, $tournamentID, $onClick)
 		require("navigations/eliminationsFinished.php");
 	else
 		redirect("");
+
+	require("navigations/footer.php");
 	
 
 //show appropriate data
