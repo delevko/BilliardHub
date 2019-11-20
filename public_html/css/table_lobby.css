@@ -32,6 +32,9 @@
 	align-items: center;
 	margin-bottom: 20px;
 }
+.no_margin {
+	margin-bottom: 5px !important;
+}
 .available_form input {
 	padding: 10px;
 	width: 223px;
@@ -118,15 +121,5 @@
 }
 .tour_select:hover::after {
   background-color: #61892F;
-}
-
-.date_format {
-	width: 223px;
-    font-size: 12px;
-    font-style: italic;
-    color: #565C65;
-    text-align: left;
-    font-weight: bold;
-    margin-top: -15px;
 }
 

@@ -149,24 +149,40 @@ FROM _match M
 WHERE MD.status=? AND T.clubID=?
 AND X.id != -2 AND Y.id != -2 ORDER BY 2";
 
+
+	?><div class="available_box"><?php
+
 	displayLiveTableLink($tableID);
+
 	
 	$data = query($query, "Announced", $clubID);
 	if(count($data)>0)
 	{
 		?>
-		<form action="tableLobby.php" method="post">
+		<div class="margin-b_30"></div>
+		<form action="tableLobby.php" method="post" class="available_form">
 		<input type="hidden" name="id" value="<?=$tableID?>"/>
-		<select name="matchID"><?php
-		for($i=0; $i<count($data); $i++)
-		{
-			$matchID = $data[$i][0]; $counter = $data[$i][1];
-			$player1 = $data[$i][2]; $player2 = $data[$i][3];
-		?><option value="<?=$matchID?>"><?=$counter?>: <?=$player1?>-<?=$player2?></option><?php
-		}
-		?><input type="submit" name="match" value="Почати матч"/><?php
-		?></form><?php 
+		<div class="tour_select no_margin">
+			<select name="matchID"><?php
+			$data_count = count($data);
+			for($i=0; $i<$data_count; $i++)
+			{
+				$matchID = $data[$i][0]; $counter = $data[$i][1];
+				$player1 = $data[$i][2]; $player2 = $data[$i][3];
+				?><option value="<?=$matchID?>">
+					<?=$counter?>: <?=$player1?>-<?=$player2?>
+				</option><?php
+			}
+			?>
+			<input type="hidden" name="match" value="x">
+		</div>
+		<button>
+			Почати матч
+		</button>
+		</form><?php
 	}
+
+	?></div><?php
 }
 
 
@@ -256,11 +272,9 @@ function liveForm($tableID)
 	<form class="available_form" action="tableLobby.php"
 	method="post">
 		<input type="hidden" name="id" value="<?=$tableID?>"/>
-		ВИДАЛИТИ ВСІ ДАНІ МАТЧУ
 		<button type="submit" name="reset" class="red">
-			ЗУПИНИТИ МАТЧ
+			ВИДАТИЛИ МАТЧ
 		</button>
-		ОБЕРЕЖНО
 	</form>
 
 <?php }
