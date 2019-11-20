@@ -6,6 +6,9 @@
 	align-items: normal;
         width: 100% !important;
 }
+.width_100{
+	width:100% !important;
+}
 .bracket_section {
 	display: flex;
 	flex-direction: row;
@@ -181,6 +184,9 @@
 		-webkit-transform: scale(.5);
 	    -webkit-transform-origin: 0 0;
 	    width: 200%;
+	}
+	.bracket_container{
+		max-height: 500px;
 	}
 }
 
