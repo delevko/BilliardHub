@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/tournament_lobby.css"> 
+</head>
+
 <?php
 
 $query = "SELECT
