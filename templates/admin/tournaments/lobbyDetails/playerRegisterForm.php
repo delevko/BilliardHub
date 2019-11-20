@@ -19,27 +19,25 @@ if(count($data))
 {
 ?>
 	<div class="margin-b_30"></div>
-	<div class="player_admin_reg_box">
 		<form class="player_admin_reg_box" action="playerRegister.php" method="post">
-			<select class="player_admin_reg" name="player">
-				<?php
-					
-				for($i=0; $i<count($data); $i++)
-				{
-					$playerID = $data[$i][0];
-					$playerName = $data[$i][1];
-	?>
-					<option value="<?=$playerID?>"><?=$playerName?></option>
-		  <?php } ?>
-			</select>
+			<div class="player_admin_reg_select">
+				<select name="player">
+					<?php
+						
+					for($i=0; $i<count($data); $i++)
+					{
+						$playerID = $data[$i][0];
+						$playerName = $data[$i][1];
+		?>
+						<option value="<?=$playerID?>"><?=$playerName?></option>
+			  <?php } ?>
+				</select>
+			</div>
 			<input type="hidden" name="tournament" value="<?=$tournamentID?>">
 			<button class="player_admin_reg_button nonres_reg_button" type="submit">Зареєструвати гравця</button>
 			<button class="player_admin_reg_button res_reg_button" type="submit">Зареєструвати</button>
 			<div class="margin-b_30"></div>
 		</form>
-		<button class="player_admin_reg_button nonres_reg_button" type="submit">Зареєструвати гравця</button>
-		<button class="player_admin_reg_button res_reg_button" type="submit">Зареєструвати</button>
-	</div>
 <?php
 } ?>
 
