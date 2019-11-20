@@ -138,19 +138,20 @@ table {
     text-transform: uppercase;
 }
 .live-match-lobby-frame-section tr td {
-    font-size: 85px;
+    font-size: 80px;
     font-weight: 500;
     color: #e5efeb;
     text-align: center;
-    /*padding: 5px 40px;*/
     vertical-align: middle;
 }
+.live-match-lobby-frame-section tr:first-child td {
+    font-size: 105px !important;
+}
 .best_of {
-    font-size: 60px !important;
+    font-size: 80px !important;
 }
 .live-match-lobby-frame-section {
     padding: 0px 50px;
-    /*margin-top: 30px;*/
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -168,17 +169,19 @@ table {
     vertical-align: middle;
 }
 .live-match-lobby-frame-table tr td {
-	min-width: 180px;
 	max-width: 180px;
+	min-width: 180px;
 }
 .live-match-lobby-frame-table tr th {
 	border-radius: 2px;
+	max-width: 180px;
+	min-width: 180px;
 }
 .empty_match_vs {
     color: #486724;
     font-size: 150px;
 }
-.live-match-lobby-frame-section span {
+.live-match-lobby-frame-section .finished_match_sign {
     font-size: 35px;
     margin-top: 30px;
     background-color: #222629;
