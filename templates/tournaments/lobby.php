@@ -154,10 +154,14 @@ function liveLobby($bracket, $tournamentID, $onClick)
 	if( !strcmp($onClick, "bracket") )
 	{
 	?>
-		<div class="margin-b_30"></div>
-		<div class="bracket_section">
+		<div class="sub-container">
+			<div class="bracket_section">
 	<?php
 		require("lobbyDetails/bracket.php");
+	?>
+			</div>
+		</div>
+	<?php
 	}
 	else
 	{
@@ -213,10 +217,14 @@ function finishedLobby($bracket, $tournamentID, $onClick)
 	else if( !strcmp($onClick, "bracket") )
 	{
 	?>
-		<div class="margin-b_30"></div>
-		<div class="bracket_section">
+		<div class="sub-container">
+			<div class="bracket_section">
 	<?php
 		require("lobbyDetails/bracket.php");
+	?>
+			</div>
+		</div>
+	<?php
 	}
 	else
 	{
