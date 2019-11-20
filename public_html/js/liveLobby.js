@@ -70,6 +70,31 @@ function increment(left, num) {
 	});
 }
 
+
+function decrement(left, num) {
+	var _break = (left) ? "#leftBreak" : "#rightBreak";
+	var _points = (left) ? "#leftPoints" : "#rightPoints";
+
+	if( parseInt( $(_break).html() ) - num < 0 )
+		return;
+
+
+	$(_break).html( parseInt( $(_break).html() ) - num );
+	$(_points).html( parseInt( $(_points).html() ) - num );
+	
+	item.currPlayer = isLeft;
+	item.action = "breakIncrement";
+	item.points = -num;
+	$.ajax({
+		type: "POST",
+		url: "liveQueries/live.php", 
+		data: item,
+		success: successHandler, 
+		async: false
+	});
+}
+
+
 function pointsReset() {
 	$("#leftPoints").html(0);
 	$("#rightPoints").html(0);
@@ -154,6 +179,17 @@ $(function() {
             }
             else if( !isLeft ) {
                 increment(isLeft, 1);
+            }
+	}
+
+
+        // arrow DOWN - break decrement
+	else if(event.which == 40) {
+            if( isLeft ) {
+                decrement(isLeft, 1);
+            }
+            else if( !isLeft ) {
+                decrement(isLeft, 1);
             }
 	}
 
