@@ -151,7 +151,8 @@ function liveLobby($bracket, $tournamentID, $onClick)
 
 
 //show appropriate data
-	?><div class="sub-container"><?php
+        $isBracket = ($onClick=="bracket") ? " width_100" : "";
+	?><div class="sub-container<?=$isBracket?>"><?php
 
 
 	if( !strcmp($onClick, "bracket") )
@@ -198,7 +199,8 @@ function finishedLobby($bracket, $tournamentID, $onClick)
 	
 
 //show appropriate data
-	?><div class="sub-container"><?php
+        $isBracket = ($onClick=="bracket") ? " width_100" : "";
+	?><div class="sub-container<?=$isBracket?>"><?php
 
 
 	if( !strcmp($onClick, "standings") )
