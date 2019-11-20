@@ -32,9 +32,9 @@ if(count($data))
 	  <?php } ?>
 		</select>
 		<input type="hidden" name="tournament" value="<?=$tournamentID?>">
-		<button type="submit">Зареєструвати гравця</button>
 		<div class="margin-b_30"></div>
 	</form>
+	<button type="submit">Зареєструвати гравця</button>
 <?php
 } ?>
 
