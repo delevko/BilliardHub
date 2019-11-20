@@ -150,6 +150,15 @@ $(function() {
                 increment(isLeft, event.keyCode-48);
             }
         }
+        
+	else if(event.which >= 97 && event.which <= 103) { // numPad
+            if( isLeft ) {
+                increment(isLeft, event.keyCode-96);
+            }
+            else if( !isLeft ) {
+                increment(isLeft, event.keyCode-96);
+            }
+        }
 
         else if(event.which == 27) { // ESC
             var leftP = parseInt( $("#leftPoints").html() );
