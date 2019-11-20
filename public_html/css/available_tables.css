@@ -169,8 +169,8 @@
 .take_yo_tables_box {
     display: flex;
     flex-direction: row;
-    width: auto;
-    margin: 0 auto;
+    justify-content: center;
+    width: 100%;
 }
 
 .take_yo_tables_select select {
