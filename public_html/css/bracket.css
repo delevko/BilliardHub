@@ -7,7 +7,6 @@
 	margin: 0;
 	color: white;
 	overflow: scroll;
-	width: 100%;
 }
 .bracket_column {
 	display: flex;
@@ -171,7 +170,10 @@
 
 @media screen and (max-width: 1000px) {
 	.bracket_section {
-		transform: scale(0.5);
-		width: 100%;	}
+		-webkit-transform: scale(.5);
+    -webkit-transform-origin: 0 0;
+    width: 200%;
+	
+	}
 }
 
