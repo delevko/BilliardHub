@@ -23,7 +23,7 @@
 	$country = $data[$i][5]; $city = $data[$i][6];
 	$location = $city.", ".$country;
 
-        printListPlayer($i+1, $id, $fName." ".$lName, $img, $birthday,$location, ($i+1==$data_count));
+        printListPlayer($i+1, $id, $lName." ".$fName, $img, $birthday,$location, ($i+1==$data_count));
     }
 
     listFooter();
@@ -40,7 +40,7 @@
 	$country = $data[$i][5]; $city = $data[$i][6];
 	$location = $city.", ".$country;
 
-	printBarsPlayer($id, $fName, $lName, $img, $location, $birthday);
+	printBarsPlayer($id, $lName." ".$fName, $img, $location, $birthday);
     }
 
     barsFooter();
@@ -171,7 +171,7 @@ function barsFooter()
 }
 
 
-function printBarsPlayer($id, $fName, $lName, $img, $location, $birthday)
+function printBarsPlayer($id, $name, $img, $location, $birthday)
 { ?>
             <li class="pointer"
 			onclick="openPlayerLobby(<?=$id?>);">
@@ -182,7 +182,7 @@ function printBarsPlayer($id, $fName, $lName, $img, $location, $birthday)
                     <div class="players_list_item_details">
                         <div class="players_list_item_name">
                             <h4 class="players_list_item_name">
-                                <?=$fName?> <span class="uppercase"><?=$lName?></span>
+                                <?=$name?>
                             </h4>
                         </div>
                         <div class="players_list_item_info">

@@ -11,7 +11,7 @@
     P.city AS playerCity, P.country AS playerCountry
 FROM playerTournament PT
     JOIN player P ON PT.playerID=P.id
-WHERE PT.tournamentID=? ORDER BY 1";
+WHERE PT.tournamentID=? ORDER BY 1, 2";
 
     $data = query($query, $tournamentID);
     $data_count = count($data);
