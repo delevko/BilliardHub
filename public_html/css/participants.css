@@ -173,6 +173,7 @@ figure {
 }
 .players_list_item_info {
 	display: flex;
+	flex-direction: row;
 	justify-content: space-between;
 }
 .players_list_item_location,
