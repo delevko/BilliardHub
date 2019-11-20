@@ -256,14 +256,14 @@ header * {
 	}
 
 
-      .navigation.responsive a:first-child {
+      /*.navigation.responsive a:first-child {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-bottom: none;
     height: inherit;
-  }
+  }*/
 header nav>:first-child {
     display: flex;
     flex-direction: column;
