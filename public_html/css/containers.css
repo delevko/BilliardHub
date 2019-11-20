@@ -46,7 +46,7 @@
 
 @media screen and (max-width:1000px) {
 	.container{
-		margin-top: 100px !important;
+		margin-top: 80px !important;
 		padding: 0 15px;
     	        overflow: scroll;
 		align-items: normal !important;
