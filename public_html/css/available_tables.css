@@ -170,6 +170,7 @@
     display: flex;
     flex-direction: row;
     width: auto;
+    margin: 0 auto;
 }
 
 .take_yo_tables_select select {
