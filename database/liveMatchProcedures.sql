@@ -2,8 +2,20 @@ DROP PROCEDURE IF EXISTS changePlayer;
 DROP PROCEDURE IF EXISTS breakIncrement;
 DROP PROCEDURE IF EXISTS finishFrame;
 DROP PROCEDURE IF EXISTS getBreakData;
+DROP PROCEDURE IF EXISTS clearTable;
 
 delimiter $$
+
+
+CREATE PROCEDURE clearTable(IN tableID INT)
+BEGIN
+	START TRANSACTION;
+		UPDATE _table T SET T.status="Available" WHERE T.id=tableID;
+		UPDATE _table T SET T.matchID=NULL WHERE T.id=tableID;
+	COMMIT;
+END;
+
+
 
 CREATE PROCEDURE getBreakData(IN matchID INT, IN xORy INT, INOUT player INT, INOUT opponent INT, INOUT frame INT, INOUT tournament INT)
 BEGIN 
