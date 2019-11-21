@@ -58,6 +58,7 @@ table.matches_list_table .col-9 {
       display: none;
     }
 
+
 /*RESPONSIVE*/
 
 @media screen and (max-width: 1000px) {
@@ -66,6 +67,10 @@ table.matches_list_table .col-9 {
     }
     .res {
       display: table-cell;
+      float: left;
+    }
+    .fa-user {
+      float: left;
     }
 }
 
