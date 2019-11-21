@@ -6,7 +6,7 @@ table.participants_short_table .col-2 {
  	width: 99%;
 }
 
-.breaks_table tbody tr>:nth-child(1) {
+.participants_short_table tbody tr>:nth-child(1) {
 	border-right: none;
 }
 
