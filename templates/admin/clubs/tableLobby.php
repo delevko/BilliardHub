@@ -287,8 +287,12 @@ function finishedForm($tableID, $tournamentID)
 	method="post">
 		<input type="hidden" name="id" value="<?=$tableID?>"/>
 		<input type="hidden" name="tournament" value="<?=$tournamentID?>"/>	
-		<button type="submit" name="exit" class="red">ВИЙТИ</button>
-		<button type="submit" name="next">НАСТУПНИЙ МАТЧ</button>
+		<button type="submit" name="exit" class="red">
+			ЗВІЛЬНИТИ СТІЛ
+		</button>
+		<button type="submit" name="next">
+			НАСТУПНИЙ МАТЧ
+		</button>
 	</form>
 
 <?php }
