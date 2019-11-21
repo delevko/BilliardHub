@@ -54,13 +54,18 @@ table.matches_list_table .col-9 {
 .fa-youtube {
     color: #FF1F1C;
 }
-
+ .res {
+      display: none;
+    }
 
 /*RESPONSIVE*/
 
 @media screen and (max-width: 1000px) {
-    .match_list_resp {
+    .nonres {
         display: none;
+    }
+    .res {
+      display: table-cell;
     }
 }
 
