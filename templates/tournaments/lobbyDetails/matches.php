@@ -93,8 +93,8 @@ function roundHeader()
 				<th></th>
 				<th class="match_list_resp"></th>
 				<th>v</th>
-				<th class="match_list_resp"></th>
 				<th></th>
+				<th class="match_list_resp"></th>
 				<th class="float_left">
 					<i class="fas fa-user"></i>
 					<span>Гравець 2</span>
@@ -133,7 +133,7 @@ function displayMatch($tID,$counter,$last,$mID,$player1,$score1,$player2,$score2
 				<?=$player1?>
 			</span>
 		</td>
-		<td>
+		<td class="match_list_resp">
 		</td>
 		<td>
 			<span class="font_20 bold float_right">
@@ -150,7 +150,7 @@ function displayMatch($tID,$counter,$last,$mID,$player1,$score1,$player2,$score2
 				<?=$score2?>
 			</span>
 		</td>
-		<td>
+		<td class="match_list_resp">
 		</td>
 		<td>
 			<span class="float_left">
