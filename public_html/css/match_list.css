@@ -76,6 +76,9 @@ table.matches_list_table .col-9 {
     .float_left, .float_right {
       float: none;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
     }
     table.matches_list_table .col-7 {
   width: 1%;
