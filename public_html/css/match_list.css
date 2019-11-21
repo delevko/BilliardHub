@@ -71,6 +71,11 @@ table.matches_list_table .col-9 {
     }
     .fa-user {
       float: left;
+      margin-right: 5px;
+    }
+    .float_left, .float_right {
+      float: none;
+      text-align: center;
     }
 }
 
