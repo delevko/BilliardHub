@@ -86,7 +86,7 @@ function registrationLobby($tournamentID, $onClick)
 		require("lobbyDetails/registeredPlayersListSmall.php");
 	else if( !strcmp($onClick, "register") ) {
 		require("lobbyDetails/playerRegisterForm.php");
-		require("lobbyDetails/registeredPlayersListSmall.php");
+		require("lobbyDetails/registrationPlayersList.php");
 	}	
 	else
 		redirect("");
