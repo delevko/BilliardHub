@@ -77,6 +77,12 @@ table.matches_list_table .col-9 {
       float: none;
       text-align: center;
     }
+    table.matches_list_table .col-7 {
+  width: 1%;
+}
+table.matches_list_table .col-3 {
+  width: 1%;
+}
 }
 
 
