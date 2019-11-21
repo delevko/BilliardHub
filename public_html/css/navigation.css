@@ -90,6 +90,9 @@ header * {
     display: block;
     background-color: transparent; /*#61892F*/;
 }
+.login span {
+    margin-left: 5px;
+}
 .login:hover {
     background-color: #54772A;
     cursor: pointer;
