@@ -80,8 +80,8 @@ table.matches_list_table .col-9 {
       justify-content: center;
       flex-direction: row;
     }
-    .matches_list_table tbody tr:nth-child(3),
-    .matches_list_table tbody tr:nth-child(7) {
+    .matches_list_table tbody tr>:nth-child(3),
+    .matches_list_table tbody tr>:nth-child(7) {
       padding: 0;
     }
     
