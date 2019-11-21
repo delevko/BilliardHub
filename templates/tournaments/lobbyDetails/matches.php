@@ -91,9 +91,9 @@ function roundHeader()
 					<span>Гравець 1</span>
 				</th>
 				<th></th>
-				<th></th>
+				<th class="match_list_resp"></th>
 				<th>v</th>
-				<th></th>
+				<th class="match_list_resp"></th>
 				<th></th>
 				<th class="float_left">
 					<i class="fas fa-user"></i>

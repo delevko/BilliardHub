@@ -55,3 +55,15 @@ table.matches_list_table .col-9 {
     color: #FF1F1C;
 }
 
+
+/*RESPONSIVE*/
+
+@media screen and (max-width: 1000px) {
+    .match_list_resp {
+        display: none;
+    }
+}
+
+
+
+
