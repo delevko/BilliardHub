@@ -18,6 +18,9 @@ if( exists("_table", $tableID) )
 	foreach ($_POST as $l=>$v){
 		$rlt[$l] = $v;
 	}
+	foreach ($_POST as $l=>$v){
+		unset($_POST[$l]);
+	}
 
 	if( !strcmp($action, "changePlayer") ) {
 		

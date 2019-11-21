@@ -1,4 +1,5 @@
 
+var ESC_clicked = false;
 var isLeft, tableID;
 var item = {
 	"currPlayer": true,
@@ -23,6 +24,7 @@ $(document).ready(function() {
 	}
 });
 
+
 function getTableID()
 {
     _href = document.location.href ? document.location.href : document.location;
@@ -36,12 +38,13 @@ function getTableID()
 
 
 function highlight(left) {
-	var player1	= (left) ? "leftPlayer" : "rightPlayer";
-	var player2	= (left) ? "rightPlayer" : "leftPlayer";
+    var player1	= (left) ? "leftPlayer" : "rightPlayer";
+    var player2	= (left) ? "rightPlayer" : "leftPlayer";
 
     document.getElementById(player1).className = "live-match-lobby-player highlight";
     document.getElementById(player2).className = "live-match-lobby-player";
 }
+
 
 function breakReset(left) {
     var breakZero = (left) ? "#rightBreak" : "#leftBreak";
@@ -50,6 +53,7 @@ function breakReset(left) {
 	$(breakZero).html(0);
 	$(breakNull).html(null);
 }
+
 
 function increment(left, num) {
 	var _break = (left) ? "#leftBreak" : "#rightBreak";
@@ -103,6 +107,7 @@ function pointsReset() {
 	isLeft = true;
 }
 
+
 function changePlayer() {
 	item.currPlayer = isLeft;
 	item.action = "changePlayer";
@@ -114,6 +119,7 @@ function changePlayer() {
 		async: false
 	});
 }
+
 
 function finishFrame(leftP, rightP) {
 	item.currPlayer = isLeft;
@@ -127,8 +133,8 @@ function finishFrame(leftP, rightP) {
 	});
 
 	location = location;
-	//highlight(isLeft);*/
 }
+
 
 var successHandler = function(data, status) {
 	//data = data != "" ? $.parseJSON(data) : {};
@@ -136,8 +142,8 @@ var successHandler = function(data, status) {
 	console.log(res);
 };
 
+
 var successHandlerFinish = function(data, status) {
-	//data = data != "" ? $.parseJSON(data) : {};
 	var res = JSON.parse(data); 
 	console.log(res);
 	window.location.reload(true)
@@ -146,6 +152,8 @@ var successHandlerFinish = function(data, status) {
 
 $(function() {
     $('html').keydown(function(event) {
+	if(ESC_clicked)
+	    return;
 
 	// arrow LEFT - change player
         if(event.which == 37) {
@@ -222,6 +230,18 @@ $(function() {
             var rightP = parseInt( $("#rightPoints").html() );
 
             if( leftP != rightP ) {
+		ESC_clicked = true;
+		$.confirm({
+		    title: 'Завершити фрейм',
+		    boxWidth: '30%',
+		    useBootstrap: false,
+		    theme: 'supervan',
+		    content: '',
+		    buttons: {
+			confirm: {
+			    text: 'TAK - ENTER',
+			    keys: ['enter'],
+			    action: function() {
 				if(!isLeft)
 					item._break = parseInt( $("#rightBreak").html() );
 				else
@@ -229,6 +249,15 @@ $(function() {
 				
 				isLeft = !isLeft;
 				finishFrame(leftP, rightP);
+			    }
+			},
+			cancel: {
+			    text: 'НІ - ESC',
+			    keys: ['esc'],
+			    action: function() { ESC_clicked = false; }
+			}
+		    }
+		});
             }
         }
     });
