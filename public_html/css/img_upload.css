@@ -32,7 +32,7 @@
 .avatar-upload .avatar-preview {
      width: 200px;
      height: 260px;
-     border-radius: 4px;
+     border-radius: 8px;
      border-top: 3px solid #61892F;
 }
 .avatar-upload .avatar-preview > div {
