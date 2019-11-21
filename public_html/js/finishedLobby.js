@@ -1,12 +1,10 @@
+var ESC_clicked = false;
+var ENTER_clicked = false;
 
 var tableID;
-var item = {
-	"action" : "",
-	"tableID" : -1
-}
 
 $(document).ready(function() {
-	item.tableID = getTableID();
+    tableID = getTableID();
 });
 
 
@@ -16,39 +14,89 @@ function getTableID()
 
     var suffix = _href.split('?');
     var args = suffix[suffix.length-1].split('&');
-    var tableID = args[0].split('=');
+    var tID = args[0].split('=');
 
-    return tableID[1];
+    return tID[1];
 }
 
 
-var successHandler = function(data, status) {
-	var res = JSON.parse(data); 
-	console.log(res);
-};
+function nextMatch() {
+    var form = $('<form action="liveQueries/finished.php" method="POST">' + 
+	'<input type="hidden" name="action" value="nextMatch"/>' +
+	'<input type="hidden" name="tableID" value="' + tableID + '"/>' +
+	'</form>');
+
+    $('body').append(form);
+    form.submit();
+}
+
+
+function exitMatch() {
+    var form = $('<form action="liveQueries/finished.php" method="POST">' + 
+	'<input type="hidden" name="action" value="exitMatch"/>' +
+	'<input type="hidden" name="tableID" value="' + tableID + '"/>' +
+	'</form>');
+
+    $('body').append(form);
+    form.submit();
+}
+
 
 $(function() {
     $('html').keydown(function(event) {
-        if(event.which == 13) { // enter
-			item.action = "nextMatch";
-            $.ajax({
-				type: "POST",
-				url: "liveQueries/finished.php", 
-				data: item,
-				success: successHandler, 
+	if(ESC_clicked || ENTER_clicked)
+	    return;
+
+	// ENTER - next match
+        if(event.which == 13) {
+             ENTER_clicked = true;
+             $.confirm({
+                title: 'Почати наступний матч?',
+                boxWidth: '30%',
+                useBootstrap: false,
+                theme: 'supervan',
+                content: '',
+                buttons: {
+                    confirm: {
+                        text: 'TAK - ENTER',
+                        keys: ['enter'],
+                        action: function() {
+	    		    nextMatch();
+                        }
+                    },
+                    cancel: {
+                        text: 'НІ - ESC',
+                        keys: ['esc'],
+                        action: function() { ENTER_clicked = false; }
+                    }
+                }
             });
-			location = location;
         }
         
-		else if(event.which == 27) { // ESC
-			item.action = "exitMatch";
-            $.ajax({
-				type: "POST",
-				url: "liveQueries/finished.php", 
-				data: item,
-				success: successHandler, 
+	// ESC - free table
+	else if(event.which == 27) {
+             ESC_clicked = true;
+             $.confirm({
+                title: 'Звільнити стіл?',
+                boxWidth: '30%',
+                useBootstrap: false,
+                theme: 'supervan',
+                content: '',
+                buttons: {
+                    confirm: {
+                        text: 'TAK - ENTER',
+                        keys: ['enter'],
+                        action: function() {
+	    		    exitMatch();
+                        }
+                    },
+                    cancel: {
+                        text: 'НІ - ESC',
+                        keys: ['esc'],
+                        action: function() { ESC_clicked = false; }
+                    }
+                }
             });
-			location = location;
         }
     });
 });
