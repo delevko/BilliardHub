@@ -83,6 +83,7 @@ table.matches_list_table .col-9 {
     .matches_list_table tbody tr>:nth-child(3),
     .matches_list_table tbody tr>:nth-child(7) {
       padding: 0;
+      max-width: 1px;
     }
     
 }
