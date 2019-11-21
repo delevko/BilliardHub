@@ -1,0 +1,19 @@
+
+table.participants_register_table .col-1 {
+ 	width: 1%;
+}
+table.participants_register_table .col-2 {
+ 	width: 92%;
+}
+table.participants_register_table .col-3 {
+ 	width: 7%;
+}
+
+.participants_register_table tbody tr>:nth-child(1) {
+	border-right: none;
+}
+
+.participants_register_table .fa-times{
+	font-size: 20px;
+	color: #f44336;
+}
