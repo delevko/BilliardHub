@@ -54,7 +54,7 @@ table.matches_list_table .col-9 {
 .fa-youtube {
     color: #FF1F1C;
 }
- .res {
+ .matches_list_res {
       display: none;
     }
 
@@ -62,10 +62,10 @@ table.matches_list_table .col-9 {
 /*RESPONSIVE*/
 
 @media screen and (max-width: 1000px) {
-    .nonres {
+    .matches_list_nonres {
         display: none;
     }
-    .res {
+    .matches_list_res {
       display: table-cell;
       float: left;
     }
@@ -79,11 +79,6 @@ table.matches_list_table .col-9 {
       display: flex;
       justify-content: center;
       flex-direction: row;
-    }
-    .matches_list_table tbody tr>:nth-child(3),
-    .matches_list_table tbody tr>:nth-child(7) {
-      padding: 0;
-      max-width: 1px;
     }
     
 }

@@ -88,8 +88,8 @@ function roundHeader()
 				<th>#</th>
 				<th class="float_right">
 					<i class="fas fa-user"></i>
-					<span class="nonres">Гравець 1</span>
-					<span class="res"> 1</span>
+					<span class="matches_list_nonres">Гравець 1</span>
+					<span class="matches_list_res"> 1</span>
 				</th>
 				<th></th>
 				<th></th>
@@ -98,8 +98,8 @@ function roundHeader()
 				<th></th>
 				<th class="float_left">
 					<i class="fas fa-user"></i>
-					<span class="nonres">Гравець 2</span>
-					<span class="res"> 2</span>
+					<span class="matches_list_nonres">Гравець 2</span>
+					<span class="matches_list_res"> 2</span>
 				</th>
 				<th>
 					<span>TV</span>
