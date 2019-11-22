@@ -20,9 +20,13 @@ function lobby($matchID)
 		$id1, $name1, $score1, $img1,
 		$id2, $name2, $score2, $img2,
 		$KO_R, $seeded_R, $youtube) = getMatchData($matchID);
+
 	
 	if(isset($youtube) )
 		displayYTlink($youtube);
+	else {
+		?><div class="match_margin"></div><?php
+	}
 
 	$header = castHeader($roundType,$roundNo,$KO_R,$seeded_R);
 	printLobby($counter, $header, $bestOF,
