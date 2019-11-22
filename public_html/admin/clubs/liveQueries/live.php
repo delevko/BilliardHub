@@ -7,13 +7,17 @@ $action = isset($_POST["action"]) ? htmlspecialchars($_POST["action"]) : null;
 $points = isset($_POST["points"]) ? htmlspecialchars($_POST["points"]) : null;
 $break = isset($_POST["_break"]) ? htmlspecialchars($_POST["_break"]) : null;
 $tableID = isset($_POST["tableID"]) ? htmlspecialchars($_POST["tableID"]) : null;
-foreach ($_POST as $l=>$v){
-	unset($_POST[$l]);
-}
-
 
 if( exists("_table", $tableID) )
 {
+	if( !strcmp($action, "finishFrame") ) {
+		changePlayer($isLeft, $tableID, $break);
+		finishFrame($tableID);
+
+		sleep(0.5);
+		redirect(PATH_H."admin/clubs/live-match-lobby.php?tableID=$tableID");
+	}
+
 	$rlt = array();
 	foreach ($_POST as $l=>$v){
 		$rlt[$l] = $v;
@@ -30,17 +34,11 @@ if( exists("_table", $tableID) )
 	
 		array_push($rlt, breakIncrement($isLeft, $tableID, $points));
 	}
-	else if( !strcmp($action, "finishFrame") ) {
-
-		array_push($rlt, changePlayer($isLeft, $tableID, $break));
-		array_push($rlt, finishFrame($tableID));
-
-		sleep(0.5);		
-		header("Refresh:0;");
-	}
 
 	die( json_encode($rlt) );
 }
+else
+	redirect(PATH_H."logout.php");
 
 
 function changePlayer($isLeft, $tableID, $break){
@@ -80,16 +78,8 @@ function breakIncrement($isLeft, $tableID, $points){
 }
 
 function finishFrame($tableID){
-
-	$rlt = array();
-
-	$rlt["request"] = "CALL finishFrame(?)";
-	$rlt["erreur"] = false;
-
-	if( !JSquery($rlt["request"], $tableID) )
-		$rlt["erreur"] = "Database unsuccessful";
-
-	return $rlt;
+	$query = "CALL finishFrame(?)";
+	query($query, $tableID);
 }
 
 ?>

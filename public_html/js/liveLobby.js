@@ -1,5 +1,6 @@
 
 var ESC_clicked = false;
+var BTN_clicked = false;
 var isLeft, tableID;
 var item = {
 	"currPlayer": true,
@@ -12,7 +13,8 @@ var item = {
 
 $(document).ready(function() {
 	var firstHighlight = document.getElementById("leftPlayer").className;
-	item.tableID = getTableID();
+	tableID = getTableID();
+	item.tableID = tableID;
 	
 	if( firstHighlight.includes("highlight") ) {
 		isLeft = true;
@@ -31,9 +33,9 @@ function getTableID()
 
     var suffix = _href.split('?');
     var args = suffix[suffix.length-1].split('&');
-    var tableID = args[0].split('=');
+    var tID = args[0].split('=');
 
-    return tableID[1];
+    return tID[1];
 }
 
 
@@ -121,43 +123,35 @@ function changePlayer() {
 }
 
 
-function finishFrame(leftP, rightP) {
-	item.currPlayer = isLeft;
-	item.action = "finishFrame";
-	$.ajax({
-		type: "POST",
-		url: "liveQueries/live.php", 
-		data: item,
-		success: successHandlerFinish, 
-		async: false
-	});
+function finishFrame(_break) {
+    var form = $('<form action="liveQueries/live.php" method="POST">' + 
+	'<input type="hidden" name="action" value="finishFrame"/>' +
+	'<input type="hidden" name="tableID" value="' + tableID + '"/>' +
+	'<input type="hidden" name="currPlayer" value="' + isLeft + '"/>' +
+	'<input type="hidden" name="_break" value="' + _break + '"/>' +
+	'</form>');
 
-	location = location;
+    $('body').append(form);
+    form.submit();
 }
 
 
 var successHandler = function(data, status) {
-	//data = data != "" ? $.parseJSON(data) : {};
+	BTN_clicked = false;
 	var res = JSON.parse(data); 
 	console.log(res);
 };
 
-
-var successHandlerFinish = function(data, status) {
-	var res = JSON.parse(data); 
-	console.log(res);
-	window.location.reload(true)
-};
 
 
 $(function() {
     $('html').keydown(function(event) {
-	if(ESC_clicked)
+	if(BTN_clicked || ESC_clicked)
 	    return;
 
 	// arrow LEFT - change player
         if(event.which == 37) {
-
+	    BTN_clicked = true;
             if( !isLeft ) {
 		item._break = parseInt( $("#rightBreak").html() );
 		breakReset(isLeft);
@@ -170,6 +164,7 @@ $(function() {
 
 	// arrow RIGHT - change player
         else if(event.which == 39) {
+	    BTN_clicked = true;
             if( isLeft ) {
 		item._break = parseInt( $("#leftBreak").html() );
 		breakReset(isLeft);
@@ -182,6 +177,7 @@ $(function() {
 
         // arrow UP - break increment
 	else if(event.which == 38) {
+	    BTN_clicked = true;
             if( isLeft ) {
                 increment(isLeft, 1);
             }
@@ -193,6 +189,7 @@ $(function() {
 
         // arrow DOWN - break decrement
 	else if(event.which == 40) {
+	    BTN_clicked = true;
             if( isLeft ) {
                 decrement(isLeft, 1);
             }
@@ -204,6 +201,7 @@ $(function() {
 
 	// row numbers
         else if(event.which >= 49 && event.which <= 55) {
+	    BTN_clicked = true;
             if( isLeft ) {
                 increment(isLeft, event.keyCode-48);
             }
@@ -215,6 +213,7 @@ $(function() {
 
 	// numPad numbers
 	else if(event.which >= 97 && event.which <= 103) {
+	    BTN_clicked = true;
             if( isLeft ) {
                 increment(isLeft, event.keyCode-96);
             }
@@ -242,13 +241,14 @@ $(function() {
 			    text: 'TAK - ENTER',
 			    keys: ['enter'],
 			    action: function() {
+				var _break;
 				if(!isLeft)
-					item._break = parseInt( $("#rightBreak").html() );
+					_break = parseInt( $("#rightBreak").html() );
 				else
-					item._break = parseInt( $("#leftBreak").html() );
+					_break = parseInt( $("#leftBreak").html() );
 				
 				isLeft = !isLeft;
-				finishFrame(leftP, rightP);
+				finishFrame(_break);
 			    }
 			},
 			cancel: {
