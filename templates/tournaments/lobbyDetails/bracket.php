@@ -1,7 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/bracket.css">
 
 
-<div class="bracket_container">
 <div class="bracket_section">
 	<?php prepareBracket($bracket, $tournamentID); ?>
 </div>
