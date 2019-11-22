@@ -144,16 +144,20 @@ function printBracketMatch($i, $mID, $matchNum, $player1, $score1, $seed1, $play
 		<div class="front_02">
 			<?=$seed2?>
 		</div>
-		<div class="name_01">
+		<div class="name_01 pointer"
+		onclick="openMatchLobby(<?=$tID?>, <?=$mID?>);"> 
 			<?=$player1?>
 		</div>
-		<div class="name_02">
+		<div class="name_02 pointer"
+		onclick="openMatchLobby(<?=$tID?>, <?=$mID?>);"> 
 			<?=$player2?>
 		</div>
-		<div class="points_01">
+		<div class="points_01 pointer"
+		onclick="openMatchLobby(<?=$tID?>, <?=$mID?>);"> 
 			<?=$score1?>
 		</div>
-		<div class="points_02">
+		<div class="points_02 pointer"
+		onclick="openMatchLobby(<?=$tID?>, <?=$mID?>);"> 
 			<?=$score2?>
 		</div>
 <?php if($liveFlag){ ?>
