@@ -65,14 +65,26 @@ if( !strcmp($tableStatus, "Occupied") )
 	else if( !strcmp($matchStatus, "Finished") )
 		require("finished_match.html");
 }
+else if( !strcmp($tableStatus, "SparringOccupied") )
+{
+	$player1class = "live-match-lobby-player";
+	$player2class = "live-match-lobby-player";
+
+	$matchInfo = "Спаринг";
+
+	if( !strcmp($matchStatus, "Live") ) {
+		nonEmpty($break1) ? ($player1class .= " highlight") :
+		($player2class .= " highlight");
+
+		require("live_sparring.html");
+	}
+	else if( !strcmp($matchStatus, "Finished") )
+		require("finished_sparring.html");
+}
 else
 {
 	require("empty_match.html");
 }
-//else
-//{
-//	redirect("tableLobby.php?id=$tableID");
-//}
 
 
 //liveSparringLobby finishedSparringLobby
