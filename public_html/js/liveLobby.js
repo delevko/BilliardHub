@@ -151,8 +151,8 @@ $(function() {
 
 	// arrow LEFT - change player
         if(event.which == 37) {
-	    BTN_clicked = true;
             if( !isLeft ) {
+	        BTN_clicked = true;
 		item._break = parseInt( $("#rightBreak").html() );
 		breakReset(isLeft);
 		isLeft = !isLeft;
@@ -164,8 +164,8 @@ $(function() {
 
 	// arrow RIGHT - change player
         else if(event.which == 39) {
-	    BTN_clicked = true;
             if( isLeft ) {
+	        BTN_clicked = true;
 		item._break = parseInt( $("#leftBreak").html() );
 		breakReset(isLeft);
 		isLeft = !isLeft;
