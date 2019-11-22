@@ -146,11 +146,15 @@ function printBracketMatch($i, $mID, $matchNum, $player1, $score1, $seed1, $play
 		</div>
 		<div class="name_01 pointer"
 		onclick="openMatchLobby(<?=$tID?>, <?=$mID?>);"> 
-			<?=$player1?>
+			<span class="<?=$player1=="WALK OVER"?"walk_over":""?>">
+				<?=$player1?>
+			</span>
 		</div>
 		<div class="name_02 pointer"
 		onclick="openMatchLobby(<?=$tID?>, <?=$mID?>);"> 
-			<?=$player2?>
+			<span class="<?=$player2=="WALK OVER"?"walk_over":""?>">
+				<?=$player2?>
+			</span>
 		</div>
 		<div class="points_01 pointer"
 		onclick="openMatchLobby(<?=$tID?>, <?=$mID?>);"> 

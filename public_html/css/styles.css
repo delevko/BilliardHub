@@ -32,10 +32,10 @@ table col[class*="col-"] {
 	cursor: pointer;
 }
 .float_left {
-	float: left;
+	float: left !important;
 }
 .float_right {
-	float: right;
+	float: right !important;
 }
 .tbody_odd {
 	background-color: #54595E;
@@ -95,5 +95,9 @@ table col[class*="col-"] {
     margin-right: 3px;
     width: 12px;
     height: 12px;
+}
+.walk_over {
+    font-style: italic;
+    color: #808080 !important;
 }
 

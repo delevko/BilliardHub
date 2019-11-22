@@ -60,8 +60,11 @@ function printLobby($counter, $header, $bestOF, $id1, $name1,
 		</div>
 		<div class="match_lobby_player-table">
 			<div class="match_lobby_player pointer"
-			onclick="openPlayerLobby(<?=$id1?>);">
-				<span class="match_lobby_player-name float_left">
+<?php if($id1 !== -1 && $id1 !== -2){ ?>
+			onclick="openPlayerLobby(<?=$id1?>);"
+<?php } ?>		>
+				<span class="match_lobby_player-name float_left
+				<?=$name1=="WALK OVER"?" walk_over":""?>">
 					<?=$name1?>
 				</span>
 				<p>
@@ -85,8 +88,11 @@ function printLobby($counter, $header, $bestOF, $id1, $name1,
 				</table>
 			</div>
 			<div class="match_lobby_player pointer"
-			onclick="openPlayerLobby(<?=$id2?>);">
-				<span class="match_lobby_player-name float_right">
+<?php if($id2 !== -1 && $id2 !== -2){ ?>
+			onclick="openPlayerLobby(<?=$id2?>);"
+<?php } ?>		>
+				<span class="match_lobby_player-name float_right
+				<?=$name2=="WALK OVER"?" walk_over":""?>">
 					<?=$name2?>
 				</span>
 				<p>

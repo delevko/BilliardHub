@@ -131,7 +131,8 @@ function displayMatch($tID,$counter,$last,$mID,$player1,$score1,$player2,$score2
 		<?php if ($live) { ?>
 			<span class="float_left live">live</span>
 		<?php } ?>
-			<span class="float_right">
+			<span class="float_right
+			<?=$player1=="WALK OVER"?" walk_over":""?>">
 				<?=$player1?>
 			</span>
 		</td>
@@ -155,7 +156,8 @@ function displayMatch($tID,$counter,$last,$mID,$player1,$score1,$player2,$score2
 		<td>
 		</td>
 		<td>
-			<span class="float_left">
+			<span class="float_left
+			<?=$player2=="WALK OVER"?" walk_over":""?>">
 				<?=$player2?>
 			</span>
 		</td>
