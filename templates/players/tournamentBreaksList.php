@@ -7,7 +7,7 @@ function tournamentBreaksList($playerID)
     CONCAT(P.lastName, ' ', P.firstName) AS playerName,
     B.opponentID, CONCAT(O.lastName, ' ', O.firstName) AS opponentName,
     P.photo AS playerPhoto, O.photo AS opponentPhoto,
-    T.name AS tournamentName, M.roundType
+    T.name AS tournamentName, M.roundType, T.id
 FROM break B
     JOIN player P ON B.playerID = P.id
     JOIN player O ON B.opponentID = O.id
@@ -27,7 +27,7 @@ WHERE B.playerID=? ORDER BY 1 DESC";
 		$plrID = $data[$i][2]; $plrName = $data[$i][3];
 		$oppID = $data[$i][4]; $oppName = $data[$i][5];
 		$plrPhoto = $data[$i][6]; $oppPhoto = $data[$i][7];
-		$trnName = $data[$i][8];
+		$trnName = $data[$i][8]; $trnID = $data[$i][10];
 		$rndType = $data[$i][9];
 	
                 list($rndNo, $KO_R, $seeded_R) =
@@ -38,7 +38,7 @@ WHERE B.playerID=? ORDER BY 1 DESC";
 		$BL = ($i+1 == $data_count) ? "radius_bl" : "";
         $BR = ($i+1 == $data_count) ? "radius_br" : "";
 	
-		printBreak($points, $i+1, $matchID, $plrName, $plrPhoto, $oppName, $oppPhoto, $BL, $BR, $trnName, $round);
+		printBreak($points, $i+1, $matchID, $plrName, $plrPhoto, $oppName, $oppPhoto, $BL, $BR, $trnName, $round, $trnID);
 	}
 
 	printFooter();
@@ -59,11 +59,11 @@ function getGeneralDetails($id, $rType)
 
 
 
-function printBreak($pts,$i,$mID,$plrName,$plrPhoto,$oppName,$oppPhoto,$BL,$BR, $trnName, $round)
+function printBreak($pts,$i,$mID,$plrName,$plrPhoto,$oppName,$oppPhoto,$BL,$BR,$trnName,$round,$tID)
 {
     $e_o = ($i%2) ? "odd" : "even";
  ?>
-            <tr onclick="openMatchLobby(<?=$mID?>);"
+            <tr onclick="openMatchLobby(<?=$tID?>,<?=$mID?>);"
             class="tbody_<?=$e_o?> pointer">
                 <td class="<?=$BL?>">
                     <div class="photo_name">

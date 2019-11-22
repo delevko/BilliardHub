@@ -35,7 +35,7 @@ WHERE M.tournamentID=? ORDER BY 1 DESC, 4";
 		$BL = ($i+1 == $data_count) ? "radius_bl" : "";
 		$BR = ($i+1 == $data_count) ? "radius_br" : "";
 	
-		printBreak($points, $i+1, $matchID, $plrName, $plrPhoto, $oppName, $oppPhoto, $BL,$BR, $round);
+		printBreak($points, $i+1, $matchID, $plrName, $plrPhoto, $oppName, $oppPhoto, $BL,$BR, $round, $tournamentID);
 	}
 
 	printFooter();
@@ -56,11 +56,11 @@ function getGeneralDetails($id, $rType)
 
 
 
-function printBreak($pts,$i,$mID,$plrName,$plrPhoto,$oppName,$oppPhoto,$BL,$BR, $round)
+function printBreak($pts,$i,$mID,$plrName,$plrPhoto,$oppName,$oppPhoto,$BL,$BR, $round, $tID)
 {
     $e_o = ($i%2) ? "odd" : "even";
 ?>
-            <tr onclick="openMatchLobby(<?=$mID?>);"
+            <tr onclick="openMatchLobby(<?=$tID?>,<?=$mID?>);"
             class="tbody_<?=$e_o?> pointer">
 				<td class="<?=$BL?>">
 					<div class="photo_name">
