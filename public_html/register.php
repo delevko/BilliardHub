@@ -22,13 +22,13 @@ else if($_SERVER["REQUEST METHOD"] = "POST")
         exit;
     }
     
-	if(!$_POST["birthday"])
+    if(!$_POST["birthday"])
     {
         adminApology(INPUT_ERROR, "Введіть дату народження");
         exit;
     }
 	
-	$birthday = date('Y-m-d', strtotime($_POST["birthday"]) );
+    $birthday = date('Y-m-d', strtotime($_POST["birthday"]) );
     if( !$birthday)
     {
         adminApology(INPUT_ERROR, "Помилка дати");
@@ -41,18 +41,19 @@ else if($_SERVER["REQUEST METHOD"] = "POST")
         apology(INPUT_ERROR, "Паролі не співпадають");
         exit;
     }
-	$email = mailCheck($_POST["email"]);
-	if($email === false)
-	{
-		apology(INPUT_ERROR, "Введіть правильний email: john.doe@example.com");
-		exit;
-	}
-	//sanitize, filter
-	if( !loginAvailable($_POST["username"]) )
-	{
-		apology(INPUT_ERROR, "Це ім'я користувача недоступне");
-		exit;
-	}
+
+    $email = mailCheck($_POST["email"]);
+    if($email === false)
+    {
+        apology(INPUT_ERROR, "Введіть правильний email: john.doe@example.com");
+        exit;
+    }
+    //sanitize, filter
+    if( !loginAvailable($_POST["username"]) )
+    {
+        apology(INPUT_ERROR, "Це ім'я користувача недоступне");
+        exit;
+    }
 
 	
     $fName = $_POST["first"];
@@ -60,9 +61,9 @@ else if($_SERVER["REQUEST METHOD"] = "POST")
     $login = $_POST["username"];
     $pwd = password_hash($_POST["pwd"], PASSWORD_DEFAULT);
 
-	$city = $_POST["city"]; $country = $_POST["country"];
+    $city = $_POST["city"]; $country = $_POST["country"];
 
-	if( !$_FILES["photo"]["size"] )
+    if( !$_FILES["photo"]["size"] )
     {
         $photo = "default.png";
     }
