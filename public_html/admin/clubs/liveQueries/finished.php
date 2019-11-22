@@ -29,7 +29,6 @@ if( exists("_table", $tableID) )
 	else
 	    redirect(PATH_H."logout.php");
 	
-	sleep(0.5);
 	redirect(PATH_H."admin/clubs/live-match-lobby.php?tableID=$tableID");
 }
 
@@ -44,7 +43,7 @@ function nextMatch($tableID, $tournamentID)
 function exitMatch($tableID)
 {
     $query = "CALL clearTable(?)";
-    query($query, "Available", $tableID);
+    query($query, $tableID);
 }
 
 ?>
