@@ -355,8 +355,8 @@ delimiter ;
 -- MATCH --------------------------------------------------------------
 CREATE TABLE _match(
 	id INT NOT NULL AUTO_INCREMENT,
-	counter INT NOT NULL,
-	tournamentID INT NOT NULL,
+	counter INT,
+	tournamentID INT,
 
 	player1ID INT NOT NULL DEFAULT -2,-- empty
 	player2ID INT NOT NULL DEFAULT -2,-- empty
@@ -365,8 +365,8 @@ CREATE TABLE _match(
 	
 
 	bestOF INT NOT NULL DEFAULT 3,
-	roundNo INT NOT NULL,
-	roundType VARCHAR(20) NOT NULL,
+	roundNo INT,
+	roundType VARCHAR(20),
 	groupID INT,
 
 	winnerMatchID INT NOT NULL DEFAULT 0,

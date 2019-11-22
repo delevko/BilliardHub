@@ -178,7 +178,7 @@ END;
 -- TODO less computation in trigger
 CREATE TRIGGER finishMatch AFTER UPDATE ON matchDetails
 FOR EACH ROW
-BEGIN
+finish_label:BEGIN
 -- matches
 	DECLARE winnerMatchID, loserMatchID, roundNo, finalRound INT DEFAULT -1;
 	DECLARE myCounter, winnerMatchCounter, loserMatchCounter, tournamentID INT DEFAULT -1;
@@ -207,6 +207,11 @@ BEGIN
 		SELECT M.counter, M.roundType, M.roundNo, M.player1ID, M.player2ID, M.tournamentID
 		INTO myCounter, roundType, roundNo, player1ID, player2ID, tournamentID
 		FROM _match M WHERE M.id = NEW.matchID;
+
+		IF tournamentID IS NULL THEN
+			LEAVE finish_label;
+		END IF;
+
 
 	-- update player group
 		IF roundType = "Group" THEN
