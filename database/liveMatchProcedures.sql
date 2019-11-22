@@ -1,5 +1,6 @@
 DROP PROCEDURE IF EXISTS changePlayer;
 DROP PROCEDURE IF EXISTS breakIncrement;
+DROP PROCEDURE IF EXISTS updateHighestBreak;
 DROP PROCEDURE IF EXISTS finishFrame;
 DROP PROCEDURE IF EXISTS getBreakData;
 DROP PROCEDURE IF EXISTS clearTable;
@@ -37,6 +38,24 @@ END;
 
 
 
+-- update highest break after match finishes
+CREATE PROCEDURE updateHighestBreak(IN _break INT, IN playerID INT)
+BEGIN
+	DECLARE playerHighest INT DEFAULT 0;
+
+ -- get general highest
+	SELECT P.highestBreak INTO playerHighest
+	FROM player P WHERE P.id = playerID;
+	
+ -- compare
+	IF (_break > playerHighest) THEN
+		UPDATE player P SET P.highestBreak = _break
+		WHERE P.id = playerID;
+	END IF;
+END;
+
+
+
 CREATE PROCEDURE changePlayer(IN tableID INT, IN isLeft BOOLEAN, IN _break INT)
 BEGIN
     DECLARE break1, break2 INT DEFAULT 0;
@@ -56,6 +75,8 @@ START TRANSACTION;
         CALL getBreakData(matchID, !isLeft, player, opponent, frame, tournament);
         INSERT INTO break(XorY, points, frameCounter, playerID, opponentID, matchID, tournamentID)
         VALUES(!isLeft, _break, frame, player, opponent, matchID, tournament);
+
+	CALL updateHighestBreak(_break, player);
     END IF;
 
 
