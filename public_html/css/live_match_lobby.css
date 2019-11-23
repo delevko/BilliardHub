@@ -41,6 +41,7 @@ table {
 }
 .live-match-lobby-table {
     margin: 0 auto;
+    width: 100%;
 }
 .live_logo_img {
     padding: 10px;
