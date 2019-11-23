@@ -20,9 +20,9 @@ function getTableID()
 }
 
 
-function nextMatch() {
-    var form = $('<form action="matchQueries/finished.php" method="POST">' + 
-	'<input type="hidden" name="action" value="nextMatch"/>' +
+function repeatSparring() {
+    var form = $('<form action="sparringQueries/finished.php" method="POST">' + 
+	'<input type="hidden" name="action" value="repeatSparring"/>' +
 	'<input type="hidden" name="tableID" value="' + tableID + '"/>' +
 	'</form>');
 
@@ -32,7 +32,7 @@ function nextMatch() {
 
 
 function exitMatch() {
-    var form = $('<form action="matchQueries/finished.php" method="POST">' + 
+    var form = $('<form action="sparringQueries/finished.php" method="POST">' + 
 	'<input type="hidden" name="action" value="exitMatch"/>' +
 	'<input type="hidden" name="tableID" value="' + tableID + '"/>' +
 	'</form>');
@@ -51,7 +51,7 @@ $(function() {
         if(event.which == 13) {
              ENTER_clicked = true;
              $.confirm({
-                title: 'Почати наступний матч?',
+                title: 'Повторити спаринг?',
                 boxWidth: '30%',
                 useBootstrap: false,
                 theme: 'supervan',
@@ -61,7 +61,7 @@ $(function() {
                         text: 'TAK - ENTER',
                         keys: ['enter'],
                         action: function() {
-	    		    nextMatch();
+	    		    repeatSparring();
                         }
                     },
                     cancel: {

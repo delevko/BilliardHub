@@ -69,7 +69,7 @@ function increment(left, num) {
 	item.points = num;
 	$.ajax({
 		type: "POST",
-		url: "matchQueries/live.php", 
+		url: "sparringQueries/live.php", 
 		data: item,
 		success: successHandler, 
 		async: false
@@ -93,7 +93,7 @@ function decrement(left, num) {
 	item.points = -num;
 	$.ajax({
 		type: "POST",
-		url: "matchQueries/live.php", 
+		url: "sparringQueries/live.php", 
 		data: item,
 		success: successHandler, 
 		async: false
@@ -115,7 +115,7 @@ function changePlayer() {
 	item.action = "changePlayer";
 	$.ajax({
 		type: "POST",
-		url: "matchQueries/live.php", 
+		url: "sparringQueries/live.php", 
 		data: item,
 		success: successHandler, 
 		async: false
@@ -124,7 +124,7 @@ function changePlayer() {
 
 
 function finishFrame(_break) {
-    var form = $('<form action="matchQueries/live.php" method="POST">' + 
+    var form = $('<form action="sparringQueries/live.php" method="POST">' + 
 	'<input type="hidden" name="action" value="finishFrame"/>' +
 	'<input type="hidden" name="tableID" value="' + tableID + '"/>' +
 	'<input type="hidden" name="currPlayer" value="' + isLeft + '"/>' +
