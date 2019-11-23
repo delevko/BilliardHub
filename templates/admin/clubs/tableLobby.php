@@ -9,7 +9,7 @@ generalHeader($clubID, $clubName, $clubPhoto);
 
 tableHeader( castStatus($tableStatus), $tableNum );
 
-if($tableStatus == "Occupied")
+if($tableStatus == "Occupied" || $tableStatus == "SparringOccupied")
 {
     $query = "SELECT
     CONCAT(X.firstName, ' ', X.lastName) AS Player1,
@@ -47,13 +47,17 @@ else if( !strcmp($tableStatus, "Occupied") )
 {
 	showOccupied($tableID, $clubID);
 }
+else if( !strcmp($tableStatus, "SparringOccupied") )
+{
+	showSparringOccupied($tableID, $clubID);
+}
 
 generalFooter();
 
 
 function castStatus($status)
 {
-    if($status=="Occupied")
+    if($status=="Occupied" || $status=="SparringOccupied")
         return "busy";
     if($status=="Available")
         return "free";
@@ -186,6 +190,43 @@ AND X.id != -2 AND Y.id != -2 ORDER BY 2";
 }
 
 
+function showSparringOccupied($tableID, $clubID)
+{ 
+	$query = "SELECT MD.status AS matchStatus, 
+	tbl.matchID, M.youtube FROM _table tbl
+    LEFT JOIN _match M ON tbl.matchID = M.id
+    LEFT JOIN matchDetails MD ON MD.matchID = tbl.matchID
+	WHERE tbl.id=?";
+    $data = query($query, $tableID);
+	
+	$matchStatus = $data[0][0]; $matchID = $data[0][1];
+	$youtube = $data[0][2];
+
+
+	occupiedHeader("Спаринг");
+
+	displayLiveTableLink($tableID);
+	
+	
+	if( isset($youtube) )
+	{
+		displayYoutube($youtube);
+	}
+	else
+	{
+		setYoutube($matchID, $tableID);
+	}
+	
+
+	if(!strcmp($matchStatus, "Live"))
+		liveSparringForm($tableID);
+	else if(!strcmp($matchStatus, "Finished"))
+		finishedSparringForm($tableID);
+
+	occupiedFooter();
+}
+
+
 function showOccupied($tableID, $clubID)
 { 
 	$query = "SELECT M.counter AS matchCounter,
@@ -229,7 +270,7 @@ function showOccupied($tableID, $clubID)
 
 function displayLiveTableLink($tableID)
 { ?>
-	<a href="live-match-lobby.php?tableID=<?=$tableID?>">
+	<a href="<?=PATH_H?>admin/clubs/live-match-lobby.php?tableID=<?=$tableID?>">
 		<div class="available_form">
 			<button>
 				Відкрити стіл
@@ -264,6 +305,7 @@ function displayYoutube($youtube)
 		</a>
 <?php }
 
+
 function liveForm($tableID)
 { ?>
 	<div class="margin-b_30"></div>
@@ -276,8 +318,24 @@ function liveForm($tableID)
 			ВИДАТИЛИ МАТЧ
 		</button>
 	</form>
-
 <?php }
+
+
+function liveSparringForm($tableID)
+{ ?>
+	<div class="margin-b_30"></div>
+	<div class="margin-b_30"></div>
+	<div class="margin-b_30"></div>
+	<form class="available_form" action="tableLobby.php"
+	method="post">
+		<input type="hidden" name="id" value="<?=$tableID?>"/>
+		<button type="submit" name="sparringReset" class="red">
+			ВИДАЛИТИ СПАРИНГ
+		</button>
+	</form>
+<?php }
+
+
 
 function finishedForm($tableID, $tournamentID)
 { ?>
@@ -294,8 +352,34 @@ function finishedForm($tableID, $tournamentID)
 			НАСТУПНИЙ МАТЧ
 		</button>
 	</form>
+<?php }
+
+
+
+function finishedSparringForm($tableID)
+{ ?>
+	<div class="margin-b_30"></div>
+	<div class="margin-b_30"></div>
+	<form class="available_form" action="tableLobby.php"
+	method="post">
+		<input type="hidden" name="id" value="<?=$tableID?>"/>
+		<button type="submit" name="sparringRepeat">
+			ПОВТОРИТИ СПАРИНГ
+		</button>
+	</form>
+
+	<div class="margin-b_30"></div>
+	<div class="margin-b_30"></div>
+	<form class="available_form" action="tableLobby.php"
+	method="post">
+		<input type="hidden" name="id" value="<?=$tableID?>"/>
+		<button type="submit" name="exit" class="red">
+			ЗВІЛЬНИТИ СТІЛ
+		</button>
+	</form>
 
 <?php }
+
 
 function occupiedHeader($name)
 { ?>

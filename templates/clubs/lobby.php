@@ -46,7 +46,7 @@ WHERE tbl.clubID=? ORDER BY 2
 
 function castStatus($status)
 {
-	if($status=="Occupied")
+	if($status=="Occupied" || $status=="SparringOccupied")
 		return "busy";
 	if($status=="Available")
 		return "free";
