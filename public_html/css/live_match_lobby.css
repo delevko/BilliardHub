@@ -86,6 +86,7 @@ table {
     justify-content: space-between;
     flex-direction: row;
     width: 100%;
+    overflow: auto;
     background-color: #54782A;
     box-shadow: 0px -5px 40px #151719;
     border-radius: 8px;
