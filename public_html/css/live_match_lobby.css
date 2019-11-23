@@ -2,6 +2,7 @@ html, body {
 	font-family: 'Exo 2', sans-serif;
 	background-color: #222629;
 	height: 100%;
+    overflow: auto;
 }
 a {
 	margin: 0px;
