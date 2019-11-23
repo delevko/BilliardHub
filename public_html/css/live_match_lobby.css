@@ -2,7 +2,7 @@ body {
 	font-family: 'Exo 2', sans-serif;
 	background-color: #222629;
 	height: 100%;
-    width: 100%;
+    max-width: 100%;
 }
 a {
 	margin: 0px;
