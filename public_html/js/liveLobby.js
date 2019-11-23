@@ -84,6 +84,7 @@ function decrement(left, num) {
 	if( parseInt( $(_break).html() ) - num < 0 )
 		return;
 
+	BTN_clicked = true;
 
 	$(_break).html( parseInt( $(_break).html() ) - num );
 	$(_points).html( parseInt( $(_points).html() ) - num );
@@ -189,7 +190,6 @@ $(function() {
 
         // arrow DOWN - break decrement
 	else if(event.which == 40) {
-	    BTN_clicked = true;
             if( isLeft ) {
                 decrement(isLeft, 1);
             }
