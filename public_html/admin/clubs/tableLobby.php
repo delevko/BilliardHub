@@ -4,27 +4,37 @@ require("../../../includes/adminConfig.php");
 
 if($_SERVER["REQUEST_METHOD"] == "GET")
 {
-	$tableID = $_GET["id"];
+	$tableID = isset($_GET["id"]) ? htmlspecialchars($_GET["id"]) : NULL;
 
-	if( exists("_table", $tableID) )
+	if( nonEmpty($tableID) && exists("_table", $tableID) )
 	{
 		lobbyGenerate($tableID);
 	}
 	else
 	{
-		redirect("");
+		redirect(PATH_H."logout.php");
 	}
 }
 else if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-	$tableID = $_POST["id"];	
+	$tableID = isset($_POST["id"]) ? htmlspecialchars($_POST["id"]) : NULL;
 
-	if(exists("_table", $tableID))
+	if( nonEmpty($tableID) && exists("_table", $tableID) )
 	{
 	//occupied && live
 		if(isset($_POST["reset"]))
 		{
 			query("CALL resetTable(?)", $tableID);
+		}
+	//sparringOccupied && live
+		else if(isset($_POST["sparringReset"]))
+		{
+			query("CALL resetSparringTable(?)", $tableID);
+		}
+	//sparringOccupied && finished
+		else if(isset($_POST["sparringRepeat"]))
+		{
+			query("CALL repeatSparringTable(?)", $tableID);
 		}
 	//occupied && finished
 		else if(isset($_POST["exit"]))
@@ -54,11 +64,11 @@ else if($_SERVER["REQUEST_METHOD"] == "POST")
 			query("CALL setMatchTable(?,?)", $matchID, $tableID);
 		}
 
-		redirect("tableLobby.php?id=$tableID");
+		redirect(PATH_H."admin/clubs/tableLobby.php?id=$tableID");
 	}
 	else
 	{
-		redirect("");
+		redirect(PATH_H."logout.php");
 	}
 }
 
