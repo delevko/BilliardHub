@@ -11,8 +11,8 @@ delimiter $$
 CREATE PROCEDURE clearTable(IN tableID INT)
 BEGIN
 	START TRANSACTION;
-		UPDATE _table T SET T.status="Available" WHERE T.id=tableID;
-		UPDATE _table T SET T.matchID=NULL WHERE T.id=tableID;
+		UPDATE _table T SET T.status="Available", T.matchID = NULL
+		WHERE T.id=tableID;
 	COMMIT;
 END;
 
