@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     if( !nonEmpty($tableID) || !exists("_table", $tableID) )
         redirect(PATH_H."logout.php");
 
-    if( !nonEmpty($player1ID, $player2ID, $bestOF)
+    if( !nonEmpty($player1ID, $player2ID, $bestOF) || $bestOF < 1 )
          redirect(PATH_H."admin/clubs/sparring-lobby.php?tableID=$tableID");
 
     if( !exists("player", $player1ID) || !exists("player", $player2ID) )

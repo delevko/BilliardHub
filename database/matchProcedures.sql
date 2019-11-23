@@ -170,7 +170,9 @@ BEGIN
 	
 	ELSEIF prvRndType = "UP" AND nxtRndType = "K/O" THEN
 		CALL putPlayerIntoMatch(nxtID, playerID, 1);
-	
+
+	ELSEIF prvRndType = "LOW" AND nxtRndType = "K/O" THEN
+		CALL putPlayerIntoMatch(nxtID, playerID, 2);
 	END IF;
 END;
 

@@ -2,6 +2,11 @@
 
 
 <?php
+
+
+    $data = query("SELECT minBreak FROM tournament WHERE id=?", $tournamentID);
+    printHeader($data[0][0]); 
+
     $query = "SELECT
     B.points, B.matchID, B.playerID,
     CONCAT(P.lastName, ' ', P.firstName) AS playerName,
@@ -16,8 +21,6 @@ WHERE M.tournamentID=? ORDER BY 1 DESC, 4";
 
     $data = query($query, $tournamentID);
 	$data_count = count($data);
-  
-	printHeader(); 
 
 	for($i = 0; $i < $data_count; $i++)
 	{
@@ -86,10 +89,12 @@ function printBreak($pts,$i,$mID,$plrName,$plrPhoto,$oppName,$oppPhoto,$BL,$BR, 
 <?php
 }
 
-function printHeader()
+function printHeader($minBreak)
 { ?>
 	<div class="section_header">
-		<div class="header_sign">Брейки</div>
+		<div class="header_sign">
+			Брейки (<?=$minBreak?>+)
+		</div>
 	</div>
 	<div class="list_container">
 	<table class="list_table breaks_table">

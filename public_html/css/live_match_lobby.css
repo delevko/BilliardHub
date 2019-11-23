@@ -86,6 +86,12 @@ table {
     border-radius: 8px;
     flex: 1;
 }
+.live-match-lobby-player-table input,
+.live-match-lobby-player-table select,
+.live-match-lobby-player-table select option {
+    color: black;
+    width: 100%;
+}
 .live-match-lobby-player {
     width: 30%;
     padding: 20px;
@@ -93,7 +99,61 @@ table {
 .live-match-lobby-frame-section {
     flex: 1;
 }
+#middle{
+    width: 150px;
+}
+.b_of{
+    padding: 5px;
+    font-weight: bold;
+}
+#bestOF{
+	padding: 5px;
+	border: none;
+	background-color: #474B4F;
+	color: white;
+	font-size: 15px;
+	outline-style: none;
+	vertical-align: middle;
+	border-radius: 4px;
+}
 
+.player_select select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #474B4F;
+  background-image: none;
+}
+/* Remove IE arrow */
+.player_select select::-ms-expand {
+  display: none;
+}
+/* Custom Select */
+.player_select {
+  position: relative;
+  display: flex;
+  line-height: 4;
+  background: #474B4F;
+  overflow: hidden;
+  border-radius: 4px;
+  width: 100%;
+  height: 45px;
+  border-left: 3px solid #61892F;
+  margin: 0;
+  padding-left: 3px;
+  align-items: center;
+}
+.player_select select {
+  flex: 1;
+  padding: 0 .5em;
+  color: #fff;
+  cursor: pointer;
+  font-size: 27px;
+}
 
 /* PLAYER HIGHLIGHT */
 .highlight {

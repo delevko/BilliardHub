@@ -92,6 +92,16 @@
 .player_profile_personalInfo table tr td:last-child {
 	border-left: 1px solid #474B4F;
 }
+.live {
+    color: #FB3B00;
+    animation: blink 1.7s linear infinite;
+    font-weight: bold;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
 
 
 /*MOBILE RESPONSIVE*/

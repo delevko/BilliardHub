@@ -2,6 +2,8 @@
 <?php
 	require("tournamentList.php");
 	require("tournamentBreaksList.php");
+//	require("sparringList.php");
+//	require("sparringBreaksList.php");
 ?>
 
 <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/player_profile.css">
@@ -102,10 +104,6 @@
 				</table>
 			</div>
 		</div> <br>
-		
-
-
-
 
 
 			<!-- SECTION 02 (CIRCLES) -->
@@ -129,33 +127,40 @@
 				<i class="fas fa-trophy"></i> <br>
 				<span class="circle_text">брейки</span>
 			</a>
-<!--
-			<div class="player_profile_circle highlight_anchor">
+<!--			<a class="player_profile_circle highlight_anchor"
+			onclick="player_profile(event, 'sparrings_')"
+			href="#sparrings_">
 				<div class="little_circle">
 					x
 				</div>
 				<i class="fas fa-user-friends"></i><br>
 				<span class="circle_text">спаринги</span>
-			</div>
-			<div class="player_profile_circle highlight_anchor">
+			</a>
+			<a class="player_profile_circle highlight_anchor"
+			onclick="player_profile(event, 'sparrings_b')"
+			href="#sparrings_b">
 				<div class="little_circle">
 					x
 				</div>
 				<i class="fas fa-user-friends"></i> <br>
 				<span class="circle_text">брейки</span>
-			</div>
--->
-		</div>
+			</a>
+-->		</div>
 	</div>
 	<div class="player_profile_details">
         <div id="tournaments_" class="details_anchor">
         	<?php tournamentList($playerID); ?>
 	</div>
-
         <div id="tournaments_b" class="details_anchor">
 		<?php tournamentBreaksList($playerID); ?>
         </div>
-    </div>
+<!--        <div id="sparrings_" class="details_anchor">
+        	< sparringList($playerID); ?>
+	</div>
+        <div id="sparrings_b" class="details_anchor">
+		< sparringBreaksList($playerID); ?>
+        </div>
+-->    </div>
 
 
     <script type="text/javascript" src="<?=PATH_H?>js/player_profile.js">

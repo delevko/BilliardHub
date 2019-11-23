@@ -39,7 +39,7 @@ $bestOf = $data[0][10];
 $points1 = $data[0][11]; $points2 = $data[0][12];
 $break1 = $data[0][13]; $break2 = $data[0][14];
 
-$club_img = $data[0][15]; $clubID = $data[0][16];
+$club_img = $data[0][15]; $clubID = $data[0][17];
 
 
 if( !strcmp($tableStatus, "Occupied") )
@@ -64,7 +64,7 @@ else if( !strcmp($tableStatus, "SparringOccupied") )
 }
 else
 {
-	require("sparring/empty_sparring.html");
+	require("sparring/empty_sparring.php");
 }
 
 ?>

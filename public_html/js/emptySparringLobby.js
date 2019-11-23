@@ -1,9 +1,14 @@
 var ESC_clicked = false;
+var focus=1;
 
 var tableID;
 
 $(document).ready(function() {
     tableID = getTableID();
+
+      $('1ID').selectize({
+          sortField: 'text'
+      });
 });
 
 
@@ -69,10 +74,41 @@ $(function() {
             });
         }
 
-	// ENTER - refresh sparring lobby
-        if(event.which == 13) {
-		refreshSparring();
+	// SPACE - confirm form input
+        else if(event.which == 32) {
+		var var1 = document.getElementById("1ID");
+		var var2 = document.getElementById("2ID");
+		var var3 = document.getElementById("bestOF");
+
+		var player1 = document.getElementById("leftPlayer");
+		var player2 = document.getElementById("rightPlayer");
+		var middle = document.getElementById("middle");
+
+		if( focus == 1 && var1 && var1.value) {
+			var2.focus();
+			focus = 2;
+    			player1.className = "live-match-lobby-player";
+    			player2.className = "live-match-lobby-player highlight";
+		}
+		else if( focus == 2 && var2 && var2.value) {
+			var3.focus();
+			focus = 3;
+			middle.className = "live-match-lobby-player highlight";
+    			player1.className = "live-match-lobby-player";
+
+		       $('2ID').selectize({
+	 		  sortField: 'text'
+		       });
+		}
+		else if( focus == 3 && var3 && var3.value) {
+			document.getElementById("startForm").submit();
+		}
 	}
+
+	// ENTER - do nothing
+	else if(event.which == 13) {
+		return;
+        }
     });
 });
 

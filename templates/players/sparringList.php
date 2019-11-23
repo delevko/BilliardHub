@@ -1,47 +1,45 @@
 <?php
 
-function tournamentList($playerID)
+function sparringList($playerID)
 {
 	$query = "SELECT
     T.name AS tournamentName, PT.tournamentID,
     C.name AS clubName, TS.place, TS.points,
-    T.startDate, T.endDate, T.status
+    T.startDate, T.endDate
 FROM playerTournament PT
     JOIN tournament T ON PT.tournamentID=T.id
     JOIN club C ON T.clubID=C.id
     LEFT JOIN tournamentStandings TS ON PT.playerID = TS.playerID
                             AND T.id = TS.tournamentID
-WHERE PT.playerID=? AND (T.status=? OR T.status=?)
+WHERE PT.playerID=? AND TS.place IS NOT NULL
 ORDER BY 5 DESC, 4";
 
 
-	$data = query($query, $playerID, "Live", "Finished");
+	$data = query($query, $playerID);
 	$data_count = count($data);
 	
 
-	listHeader();
+	sparringListHeader();
 
     for($i = 0; $i < $data_count; $i++)
     {
         $name = $data[$i][0]; $id = $data[$i][1];
 		$clubName = $data[$i][2]; $isLast = ($i+1==$data_count);
 
-		$place = placeCast($data[$i][3]);
+		$place = _placeCast($data[$i][3]);
 		$pts = $data[$i][4]; 
 
 		$begDate = $data[$i][5]; $endDate = $data[$i][6];
-		$status = $data[$i][7];
+        	$date = _dateFormat($begDate, $endDate);
 
-        	$date = dateFormat($begDate, $endDate);
-		$live = ($status == "Live");
-	 	displayTournament($i+1,$id,$name,$clubName,$date,$isLast,$place,$pts,$live);
+	 	displaySparring($i+1,$id,$name,$clubName,$date,$isLast,$place,$pts);
 	}
 
-	listFooter();
+	sparringListFooter();
 }
 
 
-function displayTournament($i, $id, $name, $clubName, $date, $isLast, $place,$pts, $live)
+function displaySparring($i, $id, $name, $clubName, $date, $isLast, $place,$pts)
 {
     $e_o = ($i%2) ? "odd" : "even";
 ?>
@@ -56,15 +54,9 @@ function displayTournament($i, $id, $name, $clubName, $date, $isLast, $place,$pt
                 <td>
                     <?=$clubName?>
                 </td>
-<?php if($live) { ?>
-                <td class="live">
-                    live
-                </td>
-<?php } else { ?>
                 <td>
                     <?=$date?>
                 </td>
-<?php } ?>
                 <td>
                     <?=$place?>
                 </td>
@@ -76,7 +68,7 @@ function displayTournament($i, $id, $name, $clubName, $date, $isLast, $place,$pt
 }
 
 
-function listHeader()
+function sparringListHeader()
 { ?>
     <div class="sub-container">
         <div class="section_header">
@@ -122,7 +114,7 @@ function listHeader()
 			<tbody>
 <?php
 }
-function listFooter()
+function sparringListFooter()
 { ?>
 			</tbody>
 		</table>
@@ -131,7 +123,7 @@ function listFooter()
 <?php
 }
 
-function dateFormat($beg, $end)
+function _dateFormat($beg, $end)
 {
     $beg = date("d/m/Y", strtotime($beg));
     $end = date("d/m/Y", strtotime($end));
@@ -145,7 +137,7 @@ function dateFormat($beg, $end)
     }
 }
 
-function placeCast($place)
+function _placeCast($place)
 {
     if($place == "Last")
         return $place;
