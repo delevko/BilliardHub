@@ -1,0 +1,83 @@
+<html>
+<head>
+    <title><?=$clubName?> TABLE <?=$tableNum?></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/live_match_lobby.css"> 
+    <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+</head>
+    <body>
+		<div class="container">
+		
+		<div class="live-match-lobby">
+		<a class="live_match_info" href="<?=PATH_H?>admin/clubs/lobby.php?id=<?=$clubID?>">
+			<img class="live_logo_img" src="<?=CLUB_IMG.$club_img?>" alt="club logo">
+			<span class="live_logo_text">
+				<?=$clubName?>
+			</span>
+		</a>
+		<a class="live-match-lobby-table-num" href="<?=PATH_H?>admin/clubs/tableLobby.php?id=<?=$tableID?>">
+			Стіл #<span><?=$tableNum?></span>
+		</a>
+        </div>
+		<div class="live-match-lobby-table">
+			<h3 class="live-match-lobby-info">
+				<?=$matchInfo?>
+			</h3>
+			<div class="live-match-lobby-player-table">
+				<div id="leftPlayer" class="<?=$player1class?>">
+					<div class="live_img_box pl_img">
+						<img class="live-match-lobby-player-img" alt="img" src="<?=PLAYER_IMG.$img1?>">
+					</div>
+					<div class="live-player-name">
+						<span class="live-match-lobby-player-name">
+							<?=$player1?>
+						</span>
+					</div>
+				</div>
+				<div class="live-match-lobby-frame-section">
+					<table class="live-match-lobby-frame-table">
+						<tbody>
+							<tr>
+								<td id="leftFrames"><?=$score1?></td>
+								<th class="best_of">&nbsp; <?=$bestOf?> &nbsp;</th>
+								<td id="rightFrames"><?=$score2?></td>
+							</tr>
+							<tr class="live-match-lobby-frame-details">
+								<td colspan="3">Best of</td>
+							</tr>
+						</tbody>
+					</table>
+					<span class="finished_match_sign">
+						Спаринг завершено
+					</span>
+				</div>
+				<div id="rightPlayer" class="<?=$player2class?>">
+					<div class="live_img_box pl_img">
+						<img class="live-match-lobby-player-img" alt="img" src="<?=PLAYER_IMG.$img2?>">
+					</div>
+					<div class="live-player-name">
+						<span class="live-match-lobby-player-name">
+							<?=$player2?>
+						</span>
+					</div>
+				</div>
+			    <script type="text/javascript" src="<?=PATH_H?>js/finishedSparringLobby.js"> </script>
+			</div>
+			<div class="button_push">
+				<span>
+					Натисніть ENTER, щоб повторити спаринг
+				</span>
+				<span>
+					Натисніть ESC, щоб звільнити стіл
+				</span>
+			</div>
+		</div>
+    </body>
+</html>
+

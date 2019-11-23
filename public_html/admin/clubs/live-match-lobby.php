@@ -3,8 +3,8 @@
 require("../../../includes/adminConfig.php");
 
 $tableID = isset($_GET["tableID"]) ? htmlspecialchars($_GET["tableID"]) : null;
-if( !exists("_table", $tableID) ) {
-	redirect("");
+if( !nonEmpty($tableID) || !exists("_table", $tableID) ) {
+	redirect(PATH_H."logout.php");
 }
 
 $query = "SELECT
@@ -58,10 +58,10 @@ if( !strcmp($tableStatus, "Occupied") )
 		nonEmpty($break1) ? ($player1class .= " highlight") :
 		($player2class .= " highlight");
 
-		require("live_match.html");
+		require("match/live_match.html");
 	}
 	else if( !strcmp($matchStatus, "Finished") )
-		require("finished_match.html");
+		require("match/finished_match.html");
 }
 else if( !strcmp($tableStatus, "SparringOccupied") )
 {
@@ -69,7 +69,7 @@ else if( !strcmp($tableStatus, "SparringOccupied") )
 }
 else
 {
-	require("empty_match.html");
+	require("match/empty_match.html");
 }
 
 

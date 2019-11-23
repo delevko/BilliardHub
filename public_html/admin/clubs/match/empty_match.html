@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title><?=$clubName?>: Стіл <?=$tableNum?></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/live_match_lobby.css"> 
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+</head>
+    <body>
+		<div class="container">
+		
+		<div class="live-match-lobby">
+            <a class="live_match_info" href="<?=PATH_H?>admin/clubs/lobby.php?id=<?=$clubID?>">
+                <img class="live_logo_img" src="<?=CLUB_IMG.$club_img?>" alt="club logo">
+                <span class="live_logo_text">
+                    <?=$clubName?>
+                </span>
+            </a>
+            <a class="live-match-lobby-table-num" href="<?=PATH_H?>admin/clubs/tableLobby.php?id=<?=$tableID?>">
+        	Стіл #<span><?=$tableNum?></span>
+            </a>
+        </div>
+		<div class="live-match-lobby-table">
+			<h3 class="live-match-lobby-info">
+			</h3>
+			<div class="live-match-lobby-player-table">
+				<div class="live-match-lobby-player">
+					<span class="live-match-lobby-player-name"></span>
+					<p>
+						<img class="live-match-lobby-player-img" alt="img" src="<?=PLAYER_IMG?>default.png">
+					</p>
+				</div>
+				<div class="live-match-lobby-frame-section">
+					<div class="margin-b_50"></div>
+					<span class="empty_match_vs">vs</span>
+				</div>
+				<div class="live-match-lobby-player">
+					<span class="live-match-lobby-player-name"></span>
+					<p>
+						<img class="live-match-lobby-player-img" alt="img" src="<?=PLAYER_IMG?>default.png">
+					</p>
+				</div>
+			</div>
+<script type="text/javascript" src="<?=PATH_H?>js/emptyLobby.js">
+</script>
+			<div class="button_push">
+				<span>
+					Натисніть SPACE, щоб почати спаринг
+				</span>
+				<span>
+					Натисніть ENTER, щоб оновити сторінку
+				</span>
+			</div>
+		</div>
+    </body>
+</html>
+

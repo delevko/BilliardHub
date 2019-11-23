@@ -57,14 +57,14 @@ else if( !strcmp($tableStatus, "SparringOccupied") )
 		nonEmpty($break1) ? ($player1class .= " highlight") :
 		($player2class .= " highlight");
 
-		require("live_sparring.html");
+		require("sparring/live_sparring.html");
 	}
 	else if( !strcmp($matchStatus, "Finished") )
-		require("finished_sparring.html");
+		require("sparring/finished_sparring.html");
 }
 else
 {
-	require("empty_sparring.html");
+	require("sparring/empty_sparring.html");
 }
 
 ?>
