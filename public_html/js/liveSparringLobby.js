@@ -229,13 +229,20 @@ $(function() {
             var rightP = parseInt( $("#rightPoints").html() );
 
             if( leftP != rightP ) {
+ 	        _content = 'Завершити фрейм з наступним рахунком?';
+
+    	        var name1 = $("#player1").html();
+    	        var name2 = $("#player2").html();
+
+	        _title = name1 + '   ' + leftP + ' - ' + rightP + '   ' + name2;
 		ESC_clicked = true;
+
 		$.confirm({
-		    title: 'Завершити фрейм',
-		    boxWidth: '30%',
+		    title: _title,
+		    boxWidth: '60%',
 		    useBootstrap: false,
 		    theme: 'supervan',
-		    content: '',
+		    content: _content,
 		    buttons: {
 			confirm: {
 			    text: 'TAK - ENTER',

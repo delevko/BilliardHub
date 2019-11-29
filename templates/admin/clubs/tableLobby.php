@@ -1,6 +1,11 @@
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
 <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/available_tables.css">
 <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/table_lobby.css">
+
+<script type="text/javascript" src="<?=PATH_H?>js/tableLobby.js"></script>
 
 <?php
 
@@ -311,13 +316,11 @@ function liveForm($tableID)
 	<div class="margin-b_30"></div>
 	<div class="margin-b_30"></div>
 	<div class="margin-b_30"></div>
-	<form class="available_form" action="tableLobby.php"
-	method="post">
-		<input type="hidden" name="id" value="<?=$tableID?>"/>
-		<button type="submit" name="reset" class="red">
+	<div class="available_form">
+		<button type="submit" class="red" onclick="stopMatch(<?=$tableID?>);">
 			ВИДАТИЛИ МАТЧ
 		</button>
-	</form>
+	</div>
 <?php }
 
 
@@ -326,13 +329,11 @@ function liveSparringForm($tableID)
 	<div class="margin-b_30"></div>
 	<div class="margin-b_30"></div>
 	<div class="margin-b_30"></div>
-	<form class="available_form" action="tableLobby.php"
-	method="post">
-		<input type="hidden" name="id" value="<?=$tableID?>"/>
-		<button type="submit" name="sparringReset" class="red">
+	<div class="available_form">
+		<button type="submit" class="red" onclick="stopSparring(<?=$tableID?>);">
 			ВИДАЛИТИ СПАРИНГ
 		</button>
-	</form>
+	</div>
 <?php }
 
 

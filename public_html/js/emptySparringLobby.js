@@ -94,7 +94,7 @@ $(function() {
 			var3.focus();
 			focus = 3;
 			middle.className = "live-match-lobby-player highlight";
-    			player1.className = "live-match-lobby-player";
+    			player2.className = "live-match-lobby-player";
 
 		       $('2ID').selectize({
 	 		  sortField: 'text'
