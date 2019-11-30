@@ -41,16 +41,6 @@ table.matches_list_table .col-9 {
 .even_youtube {
     background-color: #43464A;
 }
-.live {
-    color: #FB3B00;
-    animation: blink 1.7s linear infinite;
-    font-weight: bold;
-}
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
 .fa-youtube {
     color: #FF1F1C;
 }

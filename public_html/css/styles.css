@@ -78,6 +78,16 @@ table col[class*="col-"] {
 .black_text{
 	color: black;
 }
+.live {
+    color: #FB3B00;
+    animation: blink 1.7s linear infinite;
+    font-weight: bold;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
 
 .photo_name {
     display: flex;
