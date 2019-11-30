@@ -5,6 +5,9 @@ function openMatchLobby(tID, mID) {
     window.location.href = ('http://billiardhub.net/tournaments/lobby.php?id=' + tID + 
 	'&onClick=matchLobby&matchID=' + mID);
 }
+function openSparringLobby(mID) {
+    window.location.href = ('http://billiardhub.net/players/sparringLobby.php?id=' + mID);
+}
 function openTournamentLobby(ID) {
 	window.location.href = ('http://billiardhub.net/tournaments/lobby.php?id=' + ID + '&onClick=default');
 }
