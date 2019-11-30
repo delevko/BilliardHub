@@ -1,17 +1,18 @@
 
 <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/match_lobby.css"> 
+<link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/lobby_list.css">
 
 <?php
 
 $matchID = isset($_GET["matchID"]) ? $_GET["matchID"] : null;
-if( !exists("_match", $matchID) )
+if( !nonEmpty($matchID) || !exists("_match", $matchID) )
 {
 	redirect("");
 }
+
 lobby($matchID);
-?>
-</div>
-<?php
+
+?></div><?php
 
 
 function lobby($matchID)
@@ -19,37 +20,117 @@ function lobby($matchID)
 	list($counter, $roundType, $roundNo, $bestOF,
 		$id1, $name1, $score1, $img1,
 		$id2, $name2, $score2, $img2,
-		$KO_R, $seeded_R, $youtube) = getMatchData($matchID);
+		$KO_R, $seeded_R, $youtube, $status) = getMatchData($matchID);
 
-	
-	if(isset($youtube) )
-		displayYTlink($youtube);
+
+	$live = ($status == "Live");	
+	if( isset($youtube) )
+		displayLive($youtube);
 	else {
 		?><div class="match_margin"></div><?php
 	}
 
 	$header = castHeader($roundType,$roundNo,$KO_R,$seeded_R);
-	printLobby($counter, $header, $bestOF,
+
+	if($live)
+	{
+	     displayLiveHeader($matchID, $counter, $header);
+
+	     list($points1,$points2,$break1,$break2) = getLiveData($matchID);
+ 
+	     displayLiveMatch($id1,$name1,$score1,$points1,$break1,$img1,$id2,$name2,$score2,$points2,$break2,$img2,$bestOF);
+	
+	     displayLiveFooter();
+	}
+	else
+	{
+	    printLobby($counter, $header, $bestOF,
 		$id1, $name1, $score1, $img1, $id2, $name2, $score2, $img2);
 
-	if( isset($score1) )
-	{
+	    if( isset($score1) )
+	    {
 		framesHeader();
 
 		printFrames($matchID);
 
 		framesFooter();
+ 	    }
 	}
 }
 
 
-function displayYTlink($youtube)
+function displayLive($youtube)
 { ?>
     <div class="youtube_logo">
         <a href="<?=YT_HEADER?><?=$youtube?>">
 	    <i class="fab fa-youtube"></i>
         </a>
     </div>
+<?php }
+
+
+function displayLiveHeader($mID, $matchNo, $header)
+{ ?>
+   <meta http-equiv="refresh" content="5;">
+   <div class="list-match-lobby margin_top_none">
+	<h3 class="list-match-lobby-info">
+		ЗУСТРІЧ #<?=$matchNo?>&emsp; | &emsp;<?=$header?>
+	</h3>
+<?php }
+function displayLiveFooter()
+{ ?>
+    </div>
+<?php }
+
+
+function printPlayer($id, $name, $img)
+{ ?>
+                        <div class="list-match-lobby-player pointer"
+			onclick="openPlayerLobby(<?=$id?>)">
+                                <span class="list-match-lobby-player-name">
+                                        <?=$name?>
+                                </span>
+                                <p>
+                                        <img class="list-match-lobby-player-img" alt="img"
+                                        src="<?=PLAYER_IMG.$img?>">
+                                </p>
+                        </div>
+<?php }
+
+
+function displayLiveMatch($id1,$player1,$score1,$points1,$break1,$img1,$id2,$player2,$score2,$points2,$break2,$img2,$bestOf)
+{ ?>
+                <div class="list-match-lobby-player-table">
+                        <?php printPlayer($id1, $player1, $img1); ?>
+                        <div class="list-match-lobby-frame-section">
+                                <table class="list-match-lobby-frame-table">
+                                        <tbody>
+                                                <tr>
+                                                        <td><?=$score1?></td>
+                                                        <th>Фрейми</th>
+                                                        <td><?=$score2?></td>
+                                                </tr>
+                                                <tr class="list-match-lobby-frame-details">
+                                                        <td colspan="3">Best of <?=$bestOf?></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><?=$points1?></td>
+                                                        <th>Очки</th>
+                                                        <td><?=$points2?></td>
+                                                </tr>
+                                                <tr class="list-match-lobby-frame-details">
+                                                        <td colspan="3"></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><?=$break1?></td>
+                                                        <th>Брейк</th>
+                                                        <td><?=$break2?></td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                        </div>
+                        <?php printPlayer($id2, $player2, $img2); ?>
+                </div>
 <?php }
 
 
@@ -237,8 +318,9 @@ $grpORround = ($rType=="Group") ? "GT.groupNum" : "M.roundNo";
     M.player1Score, X.photo AS photo1,
     M.player2ID, CONCAT(Y.firstName, ' ', Y.lastName) AS Player2,
     M.player2Score, Y.photo AS photo2, T.KO_Rounds, T.seeded_Round,
-    M.youtube
+    M.youtube, MD.status
 FROM _match M
+    JOIN matchDetails MD ON M.id=MD.matchID
     JOIN player X ON M.player1ID=X.id
     JOIN player Y ON M.player2ID=Y.id
     JOIN tournament T ON M.tournamentID=T.id
@@ -248,42 +330,16 @@ WHERE M.id=?";
     $data = query($query, $matchID);
 
 
-	return array($data[0][0],$rType,$data[0][2],$data[0][3],$data[0][4],$data[0][5],$data[0][6],$data[0][7],$data[0][8],$data[0][9],$data[0][10],$data[0][11],$data[0][12],$data[0][13], $data[0][14]);
+	return array($data[0][0],$rType,$data[0][2],$data[0][3],$data[0][4],$data[0][5],$data[0][6],$data[0][7],$data[0][8],$data[0][9],$data[0][10],$data[0][11],$data[0][12],$data[0][13], $data[0][14], $data[0][15]);
 
 }
 
-function getMainData($matchID)
+function getLiveData($matchID)
 {
-//match + tournament data
-	$query = "SELECT
-    T.id AS tournamentID, T.name AS tournamentName, MD.status
-FROM _match M
-    JOIN tournament T ON M.tournamentID = T.id
-    JOIN matchDetails MD ON MD.matchID = M.id
-WHERE M.id=?";
+    $query = "SELECT LM.points1, LM.points2, LM.break1, LM.break2
+	FROM liveMatch LM WHERE LM.matchID=?";
+    $data = query($query, $matchID);
 
-	$data = query($query, $matchID);
-
-	$tournamentName = $data[0][1]; $tournamentID = $data[0][0];
-	$status = $data[0][2];
-
-//tournament header data
-	$query = "SELECT
-    B.name AS billiard, A.name AS age, S.name AS sex, L.name AS league
-FROM tournament T
-    JOIN league L ON T.leagueID=L.id
-    JOIN age A ON L.ageID = A.id
-    JOIN sex S ON L.sexID = S.id
-    JOIN billiard B ON L.billiardID = B.id
-WHERE T.id=?;";
-
-    $data = query($query, $tournamentID);
-
-    $billiard = $data[0][0]; $league = $data[0][3];
-    $details = castDetails($data[0][1], $data[0][2]);
-
-
-	return array($tournamentName,$tournamentID,$status,$billiard,$details,$league);
+    return array($data[0][0],$data[0][1],$data[0][2],$data[0][3]);
 }
-
 ?>
