@@ -77,7 +77,10 @@
 	}
 }
 
-
+.list_table thead,
+.list_table_700 thead {
+    background-color: #222629;
+}
 
 .list_table thead th,
 .list_table_700 thead th {
