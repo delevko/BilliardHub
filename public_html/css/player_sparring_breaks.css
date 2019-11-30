@@ -1,0 +1,16 @@
+
+table.spar_breaks_table .col-1 {
+ 	width: 50%;
+}
+table.spar_breaks_table .col-2 {
+ 	width: 5%;
+}
+table.spar_breaks_table .col-3 {
+ 	width: 45%;
+}
+
+.spar_breaks_table tbody tr>:nth-child(1),
+.spar_breaks_table tbody tr>:nth-child(2) {
+	border-right: none;
+}
+

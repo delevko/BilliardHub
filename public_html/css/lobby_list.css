@@ -99,7 +99,9 @@
 tr.list-match-lobby-frame-details td {
 	height:20px;
 }
-
+.margin_top_none{
+	margin-top: 0px !important;
+}
 
 /*MOBILE RESPONSIVE*/
 
