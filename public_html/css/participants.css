@@ -83,8 +83,9 @@ table.participants_table .col-5 {
 table.participants_table .col-6 {
  	width: 9%;
 }
-.participants_table tbody tr>:nth-child(1) {
-	border-right: none;
+.participants_table tbody tr>:nth-child(1),
+.participants_table tbody tr>:nth-child(2), {
+	border: none;
 }
 .participants_table {
 	width: 100% !important;
