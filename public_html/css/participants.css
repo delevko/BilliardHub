@@ -92,6 +92,9 @@ table.participants_table .col-6 {
 .participants_table_container {
 	width: 100% !important;
 }
+.list_table tbody tr td, .list_table_700 tbody tr td {
+	max-height: none;
+}
 /*******  BARS  *********/
 #list{
 	display:flex;
