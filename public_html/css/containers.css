@@ -79,8 +79,8 @@
 
 
 
-.list_table thead,
-.list_table_700 thead {
+.list_table thead th,
+.list_table_700 thead th {
 	background-color: #222629;
     text-transform: uppercase;
     padding: 15px;
