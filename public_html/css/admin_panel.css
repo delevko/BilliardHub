@@ -167,6 +167,7 @@
         display: flex;
         justify-content: center;
         flex-direction: row;
+	flex-wrap: wrap;
     }
     .admin_circle {
         margin: 40px 20px;
