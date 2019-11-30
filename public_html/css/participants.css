@@ -93,8 +93,7 @@ table.participants_table .col-6 {
 	width: 100% !important;
 }
 .list_table tbody tr td, .list_table_700 tbody tr td {
-	max-height: none;
-	height: auto;
+	border-left: 1px solid #71787F;
 }
 /*******  BARS  *********/
 #list{
