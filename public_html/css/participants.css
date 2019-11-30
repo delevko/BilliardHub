@@ -94,6 +94,7 @@ table.participants_table .col-6 {
 }
 .list_table tbody tr td, .list_table_700 tbody tr td {
 	max-height: none;
+	height: auto;
 }
 /*******  BARS  *********/
 #list{
