@@ -205,17 +205,17 @@ table {
     text-transform: uppercase;
 }
 .live-match-lobby-frame-section tr td {
-    font-size: 80px;
+    font-size: 85px;
     font-weight: 500;
     color: #e5efeb;
     text-align: center;
     vertical-align: middle;
 }
-.live-match-lobby-frame-section tr:first-child td {
+.live-match-lobby-frame-section tr:nth-child(3) td {
     font-size: 105px !important;
 }
 .best_of {
-    font-size: 80px !important;
+    font-size: 85px !important;
 }
 .live-match-lobby-frame-section {
     padding: 0px 50px;
