@@ -1,153 +1,157 @@
+
 <?php
 
 function sparringList($playerID)
 {
-	$query = "SELECT
-    T.name AS tournamentName, PT.tournamentID,
-    C.name AS clubName, TS.place, TS.points,
-    T.startDate, T.endDate
-FROM playerTournament PT
-    JOIN tournament T ON PT.tournamentID=T.id
-    JOIN club C ON T.clubID=C.id
-    LEFT JOIN tournamentStandings TS ON PT.playerID = TS.playerID
-                            AND T.id = TS.tournamentID
-WHERE PT.playerID=? AND TS.place IS NOT NULL
-ORDER BY 5 DESC, 4";
+  $query = "SELECT M.id AS matchID,
+    CONCAT(X.firstName, ' ', X.lastName) AS player1Name,
+    CONCAT(Y.firstName, ' ', Y.lastName) AS player2Name,
+    M.bestOF, M.player1Score, M.player2Score, MD.status,
+    M.youtube
+FROM _match M
+    JOIN player X ON M.player1ID=X.id
+    JOIN player Y ON M.player2ID=Y.id
+    JOIN matchDetails MD ON M.id = MD.matchID
+WHERE (X.id = ? OR Y.id = ?) AND M.tournamentID IS NULL
+ORDER BY MD.status DESC, matchID DESC";
 
 
-	$data = query($query, $playerID);
-	$data_count = count($data);
-	
+    $data = query($query, $playerID, $playerID);
+    $data_count = count($data);
 
-	sparringListHeader();
+    sparringListHeader();
 
     for($i = 0; $i < $data_count; $i++)
     {
-        $name = $data[$i][0]; $id = $data[$i][1];
-		$clubName = $data[$i][2]; $isLast = ($i+1==$data_count);
+        $matchID = $data[$i][0];
+        $player1 = $data[$i][1]; $player2 = $data[$i][2];
+        $bestOf = $data[$i][3];
+        $score1 = $data[$i][4]; $score2 = $data[$i][5];
+        $status = $data[$i][6]; $youtube = $data[$i][7];
 
-		$place = _placeCast($data[$i][3]);
-		$pts = $data[$i][4]; 
+        $last = ($i+1 < $data_count) ? false : true;
+        $live = ($status=="Live");
 
-		$begDate = $data[$i][5]; $endDate = $data[$i][6];
-        	$date = _dateFormat($begDate, $endDate);
+	displaySparring($i+1,$last,$matchID,$player1,$score1,$player2,$score2,$bestOf,$youtube,$live);
+    }
 
-	 	displaySparring($i+1,$id,$name,$clubName,$date,$isLast,$place,$pts);
-	}
-
-	sparringListFooter();
+    sparringListFooter();
 }
 
-
-function displaySparring($i, $id, $name, $clubName, $date, $isLast, $place,$pts)
+function displaySparring($counter,$last,$mID,$player1,$score1,$player2,$score2,$bestOf,$link,$live)
 {
-    $e_o = ($i%2) ? "odd" : "even";
+        $e_o = ($counter%2) ? "odd" : "even";
 ?>
-            <tr onclick="openTournamentLobby(<?=$id?>);"
-            class="tbody_<?=$e_o?> pointer">
-                <td class="bold <?=$e_o?>_num<?=($isLast)?" radius_bl":""?>">
-                    <?=$i?>
+        <tr class="tbody_<?=$e_o?> pointer"
+	onclick="openSparringLobby(<?=$mID?>);">
+                <td class="bold <?=$e_o?>_num<?=($last)?" radius_bl":""?>">
+                        <?=$counter?>
                 </td>
                 <td>
-                    <?=$name?>
+                <?php if ($live) { ?>
+                        <span class="float_left live">live</span>
+                <?php } ?>
+                        <span class="float_right">
+                                <?=$player1?>
+                        </span>
                 </td>
                 <td>
-                    <?=$clubName?>
                 </td>
                 <td>
-                    <?=$date?>
+                        <span class="font_20 bold float_right">
+                                <?=$score1?>
+                        </span>
                 </td>
                 <td>
-                    <?=$place?>
+                        <span>
+                                (<?=$bestOf?>)
+                        </span>
                 </td>
-                <td class="<?=($isLast)?"radius_br":""?>">
-                    <?=$pts?>
+                <td>
+                        <span class="font_20 bold float_left">
+                                <?=$score2?>
+                        </span>
                 </td>
-            </tr>
-<?php
-}
+                <td>
+                </td>
+                <td>
+                        <span class="float_left">
+                                <?=$player2?>
+                        </span>
+                </td>
+                <td class="matches_list_table_youtube
+                <?=$e_o?>_youtube
+                <?=($last)?" radius_br":""?>"
+                <?php if(isset($link)){ ?>
+                        onclick="openYoutube(event,<?=("'".YT_HEADER.$link."'")?>);"
+                <?php } ?>>
+                        <?php if(isset($link)){ ?>
+                                <i class="fab fa-youtube"></i>
+                        <?php } ?>
+                </td>
+        </tr>
+<?php }
 
 
 function sparringListHeader()
 { ?>
     <div class="sub-container">
-        <div class="section_header">
-            <div class="header_sign">
-				Турніри
-			</div>
-        </div>
-		<div class="list_container">
-		<table class="list_table player_tournaments_table">
-			<colgroup>
-				<col class="col-1">
-				<col class="col-2">
-				<col class="col-3">
-				<col class="col-4">
-				<col class="col-5">
-				<col class="col-6">
-			</colgroup>
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>
-						<i class="fas fa-trophy"></i>
-						<span>Турнір</span>
-					</th>
-					<th>
-						<i class="fas fa-map-marked-alt"></i>
-						<span>Клуб</span>
-					</th>
-					<th>
-						<i class="far fa-calendar-alt"></i>
-						<span>Дата</span>
-					</th>
-					<th>
-						<i class="fas fa-medal"></i>
-						<span>Місце</span>
-					</th>
-					<th>
-						<i class="fas fa-star"></i>
-						<span>Очки</span>
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-<?php
-}
+	<div class="section_header">
+		<div class="header_sign">
+			<span>
+				Спаринги
+			</span>
+		</div>
+	</div>
+        <div class="list_container">
+        <table class="list_table matches_list_table">
+                <colgroup>
+                        <col class="col-1">
+                        <col class="col-2">
+                        <col class="col-3">
+                        <col class="col-4">
+                        <col class="col-5">
+                        <col class="col-6">
+                        <col class="col-7">
+                        <col class="col-8">
+                        <col class="col-9">
+                </colgroup>
+                <thead>
+                        <tr>
+                                <th>#</th>
+                                <th class="float_right">
+                                        <i class="fas fa-user"></i>
+                                        <span class="matches_list_nonres">
+						Гравець 1
+					</span>
+                                        <span class="matches_list_res"> 1</span>
+                                </th>
+                                <th></th>
+                                <th></th>
+                                <th>v</th>
+                                <th></th>
+                                <th></th>
+                                <th class="float_left">
+                                        <i class="fas fa-user"></i>
+                                        <span class="matches_list_nonres">
+						Гравець 2
+					</span>
+                                        <span class="matches_list_res"> 2</span>
+                                </th>
+                                <th>
+                                        <span>TV</span>
+                                </th>
+                        </tr>
+                </thead>
+                <tbody>
+<?php }
+
+
 function sparringListFooter()
 { ?>
-			</tbody>
-		</table>
-		</div>
+		</tbody>
+	</table>
+	</div>
     </div>
-<?php
-}
-
-function _dateFormat($beg, $end)
-{
-    $beg = date("d/m/Y", strtotime($beg));
-    $end = date("d/m/Y", strtotime($end));
-    if($beg == $end)
-    {
-        return $beg;
-    }
-    else
-    {
-        return $beg." - ".$end;
-    }
-}
-
-function _placeCast($place)
-{
-    if($place == "Last")
-        return $place;
-    else
-        $place = ltrim($place, "Place ");
-
-    if($place == "2-2")
-        return "2";
-    return $place;
-}
-
-?>
+<?php } ?>
 
