@@ -31,7 +31,7 @@ FROM tournament T
     JOIN sex S ON L.sexID = S.id
     JOIN billiard B ON L.billiardID = B.id
     JOIN club C ON T.clubID = C.id
-WHERE T.status=?";
+WHERE T.status=? ORDER BY startDate, endDate, tournament";
 
 
 	$data = query($query, $status);
