@@ -1,4 +1,0 @@
-[22-Nov-2019 22:03:43 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/gi6kvfbao9ds/templates/tournaments/navigations/header.php:3) in /home/gi6kvfbao9ds/includes/admin_user_functions.php on line 75
-[22-Nov-2019 22:05:14 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/gi6kvfbao9ds/templates/tournaments/navigations/header.php:3) in /home/gi6kvfbao9ds/includes/admin_user_functions.php on line 75
-[23-Nov-2019 05:19:06 UTC] PHP Notice:  Undefined variable: minBreak in /home/gi6kvfbao9ds/templates/tournaments/lobbyDetails/breaks.php on line 8
-[23-Nov-2019 05:34:55 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/gi6kvfbao9ds/templates/tournaments/navigations/header.php:3) in /home/gi6kvfbao9ds/includes/admin_user_functions.php on line 75

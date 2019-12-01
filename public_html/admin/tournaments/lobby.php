@@ -4,20 +4,18 @@ require("../../../includes/adminConfig.php");
 
 if($_SERVER["REQUEST_METHOD"] == "GET")
 {
-    $tournamentID = $_GET["id"];
-	if( !exists("tournament", $tournamentID) )
-		redirect(PATH_H."logout.php");
+    $tournamentID = isset($_GET["id"]) ? htmlspecialchars($_GET["id"]) : NULL;
+    if( !nonEmpty($tournamentID) || !exists("tournament", $tournamentID) )
+        redirect(PATH_H."logout.php");
 
-	if( nonEmpty($_GET["onClick"]) )
-		$onClick = $_GET["onClick"];
-	else
-		$onClick = "default";
-	
-	lobbyGenerate($tournamentID, $onClick);
+    $onClick = isset($_GET["onClick"]) ? htmlspecialchars($_GET["onClick"]) : NULL;
+    $onClick = nonEmpty($onClick) ? $onClick : "default";
+  
+    lobbyGenerate($tournamentID, $onClick);
 }
 else
 {
-	redirect(PATH_H."logout.php");
+    redirect(PATH_H."logout.php");
 }
 
 
