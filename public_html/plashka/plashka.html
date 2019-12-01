@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-<meta http-equiv="refresh" content="3; URL=http://billiardhub.net/plashka.php?id=<?=$tableID?>">
 	<title><?=$clubName?> - Стіл <?=$tableNum?></title>
     <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/plashka.css">
     <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
@@ -12,31 +11,47 @@
 	<div class="container">
 		<div class="plashka_box">
 			<div class="plashka_pl01">
-				<span><?=$player1?></span>
+				<span id="name1">
+					<?=$player1?>
+				</span>
 			</div>
 			<div class="plashka_points">
-				<div class="plashka_highlight<?=$highlight1?>">
+				<div id="left" class="plashka_highlight<?=$highlight1?>">
 					<i class="fas fa-caret-left"></i>
 				</div>
 				<div class="pl01_points plashka_style">
-					<span><?=$points1?></span>
+					<span id="points1">
+						<?=$points1?>
+					</span>
 				</div>
 				<div class="central_points">
-					<span><?=$frames1?></span>
-					<span class="plashka_frame">(<?=$bestOf?>)</span>
-					<span><?=$frames2?></span>
+					<span id="frames1">
+						<?=$frames1?>
+					</span>
+					<span class="plashka_frame">
+						(<span id="bestOf"><?=$bestOf?></span>)
+					</span>
+					<span id="frames2">
+						<?=$frames2?>
+					</span>
 				</div>
 				<div class="pl02_points plashka_style">
-					<span><?=$points2?></span>
+					<span id="points2">
+						<?=$points2?>
+					</span>
 				</div>
-				<div class="plashka_highlight<?=$highlight2?>">
+				<div id="right" class="plashka_highlight<?=$highlight2?>">
 					<i class="fas fa-caret-right"></i>
 				</div>
 			</div>
 			<div class="plashka_pl02">
-				<span><?=$player2?></span>
+				<span id="name2">
+					<?=$player2?>
+				</span>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="<?=PATH_H?>js/plashkaRefresh.js">
+        </script>
 </body>
 </html>

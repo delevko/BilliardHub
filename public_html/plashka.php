@@ -4,9 +4,9 @@ require("../includes/config.php");
 
 if($_SERVER["REQUEST_METHOD"] == "GET")
 {
-	$tableID = $_GET["id"];
+	$tableID = isset($_GET["id"]) ? htmlspecialchars($_GET["id"]) : NULL;
 
-	if( exists("_table", $tableID) )
+	if( nonEmpty($tableID) && exists("_table", $tableID) )
 	{
 		lobbyGenerate($tableID);
 	}
@@ -54,6 +54,6 @@ WHERE tbl.id = ?";
 	nonEmpty($break1) ? $highlight1.=" highlight" : $highlight2.=" highlight";
 
 
-	require("plashka.html");
+	require("plashka/plashka.html");
 }
 ?>
