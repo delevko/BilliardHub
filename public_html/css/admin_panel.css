@@ -83,8 +83,7 @@
     transition: 0.5s;
     box-shadow: 0px 3px 10px #131617;
 }
-.admin_circle .fa-trophy,
-.admin_circle .fa-shield-alt {
+.admin_circle i {
     font-size: 33px;
     margin-top: 32px;
     margin-bottom: 10px;

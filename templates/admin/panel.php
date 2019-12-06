@@ -1,6 +1,7 @@
 <?php
 require("clubs/index.php");
 require("tournaments/index.php");
+require("players/index.php");
 ?>
 
 
@@ -70,6 +71,11 @@ require("tournaments/index.php");
                 <i class="fas fa-shield-alt"></i> <br>
                 <span class="uppercase">клуби</span>
             </a>
+            <a class="admin_circle highlight_anchor" href="#players_"
+            onclick="admin_panel(event, 'players_')">
+                <i class="fas fa-users"></i> <br>
+                <span class="uppercase">гравці</span>
+            </a>
 	</div>
 	<div class="admin_details">
 		<div id="tournaments_" class="details_anchor">
@@ -78,6 +84,9 @@ require("tournaments/index.php");
 
 		<div id="clubs_" class="details_anchor">
 			<?php displayClubs(); ?>
+		</div>
+		<div id="players_" class="details_anchor">
+			<?php displayPlayers(); ?>
 		</div>
 	</div>
 
