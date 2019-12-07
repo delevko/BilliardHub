@@ -1,6 +1,9 @@
 function openClubLobby(ID) {
 	window.location.href = ('http://billiardhub.net/admin/clubs/lobby.php?id='+ID);
 }
+function openPlayerLobby(ID) {
+	window.location.href = ('http://billiardhub.net/admin/players/settings.php?id='+ID);
+}
 function openTableLobby(ID) {
 	window.location.href = ('http://billiardhub.net/admin/clubs/tableLobby.php?id='+ID);
 }
