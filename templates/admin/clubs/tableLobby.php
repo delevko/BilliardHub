@@ -215,7 +215,7 @@ function showSparringOccupied($tableID, $clubID)
 	
 	if( isset($youtube) )
 	{
-		displayYoutube($youtube);
+		displayYoutube($matchID, $tableID, $youtube);
 	}
 	else
 	{
@@ -257,7 +257,7 @@ function showOccupied($tableID, $clubID)
 	
 	if( isset($youtube) )
 	{
-		displayYoutube($youtube);
+		displayYoutube($matchID, $tableID, $youtube);
 	}
 	else
 	{
@@ -299,7 +299,7 @@ function setYoutube($matchID, $tableID)
 		</form>
 <?php }
 
-function displayYoutube($youtube)
+function displayYoutube($matchID, $tableID, $youtube)
 { ?>
 		<div class="margin-b_30"></div>
 		<div class="margin-b_30"></div>
@@ -308,6 +308,17 @@ function displayYoutube($youtube)
 				<button>YOUTUBE</button>
 			</div>
 		</a>
+		<div class="height: 10px;"></div>
+		<form class="available_form" action="YTstart.php"
+		method="post">
+			<input type="hidden" name="matchID" value="<?=$matchID?>">
+			<input type="hidden" name="tableID" value="<?=$tableID?>">
+			<input type="text" name="URL"
+			placeholder="<?=$youtube?>">
+			<button type="submit">
+				ОНОВИТИ ПОСИЛАННЯ
+			</button>
+		</form>
 <?php }
 
 

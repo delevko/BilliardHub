@@ -4,24 +4,26 @@ require("../../../includes/adminConfig.php");
 
 if($_SERVER["REQUEST_METHOD"] == "GET")
 {
-	redirect("");
+	redirect(PATH_H."logout.php");
 }
 else if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-	$tableID = $_POST["tableID"];	
-	$matchID = $_POST["matchID"];	
+	$tableID = isset($_POST["tableID"]) ? htmlspecialchars($_POST["tableID"]) : NULL;
+	$matchID = isset($_POST["matchID"]) ? htmlspecialchars($_POST["matchID"]) : NULL;
+	$youtube = isset($_POST["URL"]) ? htmlspecialchars($_POST["URL"]) : NULL;
 
-	if( !exists("_table", $tableID) || !exists("_match", $matchID) )
-		redirect("");
+	if( !nonEmpty($tableID, $matchID) || 
+	    !exists("_table", $tableID) || !exists("_match", $matchID) )
+		redirect(PATH_H."logout.php");
 
-	$matchHeader = getHeader($tableID);
+	// for further live streaming info
+	// $matchHeader = getHeader($tableID);
 
-	if(!nonEmpty($_POST["URL"]))
+	if(!nonEmpty($youtube))
 	{
 		apology(INPUT_ERROR, "Введіть адресу URL трансляції на Youtube");
 		exit;
 	}
-	$youtube = $_POST["URL"]; //"-zZbkPnBtS8";
 	
 	query("UPDATE _match M SET M.youtube=? WHERE M.id=?", $youtube, $matchID);
 
