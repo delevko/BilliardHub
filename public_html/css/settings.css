@@ -58,7 +58,8 @@
 	width: inherit;
 }
 .change_photo,
-.change_pass {
+.change_pass,
+.change_data {
 	margin: 10px auto;
 	width: 300px;
 	padding: 10px;
@@ -68,7 +69,8 @@
 	transition: .1s;
 }
 .change_photo:hover,
-.change_pass:hover {
+.change_pass:hover,
+.change_data:hover {
 	background-color: #61892F;
 	cursor: pointer;
 }
@@ -174,6 +176,14 @@
 }
 form .margin_b40px {
 	margin-bottom: 40px;
+}
+.date_format {
+    font-size: 12px;
+    font-style: italic;
+    color: #565C65;
+    text-align: left;
+    font-weight: bold;
+    margin-top: -15px;
 }
 
 

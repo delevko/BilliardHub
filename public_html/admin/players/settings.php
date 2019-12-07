@@ -1,25 +1,22 @@
 
 <?php
 
-require("../../includes/userConfig.php");
-$login = $_SESSION["id"]["login"];
+require("../../../includes/adminConfig.php");
 
 if($_SERVER["REQUEST_METHOD"] == "GET")
 {
-	$title = "Налаштування $login";
-
-	$query = "SELECT P.id
-	FROM player P JOIN _user U ON P.id=U.playerID
-	WHERE U.login=?";
-	$data = query($query, $login);
-	$id = $data[0][0];
+	$id = (isset($_GET["id"])) ? $_GET["id"] : NULL;
+        if( !nonEmpty($id) || !exists("player", $id))
+        {
+	    redirect(PATH_H."logout.php");
+        }
 
 	list($fName, $lName, $img, $birthday, $country, $city)
 		 = getPlayer($id); 
 	
 	$title = $lName." ".$fName;
 
-	render("player/settings.php",
+	adminRender("players/settings.php",
 	["title"=>$title, "name"=>$title,
 	"fName"=>$fName, "lName"=>$lName,
 	"photo"=>$img, "playerID"=>$id, "birthday"=>$birthday,
@@ -33,6 +30,7 @@ else if($_SERVER["REQUEST_METHOD"] == "POST")
     {
 	redirect(PATH_H."logout.php");
     }
+
 
     if($_POST["action"] == "photo")
     {
@@ -61,40 +59,8 @@ else if($_SERVER["REQUEST_METHOD"] == "POST")
 	    $query = "UPDATE player P SET P.photo=? WHERE P.id=?";
 	    query($query, $photo, $playerID);
 	    sleep(1);
-	    redirect("settings.php");
+	    redirect("settings.php?id=$playerID");
         }
-    }
-    else if($_POST["action"] == "pwd")
-    {
-   	$oldPwd = isset($_POST["oldPwd"]) ? htmlspecialchars($_POST["oldPwd"]) : NULL;
-    	$newPwd1 = isset($_POST["newPwd1"]) ? htmlspecialchars($_POST["newPwd1"]) : NULL;
-    	$newPwd2 = isset($_POST["newPwd2"]) ? htmlspecialchars($_POST["newPwd2"]) : NULL;
-	if( !nonEmpty($oldPwd, $newPwd1, $newPwd2) )
-        {
-            apology(INPUT_ERROR, "Необхідно заповнити всі поля");
-            exit;
-	}
-
-	$query = "SELECT U.hash FROM _user U WHERE U.login=?";
-        $data = query($query, $login);
-
-	if( !password_verify($oldPwd, $data[0][0]) )
-	{
-	    apology(INPUT_ERROR, "Введено неправильний попередній пароль");
-	    exit;
-        }
-
-	if( $newPwd1 != $newPwd2 )
-	{
-	    apology(INPUT_ERROR, "Паролі не співпадають");
-	    exit;
-	}
-
-
-	$newPassword = password_hash($newPwd1, PASSWORD_DEFAULT);
-	$query = "UPDATE _user U SET U.hash=? WHERE U.login=?";
-	query($query, $newPassword, $login);
-	redirect(PATH_H."player/settings.php");
     }
     else if($_POST["action"] == "data")
     {
@@ -105,16 +71,15 @@ else if($_SERVER["REQUEST_METHOD"] == "POST")
     	$birthday = isset($_POST["birthday"]) ? htmlspecialchars($_POST["birthday"]) : NULL;
 	
 	if( !nonEmpty($fName, $lName, $city, $country, $birthday) )
-	    redirect("settings.php");
+	    redirect("settings.php?id=$playerID");
 
 	updatePlayer($playerID, $fName, $lName, $city, $country, $birthday);
 
-	redirect("settings.php");
+	redirect("settings.php?id=$playerID");
     }
     else
 	redirect(PATH_H."logout.php");
 }
-
 
 function updatePlayer($id, $new_fName, $new_lName, $new_city, $new_country, $new_birthday)
 {
@@ -127,7 +92,7 @@ function updatePlayer($id, $new_fName, $new_lName, $new_city, $new_country, $new
 	$new_id = isset($data[0][0]) ? $data[0][0] : NULL;
         if( nonEmpty($new_id) && $new_id != $id )
         {
-            $msg = "Це ім'я та прізвище вже використовуються";
+            $msg = "Ці ім'я та прізвище вже використовуються";
             adminApology(INPUT_ERROR, $msg);
             exit;
         }
@@ -142,9 +107,8 @@ function updatePlayer($id, $new_fName, $new_lName, $new_city, $new_country, $new
         query($query, $new_city, $new_country, $new_birthday, $id);
     }
 
-    redirect(PATH_H."player/settings.php");
+    redirect("settings.php?id=$id");
 }
-
 
 function getPlayerName($id)
 {
@@ -155,7 +119,6 @@ function getPlayerName($id)
 
     return $fName . "_" . $lName . ".jpg";
 }
-
 
 function getPlayer($id)
 {

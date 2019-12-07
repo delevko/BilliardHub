@@ -1,0 +1,11 @@
+[07-Dec-2019 00:10:37 UTC] PHP Warning:  mysqli_stmt::bind_param(): Invalid type or no types specified in /home/gi6kvfbao9ds/includes/functions.php on line 336
+[07-Dec-2019 00:15:40 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/gi6kvfbao9ds/public_html/admin/players/settings.php on line 11
+[07-Dec-2019 00:15:42 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/gi6kvfbao9ds/public_html/admin/players/settings.php on line 11
+[07-Dec-2019 00:30:11 UTC] PHP Notice:  Undefined variable: playerID in /home/gi6kvfbao9ds/public_html/admin/players/settings.php on line 15
+[07-Dec-2019 00:30:11 UTC] PHP Warning:  mysqli_stmt::bind_param(): Invalid type or no types specified in /home/gi6kvfbao9ds/includes/functions.php on line 336
+[07-Dec-2019 00:30:49 UTC] PHP Notice:  Undefined variable: name in /home/gi6kvfbao9ds/public_html/admin/players/settings.php on line 20
+[07-Dec-2019 01:08:27 UTC] PHP Notice:  Undefined offset: 0 in /home/gi6kvfbao9ds/public_html/admin/players/settings.php on line 92
+[07-Dec-2019 01:10:27 UTC] PHP Notice:  Undefined offset: 0 in /home/gi6kvfbao9ds/public_html/admin/players/settings.php on line 92
+[07-Dec-2019 01:10:35 UTC] PHP Notice:  Undefined offset: 0 in /home/gi6kvfbao9ds/public_html/admin/players/settings.php on line 92
+[07-Dec-2019 01:11:33 UTC] PHP Notice:  Undefined offset: 0 in /home/gi6kvfbao9ds/public_html/admin/players/settings.php on line 92
+[07-Dec-2019 01:11:38 UTC] PHP Notice:  Undefined offset: 0 in /home/gi6kvfbao9ds/public_html/admin/players/settings.php on line 92
