@@ -33,6 +33,15 @@ function lobby($matchID)
              displayLiveMatch($id1,$name1,$score1,$points1,$break1,$img1,$id2,$name2,$score2,$points2,$break2,$img2,$bestOF);
 
              displayLiveFooter();
+
+             if($score1 + $score2 > 0)
+             {
+		framesHeader();
+
+		printFrames($matchID);
+
+		framesFooter();
+             }
 	}
 	else
 	{
