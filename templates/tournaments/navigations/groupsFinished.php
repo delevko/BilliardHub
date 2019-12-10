@@ -11,4 +11,7 @@
 		<a href="<?=$header?>&onClick=breaks" id="breaks">
 			Брейки
 		</a>
+		<a href="<?=$header?>&onClick=description" id="description">
+			Регламент
+		</a>
 

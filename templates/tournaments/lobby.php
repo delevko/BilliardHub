@@ -24,7 +24,7 @@ else if( !strcmp($status,"Finished") )
 	finishedLobby($bracket, $tournamentID, $onClick);
 
 else
-	redirect("");
+	redirect(PATH_H."tournaments");
 
 
 function tournamentHeader($name,$billiard,$details,$league,$status,$id)
@@ -74,7 +74,7 @@ function announcedLobby($tournamentID, $onClick)
 	if( !strcmp($onClick, "participants") )
 		require("lobbyDetails/registeredPlayersList.php");
 	else
-		redirect("");
+		redirect(PATH_H."tournaments/lobby.php?id=$tournamentID&onClick=default");
 
 
 //close lobby block
@@ -98,8 +98,10 @@ function registrationLobby($tournamentID, $onClick)
 //show appropriate data
 	if( !strcmp($onClick, "participants") )
 		require("lobbyDetails/registeredPlayersList.php");
+	else if( !strcmp($onClick, "description") )
+		require("lobbyDetails/description.php");
 	else
-		redirect("");
+		redirect(PATH_H."tournaments/lobby.php?id=$tournamentID&onClick=participants");
 
 
 //close lobby block
@@ -123,8 +125,10 @@ function standbyLobby($tournamentID, $onClick)
 //show appropriate data
 	if( !strcmp($onClick, "participants") )
 		require("lobbyDetails/registeredPlayersList.php");
+	else if( !strcmp($onClick, "description") )
+		require("lobbyDetails/description.php");
 	else
-		redirect("");
+		redirect(PATH_H."tournaments/lobby.php?id=$tournamentID&onClick=default");
 
 
 //close lobby block
@@ -145,7 +149,7 @@ function liveLobby($bracket, $tournamentID, $onClick)
 	else if( !strcmp($bracket, "K/O") || !strcmp($bracket, "D/E") )
 		require("navigations/eliminationsLive.php");
 	else
-		redirect("");
+		redirect(PATH_H."tournaments/lobby.php?id=$tournamentID&onClick=default");
 
 	require("navigations/footer.php");
 
@@ -171,8 +175,10 @@ function liveLobby($bracket, $tournamentID, $onClick)
 		require("lobbyDetails/breaks.php");
 	else if( !strcmp($onClick, "matchLobby") )
 		require("lobbyDetails/matchLobby.php");
+	else if( !strcmp($onClick, "description") )
+		require("lobbyDetails/description.php");
 	else
-		redirect("");
+		redirect(PATH_H."tournaments/lobby.php?id=$tournamentID&onClick=default");
 
 
 //close lobby block
@@ -193,7 +199,7 @@ function finishedLobby($bracket, $tournamentID, $onClick)
 	else if( !strcmp($bracket, "K/O") || !strcmp($bracket, "D/E") )
 		require("navigations/eliminationsFinished.php");
 	else
-		redirect("");
+		redirect(PATH_H."tournaments/lobby.php?id=$tournamentID&onClick=default");
 
 	require("navigations/footer.php");
 	
@@ -217,8 +223,10 @@ function finishedLobby($bracket, $tournamentID, $onClick)
 		require("lobbyDetails/breaks.php");
 	else if( !strcmp($onClick, "matchLobby") )
 		require("lobbyDetails/matchLobby.php");
+	else if( !strcmp($onClick, "description") )
+		require("lobbyDetails/description.php");
 	else
-		redirect("");
+		redirect(PATH_H."tournaments/lobby.php?id=$tournamentID");
 
 
 //close lobby block
