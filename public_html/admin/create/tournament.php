@@ -30,28 +30,26 @@ else if($_SERVER["REQUEST_METHOD"] == "POST")
 	}
 
 
-	if(!$_POST["begDate"] || !$_POST["endDate"])
+    if(!$_POST["begDate"] || !$_POST["endDate"])
     {
         adminApology(INPUT_ERROR, "Необхідно ввести дату початку та закінчення турніру");
         exit;
     }
 
-	$begDate = date('Y:m:d', strtotime($_POST["begDate"]) );
-	$endDate = date('Y:m:d', strtotime($_POST["endDate"]) );
+    $begDate = date('Y:m:d', strtotime($_POST["begDate"]) );
+    $endDate = date('Y:m:d', strtotime($_POST["endDate"]) );
     if(!$begDate || !$endDate)
     {
         adminApology(INPUT_ERROR, "Помилка дати");
         exit;
-
     }
 
-	
 
-	$query = "INSERT INTO tournament(name,leagueID,clubID,startDate,endDate)
-		VALUES(?,?,?,?,?)";
-	
-	query($query, $name, $leagueID, $clubID, $begDate, $endDate);
-	redirect(PATH_H."admin/");
+    $query = "INSERT INTO tournament(name,leagueID,clubID,startDate,endDate)
+	VALUES(?,?,?,?,?)";
+
+    query($query, $name, $leagueID, $clubID, $begDate, $endDate);
+    redirect(PATH_H."admin/");
 }
 
 ?>

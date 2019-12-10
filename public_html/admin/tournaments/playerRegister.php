@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
     $query = "INSERT INTO playerTournament(tournamentID, playerID) VALUES(?,?)";
     query($query, $tournament, $player);
-    redirect("lobby.php?id=$tournament");
+    redirect(PATH_H."admin/tournaments/lobby.php?id=$tournament");
 }
 else if($_SERVER["REQUEST_METHOD"] == "GET")
 {
