@@ -61,6 +61,8 @@ function announcedLobby($tournamentID, $onClick)
 //show appropriate data
         if( !strcmp($onClick, "participants") )
                 require("lobbyDetails/registeredPlayersListSmall.php");
+        else if( !strcmp($onClick, "description") )
+                require("lobbyDetails/description.php");
         else
                 redirect("");
 
@@ -88,6 +90,8 @@ function registrationLobby($tournamentID, $onClick)
 		require("lobbyDetails/playerRegisterForm.php");
 		require("lobbyDetails/registrationPlayersList.php");
 	}	
+        else if( !strcmp($onClick, "description") )
+                require("lobbyDetails/description.php");
 	else
 		redirect("");
 
@@ -130,6 +134,8 @@ function displayStandbyBracket($tournamentID, $onClick)
 //show appropriate data
 	if( !strcmp($onClick, "participants") )
 		require("lobbyDetails/registeredPlayersListSmall.php");
+        else if( !strcmp($onClick, "description") )
+                require("lobbyDetails/description.php");
 	else if( !strcmp($onClick, "KO") )
 		require("forms/KO.php");
 	else if( !strcmp($onClick, "DE") )
@@ -152,6 +158,8 @@ function displayStandbyRounds($tournamentID, $onClick, $bracket)
 //show appropriate data
 	if( !strcmp($onClick, "participants") )
 		require("lobbyDetails/registeredPlayersListSmall.php");
+        else if( !strcmp($onClick, "description") )
+                require("lobbyDetails/description.php");
 	else if( !strcmp($onClick, "rounds") )
 		require("forms/rounds.php");
 	else

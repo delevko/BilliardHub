@@ -35,11 +35,11 @@ function lobbyGenerate($tournamentID, $onClick)
 	else if($onClick == "default")
 	{
 		if($status == "Standby" || $status == "Announced")
-			redirect("lobby.php?id=".$tournamentID.
-               		"&onClick=participants");
+			redirect(PATH_H."admin/tournaments/lobby.php?" .
+			"id=$tournamentID&onClick=participants");
 		else if($status == "Registration")
-			redirect("lobby.php?id=".$tournamentID.
-               		"&onClick=register");
+			redirect(PATH_H."admin/tournaments/lobby.php?" .
+			"id=$tournamentID&onClick=register");
 	}
 	else
 	{
