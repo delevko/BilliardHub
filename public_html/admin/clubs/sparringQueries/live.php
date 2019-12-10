@@ -17,6 +17,12 @@ if( nonEmpty($tableID) && exists("_table", $tableID) )
 		sleep(0.5);
 		redirect(PATH_H."admin/clubs/sparring-lobby.php?tableID=$tableID");
 	}
+	else if( !strcmp($action, "rerack") ) {
+		rerack($tableID);
+
+		sleep(0.25);
+		redirect(PATH_H."admin/clubs/sparring-lobby.php?tableID=$tableID");
+	}
 
 	$rlt = array();
 	foreach ($_POST as $l=>$v){
@@ -82,4 +88,8 @@ function finishFrame($tableID){
 	query($query, $tableID);
 }
 
+function rerack($tableID){
+	$query = "CALL rerack(?)";
+	query($query, $tableID);
+}
 ?>

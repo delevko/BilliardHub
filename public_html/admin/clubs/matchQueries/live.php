@@ -8,13 +8,19 @@ $points = isset($_POST["points"]) ? htmlspecialchars($_POST["points"]) : null;
 $break = isset($_POST["_break"]) ? htmlspecialchars($_POST["_break"]) : null;
 $tableID = isset($_POST["tableID"]) ? htmlspecialchars($_POST["tableID"]) : null;
 
-if( exists("_table", $tableID) )
+if( nonEmpty($tableID) && exists("_table", $tableID) )
 {
 	if( !strcmp($action, "finishFrame") ) {
 		changePlayer($isLeft, $tableID, $break);
 		finishFrame($tableID);
 
 		sleep(0.5);
+		redirect(PATH_H."admin/clubs/live-match-lobby.php?tableID=$tableID");
+	}
+	else if( !strcmp($action, "rerack") ) {
+		rerack($tableID);
+
+		sleep(0.25);
 		redirect(PATH_H."admin/clubs/live-match-lobby.php?tableID=$tableID");
 	}
 
@@ -79,6 +85,10 @@ function breakIncrement($isLeft, $tableID, $points){
 
 function finishFrame($tableID){
 	$query = "CALL finishFrame(?)";
+	query($query, $tableID);
+}
+function rerack($tableID){
+	$query = "CALL rerack(?)";
 	query($query, $tableID);
 }
 

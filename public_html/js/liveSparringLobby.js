@@ -1,5 +1,6 @@
 
 var ESC_clicked = false;
+var BCKSP_clicked = false;
 var BTN_clicked = false;
 var isLeft, tableID;
 var item = {
@@ -137,6 +138,17 @@ function finishFrame(_break) {
 }
 
 
+function rerack() {
+    var form = $('<form action="sparringQueries/live.php" method="POST">' + 
+	'<input type="hidden" name="action" value="rerack"/>' +
+	'<input type="hidden" name="tableID" value="' + tableID + '"/>' +
+	'</form>');
+
+    $('body').append(form);
+    form.submit();
+}
+
+
 var successHandler = function(data, status) {
 	BTN_clicked = false;
 	var res = JSON.parse(data); 
@@ -147,7 +159,7 @@ var successHandler = function(data, status) {
 
 $(function() {
     $('html').keydown(function(event) {
-	if(BTN_clicked || ESC_clicked)
+	if( BTN_clicked || ESC_clicked || BCKSP_clicked )
 	    return;
 
 	// arrow LEFT - change player
@@ -239,7 +251,7 @@ $(function() {
 
 		$.confirm({
 		    title: _title,
-		    boxWidth: '60%',
+		    boxWidth: '70%',
 		    useBootstrap: false,
 		    theme: 'supervan',
 		    content: _content,
@@ -262,6 +274,42 @@ $(function() {
 			    text: 'НІ - ESC',
 			    keys: ['esc'],
 			    action: function() { ESC_clicked = false; }
+			}
+		    }
+		});
+            }
+        }
+
+	// BACKSPACE - re-rack
+        else if(event.which == 8) {
+            var leftP = parseInt( $("#leftPoints").html() );
+            var rightP = parseInt( $("#rightPoints").html() );
+
+            if( leftP != 0 || rightP != 0 ) {
+		var _title = 'Ви бажаєте виконати Re-Rack?';
+ 	        var _content = 'Всі очки з даного фрейму буде скинуто';
+		BCKSP_clicked = true;
+
+		$.confirm({
+		    title: _title,
+		    boxWidth: '70%',
+		    useBootstrap: false,
+		    theme: 'supervan',
+		    content: _content,
+		    buttons: {
+			confirm: {
+			    text: 'TAK - ENTER',
+			    keys: ['enter'],
+			    action: function() {
+				rerack();
+			    }
+			},
+			cancel: {
+			    text: 'НІ - ESC',
+			    keys: ['esc'],
+			    action: function() {
+				BCKSP_clicked = false;
+			    }
 			}
 		    }
 		});

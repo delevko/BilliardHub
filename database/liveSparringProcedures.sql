@@ -54,5 +54,22 @@ BEGIN
 END;
 
 
+CREATE PROCEDURE rerack(IN tableID INT)
+BEGIN
+	DECLARE matchID, frameCnt INT;
+
+START TRANSACTION;
+	SELECT T.matchID INTO matchID
+	FROM _table T WHERE T.id=tableID;
+
+	IF matchID IS NOT NULL THEN
+		UPDATE liveMatch SET points1=0, points2=0, break1=0, break2=null
+		WHERE matchID = matchID;
+	END IF;
+COMMIT;
+
+END;
+
+
 $$
 delimiter ;
