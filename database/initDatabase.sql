@@ -18,6 +18,7 @@ DROP TABLE IF EXISTS groupSeeding CASCADE;
 -- DROP TABLE IF EXISTS player CASCADE;
 -- DROP TABLE IF EXISTS _user CASCADE;
 DROP TABLE IF EXISTS tournament CASCADE;
+DROP TABLE IF EXISTS tournament_details CASCADE;
 
 DROP TABLE IF EXISTS league CASCADE;
 DROP TABLE IF EXISTS organisation CASCADE;
@@ -220,6 +221,18 @@ CREATE TABLE tournament(
 );
 -- --------------------------------------------------------------------
 
+
+-- TOURNAMENT DETAILS -------------------------------------------------
+CREATE TABLE tournament_details(
+	id INT NOT NULL AUTO_INCREMENT,
+	tournamentID INT NOT NULL,
+	description TEXT NOT NULL,
+
+	PRIMARY KEY(id),
+	FOREIGN KEY(tournamentID) REFERENCES tournament(id),
+	UNIQUE KEY(tournamentID)
+);
+-- --------------------------------------------------------------------
 
 
 -- PLAYER-TOURNAMENT --------------------------------------------------
