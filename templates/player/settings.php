@@ -32,7 +32,7 @@
 			</label>
                         <div class="photo_requirements_set">
                             <span>
-                                *Будь ласка, завантажуйте тільки горизонтальне фото.
+                                *Будь ласка, завантажуйте тільки вертикальне фото
                             </span>
                         </div>
 			<input type="hidden" name="action" value="photo">
