@@ -6,7 +6,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 {
     $tournamentID = isset($_GET["id"]) ? htmlspecialchars($_GET["id"]) : NULL;
     if( !nonEmpty($tournamentID) || !exists("tournament", $tournamentID) )
-        redirect("");
+    	redirect(PATH_H."tournaments");
 
     $onClick = isset($_GET["onClick"]) ? htmlspecialchars($_GET["onClick"]) : NULL;
     $onClick = nonEmpty($onClick) ? $onClick : "default";
@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 }
 else
 {
-    redirect("");
+    redirect(PATH_H."tournaments");
 }
 
 
@@ -33,24 +33,25 @@ function lobbyGenerate($tournamentID, $onClick)
 		if( $status == "Announced" || $status == "Standby"
 		|| $status == "Registration" )
 		{
-			redirect("lobby.php?id=".$tournamentID.
+			redirect(PATH_H."tournaments/lobby.php?id=".$tournamentID.
 				"&onClick=participants");
 		}
 		else if( $status == "Live" )
 		{
-			redirect("lobby.php?id=".$tournamentID.
+			redirect(PATH_H."tournaments/lobby.php?id=".$tournamentID.
 				"&onClick=bracket");
 		}
 		else if( $status == "Finished" )
 		{
-			redirect("lobby.php?id=".$tournamentID.
+			redirect(PATH_H."tournaments/lobby.php?id=".$tournamentID.
 				"&onClick=standings");
 		}
 	}
 
 
 	render("tournaments/lobby.php", ["title"=>$tournamentName, 
-		"tournamentName"=>$tournamentName, "tournamentID"=>$tournamentID, "status"=>$status, "onClick"=>$onClick]);
+		"tournamentName"=>$tournamentName, "tournamentID"=>$tournamentID,
+		"status"=>$status, "onClick"=>$onClick]);
 
 }
 ?>
