@@ -7,18 +7,21 @@
 
     displayHeader();
 
-    displayDescription($data[0][0]);
+    displayDescription($data[0][0], $tournamentID);
 
     displayFooter();
 
-
-function displayDescription($description)
+function displayDescription($description, $tournamentID)
 { ?>
-
-	<?=$description?>
-
+	<form method="POST" action="<?=PATH_H?>admin/tournaments/changeDescription.php">
+		<input type="text" maxlength="60000"
+		name="description" value="<?=$description?>">
+		<input type="hidden" name="tournamentID" value="<?=$tournamentID?>">
+		<button>
+			ЗМІНИТИ
+		</button>
+	</form>
 <?php }
-
 
 function displayHeader()
 { ?>
@@ -28,13 +31,10 @@ function displayHeader()
             Регламент
         </div>
     </div>
-    <div class="list_container">
-<?php
-}
+<?php }
 
 function displayFooter()
 { ?>
-    </div>
 <?php
 } ?>
 

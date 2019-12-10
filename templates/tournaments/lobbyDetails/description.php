@@ -12,6 +12,7 @@
     displayFooter();
 
 
+
 function displayDescription($description)
 { ?>
 
@@ -28,13 +29,11 @@ function displayHeader()
             Регламент
         </div>
     </div>
-    <div class="list_container">
 <?php
 }
 
 function displayFooter()
 { ?>
-    </div>
 <?php
 } ?>
 
