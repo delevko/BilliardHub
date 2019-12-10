@@ -250,8 +250,18 @@ CREATE TABLE playerTournament(
 );
 
 
--- TRIGGER to increment players in a tournament -----------------------
+-- TRIGGERS ----------------------------------------------------------
 delimiter $$
+
+-- TRIGGER to create tournament description
+CREATE TRIGGER create_description AFTER INSERT ON tournament
+FOR EACH ROW
+BEGIN
+	INSERT INTO tournament_details (tournamentID, description)
+	VALUES (NEW.id, NEW.name);
+END;
+
+-- TRIGGER to increment players in a tournament -----------------------
 CREATE TRIGGER playersIncrement BEFORE INSERT ON playerTournament
 FOR EACH ROW
 BEGIN
@@ -266,6 +276,7 @@ BEGIN
 	UPDATE tournament SET registeredPlayers=registeredPlayers-1
 	WHERE id = OLD.tournamentID;
 END;
+
 $$
 delimiter ;
 -- --------------------------------------------------------------------
