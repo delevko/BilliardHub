@@ -135,6 +135,8 @@ function tournRegButtonRender($status, $tournamentID)
         {
             if( $_SESSION["id"]["type"] == "regular" )
             {
+                registrationIncludes();
+
 		if( registered($_SESSION["id"]["login"], $tournamentID) )
 		    tournRegisteredUserA($tournamentID);
 		else
@@ -180,12 +182,11 @@ function tournRegisterLogin()
 <?php }
 function tournRegisterUser($tournamentID)
 { ?>
-		<a class="reg_button"
-		href="<?=PATH_H?>player/register.php?id=<?=$tournamentID?>">
-                    <button>
+		<div class="reg_button">
+                    <button onclick="register(<?=$tournamentID?>)">
 			Зареєструватись
 		    </button>
-                </a>
+                </div>
 <?php }
 function tournRegisteredUser()
 { ?>
@@ -197,14 +198,18 @@ function tournRegisteredUser()
 <?php }
 function tournRegisteredUserA($tournamentID)
 { ?>
-		<a class="reg_button_done"
-		href="<?=PATH_H?>player/unregister.php?id=<?=$tournamentID?>">
-                    <button>
+		<div class="reg_button_done">
+                    <button class="pointer" onclick="unregister(<?=$tournamentID?>);">
 			Ви зареєстровані
 		    </button>
-                </a>
+                </div>
 <?php }
-
+function registrationIncludes()
+{ ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script type="text/javascript" src="<?=PATH_H?>js/player_registration.js"></script>
+<?php }
 
 
 function firstGreaterPowerOf2($n)
