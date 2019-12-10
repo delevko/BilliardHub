@@ -120,7 +120,9 @@ function logoutButton() { ?>
 function registerButton() { ?>
         <a href="<?=PATH_H?>register.php" class="login">
             <i class="fas fa-user-plus"></i>
-            <span>&nbsp;Зареєструватись</span>
+            <span>
+		&nbsp;Зареєструватись
+	    </span>
         </a>
 <?php }
 
@@ -134,7 +136,7 @@ function tournRegButtonRender($status, $tournamentID)
             if( $_SESSION["id"]["type"] == "regular" )
             {
 		if( registered($_SESSION["id"]["login"], $tournamentID) )
-		    tournRegisteredUser();
+		    tournRegisteredUserA($tournamentID);
 		else
                     tournRegisterUser($tournamentID);
      	    }
@@ -171,23 +173,36 @@ function registered($login, $tournament)
 function tournRegisterLogin()
 { ?>
 		<a class="reg_button" href="<?=PATH_H?>login.php">
-                    <button>Зареєструватись</button>
+                    <button>
+			Зареєструватись
+		    </button>
                 </a>
 <?php }
-
 function tournRegisterUser($tournamentID)
 { ?>
 		<a class="reg_button"
-		href="<?=PATH_H?>tournaments/register.php?id=<?=$tournamentID?>">
-                    <button>Зареєструватись</button>
+		href="<?=PATH_H?>player/register.php?id=<?=$tournamentID?>">
+                    <button>
+			Зареєструватись
+		    </button>
                 </a>
 <?php }
-
 function tournRegisteredUser()
 { ?>
 		<div class="reg_button_done">
-                    <button>Ви зареєстровані</button>
+                    <button>
+			Ви зареєстровані
+		    </button>
                 </div>
+<?php }
+function tournRegisteredUserA($tournamentID)
+{ ?>
+		<a class="reg_button_done"
+		href="<?=PATH_H?>player/unregister.php?id=<?=$tournamentID?>">
+                    <button>
+			Ви зареєстровані
+		    </button>
+                </a>
 <?php }
 
 
