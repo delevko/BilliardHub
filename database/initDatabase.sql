@@ -236,7 +236,8 @@ CREATE TABLE playerTournament(
 	UNIQUE KEY(playerID, tournamentID)
 );
 
--- TRIGGER to increment players in a tournament
+
+-- TRIGGER to increment players in a tournament -----------------------
 delimiter $$
 CREATE TRIGGER playersIncrement BEFORE INSERT ON playerTournament
 FOR EACH ROW
@@ -244,10 +245,17 @@ BEGIN
 	UPDATE tournament SET registeredPlayers=registeredPlayers+1
 	WHERE id = NEW.tournamentID;
 END;
+
+-- TRIGGER to decrement players in a tournament
+CREATE TRIGGER playersDecrement BEFORE DELETE ON playerTournament
+FOR EACH ROW
+BEGIN
+	UPDATE tournament SET registeredPlayers=registeredPlayers-1
+	WHERE id = OLD.tournamentID;
+END;
 $$
 delimiter ;
 -- --------------------------------------------------------------------
-
 
 
 -- GROUP-TOURNAMENT ---------------------------------------------------
