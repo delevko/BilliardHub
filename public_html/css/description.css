@@ -15,7 +15,6 @@
     float: left;
     clear: left;
     text-align: left;
-
     white-space: pre;
 }
 
@@ -23,5 +22,7 @@
 	.reglament_text {
 		width: 100%;
 		overflow: auto;
+		overflow-wrap: break-word;
+  		word-wrap: break-word;
 	}
 }
