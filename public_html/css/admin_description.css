@@ -11,6 +11,8 @@
 	min-height: 200px;
 	overflow: scroll;
 	padding: 20px;
+	outline: none;
+	border-radius: 8px;
 }
 
  .b_reglament {
