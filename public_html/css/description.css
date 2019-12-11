@@ -2,12 +2,14 @@
 	width: 700px;
 	height: auto;
 	text-align: right;
-	overflow-x: auto;
+	overflow: auto;
 	padding: 20px;
 	outline: none;
 	border-radius: 8px;
 	border-top: 3px solid #61892F;
-	border: none;
+	border-right: none;
+	border-bottom: none;
+	border-left: none;
 	background-color: #3f454c;
 	display: block;
     float: left;
