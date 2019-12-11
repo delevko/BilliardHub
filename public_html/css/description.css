@@ -1,3 +1,15 @@
 .reglament_text {
 	width: 700px;
+	height: auto;
+	text-align: right;
+	overflow-x: auto;
+	padding: 20px;
+	outline: 3px solid #61892F;
+	border-radius: 8px;
+	border: none;
+	background-color: #3f454c;
+	display: inline-block;
+    float: left;
+    clear: left;
+    text-align: left;
 }
