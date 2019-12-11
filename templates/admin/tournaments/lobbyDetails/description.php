@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/admin_description.css">
 
 <?php
     $query = "SELECT TD.description FROM tournament_details TD
@@ -13,12 +14,12 @@
 
 function displayDescription($description, $tournamentID)
 { ?>
-	<form method="POST" action="<?=PATH_H?>admin/tournaments/changeDescription.php">
-		<input type="text" maxlength="60000"
+	<form class="form_reglament" method="POST" action="<?=PATH_H?>admin/tournaments/changeDescription.php">
+		<input class="reglament" type="text" maxlength="60000"
 		name="description" value="<?=$description?>">
 		<input type="hidden" name="tournamentID" value="<?=$tournamentID?>">
-		<button>
-			ЗМІНИТИ
+		<button class="b_reglament">
+			Змінити
 		</button>
 	</form>
 <?php }
