@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/description.css">
 
 <?php
     $query = "SELECT TD.description FROM tournament_details TD
@@ -10,8 +11,6 @@
     displayDescription($data[0][0]);
 
     displayFooter();
-
-
 
 function displayDescription($description)
 { ?>
