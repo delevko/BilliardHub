@@ -16,3 +16,7 @@
     clear: left;
     text-align: left;
 }
+
+.reglament_text p {
+	white-space: pre;
+}
