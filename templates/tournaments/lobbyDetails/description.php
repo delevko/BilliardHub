@@ -15,17 +15,11 @@
 function displayDescription($description)
 { ?>
 
-    <textarea readonly id="autoresizing" class="reglament_text"><?=$description?></textarea> 
+   <!--  <textarea readonly  class="reglament_text"><?=$description?></textarea>  -->
 
-     <script type="text/javascript"> 
-        textarea = document.querySelector("#autoresizing"); 
-        textarea.addEventListener('input', autoResize, false); 
-      
-        function autoResize() { 
-            this.style.height = 'auto'; 
-            this.style.height = this.scrollHeight + 'px'; 
-        } 
-    </script>
+      <div class="reglament_text"><?=$description?>
+          
+      </div> 
 
 <?php }
 

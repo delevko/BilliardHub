@@ -15,14 +15,24 @@
 function displayDescription($description, $tournamentID)
 { ?>
 	<form class="form_reglament" method="POST" action="<?=PATH_H?>admin/tournaments/changeDescription.php">
-		<textarea placeholder="Введіть текст.." class="reglament" maxlength="60000"
+		<textarea id="autoresizing" placeholder="Введіть текст.." class="reglament" maxlength="60000"
 		name="description" wrap="soft"><?=$description?></textarea>
 		<input type="hidden" name="tournamentID" value="<?=$tournamentID?>">
 		<button class="b_reglament">
 			Змінити
 		</button>
 	</form>
-    
+
+    <script type="text/javascript"> 
+        textarea = document.querySelector("#autoresizing"); 
+        textarea.addEventListener('input', autoResize, false); 
+      
+        function autoResize() { 
+            this.style.height = 'auto'; 
+            this.style.height = this.scrollHeight + 'px'; 
+        } 
+    </script>
+
 <?php }
 
 function displayHeader()
