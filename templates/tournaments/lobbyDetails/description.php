@@ -15,7 +15,9 @@
 function displayDescription($description)
 { ?>
 
-	<?=$description?>
+    <div class="reglament_text">
+	   <?=$description?>
+    </div>
 
 <?php }
 
