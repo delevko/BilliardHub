@@ -9,10 +9,16 @@
 .reglament {
 	width: 100%;
 	min-height: 200px;
-	overflow: scroll;
+	overflow: auto;
 	padding: 20px;
 	outline: none;
 	border-radius: 8px;
+	border: none;
+	background-color: #3f454c;
+	display: inline-block;
+    float: left;
+    clear: left;
+    text-align: right;
 }
 
  .b_reglament {
