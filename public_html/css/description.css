@@ -23,7 +23,8 @@
 }
 
 @media screen and (max-width: 1000px) {
-	.reglament_text {
+	.reglament_text, 
+	.reglament_text p {
 		width: 100%;
 		overflow: auto;
 	}
