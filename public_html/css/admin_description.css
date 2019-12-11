@@ -8,7 +8,7 @@
 .reglament {
 	width: 100%;
 	min-height: 200px;
-	overflow: auto;
+	overflow-x: auto;
 	padding: 20px;
 	outline: none;
 	border-radius: 8px;
