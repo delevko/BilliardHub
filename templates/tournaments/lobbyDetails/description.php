@@ -15,9 +15,9 @@
 function displayDescription($description)
 { ?>
 
-    <div class="reglament_text">
+    <textarea readonly class="reglament_text">
 	   <?=$description?>
-    </div>
+    </textarea> 
 
 <?php }
 
