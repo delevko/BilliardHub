@@ -15,7 +15,7 @@
 function displayDescription($description)
 { ?>
 
-    <textarea rows="30" readonly class="reglament_text"><?=$description?></textarea> 
+    <textarea readonly class="reglament_text"><?=$description?></textarea> 
 
      <script>
         
