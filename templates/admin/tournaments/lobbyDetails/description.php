@@ -15,9 +15,9 @@
 function displayDescription($description, $tournamentID)
 { ?>
 	<form class="form_reglament" method="POST" action="<?=PATH_H?>admin/tournaments/changeDescription.php">
-		<textarea placeholder="Введіть текст.." class="reglament" type="text" maxlength="60000"
+		<p placeholder="Введіть текст.." class="reglament" type="text" maxlength="60000"
 		name="description"><?=$description?>
-        </textarea>
+        </p>
 		<input type="hidden" name="tournamentID" value="<?=$tournamentID?>">
 		<button class="b_reglament">
 			Змінити
