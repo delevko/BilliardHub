@@ -15,21 +15,16 @@
 function displayDescription($description)
 { ?>
 
-    <textarea readonly class="reglament_text"><?=$description?></textarea> 
+    <textarea readonly id="autoresizing" class="reglament_text"><?=$description?></textarea> 
 
-     <script>
-        
-        var textarea = document.querySelector('textarea');
-
-textarea.addEventListener('keydown', autosize);
-             
-function autosize(){
-  var el = this;
-  setTimeout(function(){
-    el.style.cssText = 'height:auto; padding:0';
-    el.style.cssText = 'height:' + el.scrollHeight + 'px';
-  },0);
-}
+     <script type="text/javascript"> 
+        textarea = document.querySelector("#autoresizing"); 
+        textarea.addEventListener('input', autoResize, false); 
+      
+        function autoResize() { 
+            this.style.height = 'auto'; 
+            this.style.height = this.scrollHeight + 'px'; 
+        } 
     </script>
 
 <?php }
