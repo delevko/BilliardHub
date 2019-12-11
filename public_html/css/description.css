@@ -8,12 +8,8 @@
 	border-radius: 8px;
 	border-top: 3px solid #61892F;
 	background-color: #3f454c;
-	display: inline-block;
+	display: block;
     float: left;
     clear: left;
     text-align: left;
-}
-.reglament_text p {
-	padding: 0;
-	margin: 0;
 }
