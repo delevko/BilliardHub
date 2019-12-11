@@ -19,4 +19,12 @@
 
 .reglament_text p {
 	white-space: pre;
+	width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+	.reglament_text {
+		width: 100%;
+		overflow: auto;
+	}
 }

@@ -37,3 +37,10 @@
 	background-color: #4F7027;
 	cursor: pointer;
 }
+
+@media screen and (max-width: 1000px) {
+	.form_reglament {
+		width: 100%;
+		overflow: auto;
+	}
+}
