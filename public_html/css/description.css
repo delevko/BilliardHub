@@ -15,16 +15,12 @@
     float: left;
     clear: left;
     text-align: left;
-}
 
-.reglament_text p {
-	white-space: pre;
-	width: 100%;
+    white-space: pre;
 }
 
 @media screen and (max-width: 1000px) {
-	.reglament_text, 
-	.reglament_text p {
+	.reglament_text {
 		width: 100%;
 		overflow: auto;
 	}
