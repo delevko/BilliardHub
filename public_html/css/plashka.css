@@ -10,7 +10,7 @@ body {
 }
 .plashka_box {
 	margin: 0 auto;
-	width: 1000px;
+	width: 800px;
 	height: 40px;
 	max-height: 40px;
 	padding: 0 10px;
@@ -34,7 +34,7 @@ body {
 	height: 37px;
 	border-radius: 4px;
 	/*text-transform: uppercase;*/
-	width: 350px;
+	width: 250px;
 }
 .plashka_pl01 {
 	justify-content: flex-start;
