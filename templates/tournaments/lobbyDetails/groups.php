@@ -100,7 +100,7 @@ WHERE GT.tournamentID=? AND GT.groupNum=? ORDER BY PG.playerNum
 
 		playerHeader($e_o, $BL, $id, $name, $plrNo, $seed, $img);
 		
-		displayMatches($tournID, $groupNo, $plrNo, $n_plrs);
+		displayMatches($tournID, $groupNo, $plrNo, $n_plrs, $tournID);
 		displayStatistics($tournID, $groupNo, $plrNo, $BR);
 
 		playerFooter();
@@ -133,8 +133,8 @@ function playerFooter()
 
 
 
-function displayMatches($id, $grpNo, $plrNo, $n_plrs)
-{	
+function displayMatches($id, $grpNo, $plrNo, $n_plrs, $tID)
+{
 	$query = "SELECT M.id AS matchID, MD.status,
     IF(PG1.playerNum=?, PG2.playerNum, PG1.playerNum) AS enemyNum,
     IF(PG1.playerNum=?, M.player1Score, M.player2Score) AS myScore,
@@ -164,15 +164,15 @@ WHERE M.tournamentID=? AND GT.groupNum=?
 			$score1 = $data[$k][3];
 			$score2 = $data[$k][4];
 
-			displayMatch($mID, $score1, $score2);
+			displayMatch($tID, $mID, $score1, $score2);
 			$k++;
 		}
 	}
 }
 
-function displayMatch($mID, $score1, $score2)
+function displayMatch($tID, $mID, $score1, $score2)
 { ?>
-			<td class="pointer" onclick="openMatchLobby(<?=$mID?>);">
+			<td class="pointer" onclick="openMatchLobby(<?=$tID?>, <?=$mID?>);">
 				<?=$score1?>:<?=$score2?>
 			</td>
 <?php }
