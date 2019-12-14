@@ -93,7 +93,7 @@ function getData($seeded, $id)
 		exit;
 	}
 	
-	if( $seeded === 0 )
+	if( $seeded == 0 )
 	{	
 		$N = firstGreaterPowerOf2($registered);
 		$add_R = 0;

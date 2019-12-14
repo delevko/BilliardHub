@@ -118,7 +118,7 @@ function getData($id, $proceed, $groupMin, $seeded)
 	$nrOfGroups = FLOOR($groupPlayers/$groupMin);
 	$totalGroupProceed = $nrOfGroups * $proceed;
 	
-	if($seeded === 0)
+	if($seeded == 0)
 	{
 		$N = firstGreaterPowerOf2($totalGroupProceed);
 		$add_R = 0;
