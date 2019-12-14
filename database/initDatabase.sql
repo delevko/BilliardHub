@@ -33,6 +33,10 @@ DROP FUNCTION IF EXISTS getVal;
 
 DROP TRIGGER IF EXISTS tablesInit;
 DROP TRIGGER IF EXISTS playersIncrement;
+DROP TRIGGER IF EXISTS playersDecrement;
+DROP TRIGGER IF EXISTS create_description;
+DROP TRIGGER IF EXISTS updateYoutube;
+
 DROP TRIGGER IF EXISTS playersInAGroupIncrement;
 
 
@@ -438,7 +442,24 @@ CREATE TABLE liveMatch(
 	FOREIGN KEY(matchID) REFERENCES _match(id),
 	UNIQUE(matchID, frameCounter)
 );
--- -------------------
+
+-- checks previous youtube link for current table
+delimiter $
+CREATE TRIGGER updateYoutube BEFORE INSERT ON liveMatch
+FOR EACH ROW
+BEGIN
+    DECLARE tableID INT;
+
+    SELECT M.tableID INTO tableID FROM _match M WHERE M.id = NEW.matchID;
+
+    UPDATE _match M SET M.youtube = (SELECT T.youtube FROM _table T WHERE T.id=tableID)
+    WHERE M.id = NEW.matchID;
+
+END;
+$
+delimiter ;
+-- --------------------------------------------------------------------
+
 
 -- MATCH DETAILS ------------------------------------------------------
 CREATE TABLE matchDetails(
