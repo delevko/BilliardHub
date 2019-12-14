@@ -65,7 +65,7 @@ START TRANSACTION;
 
 -- reset table status
 	UPDATE _table T 
-	SET T.matchID = NULL, T.status = "Available" 
+	SET T.matchID = NULL, T.status = "Available", T.youtube = NULL 
 	WHERE T.id = tableID;
 
 COMMIT;
