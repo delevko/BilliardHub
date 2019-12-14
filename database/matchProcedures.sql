@@ -24,8 +24,25 @@ DROP PROCEDURE IF EXISTS scoreIncrement;
 DROP PROCEDURE IF EXISTS scoreCheck;
 DROP TRIGGER IF EXISTS scoreTrigger;
 
+DROP PROCEDURE IF EXISTS setYoutube;
+
 
 delimiter $$
+
+CREATE PROCEDURE setYoutube(IN matchID INT, IN youtube VARCHAR(200))
+BEGIN
+    DECLARE tableID INT;
+
+START TRANSACTION;
+    SELECT M.tableID INTO tableID FROM _match M WHERE M.id = matchID;
+
+    UPDATE _match M SET M.youtube = youtube WHERE M.id = matchID;
+
+    UPDATE _table T SET T.youtube = youtube WHERE T.id = tableID;
+COMMIT;
+END;
+
+
 
 CREATE PROCEDURE scoreCheck(IN score1 INT, IN score2 INT, IN bestOf INT)
 BEGIN
