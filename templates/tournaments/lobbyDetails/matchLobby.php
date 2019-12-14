@@ -24,7 +24,7 @@ function lobby($matchID)
 
 
 	$live = ($status == "Live");	
-	if( isset($youtube) )
+	if( nonEmpty($youtube) )
 		displayLive($youtube);
 	else {
 		?><div class="match_margin"></div><?php

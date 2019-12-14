@@ -130,8 +130,8 @@ function printBracketMatch($i, $mID, $matchNum, $player1, $score1, $seed1, $play
 		onclick="openMatchLobby(<?=$tID?>, <?=$mID?>);"> 
 			<?=$matchNum?>
 		</div>
-		<div class="youtube_logo<?=(isset($youtube)?" pointer":"")?>">
-	<?php if(isset($youtube)) { ?>
+		<div class="youtube_logo<?=(nonEmpty($youtube)?" pointer":"")?>">
+	<?php if(nonEmpty($youtube)) { ?>
             <a href="<?=YT_HEADER.$youtube?>">
                 <i class="fab fa-youtube"></i>
             </a>

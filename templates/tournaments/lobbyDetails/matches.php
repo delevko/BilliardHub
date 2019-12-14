@@ -164,10 +164,10 @@ function displayMatch($tID,$counter,$last,$mID,$player1,$score1,$player2,$score2
 		<td class="matches_list_table_youtube
 		<?=$e_o?>_youtube 
 		 <?=($last)?" radius_br":""?>"
-		<?php if(isset($link)){ ?>
+		<?php if(nonEmpty($link)){ ?>
 			onclick="openYoutube(event,<?=("'".YT_HEADER.$link."'")?>);"
 		<?php } ?>>
-			<?php if(isset($link)){ ?>
+			<?php if(nonEmpty($link)){ ?>
 				<i class="fab fa-youtube"></i>
 			<?php } ?>
 		</td>

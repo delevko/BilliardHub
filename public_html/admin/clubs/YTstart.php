@@ -21,11 +21,10 @@ else if($_SERVER["REQUEST_METHOD"] == "POST")
 
 	if(!nonEmpty($youtube))
 	{
-		apology(INPUT_ERROR, "Введіть адресу URL трансляції на Youtube");
-		exit;
+	    $youtube = "";
 	}
 	
-	query("UPDATE _match M SET M.youtube=? WHERE M.id=?", $youtube, $matchID);
+	query("CALL setYoutube(?,?)", $matchID, $youtube);
 
 	redirect("tableLobby.php?id=$tableID");	
 }

@@ -213,7 +213,7 @@ function showSparringOccupied($tableID, $clubID)
 	displayLiveTableLink($tableID);
 	
 	
-	if( isset($youtube) )
+	if( nonEmpty($youtube) )
 	{
 		displayYoutube($matchID, $tableID, $youtube);
 	}
@@ -255,7 +255,7 @@ function showOccupied($tableID, $clubID)
 	displayLiveTableLink($tableID);
 	
 	
-	if( isset($youtube) )
+	if( nonEmpty($youtube) )
 	{
 		displayYoutube($matchID, $tableID, $youtube);
 	}
