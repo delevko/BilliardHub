@@ -39,7 +39,8 @@ else if($_SERVER["REQUEST_METHOD"] == "POST")
 	//occupied && finished
 		else if(isset($_POST["exit"]))
 		{
-			$query = "UPDATE _table T SET T.status=?, matchID=NULL WHERE T.id=?";
+			$query = "UPDATE _table T SET T.status=?, youtube=NULL, matchID=NULL
+				WHERE T.id=?";
 			query($query, "Available", $tableID);
 		}
 	//occupied && finished
