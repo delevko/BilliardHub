@@ -1,0 +1,2 @@
+[14-Dec-2019 01:37:26 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/gi6kvfbao9ds/templates/admin/tournaments/navigations/header.php:3) in /home/gi6kvfbao9ds/includes/admin_user_functions.php on line 57
+[14-Dec-2019 01:38:26 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/gi6kvfbao9ds/templates/admin/tournaments/navigations/header.php:3) in /home/gi6kvfbao9ds/includes/admin_user_functions.php on line 57

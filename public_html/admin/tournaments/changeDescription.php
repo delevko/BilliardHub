@@ -7,10 +7,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $tournament = $_POST["tournamentID"];
     $description = $_POST["description"];
 
-    if(!nonEmpty($tournament, $description))
+    if(!nonEmpty($tournament))
     {
 	redirect(PATH_H."logout.php");
     }
+
+    if(!nonEmpty($description))
+        $description = "";
 
     $query="UPDATE tournament_details SET description=? WHERE tournamentID=?";
     query($query, $description, $tournament);
