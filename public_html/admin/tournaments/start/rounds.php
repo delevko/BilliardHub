@@ -36,13 +36,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 			$rnd_p = $_POST["Group_R-$i"];
 			$groups_P .= "$rnd_p,";
 		}
-		if( !nonEmpty($_POST["Group_B"]) )
+		if( !nonEmpty($_POST["GROUP_B"]) )
 		{
 			adminApology(INPUT_ERROR,
 			"Введіть дані для всіх полів");
 			exit;
 		}
-		$groups_B = $_POST["Group_B"];
+		$groups_B = $_POST["GROUP_B"];
 	}
 
 
