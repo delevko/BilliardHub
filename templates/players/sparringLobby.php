@@ -16,7 +16,7 @@ function lobby($matchID)
 		$youtube, $status) = getMatchData($matchID);
 
 	$live = ($status == "Live");
-	if( isset($youtube) )
+	if( nonEmpty($youtube) )
 		displayYTlink($youtube);
 	else {
 		?><div class="match_margin"></div><?php
