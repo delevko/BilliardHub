@@ -4,9 +4,10 @@
 }
 
 .reglament_text {
+	width: 100%;
 	height: auto;
 	text-align: right;
-	overflow: auto;
+	overflow-x: hidden;
 	padding: 20px;
 	outline: none;
 	border-radius: 8px;
