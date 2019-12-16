@@ -8,6 +8,7 @@
 	height: auto;
 	text-align: right;
 	overflow-x: hidden;
+	  white-space: normal;
 	padding: 20px;
 	outline: none;
 	border-radius: 8px;
@@ -27,6 +28,7 @@
 	.reglament_text {
 		width: 100%;
   		overflow-x: hidden;
+  		  white-space: normal;
 	}
 	.reglament_box {
 	width: 100%;
