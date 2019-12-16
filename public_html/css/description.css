@@ -8,9 +8,6 @@
 	height: auto;
 	text-align: right;
 	overflow-x: hidden;
-	overflow-wrap: break-word;
-  		word-wrap: break-word;
-  		hyphens: auto;
 	padding: 20px;
 	outline: none;
 	border-radius: 8px;
@@ -29,9 +26,6 @@
 @media screen and (max-width: 1000px) {
 	.reglament_text {
 		width: 100%;
-		overflow-wrap: break-word;
-  		word-wrap: break-word;
-  		hyphens: auto;
   		overflow-x: hidden;
 	}
 	.reglament_box {
