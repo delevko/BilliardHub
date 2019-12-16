@@ -29,4 +29,8 @@
   		word-wrap: break-word;
   		hyphens: auto;
 	}
+	.reglament_box {
+	width: 700px;
+	overflow: auto;
+	}
 }
