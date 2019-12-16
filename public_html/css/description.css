@@ -28,9 +28,11 @@
 		overflow-wrap: break-word;
   		word-wrap: break-word;
   		hyphens: auto;
+  		overflow-x: hidden;
 	}
 	.reglament_box {
 	width: 100%;
 	overflow: auto;
+	overflow-x: hidden;
 	}
 }
