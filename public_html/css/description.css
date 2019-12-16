@@ -8,6 +8,9 @@
 	height: auto;
 	text-align: right;
 	overflow-x: hidden;
+	overflow-wrap: break-word;
+  		word-wrap: break-word;
+  		hyphens: auto;
 	padding: 20px;
 	outline: none;
 	border-radius: 8px;
