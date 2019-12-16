@@ -30,7 +30,7 @@
   		hyphens: auto;
 	}
 	.reglament_box {
-	width: 700px;
+	width: 100%;
 	overflow: auto;
 	}
 }
