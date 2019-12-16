@@ -1,5 +1,9 @@
-.reglament_text {
+.reglament_box {
 	width: 700px;
+	overflow: auto;
+}
+
+.reglament_text {
 	height: auto;
 	text-align: right;
 	overflow: auto;
