@@ -9,7 +9,7 @@
 
 .reglament_text {
 	width: 100%;
-	min-height: 300px;
+	min-height: 700px;
 	overflow-x: auto;
 	padding: 20px;
 	outline: none;
@@ -22,6 +22,7 @@
     text-align: left;
     white-space: wrap;
     color: white !important;
+    opacity: 1;
 }
 
 @media screen and (max-width: 1000px) {
