@@ -1,4 +1,8 @@
 <link rel="stylesheet" type="text/css" href="<?=PATH_H?>css/description.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    autosize($('textarea'));
+</script>
 
 <?php
     $query = "SELECT TD.description FROM tournament_details TD
