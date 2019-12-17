@@ -21,7 +21,7 @@
     clear: left;
     text-align: left;
     white-space: wrap;
-    color: white;
+    color: white !important;
 }
 
 @media screen and (max-width: 1000px) {
