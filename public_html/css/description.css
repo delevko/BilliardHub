@@ -6,7 +6,6 @@
 .reglament_text {
 	width: 100%;
 	height: auto;
-	text-align: right;
 	overflow-x: hidden;
 	padding: 20px;
 	outline: none;
@@ -19,7 +18,7 @@
     float: left;
     clear: left;
     text-align: left;
-    white-space: pre;
+	  white-space: wrap; 
 }
 
 @media screen and (max-width: 1000px) {
