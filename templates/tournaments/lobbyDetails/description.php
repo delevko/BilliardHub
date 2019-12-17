@@ -21,7 +21,7 @@ function displayDescription($description)
       </textarea>  -->
 
 
-<textarea data-adaptheight rows="3" cols="40" placeholder="Your input" style="padding: 16px; line-height: 1.5;"><?=$description?></textarea>
+<textarea data-adaptheight readonly rows="3" cols="40" placeholder="Your input" style="padding: 16px; line-height: 1.5;"><?=$description?></textarea>
 <script>
 (function() {
     function adjustHeight(textareaElement, minHeight) {
@@ -69,7 +69,7 @@ function displayDescription($description)
 }());
 </script>
 
-      
+
     </div>
 
 <?php }
