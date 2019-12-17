@@ -8,7 +8,6 @@
 	height: auto;
 	text-align: right;
 	overflow-x: hidden;
-	  white-space: normal;
 	padding: 20px;
 	outline: none;
 	border-radius: 8px;
@@ -17,7 +16,6 @@
 	border-bottom: none;
 	border-left: none;
 	background-color: #3f454c;
-	display: block;
     float: left;
     clear: left;
     text-align: left;
@@ -27,12 +25,9 @@
 @media screen and (max-width: 1000px) {
 	.reglament_text {
 		width: 100%;
-  		overflow-x: hidden;
-  		  white-space: pre;
+  		overflow-x: auto;
 	}
 	.reglament_box {
 	width: 100%;
-	overflow: auto;
-	overflow-x: hidden;
 	}
 }
