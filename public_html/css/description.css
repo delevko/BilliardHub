@@ -32,7 +32,10 @@
 
 	.reglament_box {
 		width: 100%;
-		min-height: 4000px;
+	}
+
+	.reglament_text {
+		min-height: 3000px;
 		overflow-x: hidden;
 	overflow-y: auto;
 	}
