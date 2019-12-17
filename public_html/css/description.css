@@ -6,8 +6,8 @@
 
 .reglament_text {
 	width: 100%;
-	min-height: 700px;
-	overflow-x: auto;
+	height: 1000px;
+	overflow: hidden;
 	padding: 20px;
 	outline: none;
 	border-radius: 8px;
@@ -28,6 +28,6 @@
 
 	.reglament_box {
 		width: 100%;
-		min-height: 400px;
+		min-height: 900px;
 	}
 }
