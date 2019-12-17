@@ -17,7 +17,7 @@ function displayDescription($description)
 { ?>
 
     <div class="reglament_box">
-      <textarea readonly="" class="reglament_text"><?=$description?>
+      <textarea readonly class="reglament_text"><?=$description?>
       </textarea> 
     </div>
 
@@ -26,7 +26,7 @@ function displayDescription($description)
 
 function displayHeader()
 { ?>
-    <div class="section_header_700">
+    <div class="section_header_regl">
         <div class="header_sign">
             <i class="far fa-file-alt"></i>
             Регламент
