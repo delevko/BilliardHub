@@ -17,7 +17,7 @@
     float: left;
     clear: left;
     text-align: left;
-    /*white-space: wrap;*/
+    white-space: nowrap;
     opacity: 1;
 }
 
