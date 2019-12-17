@@ -11,13 +11,16 @@
 	padding: 20px;
 	outline: none;
 	border-radius: 8px;
-	border: none;
+	border-top: 3px solid #61892F;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
 	background-color: #3f454c;
 	display: block;
     float: left;
     clear: left;
     text-align: left;
-    white-space: nowrap;
+    white-space: wrap;
     opacity: 1;
 }
 
