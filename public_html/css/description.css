@@ -32,6 +32,8 @@
 
 	.reglament_box {
 		width: 100%;
-		min-height: 900px;
+		min-height: 2000px;
+		overflow-x: hidden;
+	overflow-y: auto;
 	}
 }
