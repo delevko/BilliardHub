@@ -28,7 +28,7 @@
 @media screen and (max-width: 1000px) {
 
 	.reglament_box {
-	width: 100%;
-	min-height: 400px;
+		width: 100%;
+		min-height: 400px;
 	}
 }
