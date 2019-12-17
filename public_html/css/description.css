@@ -18,7 +18,7 @@
     float: left;
     clear: left;
     text-align: left;
-	  white-space: wrap; 
+	  white-space: wrap;
 }
 
 @media screen and (max-width: 1000px) {
