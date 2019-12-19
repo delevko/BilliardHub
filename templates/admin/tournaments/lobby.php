@@ -17,8 +17,11 @@ else if( !strcmp($status, "Registration") )
 else if( !strcmp($status, "Standby") )
 	standbyLobby($tournamentID, $onClick);
 
+//else if( !strcmp($status, "Live") )
+//	liveLobby($tournamentID, $onClick);
+
 else
-	redirect("");
+	redirect(PATH_H."logout.php");
 
 
 function tournamentHeader($name, $billiard, $details, $league)

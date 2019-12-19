@@ -6,6 +6,8 @@ function displayTournaments()
 {
 	generalHeader();
 
+	printList("Live");
+
 	printList("Registration");
 
 	printList("Announced");
