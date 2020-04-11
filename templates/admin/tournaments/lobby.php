@@ -15,10 +15,11 @@ else if( !strcmp($status, "Registration") )
 	registrationLobby($tournamentID, $onClick);
 
 else if( !strcmp($status, "Standby") )
-	standbyLobby($tournamentID, $onClick);
+	standbyLobby($tournamentID, $onClick, $bracket);
 
+// add live tournament handler
 //else if( !strcmp($status, "Live") )
-//	liveLobby($tournamentID, $onClick);
+//	liveLobby($tournamentID, $onClick, $bracket);
 
 else
 	redirect(PATH_H."logout.php");
@@ -103,15 +104,10 @@ function registrationLobby($tournamentID, $onClick)
 	?></div><?php
 }
 
-function standbyLobby($tournamentID, $onClick)
+function standbyLobby($tournamentID, $onClick, $bracket)
 {
 //lobby block to show data
 	?><div class="sub-container"><?php
-
-	$query = "SELECT T.bracket FROM tournament T WHERE T.id=?";
-	$data = query($query, $tournamentID);
-	$bracket = $data[0][0];
-
 
 	if( !nonEmpty($bracket) )
 		displayStandbyBracket($tournamentID, $onClick);
@@ -136,7 +132,7 @@ function displayStandbyBracket($tournamentID, $onClick)
 
 //show appropriate data
 	if( !strcmp($onClick, "participants") )
-		require("lobbyDetails/registeredPlayersListSmall.php");
+		require("lobbyDetails/registeredPlayersListSeed.php");
         else if( !strcmp($onClick, "description") )
                 require("lobbyDetails/description.php");
 	else if( !strcmp($onClick, "KO") )
@@ -167,6 +163,44 @@ function displayStandbyRounds($tournamentID, $onClick, $bracket)
 		require("forms/rounds.php");
 	else
 		redirect(PATH_H."logout.php");
+}
+
+
+function liveLobby($tournamentID, $onClick, $bracket)
+{
+//lobby navigation
+	require("navigations/header.php");
+
+        if( !strcmp($bracket, "GroupKO") )
+                require("navigations/groupsKOLive.php");
+        else if( !strcmp($bracket, "K/O") || !strcmp($bracket, "D/E") )
+                require("navigations/eliminationsLive.php");
+        else
+                redirect(PATH_H."tournaments/lobby.php?id=$tournamentID&onClick=default");
+
+	require("navigations/footer.php");
+
+
+//lobby block to show data
+        $isBracket = ($onClick=="bracket") ? " width_100" : "";
+        ?><div class="sub-container<?=$isBracket?>"><?php
+
+
+//show appropriate data
+//	if( !strcmp($onClick, "bracket") )
+//		require("lobbyDetails/bracket.php");
+//        else if( !strcmp($onClick, "groups") )
+//                require("lobbyDetails/groups.php");
+        if( !strcmp($onClick, "description") )
+                require("lobbyDetails/description.php");
+//        else if( !strcmp($onClick, "participants") )
+//                require("lobbyDetails/registeredPlayersList.php");
+	else
+                redirect(PATH_H."tournaments/lobby.php?id=$tournamentID&onClick=description");
+
+
+//close lobby block
+	?></div><?php
 }
 
 

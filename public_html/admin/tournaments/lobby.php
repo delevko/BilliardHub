@@ -28,7 +28,13 @@ function lobbyGenerate($tournamentID, $onClick)
 	$tournamentName = $data[0][0];
 	$status = $data[0][1];
 
-	if($status == "Live" || $status == "Finished")
+//add admin live tournament handler
+	//if($status == "Live")
+	//{
+	//	redirect(PATH_H."admin/tournaments/lobby.php?id=".$tournamentID."&onClick=default");
+
+	//}
+	if($status == "Finished" || $status == "Live")
 	{
 		redirect(PATH_H."tournaments/lobby.php?id=".$tournamentID."&onClick=default");
 	}

@@ -6,7 +6,8 @@ function displayTournaments()
 {
 	generalHeader();
 
-	printList("Live");
+// add live tournament handler for admin
+//	printList("Live");
 
 	printList("Registration");
 
