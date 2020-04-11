@@ -15,6 +15,9 @@
                     <option selected disabled>Тип сіяння</option>
                     <option value="Standart">Стандарт</option>
                     <option value="Random">Випадковий</option>
+                    <option value="Manual">
+			Вручну
+		    </option>
                   </select>
               </div>
               <input type="number" name="playersSeeded"
