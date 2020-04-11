@@ -166,6 +166,14 @@
 .LOW-7 .first-match, .LOW-8 .first-match {
     padding-top: 450%;
 }
+.K\/O-6 .bracket_item, .UP-6 .bracket_item,
+.LOW-9 .bracket_item, .LOW-10 .bracket_item {
+    padding-top: 2000%;
+}
+.K\/O-6 .first-match, .UP-6 .first-match,
+.LOW-9 .first-match, .LOW-10 .first-match {
+    padding-top: 1000%;
+}
 
 
 
