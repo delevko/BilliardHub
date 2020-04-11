@@ -74,7 +74,7 @@ function announcedLobby($tournamentID, $onClick)
 	if( !strcmp($onClick, "participants") )
 		require("lobbyDetails/registeredPlayersList.php");
 	else
-		redirect(PATH_H."tournaments/lobby.php?id=$tournamentID&onClick=default");
+		redirect(PATH_H."tournaments/lobby.php?id=$tournamentID&onClick=participants");
 
 
 //close lobby block
@@ -226,7 +226,7 @@ function finishedLobby($bracket, $tournamentID, $onClick)
 	else if( !strcmp($onClick, "description") )
 		require("lobbyDetails/description.php");
 	else
-		redirect(PATH_H."tournaments/lobby.php?id=$tournamentID");
+		redirect(PATH_H."tournaments/lobby.php?id=$tournamentID&onClick=default");
 
 
 //close lobby block
