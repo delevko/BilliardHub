@@ -2,10 +2,15 @@
 
 require("../includes/config.php");
 
-//$query = 
-//'update player set lastName= '.
-//'"Бобровський"'
-//. ' where id=105';
+$query = 
+'update tournament set name="'
+//'Делятинський'
+.'Кубок клубу'
+.' \"'
+.'Кращий ГРАВЕЦЬ'
+.' Snooker Lviv\"'
+.'" where id=47';
 
 //query($query);
+
 ?>
