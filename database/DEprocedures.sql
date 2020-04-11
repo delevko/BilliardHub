@@ -1,6 +1,7 @@
 -- SAME ORDER
 DROP PROCEDURE IF EXISTS RoundGenerate;
 DROP PROCEDURE IF EXISTS WinnerIDGenerateForRound;
+DROP PROCEDURE IF EXISTS LowerToUpperWinners;
 DROP PROCEDURE IF EXISTS LoserIDGenerateForRound;
 DROP PROCEDURE IF EXISTS UP1toLOW1;
 
@@ -58,6 +59,31 @@ BEGIN
 	END WHILE;
 END;
 
+
+-- PROCEDURE to fill WinnerMatchID's
+CREATE PROCEDURE LowerToUpperWinners(IN tournament INT, IN myID INT, IN myType VARCHAR(20), IN nextType VARCHAR(20))
+BEGIN
+	DECLARE i, N INT DEFAULT 1;
+	DECLARE myMin, nextMax INT DEFAULT 1;
+	DECLARE myCount, nextCount INT DEFAULT 1;
+
+	SELECT my.minimum, my.numb, next.maximum 
+	INTO myMin, myCount, nextMax
+	FROM (SELECT count(counter) as numb, MIN(counter) AS minimum 
+			FROM _match WHERE roundNo=myID
+			AND roundType=myType AND tournamentID=tournament) AS my 
+	JOIN 
+		(SELECT MAX(counter) AS maximum 
+			FROM _match WHERE roundNo=1
+			AND roundType=nextType AND tournamentID=tournament) 
+			AS next;
+
+	WHILE i <= myCount DO
+		UPDATE _match SET winnerMatchID = nextMax+1-i, winnerMatchCounter = nextMax+1-i
+		WHERE counter=(myMin-1+i) AND tournamentID=tournament AND roundType=myType;
+		SET i = i+1;
+	END WHILE;
+END;
 
 
 -- PROCEDURE to fill LoserMatchID's UPi->LOW(i-1)*2
@@ -280,8 +306,8 @@ BEGIN
 		CALL WinnerIDGenerateForRound(tournament, step, i, "LOW", i+1, "LOW");
 		SET i = i+1;
 	END WHILE;	
-
-	CALL WinnerIDGenerateForRound(tournament, 1, LOW_R, "LOW", 1, "K/O");
+	CALL LowerToUpperWinners(tournament, LOW_R, "LOW", "K/O");
+--	CALL WinnerIDGenerateForRound(tournament, 1, LOW_R, "LOW", 1, "K/O");
 
 -- KNOCKOUT ROUND WinnerMatchID's
 	SET i = 1;
