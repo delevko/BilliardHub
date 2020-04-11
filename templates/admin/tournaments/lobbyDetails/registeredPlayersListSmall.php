@@ -3,34 +3,36 @@
 <?php
     $query = "SELECT
         CONCAT(P.lastName, ' ', P.firstName) AS playerName,
-        P.photo AS photo
+        P.photo AS photo, P.id AS playerID
 FROM playerTournament PT
     JOIN player P ON PT.playerID=P.id
 WHERE PT.tournamentID=? ORDER BY 1";
 
     $data = query($query, $tournamentID);
-	$data_count = count($data);
+    $data_count = count($data);
 
-	printHeader();
+    printHeader();
 
     for($i = 0; $i < $data_count; $i++)
     {
-		$player = $data[$i][0]; $photo = $data[$i][1];
+	$player = $data[$i][0]; $photo = $data[$i][1];
+	$id = $data[$i][2];
 
-		$BL = ($i+1 == $data_count) ? " radius_bl" : "";
-		$BR = ($i+1 == $data_count) ? " radius_br" : "";
+	$BL = ($i+1 == $data_count) ? " radius_bl" : "";
+	$BR = ($i+1 == $data_count) ? " radius_br" : "";
 
-		displayPlayer($i+1, $player, $photo, $BL, $BR);
+	displayPlayer($i+1, $player, $id, $photo, $BL, $BR);
     }
 
-	printFooter();
+    printFooter();
 
 
-function displayPlayer($i, $name, $photo, $BL, $BR)
+function displayPlayer($i, $name, $id, $photo, $BL, $BR)
 {
     $e_o = ($i%2) ? "odd" : "even";
 ?>
-            <tr class="tbody_<?=$e_o?>">
+	    <tr onclick="openPlayerLobby(<?=$id?>);"
+            class="tbody_<?=$e_o?> pointer">
                 <td class="bold <?=$e_o?>_num<?=$BL?>">
 					<?=$i?>
 				</td>
