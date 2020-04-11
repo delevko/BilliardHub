@@ -1,0 +1,2 @@
+[22-Feb-2020 08:18:19 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/gi6kvfbao9ds/templates/admin/tournaments/lobby.php:45) in /home/gi6kvfbao9ds/includes/admin_user_functions.php on line 57
+[22-Feb-2020 08:21:46 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/gi6kvfbao9ds/templates/admin/tournaments/lobby.php:45) in /home/gi6kvfbao9ds/includes/admin_user_functions.php on line 57

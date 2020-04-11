@@ -1,0 +1,10 @@
+[12-Jan-2020 08:28:45 UTC] PHP Notice:  Undefined index: tournament in /home/gi6kvfbao9ds/public_html/admin/clubs/lobby.php on line 28
+[25-Jan-2020 11:22:44 UTC] PHP Notice:  Undefined index: tournament in /home/gi6kvfbao9ds/public_html/admin/clubs/lobby.php on line 28
+[25-Jan-2020 11:22:47 UTC] PHP Notice:  Undefined index: tournament in /home/gi6kvfbao9ds/public_html/admin/clubs/lobby.php on line 28
+[05-Feb-2020 18:24:32 UTC] PHP Warning:  mysqli::__construct(): MySQL server has gone away in /home/gi6kvfbao9ds/includes/functions.php on line 337
+[05-Feb-2020 18:24:32 UTC] PHP Warning:  mysqli::__construct(): Error while reading greeting packet. PID=1922398 in /home/gi6kvfbao9ds/includes/functions.php on line 337
+[05-Feb-2020 18:24:32 UTC] PHP Warning:  mysqli::__construct(): (HY000/2006): MySQL server has gone away in /home/gi6kvfbao9ds/includes/functions.php on line 337
+[05-Feb-2020 18:24:35 UTC] PHP Warning:  mysqli::__construct(): (HY000/2002): No such file or directory in /home/gi6kvfbao9ds/includes/functions.php on line 337
+[05-Feb-2020 18:24:38 UTC] PHP Warning:  mysqli::__construct(): (HY000/2002): No such file or directory in /home/gi6kvfbao9ds/includes/functions.php on line 337
+[22-Feb-2020 13:33:43 UTC] PHP Notice:  Undefined offset: 0 in /home/gi6kvfbao9ds/public_html/admin/clubs/tableLobby.php on line 54
+[22-Feb-2020 13:33:43 UTC] PHP Notice:  Undefined offset: 0 in /home/gi6kvfbao9ds/public_html/admin/clubs/tableLobby.php on line 54
